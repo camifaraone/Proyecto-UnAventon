@@ -6,9 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="shortcut icon" href="../img/icono.ico"/>
+	<link rel="shortcut icon"> //href="../img/icono.ico"/
 	<title>UnAventon | Editar información de la cuenta</title>
-	<link rel="stylesheet" type="text/css" href="css-js/estilo1.css">
+	<link rel="stylesheet" type="text/css"> href="css-js/estilo1.css"
 </head>
 <script type="text/javascript" src="css-js/editarvalidar.js"></script>
 <body>
@@ -52,7 +52,7 @@
 								<span class="form_hint"></span>
 							</li>
 							<li> 
-								<label for="nombreusuario"><em>*</em>Nombre Usuario:</label>
+								<label for="nombreusuario"><em>*</em>Nombre usuario:</label>
 								<input value="<?php echo $usuario['nombreusuario'];?>" type="text" name="nombreusuario"/>
 							</li>
 							<li> 

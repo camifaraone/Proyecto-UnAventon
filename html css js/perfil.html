@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	//link rel="shortcut icon" href="../img/icono.ico"/>
+	<title>UnAventon | Registrarse</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css"> //href="estilo1.css">
+</head>
+<script type="text/javascript" src="perfilvalidar.js"></script>
+<body>
+	<div id="global">
+		<header>
+			<div class="banner">
+				<a href="index.html" title="Volver al inicio">
+					<img class="banner" alt="UnAventon"> //src="../img/banner.png" 
+				</a>
+			</div>	
+			<!--<div id="buscador">
+				<form id="search_mini_form" action="http://www.reversa.com.ar/catalogsearch/result/" method="get">
+    				<input id="search" type="text" name="q" class="input-text" maxlength="128" placeholder="Buscar">
+    				<button type="submit" title="Buscar" class="button">Buscar</button>
+				</form>
+			</div>-->
+			<nav>
+				<ul>
+					<li>
+						<a href="buscarviajes.php">BUSCAR VIAJES</a>
+					</li>
+					<li>
+						<a href="crearviaje.php">CREAR VIAJE</a>
+					</li>
+					<li>
+						<a href="misviajes.php">MIS VIAJES</a>
+					</li>
+					<li>
+						<a href="miperfil.php">MI PERFIL</a>
+					</li>
+					<li>
+						<a href="perfil.html">REGISTRARSE</a>
+					</li>
+					<li>
+						<a href="ingresar.html">INGRESAR</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			
+			<section>
+				<form class="contact_form" action="#" method="get" name="contact_form">
+					<div> 
+						<ul> 
+							<li> 
+								<h3>DATOS PERSONALES</h3>
+								<span class="required_notification">* Datos requeridos</span> 
+							</li>
+							<li> 
+								<label for="name"><em>*</em>Nombre:</label>
+								<input type="text" name="nombre" required />
+							</li>
+							<li> 
+								<label for="surname"><em>*</em>Apellido:</label>
+								<input type="text" name="apellido" required/>
+							</li> 
+							<li>
+								<label for="email"><em>*</em>Email:</label>
+								<input type="email" name="email" required />
+								<span class="form_hint"></span>
+							</li>
+							<li> 
+								<label for="nombreusuario"><em>*</em>Nombre usuario:</label>
+								<input type="text" name="nombredeusuario" required/>
+							</li>
+							<li> 
+								<label for="phone"><em>*</em>Teléfono:</label>
+								<input name="telefono" required/>
+							</li>
+							<li> 
+								<label for="date"><em>*</em>Fecha nacimiento:</label>
+								<input type="date" name="fechanacimiento"/>
+							</li>
+							
+							<!--
+							<li>
+								<label for="tipo"><em>*</em>Genero:</label>
+
+								<select id="gender" name="gender" title="Género" class="validate-select" required/>
+                                    <option value="" selected="selected"></option>
+                    				<option value="1">Hombre</option>
+                    				<option value="2">Mujer</option>
+            					</select>
+
+							</li><-->
+							<li>
+								<div class="field">
+                        			<label for="password" class="required"><em>*</em>Clave:</label>
+                        			
+                        			<div class="input-box">
+                            			<input type="password" name="claveactual" id="password" title="Contraseña" class="input-text required-entry validate-password" required/>
+                        			</div> 
+                    			</div>
+                    		</li>
+                    		<li>
+                    			<div class="field">
+                        			<label for="confirmation" ><em>*</em>Confirmar clave:</label>
+                        			
+                        			<div class="input-box">
+                            			<input type="password" name="confirmarclave" title="Confirmar la contraseña" id="confirmation" class="input-text required-entry validate-cpassword" required/>
+                        			</div>
+                    			</div>
+                    		</li>
+							<li>
+								<button class="submit" type="submit" onClick="runSubmit(this.form)">REGISTRARME</button>
+							</li> 							
+						</ul> 
+					</div>
+				</form>			
+			</section>	
+		</article>
+		<hr color="#000000">
+			<div id="contenedor">
+				<div id="contenido">
+					//img src="../img/mark2.jpg">
+				</div>
+			</div>	
+		</article>
+		<div id="footer">
+			<p id="pie">&copy; UnAventon - Todos los derechos reservados 2018</p>
+		</div>
+	</div>
+</body>
+
+</html>
