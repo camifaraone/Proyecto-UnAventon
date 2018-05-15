@@ -1,4 +1,4 @@
-<?php include ( "../view/register.html");?>
+
 <?php require_once "../model/register.php";?>
 
 	<?php
@@ -6,7 +6,7 @@
 if(isset($_POST["register"])){
 
 
-if(!empty($_POST['nombreusuario']) && !empty($_POST['email']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['telefono']) && !empty($_POST['fechanacimiento']) && !empty($_POST['contrasenia']) && !empty($_POST['confirmarcontrasenia'])) {
+if(!empty($_POST['nombreusuario']) && !empty($_POST['contrasenia']) && !empty($_POST['confirmarcontrasenia']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['email']) && !empty($_POST['telefono']) && !empty($_POST['fechanacimiento'])) {
 	$nombreusuario=$_POST['nombreusuario'];
 	$email=$_POST['email'];
 	$nombre=$_POST['nombre'];
@@ -18,8 +18,8 @@ if(!empty($_POST['nombreusuario']) && !empty($_POST['email']) && !empty($_POST['
 	
 	
 	
-	registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia);
-		
+	$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia);
+	header("Location: ../controller/login.php");
 
 
 } else {
@@ -28,7 +28,7 @@ if(!empty($_POST['nombreusuario']) && !empty($_POST['email']) && !empty($_POST['
 }
 ?>
 
-
+<?php include ( "../view/register.html");?>
 <?php if (!empty($message)) {echo "<p class=\"error\">" . "Mensaje: ". $message . "</p>";} ?>
 	
 	

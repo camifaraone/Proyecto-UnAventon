@@ -1,6 +1,6 @@
 <?php
 
- include "../view/login.html";
+ 
  
 require_once "../model/login.php";
  
@@ -12,12 +12,12 @@ require_once "../model/login.php";
 		
               $valor= ingresos($nombreusuario,$contrasenia);
 			      
-           //   var_dump($valor);
+              var_dump($valor);
              
-              if(!isset($valor[0]['id'])){
+              if(!isset($valor[0]['idautoincremental'])){
 				 
-			     header("Location: ../controller/login.php?m=Nombre de usuario &oacute; contrase&ntilde;a inv&aacute;lida!");
-			 
+			     header("Location: ../controller/login.php?m=Nombre de usuario o contraseña invalida!");
+				
 			 }else
 			 { 
              		session_start();
@@ -28,11 +28,9 @@ require_once "../model/login.php";
 			 }
 			 
 		
-		} else {
-			echo "Todos los campos no deben de estar vacios!";
-		}
+		} 
 		
-		
+	include "../view/login.html";	
  
  if (!empty($_GET['m'])) {echo "<p class=\"error\">" . "Mensaje: ". $_GET['m'] . "</p>";}
  
