@@ -11,7 +11,7 @@
 <head>
 	<link rel="shortcut icon"/> //href="../img/icono.ico"/>
 	<title>UnAventon | Ingresar</title>
-	<link rel="stylesheet" type="text/css"> //href="css-js/estilo1.css"
+	<link rel="stylesheet" type="text/css" href="unaventon/UnAventon/css/materialize.css">
 </head>
 <script type="text/javascript" src="css-js/ingresarvalidar.js"></script>
 <body>
