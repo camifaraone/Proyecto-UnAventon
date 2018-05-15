@@ -1,0 +1,93 @@
+
+<html>
+<head>
+<title>Registrar</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+  body{
+
+background-color:#FEF9E7
+}
+.jumbotron{
+ background-color:#ff9800;
+      color: #fff; 
+}
+.container{
+color:black;
+}
+
+.submit{
+color:black;
+}
+</style>
+
+</head>
+
+
+
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Registrar Usuario</h1>      
+</div>
+</div>
+
+<div class="container">
+<div id="register">
+  
+
+  <form name="registerform" id="registerform" action="../controller/register.php" method="POST">
+
+  
+      <div class="form-group">  
+	<label for="name">Nombre Completo:
+	  <input type="text" name="full_name" id="full_name" class="form-control"  placeholder="Escribir nombre completo" required /></label>
+     </div>
+	
+	  <div class="form-group">
+	 
+	  <label for="email">E-mail:
+      
+	  <input type="email" name="email" id="email" class="form-control"  placeholder="Escribir email "  required/></label>
+	  </div>
+    
+	
+	<div class="form-group">
+      <label for="name">Nombre de Usuario:
+      <input type="text" name="nombreusuario" id="nombreusuario" class="form-control"  placeholder="Escribir nombre de usuario " required /></label>
+	  </div>
+    
+	<div class="form-group">
+      <label for="pwd">Contrase&ntildea: 
+      <input type="password" name="contrasenia" id="contrasenia" class="form-control"  placeholder="Escribir contrase&ntilde;a "  required/></label>
+    </div>
+	
+    <p class="submit">
+		<input type="submit" name="register" id="register" class="btn btn-default" value="Registrar" />
+	</p>
+	
+	<p class="regtext">Ya tienes una cuenta? <a href="../controller/login.php" >Entra Aqu&iacute;!</a>!</p>
+	<p class="regtext">volver a la pagina principal? <a href="../controller/index.php.php" >Entra Aqu&iacute;!</a>!</p>
+  </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>
