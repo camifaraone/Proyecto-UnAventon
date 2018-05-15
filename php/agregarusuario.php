@@ -33,7 +33,7 @@
 									$telefono= $_POST['telefono'];
 									$contrasenia= $_POST['contrasenia'];
 									$fechanacimiento= $_POST['fechanacimiento'];
-									$sql = "INSERT INTO usuarios (nombre,apellido, email, nombreusuario, telefono,contrasenia, fechanacimiento) VALUES ('$nombre','$apellido','$email','$`nombreusuario','$telefono','$contrasenia','$fechanacimiento')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
+									$sql = "INSERT INTO usuarios (nombre,apellido, email, nombreusuario, telefono,contrasenia, fechanacimiento, activo) VALUES ('$nombre','$apellido','$email','$`nombreusuario','$telefono','$contrasenia','$fechanacimiento','1')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
 					                $result = mysqli_query($conex,$sql);
 					                
 					                
