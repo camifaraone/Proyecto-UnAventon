@@ -8,7 +8,7 @@
 <head>
 	<link rel="shortcut icon"> //href="../img/icono.ico"/
 	<title>UnAventon | Editar información de la cuenta</title>
-	<link rel="stylesheet" type="text/css"> href="css-js/estilo1.css"
+	<link rel="stylesheet" type="text/css" href="materialize.css">
 </head>
 <script type="text/javascript" src="css-js/editarvalidar.js"></script>
 <body>

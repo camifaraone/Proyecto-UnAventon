@@ -8,7 +8,7 @@
 <head>
 	<link rel="shortcut icon"/> href="../img/icono.ico"/>
 	<title>UnAventon | Información de la cuenta</title>
-	<link rel="stylesheet" type="text/css"> href="css-js/estilo1.css">
+	<link rel="stylesheet" type="text/css" href="materialize.css">
 </head>
 <body>
 	<div id="global">
