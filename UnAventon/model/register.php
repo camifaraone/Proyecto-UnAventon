@@ -7,7 +7,7 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 	
 	try{
 		$sql= $conn->prepare("INSERT INTO usuario
-				(nombreusuario, email, nombre,apellido,telefono,fechnacimiento,contrasenia,confirmarcontrasenia) 
+				(nombreusuario, email, nombre,apellido,telefono,fechanacimiento,contrasenia,confirmarcontrasenia) 
 				VALUES(:nombreusuario,:email, :nombre, :apellido, :telefono, :fechanacimiento, :contrasenia, :confirmarcontrasenia)" );
 		$sql->bindParam(":nombreusuario",$nombreusuario,PDO::PARAM_STR,100);
 		$sql->bindParam(":email",$email,PDO::PARAM_STR,100);
@@ -19,11 +19,12 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 		$sql->bindParam(":confirmarcontrasenia",$confirmarcontrasenia,PDO::PARAM_STR,8);
 				
 		$sql ->execute();
-
+	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
     }
 	return true;
+	
  }
 
  function comprobar_usuario($nombreusuario, $contrasenia)
@@ -34,7 +35,6 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 		$sql->bindParam(":nombreusuario",$nombreusuario,PDO::PARAM_STR);
 		$sql->bindParam(":contrasenia",$contrasenia,PDO::PARAM_STR);
 		$sql ->execute();
-	 
 	}catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
     }
