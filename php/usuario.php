@@ -15,8 +15,8 @@
 					}
 					
 					//Consultar si los datos están guardados en la base de datos
-					$consulta= "SELECT * FROM usuario WHERE email='$email' AND clave='$contrasenia'"; 
-					$resultado= mysqli_query($conex,$consulta) or die ('error'); //ejecuta consulta
+					$consulta= "SELECT * FROM usuario WHERE email='$email' AND contrasenia='$contrasenia'"; 
+					$resultado= mysqli_query($conex, $consulta) or die ('error'); //ejecuta consulta
 					$fila=mysqli_fetch_array($resultado);//arreglo con todos los resultados obtenidos de la consulta
 					
 					//OPCIÓN 1: Si el usuario no existe o los datos son incorrectos

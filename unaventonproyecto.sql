@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2018 a las 08:58:17
+-- Tiempo de generación: 15-05-2018 a las 03:19:44
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -137,7 +137,7 @@ CREATE TABLE `solicitav` (
 --
 
 CREATE TABLE `tipov` (
-  `distancia` int(255) NOT NULL
+  `descripcion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -166,8 +166,16 @@ CREATE TABLE `usuario` (
   `contrasenia` varchar(100) NOT NULL,
   `fechanacimiento` date NOT NULL,
   `foto` varchar(200) NOT NULL,
-  `confirmarcontrasenia` varchar(100) NOT NULL
+  `confirmarcontrasenia` varchar(100) NOT NULL,
+  `Activo` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `Activo`) VALUES
+(1, 'Camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '2345421506', 'myadmin', '1995-04-17', '', 'myadmin', 0);
 
 -- --------------------------------------------------------
 
@@ -289,7 +297,7 @@ ALTER TABLE `solicitav`
 -- Indices de la tabla `tipov`
 --
 ALTER TABLE `tipov`
-  ADD PRIMARY KEY (`distancia`);
+  ADD PRIMARY KEY (`descripcion`);
 
 --
 -- Indices de la tabla `tipove`
@@ -360,15 +368,10 @@ ALTER TABLE `pregunta`
 ALTER TABLE `respuesta`
   MODIFY `idrespuesta` int(100) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `tipov`
---
-ALTER TABLE `tipov`
-  MODIFY `distancia` int(255) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
