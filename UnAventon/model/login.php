@@ -2,12 +2,12 @@
  
 	
   
-  function ingresos($user, $pass){
+  function ingresos($email, $contrasenia){
      require_once "../model/db.php";     
 	try{
-		$sql = $conn->prepare("select * from usuario where nombreusuario=? and contrasenia=?");
-		$sql->bindParam(1,$user);
-	    $sql->bindParam(2,$pass);
+		$sql = $conn->prepare("select * from usuario where email=? and contrasenia=?");
+		$sql->bindParam(1,$email);
+	    $sql->bindParam(2,$contrasenia);
 		$sql->execute();
 		$result= $sql->fetchAll();
 

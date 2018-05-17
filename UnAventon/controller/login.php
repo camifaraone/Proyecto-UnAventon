@@ -4,28 +4,28 @@
  
 require_once "../model/login.php";
  
-         if(!empty($_POST['nombreusuario']) && !empty($_POST['contrasenia'])){
+         if(!empty($_POST['email']) && !empty($_POST['contrasenia'])){
           
-         	  $nombreusuario=$_POST['nombreusuario'];
+         	  $email=$_POST['email'];
 		      $contrasenia=$_POST['contrasenia'];
 		
 		
-              $valor= ingresos($nombreusuario,$contrasenia);
+              $valor= ingresos($email,$contrasenia);
 			      
               var_dump($valor);
              
               if(!isset($valor[0]['idautoincremental'])){
 				 
-			     header("Location: ../controller/login.php?m=Nombre de usuario o contraseña invalida!");
+			     header("Location: ../controller/login.php?m=Email o contraseña invalida!");
 				
 			 }else
 			 { 
 					
              		session_start();
-					$_SESSION['session_username']=$nombreusuario;
+					$_SESSION['session_username']=$email;
 					
     
-		            header("Location: ../controller/index.php?idautoincremental=".$nombreusuario);
+		            header("Location: ../controller/index.php?email=".$email);
 					
 			 }
 			 
