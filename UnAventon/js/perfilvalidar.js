@@ -4,7 +4,7 @@
 			alert("Ingresar nombre usuario");
 			return false;
 		}
-		if (form.clave.value.length < 8) {
+		if (form.contrasenia.value.length < 8) {
 			alert("Ingresar clave actual");
 			return false;
 		}

@@ -27,8 +27,8 @@
     <div class="nav-wrapper #ff9800 orange" >
       <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li> Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
-        <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+        <li ><a href="../controller/logout.php">Cerrar Sesión</a></li>
       </ul>
     </div>
   </nav>
@@ -74,7 +74,7 @@
 	
     <div id="test1" class="col s12"> <h5 class="center	-align">Aqui puede crear la publicacion de su viaje!</h5>  <a href="">   <h5 class="center-align"> Presione Aqui </h5>   </a> </div>
 	<div id="test2" class="col s12"> <h5 class="center	-align">Aqui puede ver los viajes que ha realizado!</h5>  <a href="">   <h5 class="center-align"> Presione Aqui </h5>   </a> </div>
-	<div id="test3" class="col s12"> <h5 class="center	-align">Aqui puede acceder a su perfil!</h5>  <a href="../view/micuenta.html">   <h5 class="center-align"> Presione Aqui </h5>   </a> </div>
+	<div id="test3" class="col s12"> <h5 class="center	-align">Aqui puede acceder a su perfil!</h5>  <h5 class="center-align"> <?php echo"<a href=../controller/perfil.php?email=".$email.">   Ver Perfil  </a>"; ?>  </h5> </div>
 
 <?php } ?> 
 

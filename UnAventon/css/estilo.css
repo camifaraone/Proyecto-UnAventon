@@ -19,10 +19,10 @@ nav ul li{
 	display: inline-block;
 	padding: 10px 15px;
 	cursor: pointer;
-	color:#FF0040;
+	
 }
 nav ul li a{
-	color:#4c4c4c;
+	
 	text-decoration: none;
 	padding: 10px 15px;
 	transition: all 0.5s linear;
@@ -277,12 +277,12 @@ button.submit:hover, a.submit:hover {
     cursor: pointer; 
 }
 button.submit:active, a.submit:hover{
-    border: 1px solid #FF0080;
-    box-shadow: 0 0 10px 5px #FF0080 inset; 
-    -webkit-box-shadow:0 0 10px 5px #FF0080 inset ;
-    -moz-box-shadow: 0 0 10px 5px #FF0080 inset;
-    -ms-box-shadow: 0 0 10px 5px #FF0080 inset;
-    -o-box-shadow: 0 0 10px 5px #FF0080 inset;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0 0 10px 5px #FFFFFF inset; 
+    -webkit-box-shadow:0 0 10px 5px #FFFFFF inset ;
+    -moz-box-shadow: 0 0 10px 5px #FFFFFF inset;
+    -ms-box-shadow: 0 0 10px 5px #FFFFFF inset;
+    -o-box-shadow: 0 0 10px 5px #FFFFFF inset;
      
 }
 .button, button, input[type=button]{
