@@ -20,11 +20,13 @@ require_once "../model/login.php";
 				
 			 }else
 			 { 
+					
              		session_start();
 					$_SESSION['session_username']=$nombreusuario;
-
+					
     
-		            header("Location: ../controller/index.php");
+		            header("Location: ../controller/index.php?idautoincremental=".$nombreusuario);
+					
 			 }
 			 
 		

@@ -1,0 +1,122 @@
+<html>
+
+<head>
+
+<title>Detalle del viaje </title>
+			<meta charset="UTF-8">
+			<meta name="description" content="Viajes por Argentina">
+			<meta name="keywords" content="Viajes">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+			<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script type="text/javascript" src="../js/materialize.min.js"></script>
+			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script src="../js/materialize.js"></script>
+			<script src="../js/init.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+
+
+  <style>
+
+
+
+
+</style>
+</head>
+
+
+
+
+<?php session_start();
+ 
+      if(empty($_SESSION['session_username'])) {
+          
+	?>  
+		  <nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../controller/login.php">iniciar Sesión</a></li>
+        <li><a href="../controller/register.php">Registrarse</a></li>
+      </ul>
+    </div>
+  </nav> <?php } ?>
+	<?php	
+		if(!empty($_SESSION['session_username'])) {
+			$name = $_SESSION['session_username'];
+	?>	  
+		<nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li> Bienvenido!</li> <li> &nbsp; <?php echo $name ?>  </li>
+        <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+	
+	<?php } ?>
+
+<body style= "background-color:#FEF9E7;">
+
+
+
+<div class="container">
+<div class="jumbotron">
+<h1>Detalle del Viaje</h1>
+
+</div>
+<h3> Informacion del viaje seleccionado</h3>
+
+
+<table  class="table table-bordered" id="table">
+<thead>
+   <tr>
+    <th>Fecha</th>
+    <th>Monto</th>
+    <th>Duracion</th>
+	<th>Hr.Salida</th>
+	<th>Distancia /KM</th>
+	<th>Observaciones</th>
+	
+  </tr>
+  </thead>
+  <tbody>
+  <?php
+   echo "<tr><td>".$viaje["idviaje"]."</td>";
+	 echo "<td>".$viaje["fecha"].""."</td>";
+	 echo"<td>".$viaje["monto"].""."</td>";
+	 echo"<td>".$viaje["duracion"].""."</td>";
+	 echo"<td>".$viaje["hssalida"].""."</td>";
+	 echo"<td>".$viaje["distancia"].""."</td>";
+	 echo"<td>".$viaje["observaciones"].""."</td>";
+  ?>
+  </tbody>
+  </table>
+  <hr width="100%">
+ </div>
+
+<div class="container">
+ <h5> <a title="Menu Principal" href="../controller/index.php">Volver al menu principal</a></h5>
+</div>
+
+<br></br>
+<br></br>
+
+ <footer class="page-footer teal #ff9800 orange">
+   
+    <div class="footer-copyright">
+      <div class="container">
+      &copy; UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
+      </div>
+    </div>
+  </footer>
+ 
+</body>
+
+
+
+</html>

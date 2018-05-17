@@ -18,21 +18,43 @@
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 			 
-			 
-			 
     </head>
 
-    
-<body style= "background-color:#FEF9E7;">
-  <nav class="white" role="navigation" >
-    <div class="nav-wrapper #ff9800 orange">
+	<?php session_start();
+ 
+      if(empty($_SESSION['session_username'])) {
+          
+	?>  
+		  <nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
       <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../controller/login.php">iniciar sesion</a></li>
+        <li><a href="../controller/login.php">iniciar Sesión</a></li>
         <li><a href="../controller/register.php">Registrarse</a></li>
       </ul>
     </div>
+  </nav> <?php } ?>
+	<?php	
+		if(!empty($_SESSION['session_username'])) {
+			$name = $_SESSION['session_username'];
+	?>	  
+		<nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li> Bienvenido!</li> <li> &nbsp; <?php echo $name ?>  </li>
+        <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+      </ul>
+    </div>
   </nav>
+	
+	<?php } ?> 
+	
+	
+	
+    
+<body style= "background-color:#FEF9E7;">
+  
  
 
 
@@ -48,8 +70,31 @@
       </div>
     </div>
   
+  <?php	
+		if(!empty($_SESSION['session_username'])) {
+			$name = $_SESSION['session_username'];
+	?>
+
+ <div class="row #ff9800 orange">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#test1">Crea Viaje</a></li>
+        <li class="tab col s3"><a href="#test2"> Mis Viajes</a></li>
+        <li class="tab col s3"><a href="#test3">Mi Perfil</a></li>
+
+      </ul>
+    </div>
+  </div>
   
-  
+	
+    <div id="test1" class="col s12"> <h5 class="center	-align">Aqui puede crear la publicacion de su viaje!</h5>  <a href="">   <h5 class="center-align"> Presione Aqui </h5>   </a> </div>
+	<div id="test2" class="col s12"> <h5 class="center	-align">Aqui puede ver los viajes que ha realizado!</h5>  <a href="">   <h5 class="center-align"> Presione Aqui </h5>   </a> </div>
+	<div id="test3" class="col s12"> <h5 class="center	-align">Aqui puede acceder a su perfil!</h5>  <a href="../controller/micuenta.php">   <h5 class="center-align"> Presione Aqui </h5>   </a> </div>
+
+<?php } ?> 
+
+ <br><br>
+ <br><br>
   
   
   <div id="index-banner" class="parallax-container">
@@ -110,27 +155,32 @@
               <th>Monto</th>
               <th>Duracion</th>
 			  <th>Hr.Salida</th>
-			  <th>Distancia</th>
+			  <th>Distancia /KM</th>
 			  <th>Observaciones</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>23/08/18</td>
-            <td>$300</td>
-            <td>2:00hs</td>
-          </tr>
-          <tr>
-            <td>06/06/18</td>
-            <td>$400</td>
-            <td>5:00hs</td>
-          </tr>
-          <tr>
-            <td>24/07/18</td>
-            <td>$1000</td>
-            <td>1:30hs</td>
-          </tr>
+          
+<?php
+ 
+  //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
+ for($i=0; $i<count($viaje);$i++) {
+     
+	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
+	 echo "<td>".$viaje[$i]["monto"].""."</td>";
+	 echo "<td>".$viaje[$i]["duracion"].""."</td>";
+	 echo "<td>".$viaje[$i]["hssalida"].""."</td>";
+	 echo "<td>".$viaje[$i]["distancia"].""."</td>";
+	 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
+     echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
+	 //echo"<td><a href=../controller/editarproducto.php?id_producto=".$viaje[$i]["id"].">Editar Producto </a></td>";
+	 //echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
+	 echo "</tr>";
+	
+	 }
+
+?>
 		  
         </tbody>
       </table>
@@ -149,7 +199,7 @@
    
     <div class="footer-copyright">
       <div class="container">
-      empresas <a class="white-text text-lighten-3" href=""> SOBEK</a>
+      &copy; UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
       </div>
     </div>
   </footer>
