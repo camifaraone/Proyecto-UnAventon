@@ -1,0 +1,509 @@
+body{
+	margin: 0 auto;
+	background: #FEF9E7; 
+	background-size: cover;
+	font-family: Century Gothic;;
+}
+#global{
+	width: 842px;
+	margin: 0 auto;
+	padding: 10px;
+	box-shadow: #333 0px 0px 10px;
+	background-color: #FEF9E7;
+}
+nav{
+	background-color:#D8D8D8;
+	clear: both;
+}
+nav ul li{
+	display: inline-block;
+	padding: 10px 15px;
+	cursor: pointer;
+	color:#FF0040;
+}
+nav ul li a{
+	color:#4c4c4c;
+	text-decoration: none;
+	padding: 10px 15px;
+	transition: all 0.5s linear;
+	-moz- transition: all 0.5s linear;
+	-o- transition: all 0.5s linear;
+	-webkit- transition: all 0.5s linear;
+}
+nav ul li a:hover{
+	box-shadow: #FF0040 0px 0px 10px;
+	background-color:#BDBDBD;
+}
+aside{
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	width: 170px;
+	height:50%;
+}
+section{
+	text-align: justify;
+	padding: 10px;
+}
+
+.imagen{
+	margin: 25px;
+	float: right;
+	width: 80%;
+	height: 80%;
+}
+.banner{
+	
+	cursor: pointer;
+	width: 45%;
+	height: 10%;
+	margin-bottom:10px;
+	float: left;
+}
+
+
+
+#footer{
+	background-color: #F5A9BC;
+	box-shadow: #333 0px 0px 10px;
+	font-family: Century Gothic;
+	clear: both;
+	text-align: center;
+	padding: 0px;
+	color:#000000;
+	width: 842px;
+	margin: 0;
+}
+
+.menu {
+	text-align: center;
+}
+.menu table {
+	margin: 0 auto;
+	margin-right:0;
+	text-align: right;
+	width: 65%;
+	height:60%;
+	
+}
+
+#fotolateral{
+	margin-top: 35px;
+	clear: both;
+	background-color:#F5A9BC ;
+	width: 150%;
+	height:150%;
+	margin-left: 15%;
+}
+.lateral{
+	width: 100%;
+	height: 100%;
+}
+#contenedor{
+	width: 842px;
+	height: 80px;
+	overflow: hidden;
+	background-image: url(../img/fondo-de-cebra.jpg);
+}
+#contenido{
+	-webkit-animation-name:cintaInformativa;
+	-webkit-animation-duration:15s;
+	-moz-animation-name:cintaInformativa;
+	-moz-animation-duration:15s;
+	-webkit-animation-iteration-count: infinite;
+}
+.conte{
+	width: 100%;
+	height: 100%;
+}
+@-webkit-keyframes cintaInformativa{
+	from{
+		margin-left: 100%
+	}
+	to{
+		margin-left: -180%
+	}
+}
+@-moz-keyframes cintaInformativa{
+	from{
+		margin-left: 100%
+	}
+	to{
+		margin-left: -100%
+	}
+}
+*:focus {
+    outline: none;
+}
+em{
+    color:#d45252;
+}
+
+.contact_form ul {
+    width:740px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding:0px;
+}
+.contact_form li{
+    padding:12px; 
+    border-bottom:1px solid #eee;
+    position:relative;
+}
+.contact_form li:first-child, .contact_form li:last-child {
+    border-bottom:1px solid #777;
+}
+.contact_form h2 {
+    margin:0;
+    display: inline;
+}
+.required_notification {
+    color:#d45252; 
+    margin:5px; 
+    margin-top: -7px;
+    display:inline;
+    float:right;
+}
+.contact_form label {
+    width:180px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+
+.contact_form input {
+    height:20px; 
+    width:220px; 
+    padding:5px 8px;
+}
+
+select {
+    border: 1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius: 2px;
+    height:32px; 
+    width:238px; 
+    padding:5px 8px;
+}
+button, select {
+    text-transform: none;
+}
+button, input, select, textarea {
+    font-family: Century Gothic;
+    font-size: 100%;
+    margin: 0;
+}
+.contact_form textarea {padding:8px; width:300px;}
+.contact_form button, a.submit {margin-left:156px;}
+
+.contact_form input, .contact_form textarea { 
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+.contact_form input:focus, .contact_form textarea:focus {
+    background: #fff; 
+    border:1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+}
+
+/* Button Style */
+button.submit, a.submit {
+    background-color: #FF0080;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FE2E9A), to(#FF0080));
+    background: -webkit-linear-gradient(top, #FE2E9A, #FF0080);
+    background: -moz-linear-gradient(top, #FE2E9A, #FF0080);
+    background: -ms-linear-gradient(top, #FE2E9A, #FF0080);
+    background: -o-linear-gradient(top, #FE2E9A, #FF0080);
+    background: linear-gradient(top, #FE2E9A, #FF0080);
+    border: 1px solid #FF0080;
+    border-bottom: 1px solid #FF0080;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #FE2E9A;
+    -webkit-box-shadow: 0 1px 0 0 #FE2E9A inset ;
+    -moz-box-shadow: 0 1px 0 0 #FE2E9A inset;
+    -ms-box-shadow: 0 1px 0 0 #FE2E9A inset;
+    -o-box-shadow: 0 1px 0 0 #FE2E9A inset;
+    color: white;
+    font-weight: bold;
+    padding: 6px 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #FE2E9A;
+}
+a.submit{
+    text-decoration: none;
+}
+button.salir, a.salir {
+    background-color: #FF0080;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FE2E9A), to(#FF0080));
+    background: -webkit-linear-gradient(top, #FE2E9A, #FF0080);
+    background: -moz-linear-gradient(top, #FE2E9A, #FF0080);
+    background: -ms-linear-gradient(top, #FE2E9A, #FF0080);
+    background: -o-linear-gradient(top, #FE2E9A, #FF0080);
+    background: linear-gradient(top, #FE2E9A, #FF0080);
+    border: 1px solid #FF0080;
+    border-bottom: 1px solid #FF0080;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #FE2E9A;
+    -webkit-box-shadow: 0 1px 0 0 #FE2E9A inset ;
+    -moz-box-shadow: 0 1px 0 0 #FE2E9A inset;
+    -ms-box-shadow: 0 1px 0 0 #FE2E9A inset;
+    -o-box-shadow: 0 1px 0 0 #FE2E9A inset;
+    color: white;
+    font-weight: bold;
+    padding: 1px 5px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #FE2E9A;
+}
+a.salir{
+    text-decoration: none;
+    margin-left:-700px;
+}
+
+button.submit:hover, a.submit:hover {
+    opacity:.85;
+    cursor: pointer; 
+}
+button.submit:active, a.submit:hover{
+    border: 1px solid #FF0080;
+    box-shadow: 0 0 10px 5px #FF0080 inset; 
+    -webkit-box-shadow:0 0 10px 5px #FF0080 inset ;
+    -moz-box-shadow: 0 0 10px 5px #FF0080 inset;
+    -ms-box-shadow: 0 0 10px 5px #FF0080 inset;
+    -o-box-shadow: 0 0 10px 5px #FF0080 inset;
+     
+}
+.button, button, input[type=button]{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: Montserrat,"Century Gothic",sans-serif;
+    background: #A4A4A4;
+    border: none;
+    color: #fff;
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    padding: .25em .75em .25em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.col2-setr .col-2r {
+    float: right;
+}
+.col2-setr .col-1r, .col2-setr .col-2r {
+    width: 49%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #e8e8e8;
+    border-radius: .25em;
+    padding: 1em;
+}
+.buscador {
+	margin-bottom: 5px;
+	float:right;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    font-size: 1.1em;
+    z-index: 10;
+    margin-top:-100px;
+    margin-left:200px;
+}
+*form {
+    display: block;
+    margin-top: 0em;
+}
+.tiendatabla{
+	width:842px;
+
+}
+
+table tr{
+	font-family: Montserrat,"Century Gothic",sans-serif;
+	width:800px;
+	/*height:30px;*/
+	clear: both;
+}
+
+table, th {
+	font-family: Montserrat,"Century Gothic",sans-serif;
+	width:800px;
+	color:#4c4c4c;
+	text-decoration: none;
+	padding: 10px 5px;
+	text-align: left;
+}
+
+table, td {
+	font-family: Tahoma;
+	width:822px;
+	/*height:80px;*/
+}
+#tablatienda tr{
+    background-color:#FFFFFF;
+    border: 2px solid;
+    border-color: #D8D8D8;
+}
+#tablatienda th{
+    border: 2px solid;
+    border-color: #D8D8D8;
+}
+#tablatienda td{
+    border: 2px solid;
+    border-color: #D8D8D8;
+}
+#paginador {
+    text-align: center;
+    font-family: Montserrat,"Century Gothic",sans-serif;
+    font-size: 15px;
+}
+
+
+#paginador li {
+    display: inline-block;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+ul.barramenu {
+    display: flex;
+    justify-content: space-around;
+}
+
+#paginador a {
+    display: block;
+    padding: 2px;
+}
+.fechaprecio a {
+	text-decoration:none;
+	color:#151515;
+}
+#categoria a {
+	text-decoration:none;
+	color:#151515;
+}
+
+
+
+
+#gender{
+	font-size:12px;
+	font-family: Century Gothic;
+    height:27px; 
+    width:160px; 
+    padding:5px 8px;
+    margin-left: 30px;
+}
+
+.usuario ul {
+    width: 740px;
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 0px;
+
+}
+.usuario li{
+    padding:12px; 
+    border-bottom:1px solid #eee;
+    position:relative;
+
+}
+.usuario li:first-child, .usuario li:last-child {
+    border-bottom:1px solid #777;
+
+}
+.usuario label {
+    width:150px;
+    margin-top: 3px;
+    display:inline-block;
+
+}
+
+#fotoproducto{
+    margin-top: 35px;
+    clear: both;
+    background-color:#F5A9BC ;
+    width: 200%;
+    height:200%;
+    margin-left: 15%;
+}
+.productotabla{
+    margin: 0 auto;
+    margin-right:-100px;
+    text-align: right;
+    width: 65%;
+    height:60%;
+}
+.productotabla table tr{
+    font-family: Montserrat,"Century Gothic",sans-serif;
+    width:800px;
+    clear: both;
+}
+.productotabla table, td {
+    font-family: Montserrat,"Century Gothic",sans-serif;
+    width:400px;
+    /*height:20px;*/
+    color:#4c4c4c;
+    text-decoration: none;
+    text-align: center;
+}
+
+table, td {
+    font-family: Tahoma;
+    width:822px;
+
+}
+#tablaproducto tr{
+    background-color:#D8D8D8;
+    border: 2px solid;
+    border-color: #FFFFFF;
+}
+#tablaproducto th{
+    border: 2px solid;
+    border-color: #FFFFFF;
+}
+#tablaproducto td{
+    border: 2px solid;
+    border-color: #FFFFFF;
+}
+.imagenproductos{
+	height: 100px;
+	margin-top: 3px;
+}
+.agregareditar{
+    background-color: #FF0080;
+    border: 1px solid #FF0080;
+    border-bottom: 1px solid #FF0080;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #FE2E9A;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 -1px 0 #FE2E9A;
+    text-decoration: none;
+}
