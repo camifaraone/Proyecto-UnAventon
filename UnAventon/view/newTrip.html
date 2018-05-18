@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>Registrar</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="../js/vehicleSelector.js"></script>
+	<style>
+	body{
+		background-color:#FEF9E7
+	}
+	.jumbotron{
+		background-color:#ff9800;
+		color: #fff; 
+	}
+	.container{
+		color:black;
+	}
+	.submit{
+		color:black;
+	}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Crear un viaje</h1>      
+		</div>
+	</div>
+	<div class="container">
+		<div id="newTrip">
+			<form name="tripForm" id="tripForm" action="../controller/newTrip.php" method="POST">
+				<div class="form-group">  
+					<label for="type1"> Recurrente.
+						<input type="radio" name="type" id="type1" class="form-control"  required />
+					</label>  
+					<label for="type2"> Único.
+						<input type="radio" name="type" id="type2" class="form-control"  required />
+					</label>
+				</div>
+				<div class="form-group">
+					<label for="fechaviaje">Fecha del viaje:
+						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="destino">Destino:
+						<input type="text" name="destino" id="destino" class="form-control"  placeholder="Escribir ciudad destino" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="hora">Hora:
+						<input type="time" name="hora" id="hora" class="form-control"  placeholder="Escribir hora de salida" required />
+					</label>
+				</div>
+				<p id="vehicleSelector"> Elija su vehículo </p>
+				<div class="form-group">  
+					<label for="vehiculo">
+						<input type="text" name="vehiculo" id="vehiculo" class="form-control" required />
+					</label>
+				</div>
+				<p class="submit">
+					<input type="submit" name="finishTrip" id="finishTrip" class="btn btn-default" value="Crear viaje" />
+				</p>
+				<p class="regtext">volver a la pagina principal? <a href="../controller/index.php" >Entra Aqu&iacute;!</a>!</p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
