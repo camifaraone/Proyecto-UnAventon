@@ -1,8 +1,10 @@
 function checkPassword(pass,confpass,error,button){
-	var ar = Array.from(pass);
-	var confar = Array.from(confpass)
+	var ar = Array.from(pass.innerText);
+	var confar = Array.from(confpass.innerText);
+	console.log(ar);
+	console.log(confar);
 	if (ar.lenght != confar.lenght){
-		error.visibility="visible";
+		error.visibility = "visible";
 		button.setAttribute('disabled');
 	} else {
 		if (ar.lenght >= 8){
@@ -17,15 +19,17 @@ function checkPassword(pass,confpass,error,button){
 			button.setAttribute('disabled');
 		}
 	}
-
 	error.visibility="hidden";
 	button.removeAttribute('disabled');
 }
-
-var pass = document.getElementById('contrasenia');
-var confpass = document.getElementById('confirmarcontrasenia');
-var conferror = document.createTextNode('La contraseñas no coinciden.');
-var submit = document.getElementById('register');
-conferror.setAttribute('visibility','hidden');
-confpass.appendChild(conferror);
-confpass.addEventListener("input",checkPassword(pass,confpass,conferror,submit));
+document.onLoad(e =>{
+	var pass = document.getElementById('contrasenia');
+	var confpass = document.getElementById('confirmarcontrasenia');
+	var para = document.createElement('p');
+	var conferror = document.createTextNode('La contraseñas no coinciden.');
+	para.appendChild(conferror);
+	var submit = document.getElementById('registerBtn');
+	para.setAttribute('visibility','hidden');
+	confpass.appendChild(para);
+	confpass.addEventListener("input",checkPassword(pass,confpass,para,submit));
+})
