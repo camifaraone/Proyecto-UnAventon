@@ -1,8 +1,9 @@
 <html>
 <head>
+
 	<title>Registrar</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">		
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="../js/vehicleSelector.js"></script>
@@ -31,13 +32,13 @@
 	</div>
 	<div class="container">
 		<div id="newTrip">
-			<form name="tripForm" id="tripForm" action="../controller/newTrip.php" method="POST">
+			<form name="tripForm" id="tripForm" action="../controller/crearviaje.php" method="POST">
 				<div class="form-group">  
 					<label for="type1"> Recurrente.
-						<input type="radio" name="type" id="type1" class="form-control"  required />
+						<input type="radio" name="tipo" id="tipo1" class="form-control"  required />
 					</label>  
 					<label for="type2"> Único.
-						<input type="radio" name="type" id="type2" class="form-control"  required />
+						<input type="radio" name="tipo" id="tipo2" class="form-control"  required />
 					</label>
 				</div>
 				<div class="form-group">
@@ -55,16 +56,41 @@
 						<input type="time" name="hora" id="hora" class="form-control"  placeholder="Escribir hora de salida" required />
 					</label>
 				</div>
-				<p id="vehicleSelector"> Elija su vehículo </p>
 				<div class="form-group">  
-					<label for="vehiculo">
-						<input type="text" name="vehiculo" id="vehiculo" class="form-control" required />
+					<label for="destino">Monto:
+						<input type="number" name="monto" id="monto" class="form-control"  placeholder="Escribir el Monto" required />
 					</label>
 				</div>
+				<div class="form-group">  
+					<label for="destino">Duracion:
+						<input type="time" name="duracion" id="duracion" class="form-control"  placeholder="Escribir la duracion promedio" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="destino">Distancia:
+						<input type="text" name="distancia" id="distancia" class="form-control"  placeholder="Escribir la distancia /KM" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="destino">Observaciones:
+						<input type="text" name="observaciones" id="observaciones" class="form-control"  placeholder="Escribir observaciones" required />
+					</label>
+				</div>
+				<p id="vehicleSelector"> Elija su vehículo </p>
+				<div class="input-field col s12">
+					<select>
+						<option value="" disabled selected>Vehiculos</option>
+						<option value="1">Option 1</option>
+						<option value="2">Option 2</option>
+						<option value="3">Option 3</option>
+					</select>
+				</div>
+				<br></br>
 				<p class="submit">
-					<input type="submit" name="finishTrip" id="finishTrip" class="btn btn-default" value="Crear viaje" />
+					<input type="submit" name="finishtrip" id="finishtrip" class="btn btn-default" value="Crear viaje" />
 				</p>
-				<p class="regtext">volver a la pagina principal? <a href="../controller/index.php" >Entra Aqu&iacute;!</a>!</p>
+				<h5 class="center	-align"> <p class="regtext">Volver a la pagina principal? <a href="../controller/index.php" >Clic Aqu&iacute;</a>!</p> </h5>
+
 			</form>
 		</div>
 	</div>

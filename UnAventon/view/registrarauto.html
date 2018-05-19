@@ -1,0 +1,105 @@
+
+<html>
+<head>
+<title>Registrar Vehiculo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../js/perfilvalidar.js"></script>
+<style>
+  body{
+
+background-color:#FEF9E7
+}
+.jumbotron{
+ background-color:#ff9800;
+      color: #fff; 
+}
+.container{
+color:black;
+}
+
+.submit{
+color:black;
+}
+</style>
+
+</head>
+
+
+
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Registrar Vehiculo</h1>      
+</div>
+</div>
+
+<div class="container">
+<div id="register">
+  
+  <form name="registerform" id="registerform" action="../controller/registrarauto.php" method="POST">
+
+	<div class="form-group">  
+	<label for="name">Marca:
+	  <input type="text" name="marca" id="marca" class="form-control"  placeholder="Escribir la marca" required /></label>
+     </div>
+	
+	<div class="form-group">  
+	<label for="name">Color:
+	  <input type="text" name="color" id="color" class="form-control"  placeholder="Escribir el color" required /></label>
+     </div>
+	<div class="form-group">  
+	<label for="name">Detalles:
+	  <input type="textarea" name="detalles" id="detalles" class="form-control"  placeholder="Detalles del vehiculo" required /></label>
+     </div>
+	
+	
+	
+      <div class="form-group">  
+	<label for="name">Cantidad de asientos disponibles:
+	  <input type="number" name="cantasientosdisp" id="cantasientosdisp" class="form-control"  placeholder="Cantidad de asientos" required /></label>
+     </div>
+	 
+	 <div class="form-group">  
+	<label for="name">Modelo:
+	  <input type="text" name="modelo" id="modelo" class="form-control"  placeholder="Escribir el modelo" required /></label>
+     </div>
+	
+	  <div class="form-group">
+	 
+	  <label for="email">Patente:
+      
+	  <input type="text" name="patente" id="patente" class="form-control"  placeholder="Escribir la patente"  required /></label>
+	  </div>
+    
+	
+    
+	
+    <p class="submit">
+		<input type="submit" name="register" id="register" class="btn btn-default" value="Registrar" />
+	</p>
+	
+	<p class="regtext">volver a la pagina principal? <a href="../controller/index.php" >Entra Aqu&iacute;!</a>!</p>
+  </form>
+</div>
+</div>
+
+
+
+
+
+ <?php
+  include "../controller/footer.php";
+?>
+
+
+
+
+
+
+	</body>
+</html>
