@@ -16,7 +16,7 @@ require_once "../model/login.php";
              
               if(!isset($valor[0]['idautoincremental'])){
 				 
-			     header("Location: ../controller/login.php?m=Email o contraseña invalida!");
+			     header("Location: ../controller/login.php?m=Email o contraseña invalida");
 				
 			 }else
 			 { 
@@ -35,5 +35,4 @@ require_once "../model/login.php";
 	include "../view/login.html";	
  
  if (!empty($_GET['m'])) {echo "<p class=\"error\">" . "Mensaje: ". $_GET['m'] . "</p>";}
- 
  ?>
