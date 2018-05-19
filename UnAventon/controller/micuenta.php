@@ -6,9 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
 	<title>UnAventon | Información de la cuenta</title>
-	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+	<link rel="stylesheet" type="text/css">
 </head>
 <body style="background-color: #FEF9E7;">
 	<div id="global">
@@ -19,7 +18,7 @@
 			//header('Location:ingresar.php');
 		//}	cumple la misma funcion que las lineas 23 24 25
 		
-		
+
 		include('../model/usuario.php');
 		$user= new usuario(); //instancia de una clase
 		$user->estaRegistrado();
@@ -63,13 +62,7 @@
 								<label for="date">Fecha de nacimiento: <?php echo $usuario['fechanacimiento']; ?></label>
 								
 							</li>
-                    		<li>
-								<div >
-									<a  class="submit" href="editarinformacion.php">EDITAR</a> 
-								</div>
-							</li><li><div >
-									<a  class="submit" href="editarcontrasena.php">EDITAR CONTRASEÑA</a> 
-								</div></li>						
+                    		<li>					
 						</ul> 
 					</div>
 						
