@@ -6,26 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="../js/perfilvalidar.js"></script>
 <style>
-  body{
+	body{
+		background-color:#FEF9E7
+	}
+	.jumbotron{
+		background-color:#ff9800;
+	    color: #fff; 
+	}
+	.container{
+		color:black;
+	}
 
-background-color:#FEF9E7
-}
-.jumbotron{
- background-color:#ff9800;
-      color: #fff; 
-}
-.container{
-color:black;
-}
-
-.submit{
-color:black;
-}
-</style>
+	.submit{
+		color:black;
+	}
+	</style>
 
 </head>
 
@@ -50,11 +49,11 @@ color:black;
 	
 	<div class="form-group">  
 	<label for="name">Contraseña:
-	  <input type="password" name="contrasenia" id="contrasenia" class="form-control"  placeholder="Escribir contraseña" required /></label>
+	  <input type="password" name="contrasenia" id="contrasenia" class="form-control" minlength="8" maxlength="24" placeholder="Escribir contraseña" required /></label>
      </div>
 	<div class="form-group">  
 	<label for="name">Confirmar Contraseña:
-	  <input type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" class="form-control"  placeholder="Repetir Contraseña" required /></label>
+	  <input type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" class="form-control" minlength="8" maxlength="24" placeholder="Repetir Contraseña" required /></label>
      </div>
 	
 	
