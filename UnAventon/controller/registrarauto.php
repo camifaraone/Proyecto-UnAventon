@@ -5,7 +5,7 @@
 require_once "../model/registrarauto.php";
 
 
-	
+	$id= ($_GET["idautoincremental"]);
 
 
 if(isset($_POST["register"])){
