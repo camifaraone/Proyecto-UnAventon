@@ -17,6 +17,7 @@ var_dump($user);
 
 
 
+
 include "../view/index.html";
 	
 

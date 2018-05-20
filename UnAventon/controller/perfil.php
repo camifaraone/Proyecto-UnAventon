@@ -11,7 +11,6 @@ $usuario= get_perfil($_GET["email"]);
 
 
 include "../view/micuenta.html";
-
 	
 
 ?>

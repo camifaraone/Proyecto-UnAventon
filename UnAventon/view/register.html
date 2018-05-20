@@ -1,35 +1,40 @@
+
 <html>
 <head>
-<title>UnAventon | Registrar usuario</title>
+<title>Registrar</title>
 
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="../js/materialize.min.js"></script>
-      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="../js/materialize.js"></script>
-      <script src="../js/init.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-       <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../js/perfilvalidar.js"></script>
+<style>
+  body{
+
+background-color:#FEF9E7
+}
+.jumbotron{
+ background-color:#ff9800;
+      color: #fff; 
+}
+.container{
+color:black;
+}
+
+.submit{
+color:black;
+}
+</style>
+
 </head>
-<script type="text/javascript" src="../js/perfilvalidar.js"></script>
-<nav class="white" role="navigation"  >
-<div class="nav-wrapper #ff9800 orange" >
- <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
- <ul id="nav-mobile" class="right hide-on-med-and-down">
- 
- </ul>
- </div>
-</nav>
 
-<body style="background-color: #FEF9E7;">
+
+
+<body>
 <div class="container">
   <div class="jumbotron">
- <article>
-    <h1>Registrar usuario</h1>      
+    <h1>Registrar Usuario</h1>      
 </div>
 </div>
 
@@ -39,17 +44,17 @@
   <form name="registerform" id="registerform" action="../controller/register.php" method="POST">
 
 	<div class="form-group">  
-	<label for="name">Nombre de usuario:
+	<label for="name">Nombre de Usuario:
 	  <input type="text" name="nombreusuario" id="nombreusuario" class="form-control"  placeholder="Escribir nombre usuario" required /></label>
      </div>
 	
 	<div class="form-group">  
 	<label for="name">Contraseña:
-	  <input type="password" name="contrasenia" id="contrasenia" class="form-control" minlength="8" maxlength="24" placeholder="Escribir contraseña" required /></label>
+	  <input type="password" name="contrasenia" id="contrasenia" class="form-control"  placeholder="Escribir contraseña" required /></label>
      </div>
 	<div class="form-group">  
 	<label for="name">Confirmar Contraseña:
-	  <input type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" class="form-control" minlength="8" maxlength="24" placeholder="Repetir Contraseña" required /></label>
+	  <input type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" class="form-control"  placeholder="Repetir Contraseña" required /></label>
      </div>
 	
 	
@@ -66,31 +71,45 @@
 	
 	  <div class="form-group">
 	 
-	  <label for="email">Email:
+	  <label for="email">E-mail:
       
 	  <input type="email" name="email" id="email" class="form-control"  placeholder="Escribir email "  required /></label>
 	  </div>
     
 	
 	<div class="form-group">
-      <label for="name">Teléfono:
+      <label for="name">Telefono:
       <input type="text" name="telefono" id="telefono" class="form-control"  placeholder="Escribir Telefono " required /></label>
 	  </div>
 	  
 	  <div class="form-group">
-      <label for="name">Fecha de nacimiento:
+      <label for="name">Fecha de Nacimiento:
       <input type="date" name="fechanacimiento" id="fechanacimiento" class="form-control"  placeholder="Escribir Fecha de nacimiento " required /></label>
 	  </div>
+    
+	
     <p class="submit">
-		<input type="submit" name="register" id="registerBtn" class="btn btn-default" value="REGISTRARSE" />
+		<input type="submit" name="register" id="register" class="btn btn-default" value="Registrar" />
 	</p>
-              </li> 
-	</article>
-	<h5 class="center  -align"> <p class="regtext">¿Deses volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
+	
+	<p class="regtext">Ya tienes una cuenta? <a href="../controller/login.php" >Entra Aqu&iacute;!</a>!</p>
+	<p class="regtext">volver a la pagina principal? <a href="../controller/index.php" >Entra Aqu&iacute;!</a>!</p>
   </form>
 </div>
+</div>
+
+
+
+
+
  <?php
   include "../controller/footer.php";
 ?>
-</body>
+
+
+
+
+
+
+	</body>
 </html>

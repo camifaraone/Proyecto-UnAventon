@@ -3,6 +3,11 @@
 	
 <?php 
 require_once "../model/registrarauto.php";
+
+$id= get_user($_GET["email"]);
+	var_dump($id);
+
+
 if(isset($_POST["register"])){
 
 
@@ -14,9 +19,12 @@ if(!empty($_POST['marca']) && !empty($_POST['color']) && !empty($_POST['detalles
 	$modelo=$_POST['modelo'];
 	$patente=$_POST['patente'];
 	
+
+
+
+
 	
-	
-	$v = registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$patente);			
+	$v = registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$patente,$id);			
 	var_dump($v);
      header("Location: ../controller/perfil.php");
 
