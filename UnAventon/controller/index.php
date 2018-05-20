@@ -7,10 +7,12 @@ require_once "../model/viajes.php";
 $viaje = get_viajes();
 
 
-require_once "../model/get_id2.php";
-$id= ($_GET["idautoincremental"]);
-var_dump($id);
+ 
+    if(!isset($_SESSION['session_username'])) {
 
+$id= ($_GET["idautoincremental"]);
+
+	}
 
 
 
