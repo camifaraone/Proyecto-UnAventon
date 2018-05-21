@@ -1,0 +1,6 @@
+diff a/UnAventon/controller/login.php b/UnAventon/controller/login.php	(rejected hunks)
+@@ -36,2 +36,3 @@
+  
+  if (!empty($_GET['m'])) {echo "<p class=\"error\">" . "Mensaje: ". $_GET['m'] . "</p>";}
+\ No newline at end of file
++ ?>

@@ -2,40 +2,42 @@
 
 <head>
 
-<title>UnAventon | Iniciar sesión</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="../js/materialize.min.js"></script>
-      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="../js/materialize.js"></script>
-      <script src="../js/init.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-       <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-</head>
-<script type="text/javascript" src="../js/ingresarvalidar.js"></script>
-<nav class="white" role="navigation"  >
-<div class="nav-wrapper #ff9800 orange" >
- <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
- <ul id="nav-mobile" class="right hide-on-med-and-down">
- 
- </ul>
- </div>
-</nav>
+<title> Iniciar Sesion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="../js/perfilvalidar.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<body style="background-color: #FEF9E7;">
+  <style>	
+  
+    body{
+
+background-color: #FEF9E7
+}
+.jumbotron{
+ background-color: #ff9800;
+      color: #fff; 
+}
+.container{
+color:black;
+}
+
+.submit{
+color:black;
+}
+  
+  
+  </style>
+  
+</head>
+
+
+<body>
 
 <div class="container">
   <div class="jumbotron">
-<article>
-    <h1>Iniciar sesi&oacute;n</h1>   
-       
-</div>
-<div> 
-    <h4>Si tenés una cuenta registrada, ingresá tus datos</h4>
+    <h1>Iniciar Sesi&oacute;n</h1>      
 </div>
 </div>
 
@@ -44,7 +46,7 @@
   
   <form name="loginform" id="loginform" action="" method="POST">
     	<div class="form-group">
-      <label for="email">Email: 
+      <label for="name">Email: 
       <input type="email" name="email" id="email" class="form-control"  placeholder="Escribir email del usuario " required /></label>
 	  </div>
     
@@ -52,11 +54,13 @@
       <label for="pwd">Contrase&ntildea: 
       <input type="password" name="contrasenia" id="contrasenia" class="form-control"  placeholder="Escribir contrase&ntilde;a " required /></label>
     </div>
-                <button class="submit" type="submit" onClick="runSubmit(this.form)">INGRESAR</button>
-              </li>   
-</article>
-	<h5 class="center  -align"> <p class="regtext">¿No estás registrado? <a href="../controller/register.php" >Registrate aqu&iacute;</a></p> </h5>
-	<h5 class="center  -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
+	
+    <p class="submit">
+		<input type="submit" name="login" id="login" class="btn btn-default" value="Entrar" />
+	</p>
+
+	<p class="regtext">No estas registrado? <a href="../controller/register.php" >Registrate Aqu&iacute;</a>!</p>
+	<p class="regtext">Volver a la pagina principal? <a href="../controller/index.php" >Clic Aqu&iacute;</a>!</p>
   </form>
 </div>
 
