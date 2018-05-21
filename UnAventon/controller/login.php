@@ -3,7 +3,6 @@
  
  
 require_once "../model/login.php";
-require_once "../model/getid.php";
  
          if(!empty($_POST['email']) && !empty($_POST['contrasenia'])){
           
@@ -12,22 +11,21 @@ require_once "../model/getid.php";
 		
 		
               $valor= ingresos($email,$contrasenia);
-			   
-             
+			      
+              var_dump($valor);
              
               if(!isset($valor[0]['idautoincremental'])){
 				 
-			     header("Location: ../controller/login.php?m=Email o contraseña invalida!");
+			     header("Location: ../controller/login.php?m=Email o contraseña invalida");
 				
 			 }else
-			 { 		
-					$id= get_id($email);
-					var_dump($id); 
+			 { 
+					
              		session_start();
 					$_SESSION['session_username']=$email;
 					
     
-		            header("Location: ../controller/index.php?idautoincremental=".$id);
+		            header("Location: ../controller/index.php?email=".$email);
 					
 			 }
 			 
@@ -37,5 +35,4 @@ require_once "../model/getid.php";
 	include "../view/login.html";	
  
  if (!empty($_GET['m'])) {echo "<p class=\"error\">" . "Mensaje: ". $_GET['m'] . "</p>";}
- 
  ?>

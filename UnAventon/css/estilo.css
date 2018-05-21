@@ -21,15 +21,7 @@ nav ul li{
 	cursor: pointer;
 	
 }
-nav ul li a{
-	
-	text-decoration: none;
-	padding: 10px 15px;
-	transition: all 0.5s linear;
-	-moz- transition: all 0.5s linear;
-	-o- transition: all 0.5s linear;
-	-webkit- transition: all 0.5s linear;
-}
+
 nav ul li a:hover{
 	box-shadow: #FF0040 0px 0px 10px;
 	background-color:#BDBDBD;
@@ -213,30 +205,30 @@ button, input, select, textarea {
 
 /* Button Style */
 button.submit, a.submit {
-    background-color: #FF0080;
-    background: -webkit-gradient(linear, left top, left bottom, from(#FE2E9A), to(#FF0080));
-    background: -webkit-linear-gradient(top, #FE2E9A, #FF0080);
-    background: -moz-linear-gradient(top, #FE2E9A, #FF0080);
-    background: -ms-linear-gradient(top, #FE2E9A, #FF0080);
-    background: -o-linear-gradient(top, #FE2E9A, #FF0080);
-    background: linear-gradient(top, #FE2E9A, #FF0080);
-    border: 1px solid #FF0080;
-    border-bottom: 1px solid #FF0080;
+    background-color: #FF9800;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FF9800), to(#FF9800));
+    background: -webkit-linear-gradient(top, #FF9800, #FF9800);
+    background: -moz-linear-gradient(top, #FF9800, #FF9800);
+    background: -ms-linear-gradient(top, #FF9800, #FF9800);
+    background: -o-linear-gradient(top, #FE2E9A, #FF9800);
+    background: linear-gradient(top, #FF9800, #FF9800);
+    border: 1px solid #FF9800;
+    border-bottom: 1px solid #FF9800;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
-    box-shadow: inset 0 1px 0 0 #FE2E9A;
-    -webkit-box-shadow: 0 1px 0 0 #FE2E9A inset ;
-    -moz-box-shadow: 0 1px 0 0 #FE2E9A inset;
-    -ms-box-shadow: 0 1px 0 0 #FE2E9A inset;
-    -o-box-shadow: 0 1px 0 0 #FE2E9A inset;
+    box-shadow: inset 0 1px 0 0 #FF9800;
+    -webkit-box-shadow: 0 1px 0 0 #FF9800 inset ;
+    -moz-box-shadow: 0 1px 0 0 #FF9800 inset;
+    -ms-box-shadow: 0 1px 0 0 #FF9800 inset;
+    -o-box-shadow: 0 1px 0 0 #FF9800 inset;
     color: white;
     font-weight: bold;
     padding: 6px 20px;
     text-align: center;
-    text-shadow: 0 -1px 0 #FE2E9A;
+    text-shadow: 0 -1px 0 #FF9800;
 }
 a.submit{
     text-decoration: none;
