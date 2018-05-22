@@ -23,7 +23,7 @@ if(!empty($_POST['nombreusuario']) && !empty($_POST['contrasenia']) && !empty($_
 
 
 } else {
-	 $message = "Todos los campos no deben de estar vacios!";
+	 $message = "Todos los campos deben estar completos";
 }
 }
 ?>

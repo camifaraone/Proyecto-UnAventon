@@ -31,7 +31,7 @@ if(isset ($_GET["idautoincremental"])) {
 
 
 } else {
-	 $message = "Todos los campos no deben de estar vacios!";
+	 $message = "Todos los campos deben estar completos";
 }
 } 
 ?>

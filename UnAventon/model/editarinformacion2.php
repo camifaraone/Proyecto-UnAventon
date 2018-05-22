@@ -18,7 +18,7 @@
 			session_start();
 		}
 		
-		$idUsuario=$_SESSION['idautoincremental'];
+		$idautoincremental=$_SESSION['idautoincremental'];
 		$email=$_POST['email'];
 		$sql= "SELECT * FROM usuario WHERE email='$email' and idautoincremental<>'$idautoincremental'";
 		$result = mysqli_query($conn,$sql); 

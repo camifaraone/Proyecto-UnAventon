@@ -13,7 +13,7 @@
     <div class="nav-wrapper #ff9800 orange" >
       <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../controller/login.php">iniciar Sesión</a></li>
+        <li><a href="../controller/login.php">Iniciar sesión</a></li>
         <li><a href="../controller/register.php">Registrarse</a></li>
       </ul>
     </div>
@@ -28,7 +28,7 @@
       <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
-        <li ><a href="../controller/logout.php">Cerrar Sesión</a></li>
+        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
       </ul>
     </div>
   </nav>
@@ -47,7 +47,7 @@
    <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class='elegantshadow'> Un Aventon</h1>
+        <h1 class='elegantshadow'> UnAventon</h1>
         
        
         <br><br>
@@ -60,21 +60,21 @@
 			$name = $_SESSION['session_username'];
 	?>
 
- <div class="row #ff9800 orange">
+ <<div class="row #ff9800 orange">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">Crea Viaje</a></li>
-        <li class="tab col s3"><a href="#test2"> Mis Viajes</a></li>
-        <li class="tab col s3"><a href="#test3">Mi Perfil</a></li>
+        <li class="tab col s3"><a href="#test1">Crear viaje</a></li>
+        <li class="tab col s3"><a href="#test2"> Mis viajes</a></li>
+        <li class="tab col s3"><a href="#test3">Mi perfil</a></li>
 
       </ul>
     </div>
   </div>
   
 	
-    <div id="test1" class="col s12"> <h5 class="center	-align">Aqui puede crear la publicacion de su viaje!</h5>  <a href="../controller/newtrip.php">   <h5 class="center-align"> Presione Aqui </h5>   </a> </div>
-	<div id="test2" class="col s12"> <h5 class="center	-align">Aqui puede ver los viajes que ha realizado!</h5>  <a href="">   <h5 class="center-align"> Presione Aqui </h5>   </a> </div>
-	<div id="test3" class="col s12"> <h5 class="center	-align">Aqui puede acceder a su perfil!</h5>  <h5 class="center-align"> <?php echo"<a href=../controller/perfil.php?idautoincremental=".$id.">   Ver Perfil  </a>";  ?>  </h5> </div>
+    <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>  <a href="../controller/newtrip.php">   <h5 class="center-align"> Presione aquí </h5>   </a> </div>
+  <div id="test2" class="col s12"> <h5 class="center  -align">Aquí puede ver los viajes que ha realizado!</h5>  <a href="">   <h5 class="center-align"> Presione aquí </h5>   </a> </div>
+  <div id="test3" class="col s12"> <h5 class="center  -align">Aquí puede acceder a su perfil!</h5>  <h5 class="center-align"> <?php echo"<a href=../controller/perfil.php?email=".$email.">   Ver Perfil  </a>"; ?>  </h5> </div>
 
 <?php } ?> 
 
@@ -96,8 +96,8 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4> <a class="waves-effect #ff9800 orange btn" href="../controller/quienesomos.php" > Informacion del Sitio </a> </h4>
-          <p class="light ">Conozca todos los detalles de la Aplicacion</p>
+          <h4> <a class="waves-effect #ff9800 orange btn" href="../controller/quienesomos.php" > Información del sitio </a> </h4>
+          <p class="light ">Conozca todos los detalles de la aplicación</p>
         </div>
       </div>
 

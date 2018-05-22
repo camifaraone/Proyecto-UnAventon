@@ -1,5 +1,5 @@
 <?php
-	include ('../model/db.php')
+	/*include ('../model/db.php')
 	$conn = conectar();
 	if(!session_id()){ 
 		session_start();
@@ -9,18 +9,18 @@
 	$consulta="SELECT nombre, apellido, nombreusuario, email, telefono, fechanacimiento FROM usuarios WHERE idautoincremental='$idautoincremental'";
 	$resultado=mysqli_query($conn,$consulta) or die('Error');
 	$usuario=mysqli_fetch_array($resultado);
-	
-}
-
-
+	*/
+	if(!session_id()){ //para ver si la sesión está iniciada
+		session_start();
+	}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>UnAventon | Editar información de la cuenta</title>
-	<link rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="../js/estilo.css">
 </head>
-<script type="text/javascript" src="css-js/../js.editarvalidar.js"></script>
+<script type="text/javascript" src="../js.editarvalidar.js"></script>
 <body "background-color: #FEF9E7;">
 	<div id="global">
 	<?php

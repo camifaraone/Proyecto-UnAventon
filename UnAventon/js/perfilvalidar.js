@@ -5,14 +5,14 @@
 			return false;
 		}
 		if (form.contrasenia.value.length < 8) {
-			alert("Ingresar clave actual");
+			alert("Ingresar clave");
 			return false;
 		}
-		if (form.confirmarclave.value.length < 8) {
+		if (form.confirmarcontrasenia.value.length < 8) {
 			alert("Repetir nueva clave con ocho o más caracteres");
 			return false;
 		}
-		if (form.clave.value != form.confirmarclave.value) { 
+		if (form.contrasenia.value != form.confirmarcontrasenia.value) { 
 			alert("Las claves no coinciden");
 			return false;
 		}
@@ -38,5 +38,4 @@
 			return false;
 		}
 		return true;	
-	}			
-                      
+	}

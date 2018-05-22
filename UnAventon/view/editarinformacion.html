@@ -16,11 +16,7 @@
        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
 <script type="text/javascript" src="../js/editarvalidar.js"></script>
-
-<?php session_start();
- 		if(!empty($_SESSION['session_username'])) {
-			$email = $_SESSION['session_username'];
-	?>	  
+	  
 		<nav class="white" role="navigation"  >
     <div class="nav-wrapper #ff9800 orange" >
       <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
@@ -31,21 +27,6 @@
     </div>
   </nav>
 	
-	<?php } ?> 
-	<?php
-	include ('../model/db.php')
-	$conn = ingresar();
-	if(!session_id()){ 
-		session_start();
-	}
-	if (isset($_SESSION['idautoincremental'])){
-	$idautoincremental= $_SESSION['idautoincremental'];
-	$consulta="SELECT nombre, apellido, nombreusuario, email, telefono, fechanacimiento FROM usuarios WHERE idautoincremental='$idautoincremental'";
-	$resultado=mysqli_query($conn,$consulta) or die('Error');
-	$usuario=mysqli_fetch_array($resultado);
-	
-}
-?>
 <body style="background-color: #FEF9E7;">
 	<div class="container">
 		<div class="jumbotron">
@@ -85,34 +66,6 @@
 								<input name="fechanacimiento" required/>
 								<span class="date"></span>
 							</li>
-							<li>
-								<div class="field">
-                        			<label for="password" class="required"><em>*</em>Clave actual:</label>
-                        			
-                        			<div class="input-box">
-                            			<input type="password" name="claveactual" id="password" title="Contraseña" class="input-text required-entry validate-password" required/>
-                        			</div> 
-                    			</div>
-                    		</li>
-                    		<li>
-								<div class="field">
-                        			<label for="password" class="required"><em>*</em>Nueva clave:</label>
-                        			
-                        			<div class="input-box">
-                            			<input type="password" name="nuevaclave" id="password" title="Contraseña" class="input-text required-entry validate-password" required/>
-                        			</div> 
-                    			</div>
-                    		</li>
-                    		<li>
-                    			<div class="field">
-                        			<label for="confirmation" ><em>*</em>Confirmar clave:</label>
-                        			
-                        			<div class="input-box">
-                            			<input type="password" name="confirmarclave" title="Confirmar la contraseña" id="confirmation" class="input-text required-entry validate-cpassword" required/>
-                        			</div>
-                    			</div>
-                    		</li>
-                    		<li>
 								<button class="submit" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
 							</li> 							
 						</ul> 

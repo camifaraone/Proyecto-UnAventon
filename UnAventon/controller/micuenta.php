@@ -62,16 +62,23 @@
 								<label for="date">Fecha de nacimiento: <?php echo $usuario['fechanacimiento']; ?></label>
 								
 							</li>
-                    		<li>					
+                    		<li>
+								<div >
+									<a  class="submit" href="../controller/editarinformacion.php">EDITAR</a> 
+								</div>
+							</li><li><div >
+									<a  class="submit" href="../controller/editarcontrasena.php">EDITAR CONTRASEÑA</a> 
+								</div></li>					
 						</ul> 
 					</div>
 						
 		</section>
 			
 	</article>
-	<?php 
-		include('footer.php');
+	<?php
+  		include "../controller/footer.php";
 	?>
+	
 		
 		
 	</div>

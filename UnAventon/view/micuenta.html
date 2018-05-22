@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>UnAventon| Información de la cuenta</title>
+		<title>UnAventon | Información de la cuenta</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -15,30 +15,22 @@
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
+  
+<nav class="white" role="navigation"  >
+<div class="nav-wrapper #ff9800 orange" >
+ <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+ <ul id="nav-mobile" class="right hide-on-med-and-down">
+ <li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
+ <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+ </ul>
+ </div>
+</nav>
 
-
-<?php session_start();
- 
-			
-		if(!empty($_SESSION['session_username'])) {
-			$email = $_SESSION['session_username'];
-	?>	  
-		<nav class="white" role="navigation"  >
-    <div class="nav-wrapper #ff9800 orange" >
-      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <li style="color:white"> <li> Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li> </li>
-        <li style="color:white"> <li><a href="../controller/logout.php">Cerrar Sesión</a></li> </li>
-      </ul>
-    </div>
-  </nav>
-	
-	<?php } ?> 
 
 
 <body style="background-color: #FEF9E7;">
-	<div >
-
+	<div class="container">
+		<div class="jumbotron">
 	<article>
 		<section>
 				
@@ -50,10 +42,7 @@
 							</li>
 							<li> 
 								<label for="name">Nombre:</label>
-								<?php
-									echo $usuario['nombre'];
 								
-								?>
 								
 							</li>
 							<li> 
@@ -97,7 +86,7 @@
                     		</li>
                     		<li>
 								<div >
-									<a class="waves-effect #ff9800 orange btn"  class="submit" href="../view/editarinformacion.html">Editar</a>
+									<a  class="submit" href="../view/editarinformacion.html">EDITAR</a><a  class="submit" href="../view/editarcontrasena.html">EDITAR CONTRASEÑA</a>
 								</div>
 							</li> 							
 						</ul> 
@@ -106,16 +95,13 @@
 		</section>
 			
 	</article>
-	<h5 class="center	-align"> <p class="regtext">Desea agregar un vehiculo a su cuenta?  <?php echo"<a href=../controller/registrarauto.php?idautoincremental=".$id.">   Cliq Aqui!  </a>"; ?> </p> </h5>
-	<h5 class="center	-align"> <p class="regtext">Volver a la pagina principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic Aqui  </a>"; ?>!</p> </h5>
-
-	
-		
-		
+	<h5 class="center	-align"> <p class="regtext">¿Desea agregar un vehículo a su cuenta? <a href="../controller/registrarauto.php">   Clic aqu&iacute;</a></p> </h5>
+	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
 	</div>
-		
-	<?php 
-		  include "../controller/footer.php";
-?>
+	 <?php
+  		include "../controller/footer.php";
+	?>
+	
 </body>
 </html>
+
