@@ -1,31 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>UnAventon | Editar información de la cuenta</title>
-<meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="../js/materialize.min.js"></script>
-      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="../js/materialize.js"></script>
-      <script src="../js/init.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-       <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+		<title>UnAventon | Información de la cuenta</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+			<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script type="text/javascript" src="../js/materialize.min.js"></script>
+			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script src="../js/materialize.js"></script>
+			<script src="../js/init.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
-<script type="text/javascript" src="../js/editarvalidar.js"></script>
-	  
-		<nav class="white" role="navigation"  >
-    <div class="nav-wrapper #ff9800 orange" >
-      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <li>Bienvenido!</li><li>&nbsp;<?php echo $email ?>  </li>
-        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
-      </ul>
-    </div>
-  </nav>
+  
+  <?php
+		session_start();	
+		if(!empty($_SESSION['session_username'])) {
+			$email = $_SESSION['session_username'];
+			
+	?>
+  
+  
+  
+  
+<nav class="white" role="navigation"  >
+<div class="nav-wrapper #ff9800 orange" >
+ <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+ <ul id="nav-mobile" class="right hide-on-med-and-down">
+ <li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
+ <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+ </ul>
+ </div>
+</nav>
+<?php } ?> 
 	
 <body style="background-color: #FEF9E7;">
 	<div class="container">
@@ -42,28 +52,28 @@
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Nombre:</label>
-								<input type="text" name="name"/>
+								<input type="text" name="name" value=" <?php echo $usuario['nombre']; ?>"/>
 							</li>
 							<li> 
 								<label for="surname"><em>*</em>Apellido:</label>
-								<input type="text" name="surname"/>
+								<input type="text" name="surname" value=" <?php echo $usuario['apellido']; ?>"/>
 							</li> 
 							<li> 
 								<label for="name"><em>*</em>Nombre usuario:</label>
-								<input type="text" name="nombredeusuario"/>
+								<input type="text" name="nombredeusuario" value=" <?php echo $usuario['nombreusuario']; ?>"/>
 							</li>
 							<li>
 								<label for="email"><em>*</em>Email:</label>
-								<input type="email" name="email"  required />
+								<input type="email" name="email"  required value=" <?php echo $usuario['email']; ?>"/>
 								<span class="form_hint"></span>
 							</li>
 							<li> 
 								<label for="phone"><em>*</em>Teléfono:</label>
-								<input name="phone" required/>
+								<input name="phone" required/ value=" <?php echo $usuario['telefono']; ?>">
 							</li>
 							<li> 
 								<label for="date" class="date"><em>*</em>Fecha de nacimiento:</label>
-								<input name="fechanacimiento" required/>
+								<input type="date" name="fechanacimiento" required/ value=" <?php echo $usuario['fechanacimiento']; ?>">
 								<span class="date"></span>
 							</li>
 								<button class="submit" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
