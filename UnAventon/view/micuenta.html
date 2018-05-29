@@ -47,7 +47,9 @@
 				<div class="usuario"> 
 					<ul>
 							<li> 
-								<h3>MI CUENTA</h3>
+								<blockquote>
+     <h3>MI CUENTA </h3>
+    </blockquote>
 								<p>Datos de contacto</p>
 							</li>
 							<li> 
@@ -101,15 +103,53 @@
 									<a  class="submit" <?php echo"<a href=../controller/editarinformacion.php?idautoincremental=".$id.">  EDITAR </a>"; ?> 
 									<a  class="submit" <?php echo"<a href=../controller/editarcontrasena.php?idautoincremental=".$id.">  EDITAR CONTRASEÑA</a>"; ?>
 								</div>
-							</li> 							
+							</li> 				
+							<blockquote>
+     <h3>MIS AUTOS </h3>
+    </blockquote>
+    <p>Datos del auto</p>
+
+
+<table class="centered">
+        <thead>
+          <tr>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Color</th>
+			  <th>Patente</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          
+<?php
+ 
+  //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
+ for($i=0; $i<count($vehiculo);$i++) {
+     
+	 echo "<td>".$vehiculo[$i]["marca"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["modelo"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["color"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["patente"].""."</td>";
+     echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Eliminar auto </a></td>";
+	 //echo"<td><a href=../controller/editarproducto.php?id_producto=".$viaje[$i]["id"].">Editar Producto </a></td>";
+	 //echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
+	 echo "</tr>";
+	
+	 }
+
+?>
+		  
+        </tbody>
+      </table>	
 						</ul> 
 					</div>
 						
 		</section>
 			
 	</article>
-	<h5 class="center	-align"> <p class="regtext">¿Desea agregar un vehículo a su cuenta? <?php echo"<a href=../controller/registrarauto.php?idautoincremental=".$id.">   Cliq Aqui!  </a>"; ?></p> </h5>
-	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic Aqui  </a>"; ?>!</p> </h5>
+	<h5 class="center	-align"> <p class="regtext">¿Desea agregar un vehículo a su cuenta? <?php echo"<a href=../controller/registrarauto.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	</div>
 	 <?php
   		include "../controller/footer.php";

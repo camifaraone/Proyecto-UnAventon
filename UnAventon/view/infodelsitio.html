@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+ <html>
+	 
+			
+<head>
+		<title>UnAventon | Información del sitio</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+			<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script type="text/javascript" src="../js/materialize.min.js"></script>
+			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script src="../js/materialize.js"></script>
+			<script src="../js/init.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+</head>
+  
+  <?php
+		session_start();	
+		if(!empty($_SESSION['session_username'])) {
+			$email = $_SESSION['session_username'];
+			
+	?>
+   
+		<nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>Bienvenido!</li><li>&nbsp;<?php echo $name ?></li>
+        <li><a href="../controller/logout.php">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav> 
+	
+	
+	
+    
+<body style= "background-color:#FEF9E7;">
+  
+ 
+
+
+
+   <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class='elegantshadow'> UnAventon</h1>
+        
+       
+        <br><br>
+
+      </div>
+    </div>
+  
+  <?php	
+		if(!empty($_SESSION['session_username'])) {
+			$name = $_SESSION['session_username'];
+	?>
+
+
+
+ <br><br>
+ <br><br>
+  
+  
+  <div id="index-banner" class="parallax-container">
+    
+	
+    <div class="parallax"><img src="../img/5.jpg" alt="img 1"></div>
+ </div>
+ 
+
+	
+ <hr></hr>
+ <br></br>
+  
+   <div id="index-banner" class="parallax-container">
+	 <div class="parallax"><img src="../img/auto1.jpg" alt="img 1"></div>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br> 
+<br>
+
+  <?php
+  include "../controller/footer.php";
+?>
+
+  
+  
+	  
+	  
+	  
+	  
+	  
+</body>
+  </html>
