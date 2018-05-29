@@ -1,7 +1,7 @@
 <?php
 
 
-function registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$patente){
+function registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$patente,$id){
 		
 	require_once ("db.php");
 	/*require "../model/unuser.php";

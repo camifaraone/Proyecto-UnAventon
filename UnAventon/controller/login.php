@@ -22,7 +22,7 @@ require_once "../model/getid.php";
 			 }else
 			 { 		
 					$id= get_id($email);
-					var_dump($id); 
+					
              		session_start();
 					$_SESSION['session_username']=$email;
 					

@@ -42,7 +42,7 @@
 		<div class="jumbotron">
 	<article>
 		<section>
-				<form class="contact_form" action="" method="post" name="contact_form">
+				<form class="contact_form" action="../controller/editarinformacion.php?idautoincremental=<?php echo $id ?>" method="POST" name="contact_form">
 					<div> 
 						<ul>
 							<li> 
@@ -52,39 +52,42 @@
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Nombre:</label>
-								<input type="text" name="name" value=" <?php echo $usuario['nombre']; ?>"/>
+								<input type="text" name="nombre" id="nombre" value=" <?php echo $usuario['nombre']; ?>"/>
 							</li>
 							<li> 
 								<label for="surname"><em>*</em>Apellido:</label>
-								<input type="text" name="surname" value=" <?php echo $usuario['apellido']; ?>"/>
+								<input type="text" name="apellido" id="apellido" value=" <?php echo $usuario['apellido']; ?>"/>
 							</li> 
 							<li> 
 								<label for="name"><em>*</em>Nombre usuario:</label>
-								<input type="text" name="nombredeusuario" value=" <?php echo $usuario['nombreusuario']; ?>"/>
+								<input type="text" name="nombreusuario" id="nombreusuario" value=" <?php echo $usuario['nombreusuario']; ?>"/>
 							</li>
 							<li>
 								<label for="email"><em>*</em>Email:</label>
-								<input type="email" name="email"  required value=" <?php echo $usuario['email']; ?>"/>
+								<input type="email" name="email" id="email" required value=" <?php echo $usuario['email']; ?>"/>
 								<span class="form_hint"></span>
 							</li>
 							<li> 
 								<label for="phone"><em>*</em>Teléfono:</label>
-								<input name="phone" required/ value=" <?php echo $usuario['telefono']; ?>">
+								<input name="telefono" id="telefono" required/ value=" <?php echo $usuario['telefono']; ?>">
 							</li>
 							<li> 
 								<label for="date" class="date"><em>*</em>Fecha de nacimiento:</label>
-								<input type="date" name="fechanacimiento" required/ value=" <?php echo $usuario['fechanacimiento']; ?>">
+								<input type="date" name="fechanacimiento" id="fechanacimiento" required/ value=" <?php echo $usuario['fechanacimiento']; ?>">
 								<span class="date"></span>
 							</li>
-								<button class="submit" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
+							<li>
+							
+								<button class="submit" name="editar" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
 							</li> 							
 						</ul> 
 					</div>
 				</form>							
 		</section>
 	</article>
-	<h5 class="center  -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
-  </form>
+	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic Aqui  </a>"; ?>!</p> </h5>
+	
+	</form>
 </div>
 
 

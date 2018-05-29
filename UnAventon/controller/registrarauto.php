@@ -18,11 +18,12 @@ if(!empty($_POST['marca']) && !empty($_POST['color']) && !empty($_POST['detalles
 	$cantasientosdisp=$_POST['cantasientosdisp'];
 	$modelo=$_POST['modelo'];
 	$patente=$_POST['patente'];
+
 	
 
 	
-	$v = registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$patente);			
-	var_dump($v);		 
+	$v = registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$patente,$id);			
+	var_dump($id);		 
 	
 	
 
