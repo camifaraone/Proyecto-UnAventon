@@ -78,8 +78,8 @@
 												</div>
 												
 												<div class="form-group">
-													<label for="name">Fecha de nacimiento:
-														<input type="date" name="fechanacimiento" id="fechanacimiento" class="form-control"  placeholder="Escribir Fecha de nacimiento " required /></label>
+													<label for="date">Fecha de nacimiento:
+														<input type="date" name="fechanacimiento" id="fechanacimiento" class="form-control" placeholder="Escribir Fecha de nacimiento " required /></label>
 													</div>
 													<p class="submit">
 														<input type="submit" name="register" id="registerBtn" class="btn btn-default" value="REGISTRARSE" />
@@ -98,5 +98,13 @@
 											</div>
 										</div>
 									</footer>
+									<script type="text/javascript">
+										var input = document.getElementById('fechanacimiento');
+										var year = Date.now().getYear()-18;
+										var month = Date.now().getMonth();
+										var day = Date.now().getDay();
+										var min = ''+year+'-'+month+'-'+day;
+										input.setAttribute('min',min);
+									</script>
 								</body>
 								</html>

@@ -35,17 +35,20 @@
 		<div class="jumbotron">
 			<?php
 
-			//var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
-			for($i=0; $i<count($viaje);$i++) {
-			if ($viaje[$i]["fecha"]-date() < 30){ 
-			echo "<td>".$viaje[$i]["fecha"].""."</td>";
-			echo "<td>".$viaje[$i]["monto"].""."</td>";
-			echo "<td>".$viaje[$i]["duracion"].""."</td>";
-			echo "<td>".$viaje[$i]["hssalida"].""."</td>";
-			echo "<td>".$viaje[$i]["distancia"].""."</td>";
-			echo "<td>".$viaje[$i]["observaciones"].""."</td>";
-			echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
-		}
+			$date_today= new DateTime('now');
+			$comparing_date=date_add($date_today,date_interval_create_from_date_string("30 days"));
+
+ 			for($i=0; $i < count($viaje); $i++) {
+	 			if ($viaje[$i]["fecha"] < $comparing_date){ 
+		 			echo "<td>".$viaje[$i]["fecha"].""."</td>";
+		 			echo "<td>".$viaje[$i]["monto"].""."</td>";
+		 			echo "<td>".$viaje[$i]["duracion"].""."</td>";
+		 			echo "<td>".$viaje[$i]["hssalida"].""."</td>";
+		 			echo "<td>".$viaje[$i]["distancia"].""."</td>";
+		 			echo "<td>".$viaje[$i]["observaciones"].""."</td>";
+		 			echo "<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
+	 			}
+ 			}
 	}
 
 	?>

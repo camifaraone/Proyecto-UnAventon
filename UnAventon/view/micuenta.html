@@ -126,7 +126,6 @@ $email = $_SESSION['session_username'];
 									
 									<?php
 									
-									//var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
 									for($i=0; $i<count($vehiculo);$i++) {
 									
 									echo "<td>".$vehiculo[$i]["marca"].""."</td>";
@@ -135,9 +134,7 @@ $email = $_SESSION['session_username'];
 									echo "<td>".$vehiculo[$i]["patente"].""."</td>";
 									echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
 									echo"<td><a href=../controller/borrarauto.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar</a></td>";
-									echo"<td><a href=../controller/modificarauto.php?id_producto=".$viaje[$i]["id"].">Editar </a></td>";
-									//echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
-								echo "</tr>";
+									echo "</tr>";
 								
 							}
 
@@ -172,6 +169,9 @@ $email = $_SESSION['session_username'];
 						<li>
 							<div>
 								<a  class="submit" href="../view/modificarauto.html">EDITAR</a>
+							</div>
+							<div>
+								<a  class="submit" <?php echo"<a href=../controller/registrarauto.php?idautoincremental=".$id."?> >AGREGAR AUTO</a>
 							</div>
 						</li> 							
 					</ul> 

@@ -8,9 +8,9 @@ $usuario= get_perfil($_GET["idautoincremental"]);
 
 }
 
-$id= ($_GET["idautoincremental"]);
+$id= $_GET["idautoincremental"];
 
-
+	
 
 include "../view/micuenta.html";
 	
