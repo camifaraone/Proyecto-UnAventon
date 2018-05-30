@@ -40,5 +40,3 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nomb
 
 include "../view/editarinformacion.html";
 if (!empty($message)) {echo "<p class=\"error\">" . "Mensaje: ". $message . "</p>";} ?>	
-
-?>
