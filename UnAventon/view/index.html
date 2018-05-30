@@ -111,17 +111,15 @@
  
   //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
  for($i=0; $i<count($viaje);$i++) {
-     
-	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
-	 echo "<td>".$viaje[$i]["monto"].""."</td>";
-	 echo "<td>".$viaje[$i]["duracion"].""."</td>";
-	 echo "<td>".$viaje[$i]["hssalida"].""."</td>";
-	 echo "<td>".$viaje[$i]["distancia"].""."</td>";
-	 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
-     echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
-	 //echo"<td><a href=../controller/editarproducto.php?id_producto=".$viaje[$i]["id"].">Editar Producto </a></td>";
-	 //echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
-	 echo "</tr>";
+     if ($viaje[$i]["fecha"] - date(Y-m-d) < 30){ 
+		 echo "<td>".$viaje[$i]["fecha"].""."</td>";
+		 echo "<td>".$viaje[$i]["monto"].""."</td>";
+		 echo "<td>".$viaje[$i]["duracion"].""."</td>";
+		 echo "<td>".$viaje[$i]["hssalida"].""."</td>";
+		 echo "<td>".$viaje[$i]["distancia"].""."</td>";
+		 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
+	     echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
+	}
 	
 	 }
 
