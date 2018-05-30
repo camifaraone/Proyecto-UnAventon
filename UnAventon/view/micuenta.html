@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<title>UnAventon | Información de la cuenta</title>
+	<title>UnAventon | Información de la cuenta</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-			<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-			<script type="text/javascript" src="../js/materialize.min.js"></script>
-			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-			<script src="../js/materialize.js"></script>
-			<script src="../js/init.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/materialize.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="../js/materialize.js"></script>
+	<script src="../js/init.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
-  
-  <?php
-		session_start();	
-		if(!empty($_SESSION['session_username'])) {
-			$email = $_SESSION['session_username'];
-			
-	?>
-  
-  
-  
-  
+
+<?php
+session_start();	
+if(!empty($_SESSION['session_username'])) {
+$email = $_SESSION['session_username'];
+
+?>
+
+
+
+
 <nav class="white" role="navigation"  >
-<div class="nav-wrapper #ff9800 orange" >
- <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
- <ul id="nav-mobile" class="right hide-on-med-and-down">
- <li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
- <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
- </ul>
- </div>
+	<div class="nav-wrapper #ff9800 orange" >
+		<img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
+			<li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+		</ul>
+	</div>
 </nav>
 <?php } ?>
 
@@ -41,152 +41,152 @@
 <body style="background-color: #FEF9E7;">
 	<div class="container">
 		<div class="jumbotron">
-	<article>
-		<section>
-				
-				<div class="usuario"> 
-					<ul>
+			<article>
+				<section>
+					
+					<div class="usuario"> 
+						<ul>
 							<li> 
 								<blockquote>
-     <h3>MI CUENTA </h3>
-    </blockquote>
+									<h3>MI CUENTA </h3>
+								</blockquote>
 								<p>Datos de contacto</p>
 							</li>
 							<li> 
 								<label for="name">Nombre:</label>
 								<?php
-									echo $usuario['nombre'];
+								echo $usuario['nombre'];
 								?>
 								
 							</li>
 							<li> 
 								<label for="surname">Apellido:</label>
 								<?php
-									echo $usuario['apellido'];
+								echo $usuario['apellido'];
 								?>
 							</li> 
 							<li>
 								<label for="email">Email:</label>
 								<?php
-									echo $usuario['email'];
-	
+								echo $usuario['email'];
+								
 								?>
 							</li>
 							<li> 
 								<label for="name">Nombre usuario:</label>
 								<?php
-									echo $usuario['nombreusuario'];
+								echo $usuario['nombreusuario'];
 								?>
 							</li>
 							<li> 
 								<label for="phone">Teléfono:</label>
 								<?php
-									echo $usuario['telefono'];
+								echo $usuario['telefono'];
 								?>
 							</li>
 							<li> 
 								<label for="date">Fecha de nacimiento:</label> 
 								<?php
-									echo $usuario['fechanacimiento'];
+								echo $usuario['fechanacimiento'];
 								?>
 							</li>
 							<li>
 								<div class="field">
-                        			<label for="password" class="required">Clave:</label>
+									<label for="password" class="required">Clave:</label>
 									<?php
 									echo $usuario['contrasenia'];
-								?>
-                    			</div>
-                    		</li>
+									?>
+								</div>
+							</li>
 
-                    		<li>
+							<li>
 								<div >
 									<a  class="submit" <?php echo"<a href=../controller/editarinformacion.php?idautoincremental=".$id.">  EDITAR </a>"; ?> 
 									<a  class="submit" <?php echo"<a href=../controller/editarcontrasena.php?idautoincremental=".$id.">  EDITAR CONTRASEÑA</a>"; ?>
 								</div>
 							</li> 				
 							<blockquote>
-     <h3>MIS AUTOS </h3>
-    </blockquote>
-    <p>Datos del auto</p>
+								<h3>MIS AUTOS </h3>
+							</blockquote>
+							<p>Datos del auto</p>
 
 
-<table class="centered">
-        <thead>
-          <tr>
-              <th>Marca</th>
-              <th>Modelo</th>
-              <th>Color</th>
-			  <th>Patente</th>
-			  <th>Detalles</th>
-          </tr>
-        </thead>
+							<table class="centered">
+								<thead>
+									<tr>
+										<th>Marca</th>
+										<th>Modelo</th>
+										<th>Color</th>
+										<th>Patente</th>
+										<th>Detalles</th>
+									</tr>
+								</thead>
 
-        <tbody>
-          
-<?php
- 
-  //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
- for($i=0; $i<count($vehiculo);$i++) {
-     
-	 echo "<td>".$vehiculo[$i]["marca"].""."</td>";
-	 echo "<td>".$vehiculo[$i]["modelo"].""."</td>";
-	 echo "<td>".$vehiculo[$i]["color"].""."</td>";
-	 echo "<td>".$vehiculo[$i]["patente"].""."</td>";
-	 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
-     echo"<td><a href=../controller/verviaje.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar</a></td>";
-	 echo"<td><a href=../controller/modificarauto.php?id_producto=".$viaje[$i]["id"].">Editar </a></td>";
-	 //echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
-	 echo "</tr>";
-	
-	 }
-
-?>
-		  
-        </tbody>
-      </table>	
-						</ul> 
-						<div>
-
-						<ul>
-							<li> 
-								<h3>MI AUTO</h3>
-								<p>Datos del auto</p>
-							</li>
-							<li> 
-								<label for="name">Marca:</label>
+								<tbody>
+									
+									<?php
+									
+									//var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
+									for($i=0; $i<count($vehiculo);$i++) {
+									
+									echo "<td>".$vehiculo[$i]["marca"].""."</td>";
+									echo "<td>".$vehiculo[$i]["modelo"].""."</td>";
+									echo "<td>".$vehiculo[$i]["color"].""."</td>";
+									echo "<td>".$vehiculo[$i]["patente"].""."</td>";
+									echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
+									echo"<td><a href=../controller/verviaje.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar</a></td>";
+									echo"<td><a href=../controller/modificarauto.php?id_producto=".$viaje[$i]["id"].">Editar </a></td>";
+									//echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
+								echo "</tr>";
 								
-								
-							</li>
-							<li> 
-								<label for="name">Modelo:</label>
-							</li>
-							<li> 
-								<label for="name">Color:</label>
-								
-							</li> 
-							<li>
-								<label for="name">Patente:</label>
-								
-							</li>
-							<li>
-								<div>
-									<a  class="submit" href="../view/modificarauto.html">EDITAR</a>
-								</div>
-							</li> 							
-						</ul> 
-						</div>
-					</div>
-						
-		</section>
+							}
+
+							?>
+							
+						</tbody>
+					</table>	
+				</ul> 
+				<div>
+
+					<ul>
+						<li> 
+							<h3>MI AUTO</h3>
+							<p>Datos del auto</p>
+						</li>
+						<li> 
+							<label for="name">Marca:</label>
+							
+							
+						</li>
+						<li> 
+							<label for="name">Modelo:</label>
+						</li>
+						<li> 
+							<label for="name">Color:</label>
+							
+						</li> 
+						<li>
+							<label for="name">Patente:</label>
+							
+						</li>
+						<li>
+							<div>
+								<a  class="submit" href="../view/modificarauto.html">EDITAR</a>
+							</div>
+						</li> 							
+					</ul> 
+				</div>
+			</div>
 			
+		</section>
+		
 	</article>
 	<h5 class="center	-align"> <p class="regtext">¿Desea agregar un vehículo a su cuenta? <?php echo"<a href=../controller/registrarauto.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
-	</div>
-	 <?php
-  		include "../controller/footer.php";
-	?>
-	
+</div>
+<?php
+include "../controller/footer.php";
+?>
+
 </body>
 </html>

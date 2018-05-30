@@ -1,102 +1,102 @@
 <html>
 <head>
-<title>UnAventon | Registrar usuario</title>
+	<title>UnAventon | Registrar usuario</title>
 
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="../js/materialize.min.js"></script>
-      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script src="../js/materialize.js"></script>
-      <script src="../js/init.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-       <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/materialize.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="../js/materialize.js"></script>
+	<script src="../js/init.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
 <script type="text/javascript" src="../js/perfilvalidar.js"></script>
 <nav class="white" role="navigation"  >
-<div class="nav-wrapper #ff9800 orange" >
- <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
- <ul id="nav-mobile" class="right hide-on-med-and-down">
- 
- </ul>
- </div>
+	<div class="nav-wrapper #ff9800 orange" >
+		<img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			
+		</ul>
+	</div>
 </nav>
 
 <body style="background-color: #FEF9E7;">
-<div class="container">
-  <div class="jumbotron">
- <article>
-    <h1>Registrar usuario</h1>      
-</div>
-</div>
+	<div class="container">
+		<div class="jumbotron">
+			<article>
+				<h1>Registrar usuario</h1>      
+			</div>
+		</div>
 
-<div class="container">
-<div id="register">
-  
-  <form name="registerform" id="registerform" action="../controller/register.php" method="POST">
+		<div class="container">
+			<div id="register">
+				
+				<form name="registerform" id="registerform" action="../controller/register.php" method="POST">
 
-	<div class="form-group">  
-	<label for="name">Nombre de usuario:
-	  <input type="text" name="nombreusuario" id="nombreusuario" class="form-control"  placeholder="Escribir nombre usuario" required /></label>
-     </div>
-	
-	<div class="form-group">  
-	<label for="name">Contraseña:
-	  <input type="password" name="contrasenia" id="contrasenia" class="form-control" minlength="8" maxlength="24" placeholder="Escribir contraseña" required /></label>
-     </div>
-	<div class="form-group">  
-	<label for="name">Confirmar contraseña:
-	  <input type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" class="form-control" minlength="8" maxlength="24" placeholder="Repetir Contraseña" required /></label>
-     </div>
-	
-	
-	
-      <div class="form-group">  
-	<label for="name">Nombre:
-	  <input type="text" name="nombre" id="nombre" class="form-control"  placeholder="Escribir nombre completo" required /></label>
-     </div>
-	 
-	 <div class="form-group">  
-	<label for="name">Apellido:
-	  <input type="text" name="apellido" id="apellido" class="form-control"  placeholder="Escribir Apellido" required /></label>
-     </div>
-	
-	  <div class="form-group">
-	 
-	  <label for="email">Email:
-      
-	  <input type="email" name="email" id="email" class="form-control"  placeholder="Escribir email "  required /></label>
-	  </div>
-    
-	
-	<div class="form-group">
-      <label for="name">Teléfono:
-      <input type="text" name="telefono" id="telefono" class="form-control"  placeholder="Escribir Telefono " required /></label>
-	  </div>
-	  
-	  <div class="form-group">
-      <label for="name">Fecha de nacimiento:
-      <input type="date" name="fechanacimiento" id="fechanacimiento" class="form-control"  placeholder="Escribir Fecha de nacimiento " required /></label>
-	  </div>
-    <p class="submit">
-		<input type="submit" name="register" id="registerBtn" class="btn btn-default" value="REGISTRARSE" />
-	</p>
-              </li> 
-	</article>
-	<h5 class="center  -align"> <p class="regtext">¿Ya tiene una cuenta? <a href="../controller/login.php" >Clic aqu&iacute;</a></p> </h5>
-	<h5 class="center  -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
-  </form>
-</div>
- <footer class="page-footer teal solid #ee6e73">
-   
-    <div class="footer-copyright">
-      <div class="container">
-      © UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+					<div class="form-group">  
+						<label for="name">Nombre de usuario:
+							<input type="text" name="nombreusuario" id="nombreusuario" class="form-control"  placeholder="Escribir nombre usuario" required /></label>
+						</div>
+						
+						<div class="form-group">  
+							<label for="name">Contraseña:
+								<input type="password" name="contrasenia" id="contrasenia" class="form-control" minlength="8" maxlength="24" placeholder="Escribir contraseña" required /></label>
+							</div>
+							<div class="form-group">  
+								<label for="name">Confirmar contraseña:
+									<input type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" class="form-control" minlength="8" maxlength="24" placeholder="Repetir Contraseña" required /></label>
+								</div>
+								
+								
+								
+								<div class="form-group">  
+									<label for="name">Nombre:
+										<input type="text" name="nombre" id="nombre" class="form-control"  placeholder="Escribir nombre completo" required /></label>
+									</div>
+									
+									<div class="form-group">  
+										<label for="name">Apellido:
+											<input type="text" name="apellido" id="apellido" class="form-control"  placeholder="Escribir Apellido" required /></label>
+										</div>
+										
+										<div class="form-group">
+											
+											<label for="email">Email:
+												
+												<input type="email" name="email" id="email" class="form-control"  placeholder="Escribir email "  required /></label>
+											</div>
+											
+											
+											<div class="form-group">
+												<label for="name">Teléfono:
+													<input type="text" name="telefono" id="telefono" class="form-control"  placeholder="Escribir Telefono " required /></label>
+												</div>
+												
+												<div class="form-group">
+													<label for="name">Fecha de nacimiento:
+														<input type="date" name="fechanacimiento" id="fechanacimiento" class="form-control"  placeholder="Escribir Fecha de nacimiento " required /></label>
+													</div>
+													<p class="submit">
+														<input type="submit" name="register" id="registerBtn" class="btn btn-default" value="REGISTRARSE" />
+													</p>
+												</li> 
+											</article>
+											<h5 class="center  -align"> <p class="regtext">¿Ya tiene una cuenta? <a href="../controller/login.php" >Clic aqu&iacute;</a></p> </h5>
+											<h5 class="center  -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
+										</form>
+									</div>
+									<footer class="page-footer teal solid #ee6e73">
+										
+										<div class="footer-copyright">
+											<div class="container">
+												© UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
+											</div>
+										</div>
+									</footer>
+								</body>
+								</html>

@@ -1,123 +1,123 @@
 <!DOCTYPE html>
- <html>
-	 
-			
+<html>
+
+
 <!DOCTYPE html>
 <html>
 <head>
-		<title>UnAventon | Información de la cuenta</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
-	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-			<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-			<script type="text/javascript" src="../js/materialize.min.js"></script>
-			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-			<script src="../js/materialize.js"></script>
-			<script src="../js/init.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  <title>UnAventon | Información de la cuenta</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="../js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
-  
-  <?php
-		session_start();	
-		if(!empty($_SESSION['session_username'])) {
-			$email = $_SESSION['session_username'];
-			
-	?>
-  
-  
-  
-  
+
+<?php
+session_start();	
+if(!empty($_SESSION['session_username'])) {
+$email = $_SESSION['session_username'];
+
+?>
+
+
+
+
 <nav class="white" role="navigation"  >
-<div class="nav-wrapper #ff9800 orange" >
- <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
- <ul id="nav-mobile" class="right hide-on-med-and-down">
- <li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
- <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
- </ul>
+  <div class="nav-wrapper #ff9800 orange" >
+   <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+   <ul id="nav-mobile" class="right hide-on-med-and-down">
+     <li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
+     <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+   </ul>
  </div>
 </nav>
 <?php } ?>
-	
-	
-    
+
+
+
 <body style= "background-color:#FEF9E7;">
   
  
 
 
 
-   <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class='elegantshadow'> UnAventon</h1>
-        <h4><center>Necesitamos socios como tú.
-        Conduce con UnAventon y gana dinero como autónomo. Sé tu propio jefe y cobra por conducir en el horario que tú prefieras</center></h4>
+ <div class="section no-pad-bot">
+  <div class="container">
+    <br><br>
+    <h1 class='elegantshadow'> UnAventon</h1>
+    <h4><center>Necesitamos socios como tú.
+    Conduce con UnAventon y gana dinero como autónomo. Sé tu propio jefe y cobra por conducir en el horario que tú prefieras</center></h4>
 
-       
-        <br><br>
-
-      </div>
-    </div>
-  
-  <?php	
-		if(!empty($_SESSION['session_username'])) {
-			$name = $_SESSION['session_username'];
-	?>
-
-
-
- <br><br>
- <br><br>
-  
-  
-  <div id="index-banner" class="parallax-container">
     
-	
-    <div class="parallax"><img src="../img/5.jpg" alt="img 1"></div>
+    <br><br>
+
   </div>
+</div>
+
+<?php	
+if(!empty($_SESSION['session_username'])) {
+$name = $_SESSION['session_username'];
+?>
+
+
+
+<br><br>
+<br><br>
+
+
+<div id="index-banner" class="parallax-container">
+  
+	
+  <div class="parallax"><img src="../img/5.jpg" alt="img 1"></div>
+</div>
 
 
 <table>
-<tr>
-  <td><h4><center>Genera ingresos</center></h4></td>
-  <td><h4><center>Conduce cuando tú quieras</center></h4></td>
-  <td><h4><center>Sin dolores de cabeza</center></h4></td>
-</tr>
- <hr/>
-<tr>
-  <td><center>UnAventon te permite crear miles de viajes. Descubre por ti mismo porqué miles de conductores de todo el país utilizan UnAventon.</center></td>
-  <td><center>Organiza tus horarios como mejor te convenga y no te pierdas ningún momento importante de tu vida. Conéctate cuando tú quieras, es 100% flexible y está disponible 24/7.</center></td>
-  <td><center>Tu coche y la aplicación de UnAventon es todo lo que necesitas. Nos ocupamos de todo para que tú solo tengas que preocuparte de conducir.</center></td>
-</tr>
+  <tr>
+    <td><h4><center>Genera ingresos</center></h4></td>
+    <td><h4><center>Conduce cuando tú quieras</center></h4></td>
+    <td><h4><center>Sin dolores de cabeza</center></h4></td>
+  </tr>
+  <hr/>
+  <tr>
+    <td><center>UnAventon te permite crear miles de viajes. Descubre por ti mismo por qué miles de conductores de todo el país utilizan UnAventon.</center></td>
+    <td><center>Organiza tus horarios como mejor te convenga y no te pierdas ningún momento importante de tu vida. Conéctate cuando tú quieras, es 100% flexible y está disponible 24/7.</center></td>
+    <td><center>Tu coche y la aplicación de UnAventon es todo lo que necesitas. Nos ocupamos de todo para que tú solo tengas que preocuparte de conducir.</center></td>
+  </tr>
 </table>
-	
- <hr></hr>
- <br></br>
-  
-   <div id="index-banner" class="parallax-container">
-	 <div class="parallax"><img src="../img/auto1.jpg" alt="img 1"></div>
-	</div>
+
+<hr></hr>
+<br></br>
+
+<div id="index-banner" class="parallax-container">
+  <div class="parallax"><img src="../img/auto1.jpg" alt="img 1"></div>
+</div>
 
 </div>
 
 <div class="container">
-    <blockquote>
-     <h3>Cuenta </h3>
-    </blockquote>
-    <h5>Con el fin de usar la mayor parte de los aspectos de los servicios, usted debe registrarse y mantener activa una cuenta personal de usuario de los servicios. Para obtener una cuenta debe tener como mínimo 18 años, o tener la mayoría de edad legal en su jurisdicción (si es distinta a los 18 años). El registro de la cuenta le requiere que comunique a UnAventon determinada información personal, como su nombre, apellido, email, teléfono. Usted se compromete a mantener la información en su cuenta de forma exacta, completa y actualizada. Si no mantiene la información de ésta forma, podrá resultar en su imposibilidad para acceder y utilizar los servicios o en la resolución por parte de UnAventon de éstas condiciones. Usted es responsable de toda la actividad que ocurre en su cuenta y se compromete a mantener en todo momento de forma segura y secreta el nombre de usuario y la contraseña. A menos que UnAventon permita otra cosa por escrito, usted solo puede poseer una sola cuenta. </h5>
-    <h5>El Servicio no está disponible para el uso de personas menores de 18 años. Usted no podrá autorizar a terceros a utilizar su cuenta, asimismo no podrá permitir a personas menores de 18 años que reciban servicios de transporte privado o logísticos de terceros proveedores, a menos que aquellos sean acompañados por usted. No podrá ceder o transferir de otro modo su cuenta a cualquier otra persona o entidad. Usted acuerda cumplir con todas las leyes aplicables al utilizar los servicios y solo podrá utilizar los servicios con fines legítimos (por ej., no para el transporte de materiales ilegales o peligrosos). En el uso de los servicios, no causará estorbos, molestias, incomodidades o daños a la propiedad, tanto al tercero proveedor como a cualquier otra parte.
-</h5>
-  </div>
+  <blockquote>
+   <h3>Cuenta </h3>
+ </blockquote>
+ <h5>Con el fin de usar la mayor parte de los aspectos de los servicios, usted debe registrarse y mantener activa una cuenta personal de usuario de los servicios. Para obtener una cuenta debe tener como mínimo 18 años, o tener la mayoría de edad legal en su jurisdicción (si es distinta a los 18 años). El registro de la cuenta le requiere que comunique a UnAventon determinada información personal, como su nombre, apellido, email, teléfono. Usted se compromete a mantener la información en su cuenta de forma exacta, completa y actualizada. Si no mantiene la información de ésta forma, podrá resultar en su imposibilidad para acceder y utilizar los servicios o en la resolución por parte de UnAventon de éstas condiciones. Usted es responsable de toda la actividad que ocurre en su cuenta y se compromete a mantener en todo momento de forma segura y secreta el nombre de usuario y la contraseña. A menos que UnAventon permita otra cosa por escrito, usted solo puede poseer una sola cuenta. </h5>
+ <h5>El Servicio no está disponible para el uso de personas menores de 18 años. Usted no podrá autorizar a terceros a utilizar su cuenta, asimismo no podrá permitir a personas menores de 18 años que reciban servicios de transporte privado o logísticos de terceros proveedores, a menos que aquellos sean acompañados por usted. No podrá ceder o transferir de otro modo su cuenta a cualquier otra persona o entidad. Usted acuerda cumplir con todas las leyes aplicables al utilizar los servicios y solo podrá utilizar los servicios con fines legítimos (por ej., no para el transporte de materiales ilegales o peligrosos). En el uso de los servicios, no causará estorbos, molestias, incomodidades o daños a la propiedad, tanto al tercero proveedor como a cualquier otra parte.
+ </h5>
+</div>
 <footer class="page-footer teal solid #ee6e73">
-   
-    <div class="footer-copyright">
-      <div class="container">
-      © UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
-      </div>
+ 
+  <div class="footer-copyright">
+    <div class="container">
+      © UnAventon <a class="white-text text-lighten-3" href="index.html">- Todos los derechos reservados 2018</a>
     </div>
-  </footer>
+  </div>
+</footer>
 </body>
-  </html>
+</html>

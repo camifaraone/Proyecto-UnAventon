@@ -1,139 +1,139 @@
  <!DOCTYPE html>
  <html>
-	 <?php
-  include "../controller/head.php";
-?>
+ <?php
+ include "../controller/head.php";
+ ?>
 
-	<?php session_start();
+ <?php session_start();
  
-      if(empty($_SESSION['session_username'])) {
-          
-	?>  
-		  <nav class="white" role="navigation"  >
-    <div class="nav-wrapper #ff9800 orange" >
-      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../controller/login.php">Iniciar sesión</a></li>
-        <li><a href="../controller/register.php">Registrarse</a></li>
-      </ul>
-    </div>
-  </nav> <?php } ?>
-	<?php
-			
-		if(!empty($_SESSION['session_username'])) {
-			$email = $_SESSION['session_username'];
-	?>	  
-		<nav class="white" role="navigation"  >
-    <div class="nav-wrapper #ff9800 orange" >
-      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
-        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
-      </ul>
-    </div>
-  </nav>
-	
-	<?php } ?> 
-	
-	
-	
-    
-<body style= "background-color:#FEF9E7;">
-  
+ if(empty($_SESSION['session_username'])) {
  
-
-
-
-   <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class='elegantshadow'> UnAventon</h1>
-        
-       
-        <br><br>
-
-      </div>
-    </div>
-  
-  <?php	
-		if(!empty($_SESSION['session_username'])) {
-			$name = $_SESSION['session_username'];
-	?>
-
- <<div class="row #ff9800 orange">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">Crear viaje</a></li>
-        <li class="tab col s3"><a href="#test2"> Mis viajes</a></li>
-        <li class="tab col s3"><a href="#test3">Mi perfil</a></li>
-
-      </ul>
-    </div>
-  </div>
-  
-	
-    <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>  <a href="../controller/newtrip.php">   <h5 class="center-align"> Presione aquí </h5>   </a> </div>
-  <div id="test2" class="col s12"> <h5 class="center  -align">Aquí puede ver los viajes que ha realizado!</h5>  <a href="">   <h5 class="center-align"> Presione aquí </h5>   </a> </div>
-  <div id="test3" class="col s12"> <h5 class="center  -align">Aquí puede acceder a su perfil!</h5>  <h5 class="center-align"> <?php echo"<a href=../controller/perfil.php?idautoincremental=".$id.">   Ver Perfil  </a>"; ?>  </h5> </div>
-
-<?php } ?> 
-
- <br><br>
- <br><br>
-  
-  
-  <div id="index-banner" class="parallax-container">
-    
-	
-    <div class="parallax"><img src="../img/5.jpg" alt="img 1"></div>
- </div>
+ ?>  
+ <nav class="white" role="navigation"  >
+ 	<div class="nav-wrapper #ff9800 orange" >
+ 		<img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+ 		<ul id="nav-mobile" class="right hide-on-med-and-down">
+ 			<li><a href="../controller/login.php">Iniciar sesión</a></li>
+ 			<li><a href="../controller/register.php">Registrarse</a></li>
+ 		</ul>
+ 	</div>
+ </nav> <?php } ?>
+ <?php
  
-<blockquote>
-     <h4>Viajes activos </h4>
-    </blockquote>
-
-
-<table class="centered">
-        <thead>
-          <tr>
-              <th>Fecha</th>
-              <th>Monto</th>
-              <th>Duracion</th>
-			  <th>Hr.Salida</th>
-			  <th>Distancia /KM</th>
-			  <th>Observaciones</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          
-<?php
+ if(!empty($_SESSION['session_username'])) {
+ $email = $_SESSION['session_username'];
+ ?>	  
+ <nav class="white" role="navigation"  >
+ 	<div class="nav-wrapper #ff9800 orange" >
+ 		<img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+ 		<ul id="nav-mobile" class="right hide-on-med-and-down">
+ 			<li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+ 			<li ><a href="../controller/logout.php">Cerrar sesión</a></li>
+ 		</ul>
+ 	</div>
+ </nav>
  
-  //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
- for($i=0; $i<count($viaje);$i++) {
-     if ($viaje[$i]["fecha"] - date(Y-m-d) < 30){ 
-		 echo "<td>".$viaje[$i]["fecha"].""."</td>";
-		 echo "<td>".$viaje[$i]["monto"].""."</td>";
-		 echo "<td>".$viaje[$i]["duracion"].""."</td>";
-		 echo "<td>".$viaje[$i]["hssalida"].""."</td>";
-		 echo "<td>".$viaje[$i]["distancia"].""."</td>";
-		 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
-	     echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
-	}
-	
-	 }
+ <?php } ?> 
+ 
+ 
+ 
+ 
+ <body style= "background-color:#FEF9E7;">
+ 	
+ 	
 
-?>
-		  
-        </tbody>
-      </table>
 
- <hr></hr>
- <br></br>
-  
-   <div id="index-banner" class="parallax-container">
-	 <div class="parallax"><img src="../img/auto1.jpg" alt="img 1"></div>
-	</div>
+
+ 	<div class="section no-pad-bot">
+ 		<div class="container">
+ 			<br><br>
+ 			<h1 class='elegantshadow'> UnAventon</h1>
+ 			
+ 			
+ 			<br><br>
+
+ 		</div>
+ 	</div>
+ 	
+ 	<?php	
+ 	if(!empty($_SESSION['session_username'])) {
+ 	$name = $_SESSION['session_username'];
+ 	?>
+
+ 	<<div class="row #ff9800 orange">
+ 		<div class="col s12">
+ 			<ul class="tabs">
+ 				<li class="tab col s3"><a href="#test1">Crear viaje</a></li>
+ 				<li class="tab col s3"><a href="#test2"> Mis viajes</a></li>
+ 				<li class="tab col s3"><a href="#test3">Mi perfil</a></li>
+
+ 			</ul>
+ 		</div>
+ 	</div>
+ 	
+ 	
+ 	<div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>  <a href="../controller/newtrip.php">   <h5 class="center-align"> Presione aquí </h5>   </a> </div>
+ 	<div id="test2" class="col s12"> <h5 class="center  -align">Aquí puede ver los viajes que ha realizado!</h5>  <a href="">   <h5 class="center-align"> Presione aquí </h5>   </a> </div>
+ 	<div id="test3" class="col s12"> <h5 class="center  -align">Aquí puede acceder a su perfil!</h5>  <h5 class="center-align"> <?php echo"<a href=../controller/perfil.php?idautoincremental=".$id.">   Ver Perfil  </a>"; ?>  </h5> </div>
+
+ 	<?php } ?> 
+
+ 	<br><br>
+ 	<br><br>
+ 	
+ 	
+ 	<div id="index-banner" class="parallax-container">
+ 		
+ 		
+ 		<div class="parallax"><img src="../img/5.jpg" alt="img 1"></div>
+ 	</div>
+ 	
+ 	<blockquote>
+ 		<h4>Viajes activos </h4>
+ 	</blockquote>
+
+
+ 	<table class="centered">
+ 		<thead>
+ 			<tr>
+ 				<th>Fecha</th>
+ 				<th>Monto</th>
+ 				<th>Duracion</th>
+ 				<th>Hr.Salida</th>
+ 				<th>Distancia /KM</th>
+ 				<th>Observaciones</th>
+ 			</tr>
+ 		</thead>
+
+ 		<tbody>
+ 			
+ 			<?php
+ 			
+ 			//var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
+ 			for($i=0; $i<count($viaje);$i++) {
+ 			if ($viaje[$i]["fecha"] - date(Y-m-d) < 30){ 
+	 			echo "<td>".$viaje[$i]["fecha"].""."</td>";
+	 			echo "<td>".$viaje[$i]["monto"].""."</td>";
+	 			echo "<td>".$viaje[$i]["duracion"].""."</td>";
+	 			echo "<td>".$viaje[$i]["hssalida"].""."</td>";
+	 			echo "<td>".$viaje[$i]["distancia"].""."</td>";
+	 			echo "<td>".$viaje[$i]["observaciones"].""."</td>";
+	 			echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
+ 		}
+ 		
+ 	}
+
+ 	?>
+ 	
+ </tbody>
+</table>
+
+<hr></hr>
+<br></br>
+
+<div id="index-banner" class="parallax-container">
+	<div class="parallax"><img src="../img/auto1.jpg" alt="img 1"></div>
+</div>
 
 </div>
 
@@ -141,19 +141,19 @@
 
 
 
- <div class="container">
-    <div class="section">
+<div class="container">
+	<div class="section">
 
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4> <a class="waves-effect #ff9800 orange btn" href="../controller/quienesomos.php" > Información del sitio </a> </h4>
-          <p class="light ">Conozca todos los detalles de la aplicación</p>
-        </div>
-      </div>
+		<div class="row">
+			<div class="col s12 center">
+				<h3><i class="mdi-content-send brown-text"></i></h3>
+				<h4> <a class="waves-effect #ff9800 orange btn" href="../controller/quienesomos.php" > Información del sitio </a> </h4>
+				<p class="light ">Conozca todos los detalles de la aplicación</p>
+			</div>
+		</div>
 
-    </div>
-  </div>
+	</div>
+</div>
 
 
 
@@ -165,16 +165,16 @@
 <br> 
 <br>
 
-  <?php
-  include "../controller/footer.php";
+<?php
+include "../controller/footer.php";
 ?>
 
-  
-  
-	  
-	  
-	  
-	  
-	  
+
+
+
+
+
+
+
 </body>
-  </html>
+</html>
