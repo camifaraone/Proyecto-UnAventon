@@ -8,7 +8,7 @@ $viaje = get_viajes();
 
 
  
-    if(!isset($_SESSION['session_username'])) {
+    if(isset($_GET['idautoincremental'])) {
 
 $id= ($_GET["idautoincremental"]);
 

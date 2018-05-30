@@ -1,13 +1,12 @@
 <?php
 	 
-	// esta funcion es la misma que el "perfil.php" obetiene todos los datos de un usuario donde el ID es igual al ID pasado por GET
+	// esta funcion obetiene el ID del vehiculo de la persona que esta logueada
  
  
- function get_user($idincremental){
-	 require_once ("db.php");//te crea una conexion
+ function get_user(){
+	 require ("db.php");//te crea una conexion
 	try{
-		$sql = $conn->prepare("select * from usuario where idincremental=:idincremental");
-		$sql->bindParam(":idincremental",$idincremental,PDO::PARAM_INT);
+		$sql = $conn->prepare("select * from vehiculo ");
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )

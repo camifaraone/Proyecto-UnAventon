@@ -4,10 +4,13 @@
 function registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$patente,$id){
 		
 	require_once ("db.php");
+	/*require "../model/unuser.php";
+	$vehiculo = get_user() ;
+	$id = ($vehiculo);
+	var_dump($id); */
 	
 	try{ 
 	
-	die();
 		$sql= $conn->prepare("INSERT INTO vehiculo
 				(marca, color, detalles,cantasientosdisp,modelo,patente,idautoincremental) 
 				VALUES(:marca,:color, :detalles, :cantasientosdisp, :modelo, :patente, :id)" );
@@ -17,7 +20,7 @@ function registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$p
 		$sql->bindParam(":cantasientosdisp",$cantasientosdisp,PDO::PARAM_INT,10);	
 		$sql->bindParam(":modelo",$modelo,PDO::PARAM_STR);
 		$sql->bindParam(":patente",$patente,PDO::PARAM_STR);
-		$sql->bindParam(":id",$id,PDO::PARAM_INT,100);
+		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 	
 			
 		$sql ->execute();

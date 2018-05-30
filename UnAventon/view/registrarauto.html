@@ -1,15 +1,8 @@
 
+<
 <html>
 <head>
-<nav class="white" role="navigation"  >
-<div class="nav-wrapper #ff9800 orange" >
- <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
- <ul id="nav-mobile" class="right hide-on-med-and-down">
- <li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
- <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
- </ul>
- </div>
-</nav>
+
 <title>UnAventon | Registrar vehículo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="../js/perfilvalidar.js"></script>
+	
 <style>
   body{
 
@@ -37,7 +31,22 @@ color:black;
 </style>
 
 </head>
-
+<?php
+			
+		if(!empty($_SESSION['session_username'])) {
+			$email = $_SESSION['session_username'];
+	?>	  
+		<nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+	
+	<?php } ?>
 
 
 <body>
@@ -50,7 +59,7 @@ color:black;
 <div class="container">
 <div id="register">
   
-  <form name="registerform" id="registerform" action="../controller/registrarauto.php" method="POST">
+  <form name="registerform" id="registerform" action="../controller/registrarauto.php?idautoincremental=<?php echo $id ?>" method="POST">
 
 	<div class="form-group">  
 	<label for="name">Marca:
@@ -91,26 +100,19 @@ color:black;
     <p class="submit">
 		<input type="submit" name="register" id="register" class="btn btn-default" value="Registrar" />
 	</p>
-	
-	<p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;!</a>!</p>
   </form>
+  <h5 class="center	-align"> <p class="regtext">Volver a la pagina principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic Aqui  </a>"; ?>!</p> </h5>
+
 </div>
 </div>
-
-
-
-
-
- <?php
-  include "../controller/footer.php";
-?>
-
-
-
-
-
-
-
+<footer class="page-footer teal solid #ee6e73">
+   
+    <div class="footer-copyright">
+      <div class="container">
+      © UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
+      </div>
+    </div>
+  </footer>
 
 
 	</body>
