@@ -14,6 +14,24 @@
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+
+			 
+	<script>
+		function miFuncion(){
+		if(confirm("DESEA ELIMINAR EL PRODUCTO?")){
+			return true;
+		}
+		else{
+			return false;
+		}
+		}
+	</script>		 
+			 
+			 
+			 
+			 
+			 
+			 
 </head>
   
   <?php
@@ -100,8 +118,8 @@
                     		</li>
                     		<li>
 								<div >
-									<a  class="submit" <a href="<?php echo '../controller/editarinformacion.php?idautoincremental=".$id.';?>"> EDITAR </a>
-									<a  class="submit" <a href="<?php echo '../controller/editarcontrasena.php?idautoincremental=".$id.';?>"> EDITAR CONTRASEÑA </a>
+									<a  class="submit" <?php echo"<a href=../controller/editarinformacion.php?idautoincremental=".$id.">  EDITAR </a>"; ?> 
+									<a  class="submit" <?php echo"<a href=../controller/editarcontrasena.php?idautoincremental=".$id.">  EDITAR CONTRASEÑA</a>"; ?>
 								</div>
 								
 							</li> 				
@@ -134,9 +152,8 @@
 	 echo "<td>".$vehiculo[$i]["color"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["patente"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
-     //echo"<td><a href=../controller/verviaje.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar</a></td>";
 	 //echo"<td><a href=../controller/modificarauto.php?id_producto=".$viaje[$i]["id"].">Editar </a></td>";
-	 //echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
+	 echo"<td><a onClick='miFuncion()' href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar Vehiculo </a></td>";
 	 echo "</tr>";
 	
 	 }
