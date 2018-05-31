@@ -10,7 +10,7 @@ function delVehiculo($idvehiculo){
 
 		$gsent = $conn->prepare('DELETE FROM vehiculo WHERE idvehiculo = :idvehiculo');
 
-		$gsent->bindParam(':id', $id, PDO::PARAM_INT);
+		$gsent->bindParam(':idvehiculo', $idvehiculo, PDO::PARAM_INT);
 				
 		$gsent->execute();
 
