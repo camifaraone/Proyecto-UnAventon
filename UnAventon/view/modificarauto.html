@@ -19,15 +19,22 @@
 </head>
 
 	  
+		<?php
+			session_start();
+		if(!empty($_SESSION['session_username'])) {
+			$email = $_SESSION['session_username'];
+	?>	  
 		<nav class="white" role="navigation"  >
     <div class="nav-wrapper #ff9800 orange" >
       <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <li>Bienvenido!</li><li>&nbsp;<?php echo $email ?>  </li>
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
         <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
       </ul>
     </div>
   </nav>
+	
+	<?php } ?> 
 	
 <body style="background-color: #FEF9E7;">
 	<div class="container">
