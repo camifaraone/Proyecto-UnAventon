@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <?php
+  include "../controller/head.php";
+?>
+
 		<title>UnAventon | Mis viajes</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
@@ -19,13 +23,7 @@
   <?php
 		session_start();	
 		if(!empty($_SESSION['session_username'])) {
-			$email = $_SESSION['session_username'];
-			
-	?>
-  
-  
-  
-  
+			$email = $_SESSION['session_username'];?>
 <nav class="white" role="navigation"  >
 <div class="nav-wrapper #ff9800 orange" >
  <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
@@ -40,15 +38,16 @@
 
 <body style="background-color: #FEF9E7;">
 	<div class="container">
-		<div class="jumbotron">
+	<div class="jumbotron">
 	<article>
 		<section>
 			<div> 
-						<ul>
-							<li> 
-								<h4>MIS VIAJES</h4>
-								<p> Información de viajes</p>
-
+				<ul>
+					<li> 
+						<h4>MIS VIAJES</h4>
+							<p> Información de viajes</p>
+					</li>
+				</ul>	
 
 <table  class="table table-bordered" id="table">
 <thead>
@@ -63,27 +62,25 @@
 </thead>
   <tbody>
   <?php
-  for($i=0; $i<count($vehiculo);$i++) {
-   echo "<tr><td>".$viaje["fecha"]."</td>";
+  for($i=0; $i<count($viaje);$i++) {
+   	echo "<td>".$viaje["fecha"]."</td>";
 	 echo "<td>".$viaje["monto"].""."</td>";
 	 echo"<td>".$viaje["duracion"].""."</td>";
 	 echo"<td>".$viaje["hssalida"].""."</td>";
 	 echo"<td>".$viaje["distancia"].""."</td>";
 	 echo"<td>".$viaje["observaciones"].""."</td>";
-	
+	}
   ?>
+ 
   </tbody>
   </table>
-  <hr width="100%">
+  <hr width="100%"> </hr>
  </div>
 
 </section>
 	</article>
 	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	
-	</form>
-</div>
-
 
  <footer class="page-footer teal solid #ee6e73">
     <div class="footer-copyright">
@@ -92,10 +89,5 @@
       </div>
     </div>
   </footer>
- 	</body>
-	</html>
-
-
-
-
-
+</body>
+</html>

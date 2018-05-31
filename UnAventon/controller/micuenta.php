@@ -63,12 +63,7 @@
 								
 							</li>
                     		<li>
-								<div >
-									<a  class="submit" href="../controller/editarinformacion.php">EDITAR</a> 
-								</div>
-							</li><li><div >
-									<a  class="submit" href="../controller/editarcontrasena.php">EDITAR CONTRASEÑA</a> 
-								</div></li>					
+										
 						</ul> 
 					</div>
 						
