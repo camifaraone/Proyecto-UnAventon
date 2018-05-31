@@ -23,7 +23,7 @@ if(!empty($_POST['marca']) && !empty($_POST['color']) && !empty($_POST['detalles
 
 	
 	$v = registrar_vehiculo($marca,$color,$detalles,$cantasientosdisp,$modelo,$patente,$id);			
-	var_dump($id);		 
+		 
 	
 	
 
