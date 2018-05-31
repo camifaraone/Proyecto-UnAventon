@@ -14,7 +14,7 @@ $id= ($_GET["idautoincremental"]);
 
 
 $vehiculo = get_vehiculo($id);
-$idvehiculo= delVehiculo($_GET["idvehiculo"]);
+
 
 
 
