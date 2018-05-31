@@ -6,6 +6,8 @@
 <title>UnAventon | Registrar vehículo</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="../js/autovalidar.js"></script>
+
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -94,12 +96,11 @@ color:black;
 	  <input type="text" name="patente" id="patente" class="form-control"  placeholder="Escribir la patente"  required /></label>
 	  </div>
     
-	
-    
-	
-    <p class="submit">
-		<input type="submit" name="register" id="register" class="btn btn-default" value="Registrar" />
+
+	<p class="submit">
+		<input type="submit" name="register" id="registerBtn" class="btn btn-default" onClick="runSubmit(this.form)" value="REGISTRAR" />
 	</p>
+
   </form>
   <h5 class="center	-align"> <p class="regtext">Volver a la pagina principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic Aqui  </a>"; ?>!</p> </h5>
 

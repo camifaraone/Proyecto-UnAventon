@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UnAventon | Mis viajes</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/materialize.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="../js/materialize.js"></script>
+	<script src="../js/init.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+<nav class="white" role="navigation"  >
+	<div class="nav-wrapper #ff9800 orange" >
+		<img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
+			<li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+		</ul>
+	</div>
+</nav>
+
+
+
+<body style="background-color: #FEF9E7;">
+	<div class="container">
+		<div class="jumbotron">
+			<?php
+
+			$date_today= new DateTime('now');
+			$comparing_date=date_add($date_today,date_interval_create_from_date_string("30 days"));
+
+ 			for($i=0; $i < count($viaje); $i++) {
+	 			if ($viaje[$i]["fecha"] < $comparing_date){ 
+		 			echo "<td>".$viaje[$i]["fecha"].""."</td>";
+		 			echo "<td>".$viaje[$i]["monto"].""."</td>";
+		 			echo "<td>".$viaje[$i]["duracion"].""."</td>";
+		 			echo "<td>".$viaje[$i]["hssalida"].""."</td>";
+		 			echo "<td>".$viaje[$i]["distancia"].""."</td>";
+		 			echo "<td>".$viaje[$i]["observaciones"].""."</td>";
+		 			echo "<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
+	 			}
+ 			}
+	}
+
+	?>
+	<hr width="100%">
+</div>
+<h5 class="center -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
+</div>
+<?php
+include "../controller/footer.php";
+?>
+
+</body>
+</html>
+
+
+

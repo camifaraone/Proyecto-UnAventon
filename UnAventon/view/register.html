@@ -3,6 +3,7 @@
 <title>UnAventon | Registrar usuario</title>
 
   <meta charset="utf-8">
+  <script type="text/javascript" src="../js/perfilvalidar.js"></script>
   <link rel="stylesheet" type="text/css" href="../css/estilo.css">
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -15,7 +16,7 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
-<script type="text/javascript" src="../js/perfilvalidar.js"></script>
+
 <nav class="white" role="navigation"  >
 <div class="nav-wrapper #ff9800 orange" >
  <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
@@ -81,8 +82,9 @@
       <label for="name">Fecha de nacimiento:
       <input type="date" name="fechanacimiento" id="fechanacimiento" class="form-control"  placeholder="Escribir Fecha de nacimiento " required /></label>
 	  </div>
-    <p class="submit">
-		<input type="submit" name="register" id="registerBtn" class="btn btn-default" value="REGISTRARSE" />
+   
+	<p class="submit">
+		<input type="submit" name="register" id="registerBtn" class="btn btn-default" onClick="runSubmit(this.form)" value="REGISTRARSE" />
 	</p>
               </li> 
 	</article>
