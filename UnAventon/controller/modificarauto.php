@@ -8,7 +8,7 @@
 	<title>UnAventon | Editar datos del auto</title>
 <link rel="stylesheet" type="text/css" href="../js/estilo.css">
 </head>
-<script type="text/javascript" src="../js/editarauto.js"></script>
+<script type="text/javascript" src="../js.editarauto.js"></script>
 <body "background-color: #FEF9E7;">
 	<div id="global">
 	<?php
