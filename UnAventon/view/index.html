@@ -107,11 +107,14 @@
 
         <tbody>
           
-<?php
- 
+ <?php
+       $today = date("Y-m-d");
+      $date = "2018-06-30";
+
+      if ($date > $today) {   
   //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
  for($i=0; $i<count($viaje);$i++) {
-     
+      if ($viaje[$i]["fecha"] < $date){ 
 	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
 	 echo "<td>".$viaje[$i]["monto"].""."</td>";
 	 echo "<td>".$viaje[$i]["duracion"].""."</td>";
@@ -124,9 +127,13 @@
 	 echo "</tr>";
 	
 	 }
-
+}
+}
 ?>
-		  
+		
+
+    
+      
         </tbody>
       </table>
 
