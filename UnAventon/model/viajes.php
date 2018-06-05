@@ -5,7 +5,7 @@
   function get_viajes(){
 	require_once ("db.php");
 	try{
-		$sql = $conn->prepare("select * from viaje");
+		$sql = $conn->prepare("select * from viaje INNER JOIN origen ON  viaje.idOrigen = origen.idOrigen INNER JOIN destino ON viaje.idDestino = destino.idDestino");
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )

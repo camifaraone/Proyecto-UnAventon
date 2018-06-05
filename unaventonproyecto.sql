@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2018 a las 22:49:46
+-- Tiempo de generación: 05-06-2018 a las 05:04:56
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -51,19 +51,19 @@ CREATE TABLE `calificacionpiloto` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ciudad`
+-- Estructura de tabla para la tabla `destino`
 --
 
-CREATE TABLE `ciudad` (
-  `idciudad` int(100) NOT NULL,
-  `nombreciudad` varchar(255) NOT NULL
+CREATE TABLE `destino` (
+  `idDestino` int(100) NOT NULL,
+  `ciudadDestino` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `ciudad`
+-- Volcado de datos para la tabla `destino`
 --
 
-INSERT INTO `ciudad` (`idciudad`, `nombreciudad`) VALUES
+INSERT INTO `destino` (`idDestino`, `ciudadDestino`) VALUES
 (1, 'La Plata'),
 (2, 'Chascomus'),
 (3, 'Berisso'),
@@ -105,6 +105,29 @@ CREATE TABLE `hacenca` (
   `idautoincremental` int(100) NOT NULL,
   `idcalifica` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `origen`
+--
+
+CREATE TABLE `origen` (
+  `idOrigen` int(100) NOT NULL,
+  `ciudadOrigen` varchar(100) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `origen`
+--
+
+INSERT INTO `origen` (`idOrigen`, `ciudadOrigen`) VALUES
+(1, 'La Plata'),
+(2, 'Berisso'),
+(3, 'Ensenada'),
+(3, 'Bahia Blanca'),
+(4, 'Cordoba'),
+(5, 'Villa Gesell');
 
 -- --------------------------------------------------------
 
@@ -202,8 +225,10 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `Activo`) VALUES
 (1, 'Camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '2345421506', 'myadmin', '1995-04-17', '', 'myadmin', 0),
-(2, 'matias', 'nuÃ±ez', 'matute94_23@hotmail.com', 'mati', '1234', '1234', '2018-05-18', '', '1234', 0),
-(8, 'agustin', 'nuÃ±ez', 'matute94_23@gmail.com', 'agus', '1234', '1234', '2018-05-27', '', '1234', 0);
+(2, 'matias', 'nuÃ±ez', 'matute94_23@hotmail.com', 'mati', '1234', '12345678', '2018-05-18', '', '12345678', 0),
+(8, 'agustin', 'nuÃ±ez', 'matute94_23@gmail.com', 'agus', '1234', '1234', '2018-05-27', '', '1234', 0),
+(9, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camila', '2147483647', 'myadmin95', '1990-10-10', '', 'myadmin95', 0),
+(10, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camilaffdc', '2147483647', 'holahola', '1990-10-10', '', 'holahola', 0);
 
 -- --------------------------------------------------------
 
@@ -229,7 +254,10 @@ CREATE TABLE `vehiculo` (
 
 INSERT INTO `vehiculo` (`idvehiculo`, `marca`, `color`, `detalles`, `cantasientosdisp`, `modelo`, `patente`, `idtipov`, `idautoincremental`) VALUES
 (1, 'AUDI', 'negro', 'a', 4, 'A3', 'AAA 111', '1', 1),
-(2, 'bmw', 'blanco', 'buen estado', 3, 'q6', 'aaa 555', '2', 2);
+(2, 'bmw', 'blanco', 'buen estado', 3, 'q6', 'aaa 555', '2', 2),
+(22, 'fvf', 'vcvfcv', 'vcvf', 1, 'cxxv', 'xvxv', '', 1),
+(23, 'sfsf', 'sef', 'sef', 3, 'sef', 'sfe', '', 1),
+(24, 'fsfsef', 'sfef', 'sef', 2, 'sef', 'sef', '', 1);
 
 -- --------------------------------------------------------
 
@@ -238,27 +266,29 @@ INSERT INTO `vehiculo` (`idvehiculo`, `marca`, `color`, `detalles`, `cantasiento
 --
 
 CREATE TABLE `viaje` (
-  `fecha` date NOT NULL,
+  `idautoincremental` int(11) NOT NULL,
   `idviaje` int(200) NOT NULL,
+  `fecha` date NOT NULL,
   `monto` float NOT NULL,
   `duracion` varchar(200) NOT NULL,
-  `observaciones` varchar(200) NOT NULL,
   `hssalida` varchar(200) NOT NULL,
-  `estadopago` varchar(200) NOT NULL,
   `comision` varchar(200) NOT NULL,
   `distancia` int(255) NOT NULL,
-  `idciudad` int(100) NOT NULL,
   `idvehiculo` int(100) NOT NULL,
-  `idviajed` int(100) NOT NULL
+  `idviajed` int(100) NOT NULL,
+  `idOrigen` int(100) NOT NULL,
+  `idDestino` int(100) NOT NULL,
+  `observaciones` varchar(200) NOT NULL,
+  `estadopago` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`fecha`, `idviaje`, `monto`, `duracion`, `observaciones`, `hssalida`, `estadopago`, `comision`, `distancia`, `idciudad`, `idvehiculo`, `idviajed`) VALUES
-('2018-05-01', 1, 1000, '13:00hs', 'sin aire acondicionado', '12:00hs', '', '5', 300, 0, 0, 0),
-('2018-05-22', 2, 500, '14:00hs', 'funciona todo', '9:00hs', '', '5', 100, 1, 1, 0);
+INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `comision`, `distancia`, `idvehiculo`, `idviajed`, `idOrigen`, `idDestino`, `observaciones`, `estadopago`) VALUES
+(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', '5', 300, 2, 2, 2, 2, 'sin aire acondicionado', ''),
+(1, 2, '2018-05-22', 500, '14:00hs', '9:00hs', '5', 100, 1, 1, 1, 1, 'funciona todo', '');
 
 --
 -- Índices para tablas volcadas
@@ -279,10 +309,10 @@ ALTER TABLE `calificacionpiloto`
   ADD UNIQUE KEY `idautoincremental` (`idautoincremental`);
 
 --
--- Indices de la tabla `ciudad`
+-- Indices de la tabla `destino`
 --
-ALTER TABLE `ciudad`
-  ADD PRIMARY KEY (`idciudad`);
+ALTER TABLE `destino`
+  ADD PRIMARY KEY (`idDestino`);
 
 --
 -- Indices de la tabla `estadopostulacion`
@@ -361,9 +391,6 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `vehiculo`
   ADD PRIMARY KEY (`idvehiculo`),
-  ADD UNIQUE KEY `nombreve_2` (`idtipov`),
-  ADD UNIQUE KEY `idautoincremental_2` (`idautoincremental`),
-  ADD KEY `nombreve` (`idtipov`),
   ADD KEY `idautoincremental` (`idautoincremental`);
 
 --
@@ -372,10 +399,10 @@ ALTER TABLE `vehiculo`
 ALTER TABLE `viaje`
   ADD PRIMARY KEY (`idviaje`),
   ADD UNIQUE KEY `distancia_2` (`distancia`),
-  ADD UNIQUE KEY `idciudad_2` (`idciudad`),
+  ADD UNIQUE KEY `idciudad_2` (`idOrigen`),
   ADD UNIQUE KEY `idvehiculo_2` (`idvehiculo`),
   ADD KEY `distancia` (`distancia`),
-  ADD KEY `idciudad` (`idciudad`),
+  ADD KEY `idciudad` (`idOrigen`),
   ADD KEY `idvehiculo` (`idvehiculo`);
 
 --
@@ -395,10 +422,10 @@ ALTER TABLE `calificacionpiloto`
   MODIFY `Idcalificp` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `ciudad`
+-- AUTO_INCREMENT de la tabla `destino`
 --
-ALTER TABLE `ciudad`
-  MODIFY `idciudad` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `destino`
+  MODIFY `idDestino` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `estadopostulacion`
@@ -422,13 +449,13 @@ ALTER TABLE `respuesta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `idvehiculo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idvehiculo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `viaje`

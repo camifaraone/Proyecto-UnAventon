@@ -41,7 +41,7 @@
 		<div class="jumbotron">
 	<article>
 		<section>
-				<form class="contact_form" action="" method="post" name="contact_form">
+				<form class="contact_form" action="../controller/modificarauto.php" method="post" name="contact_form">
 					<div> 
 						<ul>
 							<li> 
@@ -51,20 +51,28 @@
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Marca:</label>
-								<input type="text" name="name"/>
+								<input type="text" name="marca" id="marca" value= " <?php echo $datosauto['marca']; ?>" />
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Modelo:</label>
-								<input type="text" name="name"/>
+								<input type="text" name="modelo" id="modelo" value= " <?php echo $datosauto['modelo']; ?>"/>
 							</li> 
 							<li> 
 								<label for="name"><em>*</em>Color:</label>
-								<input type="text" name="name"/>
+								<input type="text" name="color" id="color" value= " <?php echo $datosauto['color']; ?>"/>
+							</li>
+							<li> 
+								<label for="name"><em>*</em>Detalles:</label>
+								<input type="text" name="detalles" id="detalles" value= " <?php echo $datosauto['detalles']; ?>"/>
+							</li>
+							<li> 
+								<label for="name"><em>*</em>Cantidad de asientos disponibles:</label>
+								<input type="text" name="cantasientosdisp" id="cantasientosdisp" value= " <?php echo $datosauto['cantasientosdisp']; ?>"/>
 							</li>
 							<li>
 								<label for="name"><em>*</em>Patente:</label>
-								<input type="text" name="name"/>
-								<button class="submit" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
+								<input type="text" name="patente" id="patente" value= " <?php echo $datosauto['patente']; ?>"/>
+								<button class="submit" name="modif" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
 							</li> 							
 						</ul> 
 					</div>
