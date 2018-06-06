@@ -1,30 +1,59 @@
 <html>
 <head>
 
-	<title>Registrar</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">		
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="../js/vehicleSelector.js"></script>
-	<style>
-	body{
-		background-color:#FEF9E7
-	}
-	.jumbotron{
-		background-color:#ff9800;
-		color: #fff; 
-	}
-	.container{
-		color:black;
-	}
-	.submit{
-		color:black;
-	}
-</style>
-</head>
+<title>UnAventon | Registrar vehículo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+ 
+  <script type="text/javascript" src="../js/autovalidar.js"></script>
+  	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script type="text/javascript" src="../js/materialize.min.js"></script>
+			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script src="../js/materialize.js"></script>
+			<script src="../js/init.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../js/perfilvalidar.js"></script>
+	
+
+<?php session_start();
+ 
+      if(empty($_SESSION['session_username'])) {
+          
+  ?>  
+      <nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../controller/login.php">Iniciar sesión</a></li>
+        <li><a href="../controller/register.php">Registrarse</a></li>
+      </ul>
+    </div>
+  </nav> <?php } ?>
+  <?php
+      
+    if(!empty($_SESSION['session_username'])) {
+      $email = $_SESSION['session_username'];
+  ?>    
+    <nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <?php } ?> 
+    
+<body style= "background-color:#FEF9E7;">
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Crear un viaje</h1>      
@@ -89,10 +118,19 @@
 				<p class="submit">
 					<input type="submit" name="finishtrip" id="finishtrip" class="btn btn-default" value="Crear viaje" />
 				</p>
-				<h5 class="center	-align"> <p class="regtext">Volver a la pagina principal? <a href="../controller/index.php" >Clic Aqu&iacute;</a>!</p> </h5>
+				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
+
 
 			</form>
 		</div>
 	</div>
 </body>
-</html>
+<footer class="page-footer teal solid #ee6e73">
+   
+    <div class="footer-copyright">
+      <div class="container">
+      © UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
+      </div>
+    </div>
+  </footer>
+</body></html>
