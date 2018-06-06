@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2018 a las 05:04:56
--- Versión del servidor: 10.1.31-MariaDB
--- Versión de PHP: 7.2.4
+-- Tiempo de generación: 06-06-2018 a las 13:46:04
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -214,7 +212,7 @@ CREATE TABLE `usuario` (
   `telefono` varchar(50) NOT NULL,
   `contrasenia` varchar(100) NOT NULL,
   `fechanacimiento` date NOT NULL,
-  `foto` varchar(200) NOT NULL,
+  `foto` longtext NOT NULL,
   `confirmarcontrasenia` varchar(100) NOT NULL,
   `Activo` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -224,11 +222,24 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `Activo`) VALUES
-(1, 'Camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '2345421506', 'myadmin', '1995-04-17', '', 'myadmin', 0),
+(1, 'Camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '2345421506', 'myadmin', '1995-04-17', 'avatar.jpg', 'myadmin', 0),
 (2, 'matias', 'nuÃ±ez', 'matute94_23@hotmail.com', 'mati', '1234', '12345678', '2018-05-18', '', '12345678', 0),
 (8, 'agustin', 'nuÃ±ez', 'matute94_23@gmail.com', 'agus', '1234', '1234', '2018-05-27', '', '1234', 0),
 (9, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camila', '2147483647', 'myadmin95', '1990-10-10', '', 'myadmin95', 0),
-(10, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camilaffdc', '2147483647', 'holahola', '1990-10-10', '', 'holahola', 0);
+(10, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camilaffdc', '2147483647', 'holahola', '1990-10-10', '', 'holahola', 0),
+(11, 'Caro', 'Faraone', 'camilafaraone@gmail.com', 'carofaraone', '22222232222', '12345678', '2010-10-10', '', '12345678', 0),
+(12, 'Carolina', 'Faraone', 'camilafaraone@gmail.com', 'carofaraone', '222222222', 'lkmkn lÃ±n', '2000-10-10', '', '.mnkÂ´Ã±lnÃ‡', 0),
+(13, 'Carolina', 'Faraone', 'camilafaraone@gmail.com', 'carofaraone', '222222222', 'carolina', '2000-10-10', '', 'carolina', 0),
+(14, 'camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '32236323', 'camilafa', '1995-02-20', '', 'camilafa', 0),
+(15, 'camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '32236323', 'carolina', '1995-02-20', '', 'carolina', 0),
+(16, 'camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '32236323', 'camilafa', '1995-02-20', '', 'camilafa', 0),
+(17, 'camila', 'Faraone', 'njajrweinr@gmail.com', 'carofaraone', '546454', 'holahola', '2000-10-10', '', 'holahola', 0),
+(18, 'ca', 'fara', 'wfjrhwfc@gmail.com', 'carofaraone', '7258725', 'holahola', '1995-02-20', '', 'holahola', 0),
+(19, 'ca', 'fara', 'wfjrhwfc@gmail.com', 'carofaraone', '7258725', 'holahola', '2010-02-20', '', 'holahola', 0),
+(20, 'ca', 'fara', 'wfjrhwfc@gmail.com', 'carofaraone', '7258725', 'holahola', '2018-10-10', '', 'holahola', 0),
+(21, 'ca', 'fara', 'wfjrhwfc@gmail.com', 'carofaraone', '7258725', 'holahola', '2018-10-10', '', 'holahola', 0),
+(22, 'ca', 'fara', 'wfjrhwfc@gmail.com', 'carofaraone', '7258725', 'holahola', '2018-10-10', '', 'holahola', 0),
+(23, 'ca', 'fara', 'wfjrhwfc@gmail.com', 'carofaraone', '7258725', 'holahola', '2018-10-10', '', 'holahola', 0);
 
 -- --------------------------------------------------------
 
@@ -256,8 +267,7 @@ INSERT INTO `vehiculo` (`idvehiculo`, `marca`, `color`, `detalles`, `cantasiento
 (1, 'AUDI', 'negro', 'a', 4, 'A3', 'AAA 111', '1', 1),
 (2, 'bmw', 'blanco', 'buen estado', 3, 'q6', 'aaa 555', '2', 2),
 (22, 'fvf', 'vcvfcv', 'vcvf', 1, 'cxxv', 'xvxv', '', 1),
-(23, 'sfsf', 'sef', 'sef', 3, 'sef', 'sfe', '', 1),
-(24, 'fsfsef', 'sfef', 'sef', 2, 'sef', 'sef', '', 1);
+(23, 'sfsf', 'sef', 'sef', 3, 'sef', 'sfe', '', 1);
 
 -- --------------------------------------------------------
 
@@ -279,16 +289,17 @@ CREATE TABLE `viaje` (
   `idOrigen` int(100) NOT NULL,
   `idDestino` int(100) NOT NULL,
   `observaciones` varchar(200) NOT NULL,
-  `estadopago` varchar(200) NOT NULL
+  `estadopago` varchar(200) NOT NULL,
+  `tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `comision`, `distancia`, `idvehiculo`, `idviajed`, `idOrigen`, `idDestino`, `observaciones`, `estadopago`) VALUES
-(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', '5', 300, 2, 2, 2, 2, 'sin aire acondicionado', ''),
-(1, 2, '2018-05-22', 500, '14:00hs', '9:00hs', '5', 100, 1, 1, 1, 1, 'funciona todo', '');
+INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `comision`, `distancia`, `idvehiculo`, `idviajed`, `idOrigen`, `idDestino`, `observaciones`, `estadopago`, `tipo`) VALUES
+(2, 1, '2018-06-13', 1000, '13:00hs', '12:00hs', '5', 300, 2, 2, 2, 2, 'sin aire acondicionado', '', 0),
+(1, 2, '2018-07-18', 500, '14:00hs', '9:00hs', '5', 100, 1, 1, 5, 4, 'funciona todo', '', 0);
 
 --
 -- Índices para tablas volcadas
@@ -414,56 +425,46 @@ ALTER TABLE `viaje`
 --
 ALTER TABLE `calificacionacompaniante`
   MODIFY `idcalifica` int(100) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `calificacionpiloto`
 --
 ALTER TABLE `calificacionpiloto`
   MODIFY `Idcalificp` int(100) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `destino`
 --
 ALTER TABLE `destino`
   MODIFY `idDestino` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
   MODIFY `idep` int(100) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
   MODIFY `idpregunta` int(100) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
   MODIFY `idrespuesta` int(100) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `idvehiculo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
+  MODIFY `idvehiculo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT de la tabla `viaje`
 --
 ALTER TABLE `viaje`
   MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

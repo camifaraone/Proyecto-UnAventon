@@ -3,25 +3,12 @@
 
 <title>UnAventon | Registrar vehículo</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
- 
-  <script type="text/javascript" src="../js/autovalidar.js"></script>
-  	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-			<script type="text/javascript" src="../js/materialize.min.js"></script>
-			<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-			<script src="../js/materialize.js"></script>
-			<script src="../js/init.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="../js/perfilvalidar.js"></script>
 	
+  <script type="text/javascript" src="../js/viajevalidar.js"></script>
+  	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+			
 
+ 
 <?php session_start();
  
       if(empty($_SESSION['session_username'])) {
@@ -60,24 +47,32 @@
 		</div>
 	</div>
 	<div class="container">
-		<div id="newTrip">
-			<form name="tripForm" id="tripForm" action="../controller/crearviaje.php" method="POST">
-				<div class="form-group">  
-					<label for="type1"> Recurrente.
-						<input type="radio" name="tipo" id="tipo1" class="form-control"  required />
-					</label>  
-					<label for="type2"> Único.
-						<input type="radio" name="tipo" id="tipo2" class="form-control"  required />
-					</label>
+			<div class="form-group">
+			<label for="tipo">Tipo de viaje:
+					<select >
+						<option value="" disabled selected></option>
+						<option value="1">Recurrente</option>
+						<option value="2">Único</option>
+					</select>
+			</label>
 				</div>
 				<div class="form-group">
 					<label for="fechaviaje">Fecha del viaje:
 						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
 					</label>
 				</div>
-				<div class="form-group">  
-					<label for="destino">Destino:
-						<input type="text" name="destino" id="destino" class="form-control"  placeholder="Escribir ciudad destino" required />
+					<div class="form-group"> 
+					<label for="Destino">Destino:
+					<select>
+						<option value="" disabled selected></option>
+						<option value="1">La Plata</option>
+						<option value="2">Chascomus</option>
+						<option value="3">Berisso</option>
+						<option value="4">Ensenada</option>
+						<option value="5">Buenos Aires</option>
+						<option value="6">Saladillo</option>
+						
+					</select>
 					</label>
 				</div>
 				<div class="form-group">  
@@ -105,14 +100,15 @@
 						<input type="text" name="observaciones" id="observaciones" class="form-control"  placeholder="Escribir observaciones" required />
 					</label>
 				</div>
-				<p id="vehicleSelector"> Elija su vehículo </p>
-				<div class="input-field col s12">
+				<div class="form-group"> 
+				<label for="vehiculo">Elija su vehículo:
 					<select>
-						<option value="" disabled selected>Vehiculos</option>
-						<option value="1">Option 1</option>
-						<option value="2">Option 2</option>
-						<option value="3">Option 3</option>
+						<option value="" disabled selected></option>
+						<option value="1">Auto</option>
+						<option value="2">Camioneta</option>
+						<option value="3">Combi</option>
 					</select>
+				</label>
 				</div>
 				<br></br>
 				<p class="submit">

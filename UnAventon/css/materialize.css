@@ -5407,7 +5407,7 @@ button.btn-floating {
 }
 
 .collapsible-body {
-  display: none;
+  display: block;
   border-bottom: 1px solid #ddd;
   box-sizing: border-box;
 }
@@ -5583,7 +5583,7 @@ button.btn-floating {
 
 .materialbox-caption {
   position: fixed;
-  display: none;
+  display: block;
   color: #fff;
   line-height: 50px;
   bottom: 0;
@@ -6029,7 +6029,7 @@ textarea.materialize-textarea {
 }
 
 .hiddendiv {
-  display: none;
+  display: block;
   white-space: pre-wrap;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -6470,7 +6470,7 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
 /* Select Field
    ========================================================================== */
 select {
-  display: none;
+  display: block;
 }
 
 select.browser-default {
@@ -6478,6 +6478,7 @@ select.browser-default {
 }
 
 select {
+  display:block;
   background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   padding: 5px;
@@ -7690,7 +7691,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .carousel .carousel-item {
-  display: none;
+  display: block;
   width: 200px;
   height: 400px;
   position: absolute;
@@ -8065,7 +8066,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .picker__day--outfocus {
-  display: none;
+  display: block;
   padding: .75rem 0;
   color: #fff;
 }
