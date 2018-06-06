@@ -44,12 +44,16 @@
 	<article>
 		<section>
 				<form class="contact_form" action="../controller/editarinformacion.php?idautoincremental=<?php echo $id ?>" method="POST" name="contact_form">
+
 					<div> 
 						<ul>
 							<li> 
 								<h4>EDITAR INFORMACIÓN DE LA CUENTA</h4>
 								<p>Información de la cuenta</p>
 								<span class="required_notification">* Datos requeridos</span> 
+							</li>
+							<li>
+								<img src="../img/<?php echo $usuario['foto']; ?>" width="200"/>
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Nombre:</label>
@@ -70,12 +74,19 @@
 							</li>
 							<li> 
 								<label for="phone"><em>*</em>Teléfono:</label>
-								<input name="telefono" id="telefono" required/ value=" <?php echo $usuario['telefono']; ?>">
+								<input name="telefono" id="telefono" required/ value="<?php echo $usuario['telefono']; ?>" name="telefono" required/>
+							</li>
 							</li>
 							<li> 
 								<label for="date" class="date"><em>*</em>Fecha de nacimiento:</label>
-								<input type="date" name="fechanacimiento" id="fechanacimiento" required/ value=" <?php echo $usuario['fechanacimiento']; ?>">
-								<span class="date"></span>
+								<input type="date" name="fechanacimiento" id="fechanacimiento" required/ value= "<?php
+									echo $usuario['fechanacimiento'];
+								?>">
+							</li>
+						
+							<li> 
+								<label for="photo"><em>*</em>Foto:</label>
+								<input type="file" name="usuario" />
 							</li>
 							<li>
 							

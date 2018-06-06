@@ -33,7 +33,8 @@
 			alert("Ingresar número de teléfono");
 			return false
 		}
-		if (form.fechanacimiento.value == ""){
+		var d =("2000-01-01");
+		if (form.fechanacimiento.value < form.d.value) {
 			alert("Ingresar fecha de nacimiento");
 			return false;
 		}

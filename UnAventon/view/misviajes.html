@@ -53,24 +53,38 @@
 <thead>
    <tr>
     <th>Fecha</th>
-    <th>Monto</th>
+    <th>Precio por asiento</th>
     <th>Duración</th>
 	<th>Hr.salida</th>
 	<th>Distancia /KM</th>
+	<th>Ciudad/Origen</th>
+	<th>Ciudad/Destino</th>
 	<th>Observaciones</th>
   </tr>
 </thead>
   <tbody>
-  <?php
-  for($i=0; $i<count($viaje);$i++) {
-   	echo "<td>".$viaje["fecha"]."</td>";
-	 echo "<td>".$viaje["monto"].""."</td>";
-	 echo"<td>".$viaje["duracion"].""."</td>";
-	 echo"<td>".$viaje["hssalida"].""."</td>";
-	 echo"<td>".$viaje["distancia"].""."</td>";
-	 echo"<td>".$viaje["observaciones"].""."</td>";
-	}
-  ?>
+ <?php
+      
+
+  
+  //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
+ for($i=0; $i<count($viaje);$i++) {
+    
+	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
+	 echo "<td>".$viaje[$i]["monto"].""."</td>";
+	 echo "<td>".$viaje[$i]["duracion"].""."</td>";
+	 echo "<td>".$viaje[$i]["hssalida"].""."</td>";
+	 echo "<td>".$viaje[$i]["distancia"].""."</td>";
+	 echo "<td>".$viaje[$i]["ciudadOrigen"].""."</td>";
+	 echo "<td>".$viaje[$i]["ciudadDestino"].""."</td>";
+	 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
+     
+	 echo "</tr>";
+	
+	 }
+
+
+?>
  
   </tbody>
   </table>

@@ -6,7 +6,8 @@
   function get_viaje($id) {
 	 require "../model/db.php";//te crea una conexion
 	try{
-		$sql = $conn->prepare("select * from viaje where idautoincremental=:id");
+		
+		$sql = $conn->prepare("select * from viaje INNER JOIN origen ON  viaje.idOrigen = origen.idOrigen INNER JOIN destino ON viaje.idDestino = destino.idDestino where idautoincremental=:id");
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 		$sql ->execute();
 	
