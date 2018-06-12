@@ -1,26 +1,18 @@
 <?php
 
-function editar_usuario($nombre,$apellido,$nombreusuario,$email,$telefono,$fechanacimiento,$foto,$id){
- require_once ("db.php");
+ ini_set ('display_errors', 'on');
+ ini_set ('log_errors', 'on');
+ ini_set ('display_startup_errors', 'on');
+ ini_set ('error_reporting', E_ALL);
+
+function editar_usuario($nombre,$apellido,$nombreusuario,$email,$telefono,$fechanacimiento,$id){
+ require ("db.php");
 try{
 
-	$sql = $conn->prepare("UPDATE usuario SET nombre=:nombre, apellido=:apellido, nombreusuario=:nombreusuario, email=:email, telefono=:telefono, fechanacimiento=:fechanacimiento, foto=:foto WHERE idautoincremental=:id");
+	$sql = $conn->prepare("UPDATE usuario SET nombre=? ,apellido=? ,nombreusuario=? ,email=?, telefono=?, fechanacimiento=? WHERE idautoincremental=?");
 	
-	$sql->bindParam(":nombre",$nombre, PDO::PARAM_STR,30);
-
-	$sql->bindParam(":apellido",$apellido, PDO::PARAM_STR,30);
-
-	$sql->bindParam(":nombreusuario",$nombreusuario , PDO::PARAM_STR,15);
-
-	$sql->bindParam(":email",$email, PDO::PARAM_STR,30);
-
-	$sql->bindParam(":telefono",$telefono, PDO::PARAM_INT,15);
-	
-	$sql->bindParam(":fechanacimiento",$fechanacimiento, PDO::PARAM_STR,20);
-	
-	$sql->bindParam(":foto", $foto, PDO::PARAM_STR);
-
-	$sql->execute();
+    
+	$sql->execute(array($nombre, $apellido, $nombreusuario, $email, $telefono, $fechanacimiento, $id ));
 	
 
 } catch(PDOException $e){
