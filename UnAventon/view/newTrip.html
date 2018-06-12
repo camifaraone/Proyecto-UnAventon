@@ -61,8 +61,28 @@
 						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
 					</label>
 				</div>
+				<div class="form-group">  
+					<label for="destino">Precio por asiento:
+						<input type="text" name="Precio por asiento" id="precio" class="form-control"  placeholder="Escribir precio" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="destino">Duracion:
+						<input type="time" name="duracion" id="duracion" class="form-control"  placeholder="Escribir la duracion promedio" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="hora">Hora salida:
+						<input type="time" name="hora" id="hora" class="form-control"  placeholder="Escribir hora de salida" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="destino">Distancia:
+						<input type="text" name="distancia" id="distancia" class="form-control"  placeholder="Escribir la distancia /KM" required />
+					</label>
+				</div>
 					<div class="form-group"> 
-					<label for="Destino">Destino:
+					<label for="Destino">Ciudad/Origen:
 					<select>
 						<option value="" disabled selected></option>
 						<option value="1">La Plata</option>
@@ -75,26 +95,21 @@
 					</select>
 					</label>
 				</div>
-				<div class="form-group">  
-					<label for="hora">Hora:
-						<input type="time" name="hora" id="hora" class="form-control"  placeholder="Escribir hora de salida" required />
+				<div class="form-group"> 
+					<label for="Destino">Ciudad/Destino:
+					<select>
+						<option value="" disabled selected></option>
+						<option value="1">La Plata</option>
+						<option value="2">Chascomus</option>
+						<option value="3">Berisso</option>
+						<option value="4">Ensenada</option>
+						<option value="5">Buenos Aires</option>
+						<option value="6">Saladillo</option>
+						
+					</select>
 					</label>
 				</div>
-				<div class="form-group">  
-					<label for="destino">Monto:
-						<input type="number" name="monto" id="monto" class="form-control"  placeholder="Escribir el Monto" required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="destino">Duracion:
-						<input type="time" name="duracion" id="duracion" class="form-control"  placeholder="Escribir la duracion promedio" required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="destino">Distancia:
-						<input type="text" name="distancia" id="distancia" class="form-control"  placeholder="Escribir la distancia /KM" required />
-					</label>
-				</div>
+				
 				<div class="form-group">  
 					<label for="destino">Observaciones:
 						<input type="text" name="observaciones" id="observaciones" class="form-control"  placeholder="Escribir observaciones" required />

@@ -1,22 +1,25 @@
 <?php
 
 
-function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia){
+function newtrip($tipo, $fecha, $monto, $duracion, $hssalida, $distancia, $ciudadOrigen, $ciudadDestino, $observaciones, $nombre){
 		
-	require_once ("db.php");
+	require("db.php");
 	
 	try{
 		$sql= $conn->prepare("INSERT INTO viaje
-				(nombreusuario, email, nombre,apellido,telefono,fechanacimiento,contrasenia,confirmarcontrasenia) 
-				VALUES(:nombreusuario,:email, :nombre, :apellido, :telefono, :fechanacimiento, :contrasenia, :confirmarcontrasenia)" );
-		$sql->bindParam(":nombreusuario",$nombreusuario,PDO::PARAM_STR,100);
-		$sql->bindParam(":email",$email,PDO::PARAM_STR,100);
-		$sql->bindParam(":nombre",$nombre,PDO::PARAM_STR,100);
-		$sql->bindParam(":apellido",$apellido,PDO::PARAM_STR,8);	
-		$sql->bindParam(":telefono",$telefono,PDO::PARAM_INT,15);
-		$sql->bindParam(":fechanacimiento",$fechanacimiento,PDO::PARAM_STR);
-		$sql->bindParam(":contrasenia",$contrasenia,PDO::PARAM_STR,8);
-		$sql->bindParam(":confirmarcontrasenia",$confirmarcontrasenia,PDO::PARAM_STR,8);
+				(tipo, fecha, monto, duracion, hssalida, distancia) 
+				VALUES(:tipo, :fecha, :monto, :duracion, :hssalida, :distancia)" );
+		$sql->bindParam(":tipo",$tipo,PDO::PARAM_STR);
+		$sql->bindParam(":fecha",$fecha,PDO::PARAM_STR);
+		$sql->bindParam(":monto",$monto,PDO::PARAM_INT);
+		$sql->bindParam(":duracion",$duracion,PDO::PARAM_INT);	
+		$sql->bindParam(":hssalida",$hssalida,PDO::PARAM_INT);
+		$sql->bindParam(":distancia",$distancia,PDO::PARAM_STR);
+		$sql->bindParam(":ciudadOrigen",$ciudadOrigen,PDO::PARAM_STR);
+		$sql->bindParam(":ciudadDestino",$ciudadDestino,PDO::PARAM_STR);
+		$sql->bindParam(":nombre",$nombre,PDO::PARAM_STR);
+		
+
 				
 		$sql ->execute();
 	

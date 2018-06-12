@@ -1,26 +1,27 @@
 <?php
 
 
-require_once "../model/newtip.php";
+require "../model/newtip.php";
 
 
 if(isset($_POST["finishtrip"])){
 
 
-if(!empty($_POST['tipo']) && !empty($_POST['fecha']) && !empty($_POST['monto']) && !empty($_POST['duración']) && !empty($_POST['hssalida']) && !empty($_POST['comision']) && !empty($_POST['distancia'])  && !empty($_POST['observaciones']) && !empty($_POST['estadopago'])) {
-	$nombreusuario=$_POST['nombreusuario'];
-	$email=$_POST['email'];
-	$nombre=$_POST['nombre'];
-	$apellido=$_POST['apellido'];
-	$telefono=$_POST['telefono'];
-	$fechanacimiento=$_POST['fechanacimiento'];
-	$contrasenia=$_POST['contrasenia'];
-	$confirmarcontrasenia=$_POST['confirmarcontrasenia'];
+if(!empty($_POST['tipo']) && !empty($_POST['fecha']) && !empty($_POST['monto']) && !empty($_POST['duracion']) && !empty($_POST['hssalida']) && !empty($_POST['distancia']) && !empty($_POST['ciudadOrigen'])  && !empty($_POST['ciudadDestino']) && !empty($_POST['observaciones'])&& !empty($_POST['nombre'])) {
+	$tipo=$_POST['tipo'];
+	$fecha=$_POST['fecha'];
+	$monto=$_POST['monto'];
+	$duracion=$_POST['duracion'];
+	$hssalida=$_POST['hssalida'];
+	$distancia=$_POST['distancia'];
+	$ciudadOrigen=$_POST['ciudadOrigen'];
+	$ciudadDestino=$_POST['ciudadDestino'];
+	$observaciones=$_POST['observaciones'];
+	$nombre=$_POST['¨nombre'];
 	
 	
-	
-	$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia);
-	header("Location: ../controller/login.php");
+	$valor = newtrip($tipo, $fecha, $monto, $duracion, $hssalida, $distancia, $ciudadOrigen, $ciudadDestino, $observaciones, $nombre);
+	header("Location: ../controller/misviajes.php");
 
 
 } else {
@@ -29,7 +30,6 @@ if(!empty($_POST['tipo']) && !empty($_POST['fecha']) && !empty($_POST['monto']) 
 }
 
 
-*/
 
 
 
