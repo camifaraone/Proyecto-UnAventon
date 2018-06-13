@@ -29,4 +29,69 @@ function newtrip($tipo, $fecha, $monto, $duracion, $hssalida, $distancia, $ciuda
 	return true;
 	
  }
+ 
+ 
+ 
+ 
+ function get_origen() {
+	 require "../model/db.php";//te crea una conexion
+	try{
+		$sql = $conn->prepare("select * from origen INNER JOIN viaje ON origen.idOrigen = viaje.idOrigen");
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll();
+	
+   }
+   catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+	 
+ }
+ 
+ 
+ function get_destino() {
+	 require "../model/db.php";//te crea una conexion
+	try{
+		$sql = $conn->prepare("select * from destino INNER JOIN viaje ON destino.idDestino = viaje.idDestino");
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll();
+	
+   }
+   catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+	 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 ?>

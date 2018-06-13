@@ -14,21 +14,21 @@ $id= ($_GET["idautoincremental"]);
 
 if(isset($_POST["editar"])){
 
-if(!empty($_POST['contrasenia']) == '' && !empty($_POST['nuevacontrasenia']) == '' && !empty($_POST['confirmarcontrasenia']) == ''){
-
+if(!empty($_POST['contrasenia']) && !empty($_POST['confirmarcontrasenia'])){
+	if($_POST['contrasenia']== $_POST['confirmarcontrasenia']) {
+    
     $contrasenia= $_POST['contrasenia']; //por formulario
-    $nuevacontrasenia= $_POST['nuevacontrasenia'];
     $confirmarcontrasenia=$_POST['confirmarcontrasenia'];
 
     
     
     
-    $editar = editar_contrasenia($contrasenia,$nuevacontrasenia,$confirmarcontrasenia,$id);
-    var_dump($editar);
+    $editarcontrasenia = editar_contrasenia($contrasenia,$confirmarcontrasenia,$id);
+    var_dump($editarcontrasenia);
     header("Location: ../controller/perfil.php?idautoincremental=".$id);
 
 
-} else {
+}} else {
      $message = "Todos los campos deben estar completos";
 }
 }

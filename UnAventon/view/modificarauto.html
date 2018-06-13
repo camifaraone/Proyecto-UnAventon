@@ -41,7 +41,7 @@
 		<div class="jumbotron">
 	<article>
 		<section>
-				<form class="contact_form" action="../controller/modificarauto.php" method="post" name="contact_form">
+				<form class="contact_form" action="../controller/modificarauto.php?idautoincremental=<?php echo $id ?>" method="post" name="contact_form">
 					<div> 
 						<ul>
 							<li> 
@@ -79,8 +79,8 @@
 				</form>							
 		</section>
 	</article>
-	<h5 class="center  -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
-  </form>
+	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	 </form>
 </div>
 
 

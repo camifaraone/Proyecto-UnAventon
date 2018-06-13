@@ -1,28 +1,23 @@
 <html>
 <head>
 
-<title>UnAventon | Registrar vehículo</title>
+<title>UnAventon | Crear Publicacion de Viaje</title>
 	<meta charset="utf-8">
-	
-  <script type="text/javascript" src="../js/viajevalidar.js"></script>
-  	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-			
+  <script type="text/javascript" src="../js/perfilvalidar.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="../js/materialize.min.js"></script>
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="../js/materialize.js"></script>
+      <script src="../js/init.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>	
+</head>
+ 
 
- 
-<?php session_start();
- 
-      if(empty($_SESSION['session_username'])) {
-          
-  ?>  
-      <nav class="white" role="navigation"  >
-    <div class="nav-wrapper #ff9800 orange" >
-      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../controller/login.php">Iniciar sesión</a></li>
-        <li><a href="../controller/register.php">Registrarse</a></li>
-      </ul>
-    </div>
-  </nav> <?php } ?>
   <?php
       
     if(!empty($_SESSION['session_username'])) {
@@ -40,12 +35,13 @@
   
   <?php } ?> 
     
-<body style= "background-color:#FEF9E7;">
-	<div class="container">
-		<div class="jumbotron">
-			<h1>Crear un viaje</h1>      
-		</div>
-	</div>
+<body style="background-color: #FEF9E7;">
+<div class="container">
+  <div class="jumbotron">
+ <article>
+    <h1>Crear Viaje</h1>      
+</div>
+</div>
 	<div class="container">
 			<div class="form-group">
 			<label for="tipo">Tipo de viaje:
@@ -63,7 +59,7 @@
 				</div>
 				<div class="form-group">  
 					<label for="destino">Precio por asiento:
-						<input type="text" name="Precio por asiento" id="precio" class="form-control"  placeholder="Escribir precio" required />
+						<input type="text" name="precioasiento" id="precioasiento" class="form-control"  placeholder="Escribir precio" required />
 					</label>
 				</div>
 				<div class="form-group">  
@@ -73,7 +69,7 @@
 				</div>
 				<div class="form-group">  
 					<label for="hora">Hora salida:
-						<input type="time" name="hora" id="hora" class="form-control"  placeholder="Escribir hora de salida" required />
+						<input type="time" name="horasalida" id="horasalida" class="form-control"  placeholder="Escribir hora de salida" required />
 					</label>
 				</div>
 				<div class="form-group">  
@@ -129,8 +125,8 @@
 				<p class="submit">
 					<input type="submit" name="finishtrip" id="finishtrip" class="btn btn-default" value="Crear viaje" />
 				</p>
-				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
-
+				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	
 
 			</form>
 		</div>

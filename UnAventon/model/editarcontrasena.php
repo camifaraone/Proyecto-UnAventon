@@ -1,17 +1,15 @@
 <?php
 
-function editar_usuario( $contrasenia,$nuevacontrasenia,$confirmarcontrasenia,$id){
+function editar_contrasenia($contrasenia,$confirmarcontrasenia,$id){
  require "db.php";
 
 try{
 
-	$sql = $conn->prepare("UPDATE usuario SET contrasenia=:contrasenia, confirmarcontrasenia=:confirmarcontrasenia where idautoincremental=:id");
+	$sql = $conn->prepare("UPDATE usuario SET contrasenia=?, confirmarcontrasenia=? WHERE idautoincremental=?");
 	
-	$sql->bindParam(":contrasenia",$contrasenia, PDO::PARAM_STR,30);
+	
 
-	$sql->bindParam(":confirmarcontrasenia",$confirmarcontrasenia, PDO::PARAM_STR,30);
-
-	$sql->execute();
+	$sql->execute(array($contrasenia, $confirmarcontrasenia, $id));
 	
 
 } catch(PDOException $e){

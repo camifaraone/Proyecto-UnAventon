@@ -1,7 +1,7 @@
 <?php
  
  function get_vehiculo($id){
-	 require_once ("db.php");//te crea una conexion
+	 require ("db.php");//te crea una conexion
 	try{
 		$sql = $conn->prepare("select * from vehiculo where idautoincremental=:id"); 
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);   
@@ -22,30 +22,23 @@
  
  
  
- 
+ ini_set ('display_errors', 'on');
+ ini_set ('log_errors', 'on');
+ ini_set ('display_startup_errors', 'on');
+ ini_set ('error_reporting', E_ALL);
  
  
  
  function modificar_vehiculo($marca,$modelo,$color,$detalles,$cantasientosdisp,$patente,$id){
- require "db.php";
+ require ("db.php");
 
 try{
 
-	$sql = $conn->prepare("UPDATE vehiculo SET marca=:marca, modelo=:modelo, color=:color, detalles=:detalles, cantasientosdisp=:cantasientosdisp, patente=:patente where idautoincremental=:id");
+	$sql = $conn->prepare("UPDATE vehiculo SET marca=?, modelo=?, color=?, detalles=?, cantasientosdisp=?, patente=? WHERE idautoincremental=?");
 	
-	$sql->bindParam(":marca",$marca, PDO::PARAM_STR,30);
-
-	$sql->bindParam(":modelo",$modelo, PDO::PARAM_STR,30);
-
-	$sql->bindParam(":color",$color , PDO::PARAM_STR,15);
-
-	$sql->bindParam(":detalles",$detalles, PDO::PARAM_STR,30);
-
-	$sql->bindParam(":cantasientosdisp",$cantasientosdisp, PDO::PARAM_INT,15);
 	
-	$sql->bindParam(":patente",$patente, PDO::PARAM_STR,7);
 
-	$sql->execute();
+	$sql->execute(array($marca, $modelo, $color, $detalles, $cantasientosdisp, $patente, $id));
 	
 
 } catch(PDOException $e){

@@ -1,8 +1,12 @@
 <?php
 
 
-require "../model/newtip.php";
+require_once "../model/newtrip.php";
 
+$origen = get_origen();
+$destino = get_destino();
+
+$id= ($_GET["idautoincremental"]);
 
 if(isset($_POST["finishtrip"])){
 

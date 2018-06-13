@@ -54,7 +54,7 @@
 		<div class="jumbotron">
 	<article>
 		<section>
-				<form class="contact_form" action="" method="post" name="contact_form">
+				<form class="contact_form" action="../controller/editarcontrasena.php?idautoincremental=<?php echo $id ?>" method="post" name="contact_form">
 					<div> 
 						<ul>
 							<li> 
@@ -62,21 +62,12 @@
 								<p>Información de la cuenta</p>
 								<span class="required_notification">* Datos requeridos</span> 
 							</li>
-							<li>
-								<div class="field">
-                        			<label for="password" class="required"><em>*</em>Clave actual:</label>
-                        			
-                        			<div class="input-box">
-                            			<input type="password" name="claveactual" id="password" title="Contraseña" class="input-text required-entry validate-password" required/>
-                        			</div> 
-                    			</div>
-                    		</li>
                     		<li>
 								<div class="field">
                         			<label for="password" class="required"><em>*</em>Nueva clave:</label>
                         			
                         			<div class="input-box">
-                            			<input type="password" name="nuevaclave" id="password" title="Contraseña" class="input-text required-entry validate-password" required/>
+                            			<input type="password" name="contrasenia" id="contrasenia" title="Contraseña" class="input-text required-entry validate-password" required/>
                         			</div> 
                     			</div>
                     		</li>
@@ -85,12 +76,12 @@
                         			<label for="confirmation" ><em>*</em>Confirmar clave:</label>
                         			
                         			<div class="input-box">
-                            			<input type="password" name="confirmarclave" title="Confirmar la contraseña" id="confirmation" class="input-text required-entry validate-cpassword" required/>
+                            			<input type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" title="Confirmar la contraseña" id="confirmation" class="input-text required-entry validate-cpassword" required/>
                         			</div>
                     			</div>
                     		</li>
                     		<li>
-								<button class="submit" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
+								<button class="submit" type="submit" name="editar" onClick="runSubmit(this.form)">GUARDAR</button>
 							</li> 							
 						</ul> 
 					</div>
