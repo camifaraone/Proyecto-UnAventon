@@ -52,6 +52,10 @@
 					</select>
 			</label>
 				</div>
+				
+			<div id="register">
+  
+			<form name="registerform" id="registerform" action="../controller/newtrip.php?idautoincremental=<?php echo $id ?>" method="POST">
 				<div class="form-group">
 					<label for="fechaviaje">Fecha del viaje:
 						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
@@ -79,28 +83,22 @@
 				</div>
 					<div class="form-group"> 
 					<label for="Destino">Ciudad/Origen:
-					<select>
-						<option value="" disabled selected></option>
-						<option value="1">La Plata</option>
-						<option value="2">Chascomus</option>
-						<option value="3">Berisso</option>
-						<option value="4">Ensenada</option>
-						<option value="5">Buenos Aires</option>
-						<option value="6">Saladillo</option>
+					<select name="origen">
+						<?php for($i=0; $i<count($origen);$i++)  {
+							
+							echo '<option> '.$origen[$i]['ciudadOrigen'].' </option>';
+						}?>
 						
 					</select>
 					</label>
 				</div>
 				<div class="form-group"> 
 					<label for="Destino">Ciudad/Destino:
-					<select>
-						<option value="" disabled selected></option>
-						<option value="1">La Plata</option>
-						<option value="2">Chascomus</option>
-						<option value="3">Berisso</option>
-						<option value="4">Ensenada</option>
-						<option value="5">Buenos Aires</option>
-						<option value="6">Saladillo</option>
+					<select name="destino">
+						<?php for($i=0; $i<count($destino);$i++)  {
+							
+							echo '<option> '.$destino[$i]['ciudadDestino'].' </option>';
+						}?>
 						
 					</select>
 					</label>
@@ -113,11 +111,11 @@
 				</div>
 				<div class="form-group"> 
 				<label for="vehiculo">Elija su vehículo:
-					<select>
-						<option value="" disabled selected></option>
-						<option value="1">Auto</option>
-						<option value="2">Camioneta</option>
-						<option value="3">Combi</option>
+					<select name="vehiculo">
+						<?php for($i=0; $i<count($vehiculo);$i++)  {
+							
+							echo '<option> '.$vehiculo[$i]['modelo'].' </option>';
+						}?>
 					</select>
 				</label>
 				</div>
@@ -125,6 +123,8 @@
 				<p class="submit">
 					<input type="submit" name="finishtrip" id="finishtrip" class="btn btn-default" value="Crear viaje" />
 				</p>
+				<h5 class="center	-align"> <p class="regtext">¿Desea agregar un vehículo a su cuenta? <?php echo"<a href=../controller/registrarauto.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	
 				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	
 

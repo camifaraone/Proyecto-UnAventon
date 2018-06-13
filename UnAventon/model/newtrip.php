@@ -1,27 +1,20 @@
 <?php
 
 
-function newtrip($tipo, $fecha, $monto, $duracion, $hssalida, $distancia, $ciudadOrigen, $ciudadDestino, $observaciones, $nombre){
+function newtrip($fechaviaje, $precioasiento, $duracion, $horasalida, $distancia,$observaciones,$idorigen,$iddestino,$idvehiculo,$id){
 		
 	require("db.php");
 	
 	try{
 		$sql= $conn->prepare("INSERT INTO viaje
-				(tipo, fecha, monto, duracion, hssalida, distancia) 
-				VALUES(:tipo, :fecha, :monto, :duracion, :hssalida, :distancia)" );
-		$sql->bindParam(":tipo",$tipo,PDO::PARAM_STR);
-		$sql->bindParam(":fecha",$fecha,PDO::PARAM_STR);
-		$sql->bindParam(":monto",$monto,PDO::PARAM_INT);
-		$sql->bindParam(":duracion",$duracion,PDO::PARAM_INT);	
-		$sql->bindParam(":hssalida",$hssalida,PDO::PARAM_INT);
-		$sql->bindParam(":distancia",$distancia,PDO::PARAM_STR);
-		$sql->bindParam(":ciudadOrigen",$ciudadOrigen,PDO::PARAM_STR);
-		$sql->bindParam(":ciudadDestino",$ciudadDestino,PDO::PARAM_STR);
-		$sql->bindParam(":nombre",$nombre,PDO::PARAM_STR);
+				(fecha, monto, duracion, hssalida, distancia, observaciones, idvehiculo, idOrigen, iddestino, idautoincremental) 
+				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" );
+		
+		
 		
 
 				
-		$sql ->execute();
+		$sql ->execute(array($fechaviaje,$precioasiento,$duracion,$horasalida,$distancia,$observaciones,$idvehiculo,$idorigen,$iddestino,$id));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
@@ -36,7 +29,7 @@ function newtrip($tipo, $fecha, $monto, $duracion, $hssalida, $distancia, $ciuda
  function get_origen() {
 	 require "../model/db.php";//te crea una conexion
 	try{
-		$sql = $conn->prepare("select * from origen INNER JOIN viaje ON origen.idOrigen = viaje.idOrigen");
+		$sql = $conn->prepare("select * from origen");
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )
@@ -56,7 +49,7 @@ function newtrip($tipo, $fecha, $monto, $duracion, $hssalida, $distancia, $ciuda
  function get_destino() {
 	 require "../model/db.php";//te crea una conexion
 	try{
-		$sql = $conn->prepare("select * from destino INNER JOIN viaje ON destino.idDestino = viaje.idDestino");
+		$sql = $conn->prepare("select * from destino ");
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )
@@ -74,18 +67,86 @@ function newtrip($tipo, $fecha, $monto, $duracion, $hssalida, $distancia, $ciuda
  
  
  
+ function get_vehiculo($id){
+	require ("db.php");
+	try{
+		$sql = $conn->prepare("select * from vehiculo where idautoincremental=:id");
+		$sql->bindParam(":id",$id,PDO::PARAM_INT);
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll();
+	
+
+   }catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+ }
+ 
+ 
+ function get_idOrigen($O){
+	require ("db.php");
+	try{
+		$sql = $conn->prepare("select idOrigen from origen where ciudadOrigen=:O");
+		$sql->bindParam(":O",$O,PDO::PARAM_STR);
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll();
+	
+
+   }catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+ }
  
  
  
+ function get_idDestino($D){
+	require ("db.php");
+	try{
+		$sql = $conn->prepare("select idDestino from destino where ciudadDestino=:D");
+		$sql->bindParam(":D",$D,PDO::PARAM_STR);
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll();
+	
+
+   }catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+ }
  
  
  
- 
- 
- 
- 
- 
- 
+ function get_idVehiculo($V){
+	require ("db.php");
+	try{
+		$sql = $conn->prepare("select idvehiculo from vehiculo where marca=:V");
+		$sql->bindParam(":v",$V,PDO::PARAM_STR);
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll();
+	
+
+   }catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+ }
  
  
  

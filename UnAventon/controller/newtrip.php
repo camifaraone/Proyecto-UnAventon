@@ -3,30 +3,41 @@
 
 require_once "../model/newtrip.php";
 
+$id= ($_GET["idautoincremental"]);
+
+
 $origen = get_origen();
 $destino = get_destino();
+$vehiculo = get_vehiculo($id);
 
-$id= ($_GET["idautoincremental"]);
+
+
+
+
+
 
 if(isset($_POST["finishtrip"])){
 
 
-if(!empty($_POST['tipo']) && !empty($_POST['fecha']) && !empty($_POST['monto']) && !empty($_POST['duracion']) && !empty($_POST['hssalida']) && !empty($_POST['distancia']) && !empty($_POST['ciudadOrigen'])  && !empty($_POST['ciudadDestino']) && !empty($_POST['observaciones'])&& !empty($_POST['nombre'])) {
-	$tipo=$_POST['tipo'];
-	$fecha=$_POST['fecha'];
-	$monto=$_POST['monto'];
+if(!empty($_POST['fechaviaje']) && !empty($_POST['precioasiento']) && !empty($_POST['duracion']) && !empty($_POST['horasalida']) && !empty($_POST['distancia']) && !empty($_POST['observaciones'])) {
+	
+	$fechaviaje=$_POST['fechaviaje'];
+	$precioasiento=$_POST['precioasiento'];
 	$duracion=$_POST['duracion'];
-	$hssalida=$_POST['hssalida'];
+	$horasalida=$_POST['horasalida'];
 	$distancia=$_POST['distancia'];
-	$ciudadOrigen=$_POST['ciudadOrigen'];
-	$ciudadDestino=$_POST['ciudadDestino'];
 	$observaciones=$_POST['observaciones'];
-	$nombre=$_POST['¨nombre'];
 	
+	$O= ($_POST["origen"]);
+	$D= ($_POST["destino"]);
+	$V= ($_POST["vehiculo"]);
+	$idorigen = get_idOrigen($O);
+	$iddestino = get_idDestino($D);
+	$idvehiculo = get_idVehiculo($V);
 	
-	$valor = newtrip($tipo, $fecha, $monto, $duracion, $hssalida, $distancia, $ciudadOrigen, $ciudadDestino, $observaciones, $nombre);
-	header("Location: ../controller/misviajes.php");
-
+	$viaje = newtrip($fechaviaje, $precioasiento, $duracion, $horasalida, $distancia, $observaciones,$idorigen,$iddestino,$idvehiculo,$id);
+	header("Location: ../controller/misviajes.php?idautoincremental=".$id);
+	
 
 } else {
 	 $message = "Todos los campos no deben de estar vacios!";
