@@ -44,91 +44,13 @@
 </div>
 	<div class="container">
 			<div class="form-group">
-			<label for="tipo">Tipo de viaje:
-					<select >
-						<option value="" disabled selected></option>
-						<option value="1">Recurrente</option>
-						<option value="2">Único</option>
-					</select>
-			</label>
-				</div>
-				
-			<div id="register">
-  
-			<form name="registerform" id="registerform" action="../controller/newtrip.php?idautoincremental=<?php echo $id ?>" method="POST">
-				<div class="form-group">
-					<label for="fechaviaje">Fecha del viaje:
-						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="destino">Precio por asiento:
-						<input type="text" name="precioasiento" id="precioasiento" class="form-control"  placeholder="Escribir precio" required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="destino">Duracion:
-						<input type="time" name="duracion" id="duracion" class="form-control"  placeholder="Escribir la duracion promedio" required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="hora">Hora salida:
-						<input type="time" name="horasalida" id="horasalida" class="form-control"  placeholder="Escribir hora de salida" required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="destino">Distancia:
-						<input type="text" name="distancia" id="distancia" class="form-control"  placeholder="Escribir la distancia /KM" required />
-					</label>
-				</div>
-					<div class="form-group"> 
-					<label for="Destino">Ciudad/Origen:
-					<select name="origen">
-						<?php for($i=0; $i<count($origen);$i++)  {
-							
-							echo '<option> '.$origen[$i]['ciudadOrigen'].' </option>';
-						}?>
-						
-					</select>
-					</label>
-				</div>
-				<div class="form-group"> 
-					<label for="Destino">Ciudad/Destino:
-					<select name="destino">
-						<?php for($i=0; $i<count($destino);$i++)  {
-							
-							echo '<option> '.$destino[$i]['ciudadDestino'].' </option>';
-						}?>
-						
-					</select>
-					</label>
-				</div>
-				
-				<div class="form-group">  
-					<label for="destino">Observaciones:
-						<input type="text" name="observaciones" id="observaciones" class="form-control"  placeholder="Escribir observaciones" required />
-					</label>
-				</div>
-				<div class="form-group"> 
-				<label for="vehiculo">Elija su vehículo:
-					<select name="vehiculo">
-						<?php for($i=0; $i<count($vehiculo);$i++)  {
-							
-							echo '<option value='.$vehiculo[$i]['idvehiculo'].' > '.$vehiculo[$i]['modelo'].' </option>';
-						}?>
-					</select>
-				</label>
-				</div>
-				<br></br>
-				<p class="submit">
-					<input type="submit" name="finishtrip" id="finishtrip" class="btn btn-default" value="Crear viaje" />
-				</p>
-				<h5 class="center	-align"> <p class="regtext">¿Desea agregar un vehículo a su cuenta? <?php echo"<a href=../controller/registrarauto.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+			
+				<h5 class="center	-align"> <p class="regtext">¿Desea agregar un viaje ocasional? <?php echo"<a href=../controller/viajeocasional.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+
+				<h5 class="center	-align"> <p class="regtext">¿Desea agregar un viaje periódico? <?php echo"<a href=../controller/viajeperiodico.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	
 				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	
-
-			</form>
 		</div>
 	</div>
 </body>

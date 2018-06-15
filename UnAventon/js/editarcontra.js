@@ -1,8 +1,5 @@
 	function runSubmit (form)  {
-		if (form.contrasenia.value.length < 8) {
-			alert("Ingresar clave actual");
-			return (false);
-		}
+		
 		if (form.nuevacontrasenia.value.length < 8) {
 			alert("Ingresar nueva clave con ocho o más caracteres");
 			return (false);

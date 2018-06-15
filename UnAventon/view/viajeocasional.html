@@ -1,0 +1,136 @@
+<html>
+<head>
+
+<title>UnAventon | Crear viaje ocasional</title>
+	<meta charset="utf-8">
+  <script type="text/javascript" src="../js/viajeocasional.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="../js/materialize.min.js"></script>
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="../js/materialize.js"></script>
+      <script src="../js/init.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>	
+</head>
+ 
+
+  <?php
+      
+    if(!empty($_SESSION['session_username'])) {
+      $email = $_SESSION['session_username'];
+  ?>    
+    <nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <?php } ?> 
+    
+<body style="background-color: #FEF9E7;">
+<div class="container">
+  <div class="jumbotron">
+ <article>
+    <h1>Crear viaje ocasional</h1>      
+</div>
+</div>
+	<div class="container">
+			
+			<div id="register">
+  
+			<form name="registerform" id="registerform" action="../controller/viajeocasional.php?idautoincremental=<?php echo $id ?>" method="POST">
+				<div class="form-group">
+					<label for="fechaviaje">Fecha del viaje:
+						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="preciototal">Precio total:
+						<input type="text" name="preciototal" id="preciototal" class="form-control"  placeholder="Escribir precio" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="duracion">Duracion:
+						<input type="time" name="duracion" id="duracion" class="form-control"  placeholder="Escribir la duracion promedio" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="horasalida">Hora salida:
+						<input type="time" name="horasalida" id="horasalida" class="form-control"  placeholder="Escribir hora de salida" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="cantidadasientos">Cantidad asientos:
+						<input type="text" name="Cantidad asientos" id="cantidadasientos" class="form-control"  placeholder="Escribir la cantidad de asientos" required />
+					</label>
+				</div>
+
+					<div class="form-group"> 
+					<label for="origen">Ciudad/Origen:
+					<select name="origen">
+						<?php for($i=0; $i<count($origen);$i++)  {
+							
+							echo '<option> '.$origen[$i]['ciudadOrigen'].' </option>';
+						}?>
+						
+					</select>
+					</label>
+				</div>
+				<hr>
+				<div class="form-group"> 
+					<label for="Destino">Ciudad/Destino:
+					<select name="destino">
+						<?php for($i=0; $i<count($destino);$i++)  {
+							
+							echo '<option> '.$destino[$i]['ciudadDestino'].' </option>';
+						}?>
+						
+					</select>
+					</label>
+				</div>
+				<hr>
+				<div class="form-group">  
+					<label for="observaciones">Observaciones:
+						<input type="text" name="observaciones" id="observaciones" class="form-control"  placeholder="Escribir observaciones" required />
+					</label>
+				</div>
+				<div class="form-group"> 
+				<label for="vehiculo">Elija su vehículo:
+					<select name="vehiculo">
+						<?php for($i=0; $i<count($vehiculo);$i++)  {
+							
+							echo '<option value='.$vehiculo[$i]['idvehiculo'].' > '.$vehiculo[$i]['modelo'].' </option>';
+						}?>
+					</select>
+				</label>
+				</div>
+				<br></br>
+				<p class="submit">
+					<input type="submit" name="finishtrip" id="finishtrip" class="btn btn-default" onClick="runSubmit(this.form)" value="Crear viaje" />
+				</p>
+				<h5 class="center	-align"> <p class="regtext">¿Desea agregar otro viaje? <?php echo"<a href=../controller/newtrip.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	
+				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	
+
+			</form>
+		</div>
+	</div>
+</body>
+<footer class="page-footer teal solid #ee6e73">
+   
+    <div class="footer-copyright">
+      <div class="container">
+      © UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
+      </div>
+    </div>
+  </footer>
+</body></html>
