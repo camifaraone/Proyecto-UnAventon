@@ -7,9 +7,16 @@ require_once "../model/eliminarvehiculo.php";
 
 $idvehiculo= ($_GET["idvehiculo"]);
 $id = get_id ($idvehiculo);
-$idvehiculo= delVehiculo($_GET["idvehiculo"]);
+$a = verificarvehiculo($idvehiculo);
 
-header("Location: ../controller/perfil.php?idautoincremental=".$id);
+var_dump($a);
+if(!empty($a[0])){
+	echo 'El vehiculo se encuentra asociado a un viaje. No se puede eliminar!';
 
-
+}
+else {
+	echo 'wrwr';
+//	$idvehiculo= delVehiculo($_GET["idvehiculo"]);
+//	header("Location: ../controller/perfil.php?idautoincremental=".$id);
+}
 ?>
