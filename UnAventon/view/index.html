@@ -117,9 +117,11 @@
   
   //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
  for($i=0; $i<count($viaje);$i++) {
-      if (($viaje[$i]["fecha"] > $date) and ($viaje[$i]["fecha"] < $date2)) { 
+	
+      if (($viaje[$i]["fecha"] > $date) and ($viaje[$i]["fecha"] < $date2)) {
+		$precio = ($viaje[$i]["monto"]) / 5; // acomodar con cantidd de asientos ($viaje[$i]["cantasientosdisp"]).	  
 	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
-	 echo "<td> $".$viaje[$i]["monto"].""."</td>";
+	 echo "<td> $".$precio.""."</td>";
 	 echo "<td>".$viaje[$i]["duracion"].""."Hs</td>";
 	 echo "<td>".$viaje[$i]["hssalida"].""."Hs</td>";
 	 echo "<td>".$viaje[$i]["distancia"].""."Km</td>";

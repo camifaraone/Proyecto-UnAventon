@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-06-2018 a las 06:12:33
+-- Tiempo de generación: 15-06-2018 a las 04:14:38
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -87,28 +87,6 @@ CREATE TABLE `estadopostulacion` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `hacen`
---
-
-CREATE TABLE `hacen` (
-  `idautoincremental` int(100) NOT NULL,
-  `idcalificp` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `hacenca`
---
-
-CREATE TABLE `hacenca` (
-  `idautoincremental` int(100) NOT NULL,
-  `idcalifica` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `origen`
 --
 
@@ -158,28 +136,6 @@ CREATE TABLE `respuesta` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `solicitav`
---
-
-CREATE TABLE `solicitav` (
-  `idautoincremental` int(100) NOT NULL,
-  `idviaje` int(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipov`
---
-
-CREATE TABLE `tipov` (
-  `idviajed` int(100) NOT NULL,
-  `descripcion` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `tipove`
 --
 
@@ -215,19 +171,20 @@ CREATE TABLE `usuario` (
   `fechanacimiento` date NOT NULL,
   `foto` varchar(200) NOT NULL,
   `confirmarcontrasenia` varchar(100) NOT NULL,
-  `Activo` int(1) NOT NULL
+  `Activo` int(1) NOT NULL,
+  `puedepublicar` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `Activo`) VALUES
-(1, 'Camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '2345421506', 'myadmin', '1995-04-17', '', 'myadmin', 0),
-(2, 'matias', 'nuÃ±ez', 'matute94_23@hotmail.com', 'mati', '1234', '12345678', '2018-05-18', '', '12345678', 0),
-(8, 'agustin', 'nuÃ±ez', 'matute94_23@gmail.com', 'agus', '1234', '1234', '2018-05-27', '', '1234', 0),
-(9, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camila', '2147483647', 'myadmin95', '1990-10-10', '', 'myadmin95', 0),
-(10, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camilaffdc', '2147483647', 'holahola', '1990-10-10', '', 'holahola', 0);
+INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `Activo`, `puedepublicar`) VALUES
+(1, 'Camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '2345421506', 'myadmin', '1995-04-17', '', 'myadmin', 0, 0),
+(2, 'matias', 'nuÃ±ez', 'matute94_23@hotmail.com', 'mati', '1234', '12345678', '2018-05-18', '', '12345678', 0, 0),
+(8, 'agustin', 'nuÃ±ez', 'matute94_23@gmail.com', 'agus', '1234', '1234', '2018-05-27', '', '1234', 0, 0),
+(9, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camila', '2147483647', 'myadmin95', '1990-10-10', '', 'myadmin95', 0, 0),
+(10, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camilaffdc', '2147483647', 'holahola', '1990-10-10', '', 'holahola', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -274,20 +231,20 @@ CREATE TABLE `viaje` (
   `comision` varchar(200) NOT NULL,
   `distancia` int(255) NOT NULL,
   `idvehiculo` int(100) NOT NULL,
-  `idviajed` int(100) NOT NULL,
   `idOrigen` int(100) NOT NULL,
   `idDestino` int(100) NOT NULL,
   `observaciones` varchar(200) NOT NULL,
-  `estadopago` varchar(200) NOT NULL
+  `estadopago` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `comision`, `distancia`, `idvehiculo`, `idviajed`, `idOrigen`, `idDestino`, `observaciones`, `estadopago`) VALUES
-(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', '5', 300, 2, 2, 2, 2, 'sin aire acondicionado', ''),
-(1, 2, '2018-05-22', 500, '14:00hs', '9:00hs', '5', 100, 1, 1, 1, 1, 'funciona todo', '');
+INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `comision`, `distancia`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `estadopago`) VALUES
+(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', '5', 300, 2, 2, 2, 'sin aire acondicionado', 0),
+(1, 2, '2018-05-22', 500, '14:00hs', '9:00hs', '5', 100, 1, 1, 1, 'funciona todo', 0),
+(2, 3, '2018-06-16', 32, '02:02', '02:02', '', 2, 0, 0, 0, '2', 0);
 
 --
 -- Índices para tablas volcadas
@@ -322,24 +279,6 @@ ALTER TABLE `estadopostulacion`
   ADD UNIQUE KEY `idviaje` (`idviaje`);
 
 --
--- Indices de la tabla `hacen`
---
-ALTER TABLE `hacen`
-  ADD UNIQUE KEY `idautoincremental_2` (`idautoincremental`),
-  ADD UNIQUE KEY `idcalificp_2` (`idcalificp`),
-  ADD KEY `idautoincremental` (`idautoincremental`),
-  ADD KEY `idcalificp` (`idcalificp`);
-
---
--- Indices de la tabla `hacenca`
---
-ALTER TABLE `hacenca`
-  ADD UNIQUE KEY `idcalifica_2` (`idcalifica`),
-  ADD UNIQUE KEY `idautoincremental_2` (`idautoincremental`),
-  ADD KEY `idautoincremental` (`idautoincremental`),
-  ADD KEY `idcalifica` (`idcalifica`);
-
---
 -- Indices de la tabla `origen`
 --
 ALTER TABLE `origen`
@@ -363,21 +302,6 @@ ALTER TABLE `respuesta`
   ADD UNIQUE KEY `descripcionr` (`descripcionr`),
   ADD UNIQUE KEY `idpregunta_2` (`idpregunta`),
   ADD KEY `idpregunta` (`idpregunta`);
-
---
--- Indices de la tabla `solicitav`
---
-ALTER TABLE `solicitav`
-  ADD UNIQUE KEY `idautoincremental_2` (`idautoincremental`),
-  ADD UNIQUE KEY `idviaje_2` (`idviaje`),
-  ADD KEY `idautoincremental` (`idautoincremental`),
-  ADD KEY `idviaje` (`idviaje`);
-
---
--- Indices de la tabla `tipov`
---
-ALTER TABLE `tipov`
-  ADD PRIMARY KEY (`idviajed`);
 
 --
 -- Indices de la tabla `tipove`
