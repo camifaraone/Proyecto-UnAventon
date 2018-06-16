@@ -3,7 +3,7 @@
 
 <title>UnAventon | Editar un viaje</title>
 	<meta charset="utf-8">
-  <script type="text/javascript" src="../js/perfilvalidar.js"></script>
+  <script type="text/javascript" src="../js/editarviaje.js"></script>
   <link rel="stylesheet" type="text/css" href="../css/estilo.css">
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -39,97 +39,66 @@
 <div class="container">
   <div class="jumbotron">
  <article>
-    <h1>Editar un viaje</h1>      
+ <section>
+				<form class="contact_form" action="../controller/editarviaje.php?idautoincremental=<?php echo $id ?>" method="POST" name="contact_form">
+					<div> 
+						<ul>
+							<li> 
+								<h4>EDITAR VIAJE</h4>
+								<p>Información del viaje</p>
+								<span class="required_notification">* Datos requeridos</span> 
+							</li>
+							<li> 
+								<label for="fechaviaje"><em>*</em>Fecha del viaje:</label>
+								<input type="date" name="fechaviaje" id="fechaviaje" value= " <?php echo $viaje[$i]["fecha"];?>" />
+							</li>
+							<li> 
+								<label for="precio"><em>*</em>Precio:</label>
+								<input type="text" name="precio" id="precio" value= " <?php echo $viaje['monto']; ?>"/>
+							</li> 
+							<li> 
+								<label for="duracion"><em>*</em>Duración:</label>
+								<input  name="duracion" id="duracion" value= " <?php echo $viaje['duracion']; ?>"/>
+							</li>
+							<li> 
+								<label for="hora"><em>*</em>Hora salida:</label>
+								<input name="horasalida" id="horasalida" value= " <?php echo $viaje['hssalida']; ?>"/>
+							</li>
+							<li> 
+								<label for="distancia"><em>*</em>Distancia:</label>
+								<input type="text" name="distancia" id="distancia" value= " <?php echo $viaje['distancia']; ?>"/>
+							</li>
+							<li>
+								<label for="origen"><em>*</em>Ciudad/Origen:</label>
+								<input type="text" name="origen" id="origen" value= " <?php echo $viaje['ciudadOrigen']; ?>"/>
+							</li>
+							<li>
+								<label for="destino"><em>*</em>Ciudad/Destino:</label>
+								<input type="text" name="destino" id="destino" value= " <?php echo $viaje['ciudadDestino']; ?>"/>
+							</li>
+							<li>
+								<label for="observaciones"><em>*</em>Observaciones:</label>
+								<input type="text" name="observaciones" id="observaciones" value= " <?php echo $viaje['observaciones']; ?>"/>
+							</li>
+								<button class="submit" name="modif" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
+							 							
+						</ul> 
+					</div>
+				</form>							
+		</section>
+	</article>
+	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	 </form>
 </div>
-</div>
-	<div class="container">
-			<div class="form-group">
-					
-			<div id="register">
-  
-			<form name="registerform" id="registerform" action="../controller/newtrip.php?idautoincremental=<?php echo $id ?>" method="POST">
-				<div class="form-group">
-					<label for="fechaviaje">Fecha del viaje:
-						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="precio">Precio:
-						<input type="text" name="precio" id="precio" class="form-control"  placeholder="Escribir precio" required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="duracion">Duracion:
-						<input type="time" name="duracion" id="duracion" class="form-control"  placeholder="Escribir la duracion promedio" required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="hora">Hora salida:
-						<input type="time" name="horasalida" id="horasalida" class="form-control"  placeholder="Escribir hora de salida" required />
-					</label>
-				</div>
-				<div class="form-group">  
-					<label for="distancia">Distancia:
-						<input type="text" name="distancia" id="distancia" class="form-control"  placeholder="Escribir la distancia /KM" required />
-					</label>
-				</div>
-					<div class="form-group"> 
-					<label for="origen">Ciudad/Origen:
-					<select name="origen">
-						<?php for($i=0; $i<count($origen);$i++)  {
-							
-							echo '<option> '.$origen[$i]['ciudadOrigen'].' </option>';
-						}?>
-						
-					</select>
-					</label>
-				</div>
-				<div class="form-group"> 
-					<label for="Destino">Ciudad/Destino:
-					<select name="destino">
-						<?php for($i=0; $i<count($destino);$i++)  {
-							
-							echo '<option> '.$destino[$i]['ciudadDestino'].' </option>';
-						}?>
-						
-					</select>
-					</label>
-				</div>
-				
-				<div class="form-group">  
-					<label for="observaciones">Observaciones:
-						<input type="text" name="observaciones" id="observaciones" class="form-control"  placeholder="Escribir observaciones" required />
-					</label>
-				</div>
-				<div class="form-group"> 
-				<label for="vehiculo">Elija su vehículo:
-					<select name="vehiculo" >
-						<?php for($i=0; $i<count($vehiculo);$i++)  {
-							
-							echo '<option> '.$vehiculo[$i]['modelo'].' </option>';
-						}?>
-					</select>
-				</label>
-				</div>
-				<br></br>
-				<p class="submit">
-					<input type="submit" name="finishtrip" id="finishtrip" class="btn btn-default" value="Guardar modificaciones" />
-				</p>
-				<h5 class="center	-align"> <p class="regtext">¿Desea agregar un vehículo a su cuenta? <?php echo"<a href=../controller/registrarauto.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
-	
-				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
-	
 
-			</form>
-		</div>
-	</div>
-</body>
-<footer class="page-footer teal solid #ee6e73">
-   
-    <div class="footer-copyright">
-      <div class="container">
-      © UnAventon <a class="white-text text-lighten-3" href="">- Todos los derechos reservados 2018</a>
-      </div>
-    </div>
-  </footer>
-</body></html>
+
+ <?php
+  include "../controller/footer.php";
+?>
+
+
+ 	</body>
+	
+	</html>
+
+				
