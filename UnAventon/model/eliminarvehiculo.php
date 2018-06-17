@@ -55,7 +55,7 @@ function verificarvehiculo($idvehiculo){
 
 
 
-		$result=$gsent->fetchAll();
+		$result=$gsent->fetch();
 
 		}
 

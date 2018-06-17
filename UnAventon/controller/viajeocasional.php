@@ -11,31 +11,30 @@ $destino = get_destino();
 $vehiculo = get_vehiculo($id);
 
 
+
+
+
 var_dump($_POST);
-
-
-
 
 if(isset($_POST["finishtrip"])){
 
 
-if(!empty($_POST['fechaviaje']) && !empty($_POST['preciototal']) && !empty($_POST['duracion']) && !empty($_POST['horasalida']) && !empty($_POST['cantasientos']) && !empty($_POST['observaciones'])) {
+if(!empty($_POST['fechaviaje']) && !empty($_POST['preciototal']) && !empty($_POST['duracion']) && !empty($_POST['horasalida']) && !empty($_POST['cantidadasientos']) && !empty($_POST['observaciones']) && !empty($_POST['idOrigen']) && !empty($_POST['idDestino']) && !empty($_POST['idvehiculo'])) {
 	
 	$fechaviaje=$_POST['fechaviaje'];
 	$preciototal=$_POST['preciototal'];
 	$duracion=$_POST['duracion'];
 	$horasalida=$_POST['horasalida'];
-	$cantasientos=$_POST['cantasientos'];
+	$cantasientos=$_POST['cantidadasientos'];
 	$observaciones=$_POST['observaciones'];
+	$idorigen = $_POST['idOrigen'];
+	$iddestino = $_POST['idDestino'];
+	$idvehiculo = $_POST['idvehiculo'];
+	$estadopago = 0;
 	
-	$O= ($_POST["origen"]);
-	$D= ($_POST["destino"]);
-	$V= ($_POST["vehiculo"]);
-	$idorigen = get_idOrigen($O);
-	$iddestino = get_idDestino($D);
-	$idvehiculo = get_idVehiculo($V);
 	
-	$viaje = newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasientos, $observaciones,$idorigen,$iddestino,$idvehiculo,$id);
+	$viaje = newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasientos, $observaciones,$idorigen,$iddestino,$idvehiculo,$id, $estadopago);
+	var_dump($viaje);
 	header("Location: ../controller/misviajes.php?idautoincremental=".$id);
 	
 

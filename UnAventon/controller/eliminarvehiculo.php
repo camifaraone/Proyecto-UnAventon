@@ -10,7 +10,7 @@ $id = get_id ($idvehiculo);
 $a = verificarvehiculo($idvehiculo);
 
 var_dump($a);
-if(!empty($a[0])){
+if($a[0] == null){
 	echo 'El vehiculo se encuentra asociado a un viaje. No se puede eliminar!';
 
 }

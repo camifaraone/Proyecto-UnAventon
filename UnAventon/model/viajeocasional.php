@@ -1,20 +1,20 @@
 <?php
 
 
-function newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasientos,$idorigen,$iddestino,$observaciones,$idvehiculo,$id){
+function newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasientos,$idorigen,$iddestino,$observaciones,$idvehiculo,$id,$estadopago){
 		
 	require("db.php");
 	
 	try{
 		$sql= $conn->prepare("INSERT INTO viaje
-				(fecha, monto, duracion, hssalida, cantasientos, idOrigen, iddestino, observaciones, idvehiculo,  idautoincremental) 
-				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" );
+				(fecha, monto, duracion, hssalida, cantasientos, idOrigen, idDestino, observaciones, idvehiculo,  idautoincremental, estadopago) 
+				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" );
 		
 		
 		
 
 				
-		$sql ->execute(array($fechaviaje, $preciototal, $duracion, $horasalida, $cantasientos,$idorigen,$iddestino,$observaciones,$idvehiculo,$id));
+		$sql ->execute(array("$fechaviaje", "$preciototal", "$duracion", "$horasalida", "$cantasientos","$idorigen","$iddestino","$observaciones","$idvehiculo","$id", "$estadopago"));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
@@ -87,66 +87,11 @@ function newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasiento
  }
  
  
- function get_idOrigen($O){
-	require ("db.php");
-	try{
-		$sql = $conn->prepare("select idOrigen from origen where ciudadOrigen=:O");
-		$sql->bindParam(":O",$O,PDO::PARAM_STR);
-		$sql ->execute();
-	
-	/*while( $datos = $sql->fetch() )
-    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
-
-	$result= $sql->fetchAll();
-	
-
-   }catch(PDOException $e) {
-  $result= 'Error: ' . $e->getMessage();
-  }
-	return $result;
- }
  
  
  
- function get_idDestino($D){
-	require ("db.php");
-	try{
-		$sql = $conn->prepare("select idDestino from destino where ciudadDestino=:D");
-		$sql->bindParam(":D",$D,PDO::PARAM_STR);
-		$sql ->execute();
-	
-	/*while( $datos = $sql->fetch() )
-    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
-
-	$result= $sql->fetchAll();
-	
-
-   }catch(PDOException $e) {
-  $result= 'Error: ' . $e->getMessage();
-  }
-	return $result;
- }
  
  
- 
- function get_idVehiculo($V){
-	require ("db.php");
-	try{
-		$sql = $conn->prepare("select idvehiculo from vehiculo where marca=:V");
-		$sql->bindParam(":v",$V,PDO::PARAM_STR);
-		$sql ->execute();
-	
-	/*while( $datos = $sql->fetch() )
-    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
-
-	$result= $sql->fetchAll();
-	
-
-   }catch(PDOException $e) {
-  $result= 'Error: ' . $e->getMessage();
-  }
-	return $result;
- }
  
  
  

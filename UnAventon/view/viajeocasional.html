@@ -18,22 +18,26 @@
 </head>
  
 
-  <?php
-      
-    if(!empty($_SESSION['session_username'])) {
-      $email = $_SESSION['session_username'];
-  ?>    
-    <nav class="white" role="navigation"  >
-    <div class="nav-wrapper #ff9800 orange" >
-      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
-        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
-      </ul>
-    </div>
-  </nav>
+   <?php
+		session_start();	
+		if(!empty($_SESSION['session_username'])) {
+			$email = $_SESSION['session_username'];
+			
+	?>
   
-  <?php } ?> 
+  
+  
+  
+<nav class="white" role="navigation"  >
+<div class="nav-wrapper #ff9800 orange" >
+ <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+ <ul id="nav-mobile" class="right hide-on-med-and-down">
+ <li> Bienvenido!</li><li>&nbsp;<?php echo $email ?></li>
+ <li><a href="../controller/logout.php">Cerrar Sesión</a></li>
+ </ul>
+ </div>
+</nav>
+<?php } ?>
     
 <body style="background-color: #FEF9E7;">
 <div class="container">
@@ -69,7 +73,7 @@
 				</div>
 				<div class="form-group">  
 					<label for="cantidadasientos">Cantidad asientos:
-						<input type="text" name="Cantidad asientos" id="cantidadasientos" class="form-control"  placeholder="Escribir la cantidad de asientos" required />
+						<input type="text" name="cantidadasientos" id="cantidadasientos" class="form-control"  placeholder="Escribir la cantidad de asientos" required />
 					</label>
 				</div>
 
@@ -78,7 +82,7 @@
 					<select name="origen">
 						<?php for($i=0; $i<count($origen);$i++)  {
 							
-							echo '<option> '.$origen[$i]['ciudadOrigen'].' </option>';
+							echo '<option value='.$origen[$i]['idOrigen'].'> '.$origen[$i]['ciudadOrigen'].' </option>';
 						}?>
 						
 					</select>
@@ -90,8 +94,8 @@
 					<select name="destino">
 						<?php for($i=0; $i<count($destino);$i++)  {
 							
-							echo '<option> '.$destino[$i]['ciudadDestino'].' </option>';
-						}?>
+							echo '<option value='.$destino[$i]['idDestino'].'> '.$destino[$i]['ciudadDestino'].' </option>';
+						}?>	
 						
 					</select>
 					</label>
@@ -113,9 +117,10 @@
 				</label>
 				</div>
 				<br></br>
-				<p class="submit">
-					<input type="submit" name="finishtrip" id="finishtrip" class="btn btn-default" onClick="runSubmit(this.form)" value="Crear viaje" />
-				</p>
+				<li>
+							
+					<button class="submit" name="finishtrip" type="submit" value="Crearviaje" onClick="runSubmit(this.form)">Crear Viaje</button>
+				</li>
 				<h5 class="center	-align"> <p class="regtext">¿Desea agregar otro viaje? <?php echo"<a href=../controller/newtrip.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	
 				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>

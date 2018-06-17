@@ -11,7 +11,7 @@ $destino = get_destino();
 $vehiculo = get_vehiculo($id);
 
 
-var_dump($_POST);
+
 
 
 
