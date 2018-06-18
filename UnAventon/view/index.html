@@ -119,7 +119,7 @@
  for($i=0; $i<count($viaje);$i++) {
 	
       if (($viaje[$i]["fecha"] > $date) and ($viaje[$i]["fecha"] < $date2)) {
-		$precio = ($viaje[$i]["monto"]) / 5; // acomodar con cantidd de asientos ($viaje[$i]["cantasientosdisp"]).	  
+		$precio = ($viaje[$i]["monto"]) / $viaje[$i]["cantasientosdisp"]; // acomodar con cantidd de asientos ($viaje[$i]["cantasientosdisp"]).	  
 	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
 	 echo "<td> $".$precio.""."</td>";
 	 echo "<td>".$viaje[$i]["duracion"].""."Hs</td>";
