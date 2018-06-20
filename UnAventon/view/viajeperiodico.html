@@ -42,7 +42,7 @@
 <body style="background-color: #FEF9E7;">
 <div class="container">
   <div class="jumbotron">
- <article>
+
     <h1>Crear viaje periódico</h1>      
 </div>
 </div>
@@ -53,12 +53,12 @@
 			<form name="registerform" id="registerform" action="../controller/viajeperiodico.php?idautoincremental=<?php echo $id ?>" method="POST">
 				<div class="form-group">
 					<label for="fechaviaje">Fecha inicio:
-						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
+						<input type="date" name="fechainicio" id="fechainicio" class="form-control"  placeholder="Fecha de inicio de viajes " required />
 					</label>
 				</div>
 				<div class="form-group">
 					<label for="fechaviaje">Fecha fin:
-						<input type="date" name="fechaviaje" id="fechaviaje" class="form-control"  placeholder="Escribir Fecha del viaje " required />
+						<input type="date" name="fechafin" id="fechafin" class="form-control"  placeholder="Fecha de fin de viajes " required />
 					</label>
 				</div>
 				<div class="form-group">  
@@ -94,7 +94,7 @@
 					</label>
 				</div>
 				<hr />
-				<form>
+			
 				<div class="form-group">  
 					<label for="preciototal">Precio total:
 						<input type="text" name="preciototal" id="preciototal" class="form-control"  placeholder="Escribir precio" required />

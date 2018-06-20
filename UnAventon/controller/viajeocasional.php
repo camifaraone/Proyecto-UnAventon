@@ -14,12 +14,12 @@ $vehiculo = get_vehiculo($id);
 
 
 
-var_dump($_POST);
+
 
 if(isset($_POST["finishtrip"])){
 
 
-if(!empty($_POST['fechaviaje']) && !empty($_POST['preciototal']) && !empty($_POST['duracion']) && !empty($_POST['horasalida']) && !empty($_POST['cantidadasientos']) && !empty($_POST['observaciones']) && !empty($_POST['idOrigen']) && !empty($_POST['idDestino']) && !empty($_POST['idvehiculo'])) {
+if(!empty($_POST['fechaviaje']) && !empty($_POST['preciototal']) && !empty($_POST['duracion']) && !empty($_POST['horasalida']) && !empty($_POST['cantidadasientos']) && !empty($_POST['observaciones']) && !empty($_POST['idOrigen']) && !empty($_POST['idDestino'])) {
 	
 	$fechaviaje=$_POST['fechaviaje'];
 	$preciototal=$_POST['preciototal'];
@@ -29,7 +29,7 @@ if(!empty($_POST['fechaviaje']) && !empty($_POST['preciototal']) && !empty($_POS
 	$observaciones=$_POST['observaciones'];
 	$idorigen = $_POST['idOrigen'];
 	$iddestino = $_POST['idDestino'];
-	$idvehiculo = $_POST['idvehiculo'];
+	$idvehiculo = $_POST['vehiculo'];
 	$estadopago = 0;
 	
 	
