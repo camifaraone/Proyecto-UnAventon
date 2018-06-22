@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2018 a las 04:14:38
+-- Tiempo de generación: 22-06-2018 a las 21:57:23
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -183,8 +183,7 @@ INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nomb
 (1, 'Camila', 'Faraone', 'camilafaraone@gmail.com', 'camifaraone', '2345421506', 'myadmin', '1995-04-17', '', 'myadmin', 0, 0),
 (2, 'matias', 'nuÃ±ez', 'matute94_23@hotmail.com', 'mati', '1234', '12345678', '2018-05-18', '', '12345678', 0, 0),
 (8, 'agustin', 'nuÃ±ez', 'matute94_23@gmail.com', 'agus', '1234', '1234', '2018-05-27', '', '1234', 0, 0),
-(9, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camila', '2147483647', 'myadmin95', '1990-10-10', '', 'myadmin95', 0, 0),
-(10, 'camila', 'faraone', 'ffchjakhed@gmail.com', 'camilaffdc', '2147483647', 'holahola', '1990-10-10', '', 'holahola', 0, 0);
+(11, ' Agustin', ' nuÃ±ez', 'a@a', ' agustin', '1', '12345678', '2000-06-09', '', '12345678', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -210,10 +209,12 @@ CREATE TABLE `vehiculo` (
 
 INSERT INTO `vehiculo` (`idvehiculo`, `marca`, `color`, `detalles`, `cantasientosdisp`, `modelo`, `patente`, `idtipov`, `idautoincremental`) VALUES
 (1, 'AUDI', 'negro', 'a', 4, 'A3', 'AAA 111', '1', 1),
-(2, 'BMW', ' blanco', ' buen estado', 3, 'Q7', ' aaa 555', '2', 2),
 (22, 'fvf', 'vcvfcv', 'vcvf', 1, 'cxxv', 'xvxv', '', 1),
 (23, 'sfsf', 'sef', 'sef', 3, 'sef', 'sfe', '', 1),
-(24, 'fsfsef', 'sfef', 'sef', 2, 'sef', 'sef', '', 1);
+(24, 'fsfsef', 'sfef', 'sef', 2, 'sef', 'sef', '', 1),
+(26, 'BMW', 'blanco', 're piola', 3, 'Q7', '1111', '', 2),
+(27, 'fiat', 'negro', 'a', 2, 'uno', '111', '', 11),
+(29, 'volvo', 'negro', 'no', 3, 'az', 'aaa', '', 11);
 
 -- --------------------------------------------------------
 
@@ -228,12 +229,12 @@ CREATE TABLE `viaje` (
   `monto` float NOT NULL,
   `duracion` varchar(200) NOT NULL,
   `hssalida` varchar(200) NOT NULL,
-  `comision` varchar(200) NOT NULL,
-  `distancia` int(255) NOT NULL,
+  `distancia` int(11) NOT NULL,
   `idvehiculo` int(100) NOT NULL,
   `idOrigen` int(100) NOT NULL,
   `idDestino` int(100) NOT NULL,
   `observaciones` varchar(200) NOT NULL,
+  `cantasientos` int(10) NOT NULL,
   `estadopago` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -241,10 +242,12 @@ CREATE TABLE `viaje` (
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `comision`, `distancia`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `estadopago`) VALUES
-(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', '5', 300, 2, 2, 2, 'sin aire acondicionado', 0),
-(1, 2, '2018-05-22', 500, '14:00hs', '9:00hs', '5', 100, 1, 1, 1, 'funciona todo', 0),
-(2, 3, '2018-06-16', 32, '02:02', '02:02', '', 2, 0, 0, 0, '2', 0);
+INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `distancia`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`) VALUES
+(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', 300, 2, 2, 2, 'sin aire acondicionado', 0, 0),
+(1, 2, '2018-05-22', 500, '14:00hs', '9:00hs', 100, 1, 1, 1, 'funciona todo', 0, 0),
+(2, 6, '2018-06-27', 100, '60:00', '12:00', 2, 26, 4, 3, 'a', 2, 0),
+(2, 16, '2018-06-03', 1000, '1', '1', 15000, 22, 3, 1, 'a', 0, 0),
+(2, 18, '2018-06-27', 1000, '60:00', '12:00', 100, 26, 2, 3, 'vjvlj', 4, 0);
 
 --
 -- Índices para tablas volcadas
@@ -326,13 +329,7 @@ ALTER TABLE `vehiculo`
 -- Indices de la tabla `viaje`
 --
 ALTER TABLE `viaje`
-  ADD PRIMARY KEY (`idviaje`),
-  ADD UNIQUE KEY `distancia_2` (`distancia`),
-  ADD UNIQUE KEY `idciudad_2` (`idOrigen`),
-  ADD UNIQUE KEY `idvehiculo_2` (`idvehiculo`),
-  ADD KEY `distancia` (`distancia`),
-  ADD KEY `idciudad` (`idOrigen`),
-  ADD KEY `idvehiculo` (`idvehiculo`);
+  ADD PRIMARY KEY (`idviaje`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -363,6 +360,12 @@ ALTER TABLE `estadopostulacion`
   MODIFY `idep` int(100) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `origen`
+--
+ALTER TABLE `origen`
+  MODIFY `idOrigen` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
@@ -378,19 +381,19 @@ ALTER TABLE `respuesta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `idvehiculo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idvehiculo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

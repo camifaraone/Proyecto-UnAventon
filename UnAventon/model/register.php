@@ -3,7 +3,7 @@
 
 function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia){
 		
-	require_once ("db.php");
+	require ("db.php");
 	
 	try{
 		$sql= $conn->prepare("INSERT INTO usuario
@@ -26,22 +26,87 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 	return true;
 	
  }
-
- function comprobar_usuario($nombreusuario, $contrasenia)
+ 
+ 
+ 
+ function comprobar($email)
  {
-	  require_once ("db.php");
+	  require ("db.php");
 	try{
-		$sql = $conn->prepare("select * from usuario where nombreusuario=:nombreusuario and contrasenia=:contrasenia");
-		$sql->bindParam(":nombreusuario",$nombreusuario,PDO::PARAM_STR);
-		$sql->bindParam(":contrasenia",$contrasenia,PDO::PARAM_STR);
+		
+		$sql = $conn->prepare("select * from usuario where email=:email");
+		$sql->bindParam(":email",$email,PDO::PARAM_STR);
+		
 		$sql ->execute();
-	}catch(PDOException $e) {
+		$result=$sql->fetch();
+ 
+	}
+    catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
     }
-	return true;	 
+	return $result;	 
 	 
  
  
- }
+ }		 
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ function comprobar_usuario()
+ {
+	
+			if(isset($_POST["register"])){
+
+
+				if(!empty($_POST['nombreusuario']) && !empty($_POST['contrasenia']) && !empty($_POST['confirmarcontrasenia']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['email']) && !empty($_POST['telefono']) && !empty($_POST['fechanacimiento'])) {
+					$nombreusuario=$_POST['nombreusuario'];
+					$email=$_POST['email'];
+					$nombre=$_POST['nombre'];
+					$apellido=$_POST['apellido'];
+					$telefono=$_POST['telefono'];
+					$fechanacimiento=$_POST['fechanacimiento'];
+					$contrasenia=$_POST['contrasenia'];
+					$confirmarcontrasenia=$_POST['confirmarcontrasenia'];
+					
+					$a = comprobar($email);
+				
+					if( $a != '') {
+						
+						$message = "El email utilizado ya esta en uso!";
+						header("Location: ../controller/register.php?mensaje=ElEmailUtilizadoYaEstaEnUso");
+						
+	                }
+					else
+				    {
+						$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia);
+						header("Location: ../controller/login.php");
+				
+				    }
+					
+					
+					
+
+				}
+				else {
+						$message = "Todos los campos deben estar completos";
+					}
+			}
+		
+		
+	}
+ 
+ 	
+
+	
 
 ?>

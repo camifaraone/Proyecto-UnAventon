@@ -38,7 +38,7 @@ return true;
 
 
 
-function verificarvehiculo($idvehiculo){
+function verificarvehiculo($idvehiculo,$id){
 
 		require ("db.php");
 
@@ -54,8 +54,18 @@ function verificarvehiculo($idvehiculo){
 
 
 
-
 		$result=$gsent->fetch();
+		//print_r($result);
+		if($result != ''){
+			echo 'Vehiculo eliminado correctamente';
+			$idvehiculo= delVehiculo($_GET["idvehiculo"]);
+			header("Location: ../controller/perfil.php?idautoincremental=".$id);
+
+}
+else {
+	echo 'El vehiculo se encuentra asociado a un viaje. No se puede eliminar!';
+	
+}
 
 		}
 

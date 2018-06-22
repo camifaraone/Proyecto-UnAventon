@@ -35,7 +35,7 @@ if(!empty($_POST['fechaviaje']) && !empty($_POST['preciototal']) && !empty($_POS
 	
 	$viaje = newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasientos, $observaciones,$idorigen,$iddestino,$idvehiculo,$id, $estadopago);
 	var_dump($viaje);
-	header("Location: ../controller/misviajes.php?idautoincremental=".$id);
+	//header("Location: ../controller/misviajes.php?idautoincremental=".$id);
 	
 
 } else {

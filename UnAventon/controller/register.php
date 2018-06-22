@@ -1,8 +1,13 @@
 
-<?php require_once "../model/register.php";?>
+<?php require_once "../model/register.php";
 
-	<?php
 
+$e = comprobar_usuario();	
+	
+
+	
+	
+/*
 if(isset($_POST["register"])){
 
 
@@ -18,14 +23,24 @@ if(!empty($_POST['nombreusuario']) && !empty($_POST['contrasenia']) && !empty($_
 	
 	
 	
+	$e = comprobar_usuario($email);
+	var_dump($e);
+	
+	if ( $e = null ) {
+	
 	$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia);
 	header("Location: ../controller/login.php");
-
+	} else
+	{
+		$message = "El email utilizado ya esta en uso!";
+	}
 
 } else {
 	 $message = "Todos los campos deben estar completos";
 }
 }
+
+*/
 ?>
 
 <?php include ( "../view/register.html");?>
