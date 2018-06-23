@@ -20,10 +20,16 @@
 			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
   
-  <?php
+   <?php
 		session_start();	
 		if(!empty($_SESSION['session_username'])) {
-			$email = $_SESSION['session_username'];?>
+			$email = $_SESSION['session_username'];
+			
+	?>
+  
+  
+  
+  
 <nav class="white" role="navigation"  >
 <div class="nav-wrapper #ff9800 orange" >
  <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
@@ -56,7 +62,6 @@
     <th>Precio por asiento</th>
     <th>Duración</th>
 	<th>Hr.salida</th>
-	<th>Distancia /KM</th>
 	<th>Ciudad/Origen</th>
 	<th>Ciudad/Destino</th>
 	<th>Observaciones</th>
@@ -74,7 +79,6 @@
 	 echo "<td>$".$viaje[$i]["monto"].""."</td>";
 	 echo "<td>".$viaje[$i]["duracion"].""."Hs</td>";
 	 echo "<td>".$viaje[$i]["hssalida"].""."Hs</td>";
-	 echo "<td>".$viaje[$i]["distancia"].""."Km</td>";
 	 echo "<td>".$viaje[$i]["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viaje[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$viaje[$i]["observaciones"].""."</td>";

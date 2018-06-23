@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2018 a las 21:57:23
+-- Tiempo de generación: 23-06-2018 a las 22:34:48
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -229,7 +229,6 @@ CREATE TABLE `viaje` (
   `monto` float NOT NULL,
   `duracion` varchar(200) NOT NULL,
   `hssalida` varchar(200) NOT NULL,
-  `distancia` int(11) NOT NULL,
   `idvehiculo` int(100) NOT NULL,
   `idOrigen` int(100) NOT NULL,
   `idDestino` int(100) NOT NULL,
@@ -242,12 +241,11 @@ CREATE TABLE `viaje` (
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `distancia`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`) VALUES
-(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', 300, 2, 2, 2, 'sin aire acondicionado', 0, 0),
-(1, 2, '2018-05-22', 500, '14:00hs', '9:00hs', 100, 1, 1, 1, 'funciona todo', 0, 0),
-(2, 6, '2018-06-27', 100, '60:00', '12:00', 2, 26, 4, 3, 'a', 2, 0),
-(2, 16, '2018-06-03', 1000, '1', '1', 15000, 22, 3, 1, 'a', 0, 0),
-(2, 18, '2018-06-27', 1000, '60:00', '12:00', 100, 26, 2, 3, 'vjvlj', 4, 0);
+INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`) VALUES
+(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', 2, 2, 2, 'sin aire acondicionado', 1, 0),
+(2, 2, '2018-05-22', 500, '14:00hs', '9:00hs', 1, 1, 1, 'funciona todo', 3, 0),
+(1, 24, '2018-06-16', 500, '10:00', '07:00', 26, 3, 2, '4', 6, 0),
+(2, 29, '2018-06-18', 700, '01:00', '12:00', 26, 0, 2, '2', 5, 0);
 
 --
 -- Índices para tablas volcadas
@@ -381,7 +379,7 @@ ALTER TABLE `respuesta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
@@ -393,7 +391,7 @@ ALTER TABLE `vehiculo`
 -- AUTO_INCREMENT de la tabla `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

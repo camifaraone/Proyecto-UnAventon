@@ -7,14 +7,14 @@ function newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasiento
 	
 	try{
 		$sql= $conn->prepare("INSERT INTO viaje
-				(fecha, monto, duracion, hssalida, cantasientos, idOrigen, idDestino, observaciones, idvehiculo,  idautoincremental, estadopago) 
+				(idautoincremental, fecha, monto, duracion, hssalida, idvehiculo, idOrigen, idDestino, observaciones,  cantasientos, estadopago) 
 				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" );
 		
 		
 		
 
 				
-		$sql ->execute(array("$fechaviaje", "$preciototal", "$duracion", "$horasalida", "$cantasientos","$idorigen","$iddestino","$observaciones","$idvehiculo","$id", "$estadopago"));
+		$sql ->execute(array("$id", "$fechaviaje", "$preciototal", "$duracion", "$horasalida","$idvehiculo","$idorigen","$iddestino","$observaciones","$cantasientos", "$estadopago"));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
