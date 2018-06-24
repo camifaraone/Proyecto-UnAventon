@@ -49,37 +49,66 @@
 								<span class="required_notification">* Datos requeridos</span> 
 							</li>
 							<li> 
-								<label for="fechaviaje"><em>*</em>Fecha del viaje:</label>
-								<input type="date" name="fechaviaje" id="fechaviaje" value= " <?php echo $viaje[$i]["fecha"];?>" />
-							</li>
+								<label for="date" class="date"><em>*</em>Fecha del viaje:</label>
+								<input type="date" name="fechaviaje" id="fechaviaje" required/ value= "<?php
+									echo $datosviaje['fecha'];
+								?>">	</li>
 							<li> 
-								<label for="precio"><em>*</em>Precio:</label>
-								<input type="text" name="precio" id="precio" value= " <?php echo $viaje['monto']; ?>"/>
+								<label for="monto"><em>*</em>Precio:</label>
+								<input type="text" name="monto" id="monto" value= " <?php echo $datosviaje['monto']; ?>"/>
 							</li> 
 							<li> 
 								<label for="duracion"><em>*</em>Duración:</label>
-								<input  name="duracion" id="duracion" value= " <?php echo $viaje['duracion']; ?>"/>
+								<input  name="duracion" id="duracion" value= " <?php echo $datosviaje['duracion']; ?>"/>
 							</li>
 							<li> 
 								<label for="hora"><em>*</em>Hora salida:</label>
-								<input name="horasalida" id="horasalida" value= " <?php echo $viaje['hssalida']; ?>"/>
+								<input name="horasalida" id="horasalida" value= " <?php echo $datosviaje['hssalida']; ?>"/>
 							</li>
-							<li> 
-								<label for="distancia"><em>*</em>Distancia:</label>
-								<input type="text" name="distancia" id="distancia" value= " <?php echo $viaje['distancia']; ?>"/>
-							</li>
+							
 							<li>
-								<label for="origen"><em>*</em>Ciudad/Origen:</label>
-								<input type="text" name="origen" id="origen" value= " <?php echo $viaje['ciudadOrigen']; ?>"/>
+							<div class="form-group"> 
+								<label for="vehiculo">Elija su vehículo:
+								<select name="vehiculo">
+									<?php for($i=0; $i<count($vehiculo);$i++)  {
+										echo '<option value='.$vehiculo['idvehiculo'].' > '.$vehiculo[$i]['modelo'].' Patente : '.$vehiculo[$i]['patente'].' </option>';
+									}?>
+								</select>
+								</label>
+							</div>
 							</li>
+							<br><br><br>
 							<li>
-								<label for="destino"><em>*</em>Ciudad/Destino:</label>
-								<input type="text" name="destino" id="destino" value= " <?php echo $viaje['ciudadDestino']; ?>"/>
+								<div class="form-group"> 
+									<label for="origen">Ciudad/Origen:
+									<select name="origen">
+										<?php for($i=0; $i<count($origen);$i++)  {
+											echo '<option value='.$origen['idOrigen'].'> '.$origen[$i]['ciudadOrigen'].' </option>';
+										}?>
+						
+									</select>
+									</label>
+								</div>
 							</li>
+							<br><br><br>
+							<li>
+								<div class="form-group"> 
+									<label for="destino">Ciudad/Destino:
+									<select name="destino">
+										<?php for($i=0; $i<count($destino);$i++)  {
+											echo '<option value='.$destino['idDestino'].'> '.$destino[$i]['ciudadDestino'].' </option>';
+										}?>	
+						
+									</select>
+									</label>
+								</div>	
+							</li>
+							<br><br><br>
 							<li>
 								<label for="observaciones"><em>*</em>Observaciones:</label>
-								<input type="text" name="observaciones" id="observaciones" value= " <?php echo $viaje['observaciones']; ?>"/>
+								<input type="text" name="observaciones" id="observaciones" value= " <?php echo $datosviaje['observaciones']; ?>"/>
 							</li>
+							
 								<button class="submit" name="modif" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
 							 							
 						</ul> 

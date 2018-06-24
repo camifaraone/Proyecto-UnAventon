@@ -1,10 +1,9 @@
 <?php
 
 
-function newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasientos,$idorigen,$iddestino,$observaciones,$idvehiculo,$id,$estadopago){
+function newtrip($fechaviaje, $preciototal, $duracion, $horasalida, $cantasientos,$observaciones,$idorigen,$iddestino,$idvehiculo,$id,$estadopago){
 		
 	require("db.php");
-	
 	try{
 		$sql= $conn->prepare("INSERT INTO viaje
 				(idautoincremental, fecha, monto, duracion, hssalida, idvehiculo, idOrigen, idDestino, observaciones,  cantasientos, estadopago) 

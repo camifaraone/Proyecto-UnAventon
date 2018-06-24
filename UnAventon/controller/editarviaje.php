@@ -6,26 +6,31 @@ require_once ("../model/editarviaje.php");
 
 
 
-$id= ($_GET["idautoincremental"]);
-$datosviaje = get_viaje ($id);
+$idviaje= ($_GET["idviaje"]);
+$datosviaje = get_viaje ($idviaje);
+$id = get_idviaje($idviaje);
+$vehiculo = get_vehiculo($id);
+$origen = get_origen();
+$destino = get_destino();
 
+var_dump($_POST);
 if(isset($_POST["modif"])){
 
 
-if(!empty($_POST['fechaviaje']) && !empty($_POST['monto']) && !empty($_POST['duracion']) && !empty($_POST['hora']) && !empty($_POST['distancia']) && !empty($_POST['origen']) && !empty($_POST['destino']) && !empty($_POST['observaciones'])) {
+if(!empty($_POST['fechaviaje']) && !empty($_POST['monto']) && !empty($_POST['duracion']) && !empty($_POST['horasalida']) && !empty($_POST['distancia']) && !empty($_POST['origen']) && !empty($_POST['destino']) && !empty($_POST['observaciones'])) {
 	$fechaviaje=$_POST['fechaviaje'];
 	$monto=$_POST['monto'];
 	$duracion=$_POST['duracion'];
-	$hora=$_POST['hora'];
+	$horasalida=$_POST['horasalida'];
 	$distancia=$_POST['distancia'];
 	$origen=$_POST['origen'];
 	$destino=$_POST['destino'];
 	$observaciones=$_POST['observaciones'];
+	$idvehiculo = $_POST['vehiculo'];
 	
+//	$modi = editarviaje($fechaviaje, $monto, $duracion, $horasalida, $distancia, $origen, $destino, $observaciones,$idvehiculo, $id, $idviaje);
 	
-	$modi = editarviaje($fechaviaje, $precio, $duracion, $hora, $distancia, $origen, $destino, $observaciones,$id);
-	
-	header("Location: ../controller/misviajes.php?idautoincremental=".$id);
+//	header("Location: ../controller/misviajes.php?idautoincremental=".$id);
 
 
 } else {

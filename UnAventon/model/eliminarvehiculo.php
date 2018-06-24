@@ -57,14 +57,15 @@ function verificarvehiculo($idvehiculo,$id){
 		$result=$gsent->fetch();
 		//print_r($result);
 		if($result != ''){
+			
+			echo 'El vehiculo se encuentra asociado a un viaje. No se puede eliminar!';
+			header("Location: ../controller/perfil.php?idautoincremental=".$id."Error=ElVehiculoSeleccionadoNoSePuedeEliminar");
+}
+else {
+	
 			echo 'Vehiculo eliminado correctamente';
 			$idvehiculo= delVehiculo($_GET["idvehiculo"]);
 			header("Location: ../controller/perfil.php?idautoincremental=".$id);
-
-}
-else {
-	echo 'El vehiculo se encuentra asociado a un viaje. No se puede eliminar!';
-	
 }
 
 		}
