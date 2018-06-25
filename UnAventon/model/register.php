@@ -82,11 +82,8 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 				
 					if( $a != '') {
 						
-						$message = "El email utilizado ya está registrado.";
-						
-						echo '<script language="javascript">alert("';
-						echo $message;
-						echo '");</script>';
+						$message = "El email utilizado ya esta en uso!";
+						header("Location: ../controller/register.php?mensaje=ElEmailUtilizadoYaEstaEnUso");
 						
 	                }
 					else
