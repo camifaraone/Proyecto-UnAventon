@@ -1,6 +1,6 @@
 <?php
 
-function del_viaje($idviaje){
+function del_viaje($idviaje,$id){
 
 		require ("db.php");
 
@@ -14,7 +14,7 @@ function del_viaje($idviaje){
 				
 		$gsent->execute();
 
-
+		header("Location: ../controller/misviajes.php?idautoincremental=".$id);
 
 
 		//$result=$gsent->fetch();

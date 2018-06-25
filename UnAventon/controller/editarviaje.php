@@ -13,7 +13,8 @@ $vehiculo = get_vehiculo($id);
 $origen = get_origen();
 $destino = get_destino();
 
-var_dump($_POST);
+
+print_r($_POST);
 if(isset($_POST["modif"])){
 
 
