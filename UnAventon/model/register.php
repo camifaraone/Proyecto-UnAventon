@@ -1,22 +1,16 @@
 <?php
 
 
-function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia){
+function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto){
 		
 	require ("db.php");
 	
 	try{
 		$sql= $conn->prepare("INSERT INTO usuario
-				(nombreusuario, email, nombre,apellido,telefono,fechanacimiento,contrasenia,confirmarcontrasenia) 
-				VALUES(:nombreusuario,:email, :nombre, :apellido, :telefono, :fechanacimiento, :contrasenia, :confirmarcontrasenia)" );
-		$sql->bindParam(":nombreusuario",$nombreusuario,PDO::PARAM_STR,100);
-		$sql->bindParam(":email",$email,PDO::PARAM_STR,100);
-		$sql->bindParam(":nombre",$nombre,PDO::PARAM_STR,100);
-		$sql->bindParam(":apellido",$apellido,PDO::PARAM_STR,8);	
-		$sql->bindParam(":telefono",$telefono,PDO::PARAM_INT,15);
-		$sql->bindParam(":fechanacimiento",$fechanacimiento,PDO::PARAM_STR);
-		$sql->bindParam(":contrasenia",$contrasenia,PDO::PARAM_STR,8);
-		$sql->bindParam(":confirmarcontrasenia",$confirmarcontrasenia,PDO::PARAM_STR,8);
+				(nombreusuario, email, nombre,apellido,telefono,fechanacimiento,contrasenia,confirmarcontrasenia, foto) 
+				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)" );
+
+		$sql ->execute(array("$nombreusuario", "$email", "$nombre", "$apellido", "$telefono","$fechanacimiento","$contrasenia","$confirmarcontrasenia","$foto"));
 				
 		$sql ->execute();
 	
@@ -82,9 +76,13 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 				
 					if( $a != '') {
 						
-						$message = "El email utilizado ya esta en uso!";
-						header("Location: ../controller/register.php?mensaje=ElEmailUtilizadoYaEstaEnUso");
+						$message = "El email utilizado ya está registrado.";
 						
+						echo '<script language="javascript">alert("';
+						echo $message;
+						echo '");</script>';
+
+						header("Location: ../controller/register.php?mensaje=ElEmailUtilizadoYaEstaEnUso");
 	                }
 					else
 				    {

@@ -38,6 +38,10 @@
 								?>
 							</li>
 							<li> 
+								<label for="foto">Foto: <?php echo $usuario['foto']; ?></label>
+								
+							</li>
+							<li> 
 								<label for="name">Nombre: <?php echo $usuario['nombre']; ?></label>
 								
 							</li>
