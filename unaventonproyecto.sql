@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-06-2018 a las 08:32:02
--- Versión del servidor: 10.1.19-MariaDB
--- Versión de PHP: 5.6.28
+-- Tiempo de generación: 25-06-2018 a las 22:29:02
+-- Versión del servidor: 10.1.31-MariaDB
+-- Versión de PHP: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -210,7 +212,7 @@ INSERT INTO `vehiculo` (`idvehiculo`, `marca`, `color`, `detalles`, `cantasiento
 (29, 'volvo', 'negro', 'no', 3, 'az', 'aaa', '', 11),
 (30, 'fiat', 'negro', 'a', 2, 'uno', '111', '', 1),
 (31, 'kjbkb ', 'joln', 'jknl.n', 5, 'njknkl', 'hjllhnl', '', 1),
-(32, 'jknklnÃ±o', 'lmÂ´pÃ±mlÂ´pÃ±', 'mÂ´Ã±pjÂ´p', 4, 'oljlÂ´Ã±plj', 'mklnÃ±-', '', 1);
+(34, '  audi', ' negro', 'rayado', 3, ' a1', 'abc 999', '', 2);
 
 -- --------------------------------------------------------
 
@@ -230,26 +232,16 @@ CREATE TABLE `viaje` (
   `idDestino` int(100) NOT NULL,
   `observaciones` varchar(200) NOT NULL,
   `cantasientos` int(10) NOT NULL,
-  `estadopago` int(1) NOT NULL,
-  `distancia` int(11) NOT NULL
+  `estadopago` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`, `distancia`) VALUES
-(2, 1, '2018-05-01', 1000, '13:00hs', '12:00hs', 2, 2, 2, 'sin aire acondicionado', 1, 0, 0),
-(2, 2, '2018-05-22', 500, '14:00hs', '9:00hs', 1, 1, 1, 'funciona todo', 3, 0, 0),
-(2, 29, '2018-06-18', 700, '01:00', '12:00', 26, 0, 2, '2', 5, 0, 0),
-(1, 30, '2018-06-26', 200, '02:00', '12:00', 23, 0, 1, '3', 2, 0, 0),
-(1, 31, '2018-06-26', 200, '02:00', '12:00', 23, 0, 1, '3', 2, 0, 0),
-(1, 32, '2018-06-29', 100, '02:00', '12:00', 1, 0, 1, 'Ninguna', 2, 0, 10),
-(2, 33, '2018-05-01', 1000, '13:00hs', '12:00hs', 2, 2, 2, 'sin aire acondicionad8533', 1, 0, 0),
-(1, 34, '2018-06-26', 2000, '02:00', '12:00', 23, 0, 1, '5', 2, 0, 0),
-(1, 35, '2018-06-24', 100, '20:00', '10:00', 30, 0, 1, '3', 2, 0, 0),
-(2, 37, '2018-06-25', 5000, '10', '12', 2, 1, 4, 'knnml', 5, 0, 1000),
-(1, 38, '2018-06-25', 500, '52', '10', 2, 1, 4, 'kln- l.', 2, 0, 5);
+INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`) VALUES
+(2, 11, '2018-06-11', 131, '11:11', '11:01', 34, 2, 6, 'c', 4, 0),
+(1, 12, '2018-06-25', 500, '00:40', '12:00', 34, 4, 2, 'ninguna', 3, 1);
 
 --
 -- Índices para tablas volcadas
@@ -342,51 +334,62 @@ ALTER TABLE `viaje`
 --
 ALTER TABLE `calificacionacompaniante`
   MODIFY `idcalifica` int(100) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `calificacionpiloto`
 --
 ALTER TABLE `calificacionpiloto`
   MODIFY `Idcalificp` int(100) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `destino`
 --
 ALTER TABLE `destino`
   MODIFY `idDestino` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
   MODIFY `idep` int(100) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `origen`
 --
 ALTER TABLE `origen`
   MODIFY `idOrigen` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
   MODIFY `idpregunta` int(100) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
   MODIFY `idrespuesta` int(100) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `idvehiculo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `idvehiculo` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
 --
 -- AUTO_INCREMENT de la tabla `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
