@@ -72,7 +72,18 @@
   </div>
   
 	
-    <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>    <h5 class="center-align"> <?php echo"<a href=../controller/newtrip.php?idautoincremental=".$id.">   Crear Viaje  </a>"; ?>  </h5> </div>
+    <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>    <h5 class="center-align"> 
+    <?php 
+      $estado=0;
+    
+        if ($viaje[$id]["estadopago"]= $estado){
+         echo "<a href=../controller/newtrip.php?idautoincremental=".$id.">Crear viaje  </a>"; 
+       }
+       else {
+        echo"<a href=../controller/oopscrearviaje.php?idautoincremental=".$id.">Crear viaje </a>";
+      }
+         
+    ?>  </h5> </div>
   <div id="test2" class="col s12"> <h5 class="center  -align">Aquí puede ver los viajes que ha realizado!</h5>  <a href="">   <h5 class="center-align"> <?php echo"<a href=../controller/misviajes.php?idautoincremental=".$id.">   Ver Viajes  </a>"; ?> </h5>    </div>
   <div id="test3" class="col s12"> <h5 class="center  -align">Aquí puede acceder a su perfil!</h5>  <h5 class="center-align"> <?php echo"<a href=../controller/perfil.php?idautoincremental=".$id.">   Ver Perfil  </a>"; ?>  </h5> </div>
 
