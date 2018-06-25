@@ -6,7 +6,7 @@ require_once ("../model/perfil.php");
 require_once "../model/verviaje.php";
 
 if(isset($_GET["idautoincremental"]) ){
-	$usuario= get_perfil($_GET["idautoincremental"]);
+	$usuario= get_usuarios($_GET["idautoincremental"]);
 }
 $id= ($_GET["idautoincremental"]);
 

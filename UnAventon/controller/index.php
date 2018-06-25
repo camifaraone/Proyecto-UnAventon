@@ -2,6 +2,7 @@
 
 
 require_once "../model/register.php";
+require_once ("../model/perfil.php");
 
 require_once "../model/viajes.php";
 $viaje = get_viajes();

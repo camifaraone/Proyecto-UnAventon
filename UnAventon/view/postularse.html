@@ -41,44 +41,33 @@ $name = $_SESSION['session_username'];
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Postularse al viaje</h1>
+			<h1>Lista de postulados</h1>
 
 		</div>
-		<h3> Información del viaje seleccionado</h3>
+		
 
 
 		<table  class="table table-bordered" id="table">
 			<thead>
 				<tr>
-					<th>Fecha</th>
-					<th>Precio por asiento</th>
-					<th>Duración</th>
-					<th>Hr.salida</th>
-					<th>Distancia /KM</th>
-					<th>Ciudad/Origen</th>
-					<th>Ciudad/Destino</th>
-					<th>Observaciones</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
 
 				</tr>
 			</thead>
 			<tbody>
 				<?php
-				echo "<tr><td>".$viaje["fecha"]."</td>";
-					echo "<td> $".$viaje["monto"].""."</td>";
-					echo"<td>".$viaje["duracion"].""."Hs</td>";
-					echo"<td>".$viaje["hssalida"].""."Hs</td>";
-					echo"<td>".$viaje["distancia"].""."Km</td>";
-					echo "<td>".$viaje["ciudadOrigen"].""."</td>";
-					echo "<td>".$viaje["ciudadDestino"].""."</td>";
-					echo"<td>".$viaje["observaciones"].""."</td>";
+				for($i=0; $i<count($usuario);$i++) {
+					echo "<tr><td>".$usuario["Nombre"]."</td>";
+					echo "<td> $".$usuario["Apellido"].""."</td>";
+					echo"<td><a onClick='miFuncion()'   href=../controller/eliminarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Eliminar </a></td>";
+	 				echo "</tr>";
+				}
 
 					?>
 				</tbody>
 			</table>
-			<hr width="100%">
-			<?php
-			echo "<button class=".submit." name=".agregaracompaniante." onClick=".agregarAcompaniante($id,$viaje).">POSTULARSE COMO ACOMPAÑANTE</button>";
-			?>
+			
 		</div>
 
 		<div class="container">
