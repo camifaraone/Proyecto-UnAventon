@@ -7,12 +7,15 @@ require_once "../model/viajes.php";
 $viaje = get_viajes();
 
 
+
  
     if(isset($_GET['idautoincremental'])) {
 
 $id= ($_GET["idautoincremental"]);
+$pago = get_pago($id);
 
 	}
+	
 
 
 

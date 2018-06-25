@@ -74,9 +74,9 @@
 	
     <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>    <h5 class="center-align"> 
     <?php 
-      $estado=0;
+     
     
-        if ($viaje[$id]["estadopago"]= $estado){
+        if (in_array(0, $pago)){
          echo "<a href=../controller/newtrip.php?idautoincremental=".$id.">Crear viaje  </a>"; 
        }
        else {
