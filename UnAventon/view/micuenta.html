@@ -18,7 +18,7 @@
 			 
 	<script>
 		function miFuncion(){
-		if(confirm("DESEA ELIMINAR EL PRODUCTO?")){
+		if(confirm("DESEA ELIMINAR EL VEHICULO?")){
 			return true;
 		}
 		else{
@@ -133,6 +133,7 @@
               <th>Color</th>
 			  <th>Patente</th>
 			  <th>Detalles</th>
+			  <th>Asientos disponibles</th>
           </tr>
         </thead>
 
@@ -148,7 +149,8 @@
 	 echo "<td>".$vehiculo[$i]["color"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["patente"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
-	 echo"<td><a href=../controller/modificarauto.php?idautoincremental=".$vehiculo[$i]["idautoincremental"].">Editar </a></td>";
+	 echo "<td>".$vehiculo[$i]["cantasientosdisp"].""."</td>";
+	 echo"<td><a href=../controller/modificarauto.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Editar </a></td>";
 	 echo"<td><a onClick='miFuncion()' href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
 	 echo "</tr>";
 	

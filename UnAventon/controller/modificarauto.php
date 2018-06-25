@@ -6,8 +6,9 @@ require_once ("../model/modificarauto.php");
 
 
 
-$id= ($_GET["idautoincremental"]);
+$id= ($_GET["idvehiculo"]);
 $datosauto = get_vehiculo ($id);
+$iduser = get_id($id);
 
 if(isset($_POST["modif"])){
 
@@ -24,8 +25,8 @@ if(!empty($_POST['marca']) && !empty($_POST['modelo']) && !empty($_POST['color']
 	
 	
 	$modi = modificar_vehiculo($marca,$modelo,$color,$detalles,$cantasientosdisp,$patente,$id);
-	var_dump($modi);
-	header("Location: ../controller/perfil.php?idautoincremental=".$id);
+	
+	header("Location: ../controller/modificarauto.php?idvehiculo=".$id);
 
 
 } else {

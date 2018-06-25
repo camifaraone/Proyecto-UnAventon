@@ -6,8 +6,9 @@ require_once "../model/eliminarviaje.php";
 
 
 $idviaje= ($_GET["idviaje"]);
-$id = get_id ($idviaje);
-$a = verificarviaje($idviaje,$id);
+$delviaje = del_viaje ($idviaje);
+$id = get_id($idviaje);
+header("Location: ../controller/misviajes.php?idautoincremental=".$id);
 /*
 var_dump($a);
 if($a[0] == null){
