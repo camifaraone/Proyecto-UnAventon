@@ -140,7 +140,7 @@
      echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver Detalle </a></td>";
 	 //echo"<td><a href=../controller/editarproducto.php?id_producto=".$viaje[$i]["id"].">Editar Producto </a></td>";
 	 //echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
- if((!empty($_SESSION['session_username']))) {
+ if((!empty($_SESSION['session_username'])) and($viaje[$i]["idautoincremental"]<>$id) and (in_array(0, $postulacion))) {
       
 echo"<td><a href=../controller/postularse.php?idviaje=".$viaje[$i]["idviaje"].">Postularse </a></td>";
 }

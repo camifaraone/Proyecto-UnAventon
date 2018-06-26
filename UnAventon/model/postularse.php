@@ -7,7 +7,7 @@
 	 require "../model/db.php";//te crea una conexion
 	try{
 		
-		$sql = $conn->prepare("SELECT * FROM viaje INNER JOIN usuario ON usuario.idautoincremental = viaje.idautoincremental WHERE viaje.idviaje =: idviaje");
+		$sql = $conn->prepare("select nombre, apellido from usuario INNER JOIN viaje ON usuario.idautoincremental=viaje.idautoincremental WHERE viaje.idviaje =:idviaje");
 		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);   
 		$sql ->execute();
 	
