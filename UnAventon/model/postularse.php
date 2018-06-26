@@ -3,12 +3,12 @@
 	
   
  
-  function get_usuarios($id) {
+  function get_postulados($idviaje) {
 	 require "../model/db.php";//te crea una conexion
 	try{
 		
-		$sql = $conn->prepare("select * from usuario where idautoincremental=:id");
-		$sql->bindParam(":id",$id,PDO::PARAM_INT);   
+		$sql = $conn->prepare("SELECT * FROM viaje INNER JOIN usuario ON usuario.idautoincremental = viaje.idautoincremental WHERE viaje.idviaje =: idviaje");
+		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);   
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )

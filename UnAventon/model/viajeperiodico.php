@@ -1,7 +1,7 @@
 <?php
 
 
-function newtrip($fechaviaje, $fechaviaje, $dias, $preciototal, $horasalida, $observaciones,$idorigen,$iddestino,$idvehiculo,$id){
+function newtrip($fechaviaje, $dias, $preciototal, $horasalida, $observaciones,$idorigen,$iddestino,$idvehiculo,$id){
 		
 	require("db.php");
 	

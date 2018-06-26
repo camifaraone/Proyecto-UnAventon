@@ -1,7 +1,7 @@
 <?php
 
 
-require_once "../model/viajeocasional.php";
+require_once "../model/viajeperiodico.php";
 
 $id= ($_GET["idautoincremental"]);
 
@@ -9,17 +9,28 @@ $id= ($_GET["idautoincremental"]);
 $origen = get_origen();
 $destino = get_destino();
 $vehiculo = get_vehiculo($id);
+$inicio = ($_POST['fechainicio']);
+$fin = ($_POST['fechafin']);
+
+
+$a = new DateTime($inicio);
+$b = new DateTime($fin);
+$c = $a -> diff($b);
+print $c ->format("%R%a");
 
 
 
-var_dump($_POST);
 
 
-/*
+
+
+
 if(isset($_POST["finishtrip"])){
 
 
 if(!empty($_POST['fechaviaje']) && !empty($_POST['dias']) && !empty($_POST['preciototal']) && !empty($_POST['horasalida']) && !empty($_POST['observaciones'])) {
+
+for($i=0; $i<count($c);$i++) { 
 	
 	
 	$fechaviaje=$_POST['fechaviaje'];
@@ -31,6 +42,7 @@ if(!empty($_POST['fechaviaje']) && !empty($_POST['dias']) && !empty($_POST['prec
 	
 	
 	$viaje = newtrip($fechaviaje, $dias,$preciototal, $horasalida, $observaciones,$idorigen,$iddestino,$idvehiculo,$id);
+}	
 	header("Location: ../controller/misviajes.php?idautoincremental=".$id);
 	
 
@@ -39,7 +51,7 @@ if(!empty($_POST['fechaviaje']) && !empty($_POST['dias']) && !empty($_POST['prec
 }
 }
 
-*/
+
 
 
 include "../view/viajeperiodico.html";

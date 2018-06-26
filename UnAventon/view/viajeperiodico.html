@@ -62,42 +62,8 @@
 					</label>
 				</div>
 				<div class="form-group">  
-					<label for="dias">Días:
-						<div>
-    						<input type="checkbox" id="1" value="1">
-    						<label for="1">Lunes</label>
-  						</div>
-  						<div>
-  						  <input type="checkbox" id="2">
-   						  <label for="2">Martes</label>
- 					    </div>
-                        <div>
-    						<input type="checkbox" id="3">
-    						<label for="3">Miércoles</label>
-  						</div>
-  						<div>
-    						<input type="checkbox" id="4">
-    						<label for="4">Jueves</label>
-  						</div>
-  						<div>
-  						  <input type="checkbox" id="5">
-   						  <label for="5">Viernes</label>
- 					    </div>
-                        <div>
-    						<input type="checkbox" id="6">
-    						<label for="6">Sábado</label>
-  						</div>
-  						<div>
-    						<input type="checkbox" id="7">
-    						<label for="7">Domingo</label>
-  						</div>
-					</label>
-				</div>
-				<hr />
-			
-				<div class="form-group">  
-					<label for="preciototal">Precio total:
-						<input type="text" name="preciototal" id="preciototal" class="form-control"  placeholder="Escribir precio" required />
+					<label for="duracion">Duracion:
+						<input type="time" name="duracion" id="duracion" class="form-control"  placeholder="Escribir la duracion promedio" required />
 					</label>
 				</div>
 				<div class="form-group">  
@@ -105,12 +71,22 @@
 						<input type="time" name="horasalida" id="horasalida" class="form-control"  placeholder="Escribir hora de salida" required />
 					</label>
 				</div>
+				<div class="form-group">  
+					<label for="preciototal">Precio total:
+						<input type="text" name="preciototal" id="preciototal" class="form-control"  placeholder="Escribir precio" required />
+					</label>
+				</div>
+				<div class="form-group">  
+					<label for="cantidadasientos">Cantidad asientos:
+						<input type="text" name="cantidadasientos" id="cantidadasientos" class="form-control"  placeholder="Escribir la cantidad de asientos" required />
+					</label>
+				</div>
 				<div class="form-group"> 
 					<label for="origen">Ciudad/Origen:
 					<select name="origen">
 						<?php for($i=0; $i<count($origen);$i++)  {
 							
-							echo '<option> '.$origen[$i]['ciudadOrigen'].' </option>';
+							echo '<option value='.$origen[$i]['idOrigen'].'> '.$origen[$i]['ciudadOrigen'].' </option>';
 						}?>
 						
 					</select>
@@ -123,7 +99,7 @@
 					<select name="destino">
 						<?php for($i=0; $i<count($destino);$i++)  {
 							
-							echo '<option> '.$destino[$i]['ciudadDestino'].' </option>';
+							echo '<option value='.$destino[$i]['idDestino'].'> '.$destino[$i]['ciudadDestino'].' </option>';
 						}?>
 						
 					</select>
@@ -140,7 +116,7 @@
 					<select name="vehiculo">
 						<?php for($i=0; $i<count($vehiculo);$i++)  {
 							
-							echo '<option value='.$vehiculo[$i]['idvehiculo'].' > '.$vehiculo[$i]['modelo'].' </option>';
+							echo '<option value='.$vehiculo[$i]['idvehiculo'].' > '.$vehiculo[$i]['modelo'].' Patente : '.$vehiculo[$i]['patente'].' </option>';
 						}?>
 					</select>
 				</label>

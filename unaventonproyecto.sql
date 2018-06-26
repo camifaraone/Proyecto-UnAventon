@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-06-2018 a las 22:29:02
+-- Tiempo de generación: 26-06-2018 a las 03:20:52
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -78,11 +78,19 @@ INSERT INTO `destino` (`idDestino`, `ciudadDestino`) VALUES
 --
 
 CREATE TABLE `estadopostulacion` (
-  `idep` int(100) NOT NULL,
-  `descripcionep` varchar(255) NOT NULL,
+  `idpost` int(100) NOT NULL,
   `idautoincremental` int(100) NOT NULL,
-  `idviaje` int(200) NOT NULL
+  `idviaje` int(200) NOT NULL,
+  `estadopost` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `estadopostulacion`
+--
+
+INSERT INTO `estadopostulacion` (`idpost`, `idautoincremental`, `idviaje`, `estadopost`) VALUES
+(1, 1, 11, 1),
+(2, 2, 12, 0);
 
 -- --------------------------------------------------------
 
@@ -271,7 +279,7 @@ ALTER TABLE `destino`
 -- Indices de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
-  ADD PRIMARY KEY (`idep`),
+  ADD PRIMARY KEY (`idpost`),
   ADD UNIQUE KEY `idautoincremental` (`idautoincremental`),
   ADD UNIQUE KEY `idviaje` (`idviaje`);
 
@@ -351,7 +359,7 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
-  MODIFY `idep` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `origen`

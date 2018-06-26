@@ -1,18 +1,13 @@
 <?php
-if(!session_id()){
-	session_start();
-}
-require_once ("../model/perfil.php");
-require_once "../model/verviaje.php";
 
-if(isset($_GET["idautoincremental"]) ){
-	$usuario= get_usuarios($_GET["idautoincremental"]);
-}
-$id= ($_GET["idautoincremental"]);
+require_once ("../model/postularse.php");
 
-if(isset($_GET["idviaje"]) ){
-	$viaje= get_unviaje($_GET["idviaje"]);
-}
+
+$idviaje= ($_GET["idviaje"]);
+
+$postulados = get_postulados($idviaje);
+print_r($postulados);
+
 
 include '../view/postularse.html';
 
