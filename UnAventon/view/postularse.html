@@ -32,37 +32,18 @@ include "../controller/head.php";
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Lista de postulados</h1>
+			<h1>Estado actual de Postulacion</h1>
 
 		</div>
 		
 
-
-		<table  class="table table-bordered" id="table">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Apellido</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-				for($i=0; $i<count($postulados);$i++) {
-					echo "<tr><td>".$postulados["nombre"]."</td>";
-					echo "<td> $".$postulados["apellido"].""."</td>";
-				//	echo"<td><a onClick='miFuncion()'   href=../controller/cancelarpostulacion.php?idviaje=".$viaje[$i]["idviaje"].">Eliminar </a></td>";
-	 				echo "</tr>";
-				}
-
-					?>
-				</tbody>
-			</table>
+				ACAAAA VA EL CARTEL DE LA POSTULACION CORRECTA! ♥ :D ♥
+		
 			
 		</div>
 
 		<div class="container">
-			<h5> <a title="Menu Principal" href="../controller/index.php">Volver al menú principal</a></h5>
+			<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 		</div>
 
 		<br></br>
