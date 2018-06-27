@@ -5,7 +5,8 @@ require_once "../model/eliminarviaje.php";
 
 $idviaje= ($_GET["idviaje"]);
 $id = get_id($idviaje);
-$delviaje = del_viaje ($idviaje,$id);
+$a = del_viaje($idviaje,$id);
+
 
 
 

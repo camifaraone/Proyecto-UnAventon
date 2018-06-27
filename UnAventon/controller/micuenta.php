@@ -66,6 +66,10 @@
 								<label for="date">Fecha de nacimiento: <?php echo $usuario['fechanacimiento']; ?></label>
 								
 							</li>
+							<li> 
+								<label for="cali">Calificación: <?php echo $usuario['calificacion']; ?></label>
+								
+							</li>
                     		<li>
 										
 						</ul> 

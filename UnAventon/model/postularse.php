@@ -3,26 +3,29 @@
 	
   
  
-  function get_postulados($idviaje) {
-	 require "../model/db.php";//te crea una conexion
-	try{
+  function nuevo_postulado($id,$idviaje,$estado){
 		
-		$sql = $conn->prepare("SELECT * FROM viaje INNER JOIN usuario ON usuario.idautoincremental = viaje.idautoincremental WHERE viaje.idviaje =: idviaje");
-		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);   
-		$sql ->execute();
-	
-	/*while( $datos = $sql->fetch() )
-    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+	require("db.php");
+	try{
+		$sql= $conn->prepare("INSERT INTO estadopostulacion
+				(idautoincremental, idviaje, estadopost) 
+				VALUES(?, ?, ?)" );
+		
+		
+		
 
-	$result= $sql->fetchAll();
+				
+		$sql ->execute(array("$id", "$idviaje", "$estado"));
 	
-   }
-   catch(PDOException $e) {
-  $result= 'Error: ' . $e->getMessage();
-  }
-	return $result;
-	 
+    }catch(PDOException $e) {
+			return 'Error: ' . $e->getMessage();
+    }
+	return true;
+	
  }
+ 
+ 
+
  
 
 ?>

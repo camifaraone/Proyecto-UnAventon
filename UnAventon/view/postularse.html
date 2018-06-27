@@ -32,45 +32,22 @@ include "../controller/head.php";
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>Lista de postulados</h1>
-
-		</div>
-		
-
-
-		<table  class="table table-bordered" id="table">
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Apellido</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-				for($i=0; $i<count($postulados);$i++) {
-					echo "<tr><td>".$postulados["nombre"]."</td>";
-					echo "<td> $".$postulados["apellido"].""."</td>";
-				//	echo"<td><a onClick='miFuncion()'   href=../controller/cancelarpostulacion.php?idviaje=".$viaje[$i]["idviaje"].">Eliminar </a></td>";
-	 				echo "</tr>";
-				}
-
-					?>
-				</tbody>
-			</table>
+		<article>
+		<section>
+			<h1>Estado actual de postulación</h1>
+								<label for="foto" width="800"></label><center><img src="../img/postu.jpg" width="800"/></center>
+						
+				</section>
 			
+	</article>
+
 		</div>
-
-		<div class="container">
-			<h5> <a title="Menu Principal" href="../controller/index.php">Volver al menú principal</a></h5>
-		</div>
-
-		<br></br>
-		<br></br>
-
-		<?php
-		include "../controller/footer.php";
-		?>
+<h5 class="center -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
+</div>
+	</div>
+	 <?php
+  		include "../controller/footer.php";
+	?>
 
 	</body>
 

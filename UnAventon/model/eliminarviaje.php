@@ -1,6 +1,23 @@
-<?php
+<?php 
+ 	function geteliminar($id){
+	require ("db.php");
+	try{
+		$sql = $conn->prepare("select calificacion from usuario where idautoincremental=:id");
+		$sql->bindParam(":id",$id,PDO::PARAM_INT);
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
 
-function del_viaje($idviaje,$id){
+	$result= $sql->fetch();
+	
+
+   }catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+ }
+function del_viaje($idviaje, $id){
 
 		require ("db.php");
 
@@ -13,6 +30,11 @@ function del_viaje($idviaje,$id){
 		$gsent->bindParam(':idviaje', $idviaje, PDO::PARAM_INT);
 				
 		$gsent->execute();
+		if($result = ''){
+			
+			echo 'El viaje tiene gente postulada.';
+			header("Location: ../controller/perfil.php?idautoincremental=".$id."Error=GentePostulada");
+}
 
 		header("Location: ../controller/misviajes.php?idautoincremental=".$id);
 
@@ -35,7 +57,7 @@ return true;
 
 
 function get_id($idviaje){
-	 require ("db.php");//te crea una conexion
+	 require "../model/db.php";//te crea una conexion
 	try{
 		$sql = $conn->prepare("select idautoincremental from viaje where idviaje=:idviaje"); 
 		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);   
@@ -53,6 +75,7 @@ function get_id($idviaje){
 	return $result;
 	 
  }
+
 
 
 ?>
