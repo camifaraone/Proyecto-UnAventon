@@ -1,5 +1,22 @@
 <?php
- 
+  	function geteliminar($id){
+	require ("db.php");
+	try{
+		$sql = $conn->prepare("select calificacion from usuario where idautoincremental=:id");
+		$sql->bindParam(":id",$id,PDO::PARAM_INT);
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetch();
+	
+
+   }catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+ }
 	
   function get_estadopostulacion($id){
 	require ("db.php");
