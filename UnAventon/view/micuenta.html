@@ -16,7 +16,16 @@
 			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 
 			 
-			 
+	<script>
+		function miFuncion(){
+		if(confirm("DESEA ELIMINAR EL VEHICULO?")){
+			return true;
+		}
+		else{
+			return false;
+		}
+		}
+	</script>		 
 			 
 			 
 			 
@@ -106,7 +115,7 @@
 							<li>
 							<label for="cali">Calificación:</label> 
 								<?php
-									echo $usuario['calificacion'];
+									//echo $usuario['calificacion'];
 								?>
 							</li>
 							</li>
@@ -149,7 +158,7 @@
 	 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["cantasientosdisp"].""."</td>";
 	 echo"<td><a href=../controller/modificarauto.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Editar </a></td>";
-	 echo"<td><a ' href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
+	 echo"<td><a onClick='miFuncion()' href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
 	 echo "</tr>";
 	
 	 }
