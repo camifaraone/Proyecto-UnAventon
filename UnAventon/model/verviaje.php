@@ -32,7 +32,7 @@ function get_unviaje($idviaje){
 	/*while( $datos = $sql->fetch() )
     echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
 
-	$result= $sql->fetchAll()[0][0];
+	$result= $sql->fetchAll([0][0]);
 	
    }
    catch(PDOException $e) {
