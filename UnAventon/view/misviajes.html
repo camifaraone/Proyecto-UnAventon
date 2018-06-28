@@ -93,7 +93,8 @@ $date = "2018-06-29";
 	 echo "<td>".$viaje[$i]["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viaje[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
-	 if((in_array(0, $postulacion))) {
+	
+	if (empty($postulacion)) {	
 	 echo"<td><a href=../controller/editarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Editar </a></td>";
 	}
 	 echo"<td><a onClick='miFuncion()'   href=../controller/eliminarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Eliminar </a></td>";
