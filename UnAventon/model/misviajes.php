@@ -18,11 +18,11 @@
 	return $result;
  }
 	
-  function get_estadopostulacion($id){
+  function get_estadopostulacion($idviaje){
 	require ("db.php");
 	try{
-		$sql = $conn->prepare("select estadopostulacion from viaje where idautoincremental=:id");
-		$sql->bindParam(":id",$id,PDO::PARAM_INT);
+		$sql = $conn->prepare("select * from estadopostulacion where idviaje=:idviaje");
+		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )
@@ -36,6 +36,28 @@
   }
 	return $result;
  }
+ 
+ function get_idviaje($id) {
+	 require "../model/db.php";//te crea una conexion
+	try{
+		
+		$sql = $conn->prepare("select idviaje from viaje INNER JOIN usuario ON viaje.idautoincremental = usuario.idautoincremental where usuario.idautoincremental=:id");
+		$sql->bindParam(":id",$id,PDO::PARAM_INT);
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll()[0][0];
+	
+   }
+   catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+	 
+ }
+ 
  
   function get_viaje($id) {
 	 require "../model/db.php";//te crea una conexion
