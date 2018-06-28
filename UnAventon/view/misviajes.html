@@ -18,17 +18,7 @@
 			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 
 
-		<script>
-		function miFuncion(){
-		if(confirm("DESEA ELIMINAR EL VIAJE?")){
-			return true;
-		}
-		else{
-			return false;
-		}
-		}
-	</script>	 
-			 
+		
 </head>
   
    <?php
@@ -96,7 +86,7 @@ $date = "2018-06-29";
 	 if((in_array(0, $postulacion))) {
 	 echo"<td><a href=../controller/editarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Editar </a></td>";
 	}
-	 echo"<td><a onClick='miFuncion()'   href=../controller/eliminarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Eliminar </a></td>";
+	 echo"<td><a href=../controller/eliminarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Eliminar </a></td>";
 	 echo "</tr>";
      
 	 }

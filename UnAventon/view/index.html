@@ -74,8 +74,9 @@
 	
     <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>    <h5 class="center-align"> 
     <?php 
+     
     
-		if (in_array(0, $pago)){
+        if (in_array(0, $pago)){
          echo "<a href=../controller/newtrip.php?idautoincremental=".$id.">Crear viaje  </a>"; 
        }
        else {
@@ -120,8 +121,8 @@
           
  <?php
        $today = date("Y-m-d");
-      $date = "2018-06-28";
-      $date2= "2018-07-28";
+      $date = "2018-06-05";
+      $date2= "2018-07-05";
 
   
   //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
@@ -136,15 +137,10 @@
 	 echo "<td>".$viaje[$i]["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viaje[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
-    
-	if( !empty($_SESSION['session_username'])) {
-	echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver detalle </a></td>";
-	 }
-	 else
-	 {
-		echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"].">Ver detalle </a></td>";
-	}
-	 
+     echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"]."idautoincremental=".$id.">Ver detalle </a></td>";
+	 //echo"<td><a href=../controller/editarproducto.php?id_producto=".$viaje[$i]["id"].">Editar Producto </a></td>";
+	 //echo"<td><a onClick='miFuncion()' href=../controller/eliminarproducto.php?id_producto=".$viaje[$i]["id"].">Eliminar Producto </a></td>";
+ 
 echo "</tr>";
  }
 

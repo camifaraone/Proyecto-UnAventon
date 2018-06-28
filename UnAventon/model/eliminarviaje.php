@@ -30,10 +30,10 @@ function del_viaje($idviaje, $id){
 		$gsent->bindParam(':idviaje', $idviaje, PDO::PARAM_INT);
 				
 		$gsent->execute();
-		if($result = ''){
+		if($result != ''){
 			
 			echo 'El viaje tiene gente postulada.';
-			header("Location: ../controller/perfil.php?idautoincremental=".$id."Error=GentePostulada");
+			header("Location: ../controller/misviajes.php?idautoincremental=".$id."Error=GentePostulada");
 }
 
 		header("Location: ../controller/misviajes.php?idautoincremental=".$id);
