@@ -9,7 +9,7 @@
 	/*while( $datos = $sql->fetch() )
     echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
 
-	$result= $sql->fetch();
+	$result= $sql->fetchAll()[0][0];
 	
 
    }catch(PDOException $e) {
@@ -17,6 +17,8 @@
   }
 	return $result;
  }
+ 
+ 
 function del_viaje($idviaje, $id){
 
 		require ("db.php");
@@ -75,6 +77,29 @@ function get_id($idviaje){
 	return $result;
 	 
  }
+ 
+ 
+ function actualizar_calificacion($calificacion,$id){
+ require ("db.php");
+try{
+
+	$sql = $conn->prepare("UPDATE usuario SET calificacion=?  WHERE idautoincremental=?");
+	
+    
+	$sql->execute(array($calificacion, $id ));
+	
+
+} catch(PDOException $e){
+
+	return "ERROR: " . $e->getMessage();
+
+}
+
+
+
+return true;
+
+}
 
 
 
