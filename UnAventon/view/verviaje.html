@@ -69,8 +69,9 @@
   </thead>
   <tbody>
   <?php
+  $precio = ($viaje["monto"]) / $viaje["cantasientos"];
    echo "<tr><td>".$viaje["fecha"]."</td>";
-	 echo "<td> $".$viaje["monto"].""."</td>";
+	 echo "<td> $".$precio.""."</td>";
 	 echo"<td>".$viaje["duracion"].""."Hs</td>";
 	 echo"<td>".$viaje["hssalida"].""."Hs</td>";
 	 echo "<td>".$viaje["ciudadOrigen"].""."</td>";
@@ -90,8 +91,8 @@ echo"<td><a href=../controller/postularse.php?idviaje=".$viaje["idviaje"]."&idau
  </div>
 
 <div class="container">
- <h5> <a title="Menu Principal" href="../controller/index.php">Volver al menú principal</a></h5>
-</div>
+ <h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	</div>
 
 <br></br>
 <br></br>
