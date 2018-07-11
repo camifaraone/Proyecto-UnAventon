@@ -62,7 +62,7 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 			if(isset($_POST["register"])){
 
 
-				if(!empty($_POST['nombreusuario']) && !empty($_POST['contrasenia']) && !empty($_POST['confirmarcontrasenia']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['email']) && !empty($_POST['telefono']) && !empty($_POST['fechanacimiento'])) {
+				if(!empty($_POST['nombreusuario']) && !empty($_POST['contrasenia']) && !empty($_POST['confirmarcontrasenia']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['email']) && !empty($_POST['telefono']) && !empty($_POST['fechanacimiento']) && !empty($_POST['foto'])) {
 					$nombreusuario=$_POST['nombreusuario'];
 					$email=$_POST['email'];
 					$nombre=$_POST['nombre'];
@@ -71,6 +71,7 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 					$fechanacimiento=$_POST['fechanacimiento'];
 					$contrasenia=$_POST['contrasenia'];
 					$confirmarcontrasenia=$_POST['confirmarcontrasenia'];
+					$foto=$_POST['foto'];
 					
 					$a = comprobar($email);
 				
@@ -86,7 +87,7 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 	                }
 					else
 				    {
-						$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia);
+						$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto);
 						header("Location: ../controller/login.php");
 				
 				    }
