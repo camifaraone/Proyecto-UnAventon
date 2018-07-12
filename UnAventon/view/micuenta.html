@@ -18,14 +18,11 @@
 			 
 	<script>
 		function miFuncion(){
-		if(confirm("DESEA ELIMINAR EL VEHICULO?")){
-			return true;
-		}
-		else{
-			return false;
-		}
-		}
-	</script>		 
+
+		if(confirm('Deseas continuar?')){ 
+			document.location='otra.php';} 
+		else{ alert('Operacion Cancelada'); 
+}</script>		 
 			 
 			 
 			 
@@ -163,8 +160,9 @@
 	 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["cantasientosdisp"].""."</td>";
 	 echo"<td><a href=../controller/modificarauto.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Editar </a></td>";
-	 echo"<td><a onClick='miFuncion()' href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
+	 echo"<td><a href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
 	//echo "<td><button onclick=confirm('hola')>Aca</button></td>";
+	echo "";  
  	echo "</tr>";
 	
 	 }
