@@ -90,13 +90,23 @@ $date = "2018-06-29";
 	if (empty($postulacion)) {	
 	 echo"<td><a href=../controller/editarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Editar </a></td>";
 	}
-	 echo"<td><a href=../controller/eliminarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Eliminar </a></td>";
+	 echo"<td><form name='tuformulario' action='../controller/eliminarviaje.php?idviaje=".$viaje[$i]["idviaje"]."'> <input  type='button' onclick='pregunta()' value='Eliminar'>";
+	echo "</form><td>";
 	 echo "</tr>";
-     
-	 }
 
-
+}
 ?>
+<html> 
+<head> 
+<script language="JavaScript"> 
+function pregunta(){ 
+    if (confirm('¿Estás seguro de eliminar la cuenta?')){ 
+       document.tuformulario.submit() 
+    } 
+} 
+</script> 
+</head> 
+</html>
  
   </tbody>
   </table>
