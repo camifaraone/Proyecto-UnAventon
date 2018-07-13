@@ -117,16 +117,34 @@
 							</li>
 							</li>
                     		<li>
+                    		<form>
 								<div >
 									
 									<a  class="submit" <?php echo"<a href=../controller/editarinformacion.php?idautoincremental=".$id.">  EDITAR DATOS</a>"; ?> 
 									<br><br><br>
-									<a  class="submit" <?php echo"<a href=../controller/editarcontrasena.php?idautoincremental=".$id.">  EDITAR CONTRASEÑA </a>"; ?>
-									
-									<a  class="submit" <?php echo"<a href=../controller/eliminarcuenta.php?idautoincremental=".$id.">  ELIMINAR CUENTA </a>"; ?>
+									<a  class="submit" <?php echo"<a href=../controller/editarcontrasena.php?idautoincremental=".$id.">  EDITAR CONTRASEÑA </a>"; ?> 
+									<br><br><br>
 							
 								</div>
+
+								</form>
 								
+<html> 
+<head> 
+<script language="JavaScript"> 
+function pregunta(){ 
+    if (confirm('¿Estás seguro de eliminar la cuenta?')){ 
+       document.tuformulario.submit() 
+    } 
+} 
+</script> 
+</head> 
+<body> 
+<form name=tuformulario action='../controller/eliminarcuenta.php?idautoincremental=".$id."'> 
+<input type=button onclick="pregunta()" value="Eliminar cuenta"> 
+</form> 
+</body> 
+</html>
 							</li> 				
 							<blockquote>
      <h3>MIS AUTOS </h3>
