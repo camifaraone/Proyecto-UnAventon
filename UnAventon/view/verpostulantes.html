@@ -1,0 +1,131 @@
+<html>
+
+
+
+<title>UnAventon | Ver Postulantes </title>
+       <?php
+  include "../controller/head.php";
+?>
+
+
+
+
+
+<?php session_start();
+ 
+      if(empty($_SESSION['session_username'])) {
+          
+	?>  
+		  <nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../controller/login.php">Iniciar sesión</a></li>
+        <li><a href="../controller/register.php">Registrarse</a></li>
+      </ul>
+    </div>
+  </nav> <?php } ?>
+	<?php
+			
+		if(!empty($_SESSION['session_username'])) {
+			$email = $_SESSION['session_username'];
+	?>	  
+		<nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+	
+	<?php } ?> 
+
+<body style= "background-color:#FEF9E7;">
+
+
+
+<div class="container">
+<div class="jumbotron">
+<h1>Postulantes del viaje</h1>
+
+</div>
+<h3> Información de los postulados</h3>
+
+
+
+
+
+<table class="centered">
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+			  <th>Telefono</th>
+			  <th>Calificacion de acompañante</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          
+ <?php
+      
+ for($i=0; $i<count($users);$i++) {
+	
+     
+	 echo "<td>".$users[$i]["nombre"].""."</td>";
+	 echo "<td>".$users[$i]["apellido"].""."</td>";
+	 echo "<td>".$users[$i]["email"].""."</td>";
+	 echo "<td>".$users[$i]["telefono"].""."</td>";
+	 echo "<td>".$users[$i]["calificacion"].""."</td>";
+	 
+	if ($users[$i]["postulados"] != $asientos) { 
+	if ( $users[$i]["aceptado"] == 1 ) {
+	echo"<td>este usuario se encuentra aceptado!</td>";
+	echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"].">Rechazar </a></td>";
+	}
+	if ( $users[$i]["rechazado"] == 1) {
+	echo "<td>este usuario se encuentra rechazado!</td>";
+	echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"].">Aceptar </a></td>";
+	}	
+	// FALTA EL CARTEL DE ACEPTAR O RECHAZAR AL OPRIMIR RECHAZAR Y AL OPRIMIR ACEPTAR .
+	
+	if (( $users[$i]["aceptado"] == 0) and ( $users[$i]["rechazado"] == 0)) {
+		echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"].">Rechazar </a></td>";
+		echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"].">Aceptar </a></td>";
+		}
+	} else
+	{
+		echo "<td>numero de asientos maximo ocupado!</td>";
+	}
+echo "</tr>";
+ }
+
+
+?>
+
+     
+      
+        </tbody>
+      </table>
+  <hr width="100%">
+ </div>
+
+<div class="container">
+ <h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	</div>
+
+<br></br>
+<br></br>
+
+ <?php
+  include "../controller/footer.php";
+?>
+ 
+</body>
+
+
+
+</html>

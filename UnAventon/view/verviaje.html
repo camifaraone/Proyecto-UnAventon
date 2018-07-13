@@ -77,6 +77,10 @@
 	 echo "<td>".$viaje["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viaje["ciudadDestino"].""."</td>";
 	 echo"<td>".$viaje["observaciones"].""."</td>";
+	if ( $viaje["idautoincremental"] == $id ){
+	echo "<td>este es mi viaje!</td>";
+	}
+	
 	
 	if((!empty($_SESSION['session_username'])) and($viaje["idautoincremental"]<>$id) and ($postulacion != $id)) {
       

@@ -61,7 +61,7 @@
 <thead>
    <tr>
     <th>Fecha         </th>
-    <th>Precio por asiento</th>
+    <th>Precio total</th>
     <th>Duración</th>
 	<th>Hr.salida</th>
 	<th>Ciudad/Origen</th>
@@ -84,6 +84,8 @@ $date = "2018-06-29";
 	 echo "<td>".$viaje[$i]["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viaje[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
+	
+	echo"<td><a href=../controller/verpostulantes.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver Postulantes </a></td>";
 	
 	if (empty($postulacion)) {	
 	 echo"<td><a href=../controller/editarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Editar </a></td>";
