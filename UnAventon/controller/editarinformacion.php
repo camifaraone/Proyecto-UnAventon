@@ -5,7 +5,7 @@ require_once ("../model/perfil.php");
 require_once ("../model/editarinformacion.php");
 if(isset($_GET["idautoincremental"]) ){  
 
-$usuario= get_perfil($_GET["idautoincremental"]);
+	$usuario= get_perfil($_GET["idautoincremental"]);
 
 }
 
@@ -25,13 +25,13 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nomb
 	$fechanacimiento=$_POST['fechanacimiento'];
 	$foto=$_POST['foto'];
 	
-
-	
-	
-	
-	$editar = editar_usuario($nombre,$apellido,$nombreusuario,$email,$telefono,$fechanacimiento,$foto, $id);
-	var_dump($editar);
-	header("Location: ../controller/perfil.php?idautoincremental=".$id);
+	if (comprobar($email)!= '') {
+		echo "<script type=\"text/javascript\">alert(\"El mail utilizado ya está registrado\");</script>";				
+    }else{
+		$editar = editar_usuario($nombre,$apellido,$nombreusuario,$email,$telefono,$fechanacimiento,$foto, $id);
+		var_dump($editar);
+		header("Location: ../controller/perfil.php?idautoincremental=".$id);
+    }
 
 
 } else {
