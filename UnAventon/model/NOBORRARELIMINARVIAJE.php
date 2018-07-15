@@ -9,7 +9,7 @@
 	/*while( $datos = $sql->fetch() )
     echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
 
-	$result= $sql->fetchAll()[0][0];
+	$result= $sql->fetch();
 	
 
    }catch(PDOException $e) {
@@ -17,9 +17,7 @@
   }
 	return $result;
  }
- 
- 
-function del_viaje($idviaje, $id){
+function delviaje($idviaje){
 
 		require ("db.php");
 
@@ -32,19 +30,7 @@ function del_viaje($idviaje, $id){
 		$gsent->bindParam(':idviaje', $idviaje, PDO::PARAM_INT);
 				
 		$gsent->execute();
-		if($result = ''){
-			
-			echo 'El viaje tiene gente postulada.';
-			header("Location: ../controller/perfil.php?idautoincremental=".$id."Error=GentePostulada");
-}
-
-		header("Location: ../controller/misviajes.php?idautoincremental=".$id);
-
-
-		//$result=$gsent->fetch();
-
 		}
-
 catch(PDOException $e){
 
 echo "ERROR: " . $e->getMessage();
@@ -56,6 +42,53 @@ return false; //die();
 return true;
 
 }
+
+function verificarviaje($idviaje,$id){
+
+		require ("db.php");
+
+
+
+		try{
+
+		$gsent = $conn->prepare('SELECT * FROM viaje WHERE idviaje = :idviaje');
+
+		$gsent->bindParam(':idviaje', $idviaje, PDO::PARAM_INT);
+				
+		$gsent->execute();
+
+
+
+		$result=$gsent->fetch();
+		//print_r($result);
+		if($result != ''){
+			
+			echo 'El vehiculo se encuentra asociado a un viaje. No se puede eliminar!';
+			header("Location: ../controller/misviajes.php?idautoincremental=".$id);
+}
+else {
+	
+			echo 'Vehiculo eliminado correctamente';
+			$idviaje= delviaje($_GET["idviaje"]);
+			header("Location: ../controller/misviajes.php?idautoincremental=".$id);
+}
+
+		}
+
+catch(PDOException $e){
+
+echo "ERROR: " . $e->getMessage();
+return 'Error: ' . $e->getMessage();
+
+}
+
+return true;
+
+}
+
+
+
+
 
 
 function get_id($idviaje){
@@ -77,30 +110,9 @@ function get_id($idviaje){
 	return $result;
 	 
  }
- 
- 
- function actualizar_calificacion($calificacion,$id){
- require ("db.php");
-try{
-
-	$sql = $conn->prepare("UPDATE usuario SET calificacion=?  WHERE idautoincremental=?");
-	
-    
-	$sql->execute(array($calificacion, $id ));
-	
-
-} catch(PDOException $e){
-
-	return "ERROR: " . $e->getMessage();
-
-}
-
-
-
-return true;
-
-}
 
 
 
 ?>
+ <td> <a href='../controller/eliminarviaje.php?idviaje=<? echo ".$viaje[$i]["idviaje"]."?>' onclick= "return confirm ('Seguro?')">cdc</a></td>
+	

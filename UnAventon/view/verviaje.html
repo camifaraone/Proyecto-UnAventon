@@ -17,7 +17,7 @@
           
 	?>  
 		  <nav class="white" role="navigation"  >
-    <div class="nav-wrapper #ee6e73" >
+    <div class="nav-wrapper #ff9800 orange" >
       <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="../controller/login.php">Iniciar sesión</a></li>
@@ -25,21 +25,22 @@
       </ul>
     </div>
   </nav> <?php } ?>
-	<?php	
+	<?php
+			
 		if(!empty($_SESSION['session_username'])) {
-			$name = $_SESSION['session_username'];
+			$email = $_SESSION['session_username'];
 	?>	  
 		<nav class="white" role="navigation"  >
     <div class="nav-wrapper #ff9800 orange" >
       <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>Bienvenido!</li><li>&nbsp;<?php echo $name ?></li>
-        <li><a href="../controller/logout.php">Cerrar sesión</a></li>
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
       </ul>
     </div>
   </nav>
 	
-	<?php } ?>
+	<?php } ?> 
 
 <body style= "background-color:#FEF9E7;">
 
@@ -68,13 +69,19 @@
   </thead>
   <tbody>
   <?php
+  $precio = ($viaje["monto"]) / $viaje["cantasientos"];
    echo "<tr><td>".$viaje["fecha"]."</td>";
-	 echo "<td> $".$viaje["monto"].""."</td>";
+	 echo "<td> $".$precio.""."</td>";
 	 echo"<td>".$viaje["duracion"].""."Hs</td>";
 	 echo"<td>".$viaje["hssalida"].""."Hs</td>";
 	 echo "<td>".$viaje["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viaje["ciudadDestino"].""."</td>";
 	 echo"<td>".$viaje["observaciones"].""."</td>";
+	if ( $viaje["idautoincremental"] == $id ){
+	echo "<td>este es mi viaje!</td>";
+	}
+	
+	
 	if((!empty($_SESSION['session_username'])) and($viaje["idautoincremental"]<>$id) and ($postulacion != $id)) {
       
 echo"<td><a href=../controller/postularse.php?idviaje=".$viaje["idviaje"]."&idautoincremental=".$id.">Postularse </a></td>";
@@ -88,8 +95,8 @@ echo"<td><a href=../controller/postularse.php?idviaje=".$viaje["idviaje"]."&idau
  </div>
 
 <div class="container">
- <h5> <a title="Menu Principal" href="../controller/index.php">Volver al menú principal</a></h5>
-</div>
+ <h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	</div>
 
 <br></br>
 <br></br>

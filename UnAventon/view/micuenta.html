@@ -18,14 +18,11 @@
 			 
 	<script>
 		function miFuncion(){
-		if(confirm("DESEA ELIMINAR EL VEHICULO?")){
-			return true;
-		}
-		else{
-			return false;
-		}
-		}
-	</script>		 
+
+		if(confirm('Deseas continuar?')){ 
+			document.location='otra.php';} 
+		else{ alert('Operacion Cancelada'); 
+}</script>		 
 			 
 			 
 			 
@@ -120,11 +117,34 @@
 							</li>
 							</li>
                     		<li>
+                    		<form>
 								<div >
-									<a  class="submit" <?php echo"<a href=../controller/editarinformacion.php?idautoincremental=".$id.">  EDITAR </a>"; ?> 
-									<a  class="submit" <?php echo"<a href=../controller/editarcontrasena.php?idautoincremental=".$id.">  EDITAR CONTRASEÑA</a>"; ?>
+									
+									<a  class="submit" <?php echo"<a href=../controller/editarinformacion.php?idautoincremental=".$id.">  EDITAR DATOS</a>"; ?> 
+									<br><br><br>
+									<a  class="submit" <?php echo"<a href=../controller/editarcontrasena.php?idautoincremental=".$id.">  EDITAR CONTRASEÑA </a>"; ?> 
+									<br><br><br>
+							
 								</div>
+
+								</form>
 								
+<html> 
+<head> 
+<script language="JavaScript"> 
+function pregunta(){ 
+    if (confirm('¿Estás seguro de eliminar la cuenta?')){ 
+       document.tuformulario.submit() 
+    } 
+} 
+</script> 
+</head> 
+<body> 
+<form name=tuformulario action='../controller/eliminarcuenta.php?idautoincremental=".$id."'> 
+<input type=button onclick="pregunta()" value="Eliminar cuenta"> 
+</form> 
+</body> 
+</html>
 							</li> 				
 							<blockquote>
      <h3>MIS AUTOS </h3>
@@ -158,8 +178,10 @@
 	 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["cantasientosdisp"].""."</td>";
 	 echo"<td><a href=../controller/modificarauto.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Editar </a></td>";
-	 echo"<td><a onClick='miFuncion()' href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
-	 echo "</tr>";
+	 echo"<td><a href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
+	//echo "<td><button onclick=confirm('hola')>Aca</button></td>";
+	echo "";  
+ 	echo "</tr>";
 	
 	 }
 

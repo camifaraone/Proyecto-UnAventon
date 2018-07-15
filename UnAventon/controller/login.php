@@ -17,8 +17,7 @@ require_once "../model/getid.php";
              
               if(!isset($valor[0]['idautoincremental'])){
 				 
-			     header("Location: ../controller/login.php?m=Email o contraseña invalida!");
-				
+				echo "<script type=\"text/javascript\">alert(\"Email o contraseña invalida\");</script>";
 			 }else
 			 { 		
 					$id= get_id($email);

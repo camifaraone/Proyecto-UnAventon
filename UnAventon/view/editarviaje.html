@@ -66,6 +66,48 @@
 								<input name="hssalida" id="horasalida" value= " <?php echo $datosviaje['hssalida']; ?>"/>
 							</li>
 							<li>
+							<div class="form-group"> 
+					<label for="origen">Ciudad/Origen:
+					<select name="origen">
+						<?php for($i=0; $i<count($origen);$i++)  {
+							
+							echo '<option value='.$origen[$i]['idOrigen'].'> '.$origen[$i]['ciudadOrigen'].' </option>';
+						}?>
+						
+					</select>
+					</label>
+				</div>
+				</li>
+				
+				<br><br><br>
+				<li>
+				<div class="form-group"> 
+					<label for="Destino">Ciudad/Destino:
+					<select name="destino">
+						<?php for($i=0; $i<count($destino);$i++)  {
+							
+							echo '<option value='.$destino[$i]['idDestino'].'> '.$destino[$i]['ciudadDestino'].' </option>';
+						}?>	
+						
+					</select>
+					</label>
+				</div>
+				</li>
+				<br><br><br>
+				<li>
+				<div class="form-group"> 
+				<label for="vehiculo">Elija su vehículo:
+					<select name="vehiculo">
+						<?php for($i=0; $i<count($vehiculo);$i++)  {
+							
+							echo '<option value='.$vehiculo[$i]['idvehiculo'].' > '.$vehiculo[$i]['modelo'].' Patente : '.$vehiculo[$i]['patente'].' </option>';
+						}?>
+					</select>
+				</label>
+				</div>
+				</li>
+				<br><br><br>
+							<li>
 								<label for="observaciones"><em>*</em>Observaciones:</label>
 								<input type="text" name="observaciones" id="observaciones" value= " <?php echo $datosviaje['observaciones']; ?>"/>
 							</li>

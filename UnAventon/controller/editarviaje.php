@@ -9,7 +9,9 @@ require_once ("../model/editarviaje.php");
 $id= ($_GET["idviaje"]);
 $datosviaje = get_viaje ($id);
 $iduser = get_id($id);
-
+$origen = get_origen();
+$destino = get_destino();
+$vehiculo = get_vehiculo($iduser);
 
 
 if(isset($_POST["modif"])){
@@ -21,11 +23,13 @@ if(!empty($_POST['fecha']) && !empty($_POST['monto']) && !empty($_POST['duracion
 	$duracion=$_POST['duracion'];
 	$hssalida=$_POST['hssalida'];
 	$observaciones=$_POST['observaciones'];
+	$origen = $_POST['origen'];
+	$destino = $_POST['destino'];
+	$vehiculo = $_POST['vehiculo'];
 	
+$modi = editarviaje($fecha, $monto, $duracion, $hssalida, $observaciones, $origen, $destino, $vehiculo, $id);
 	
-$modi = editarviaje($fecha, $monto, $duracion, $hssalida, $observaciones,$id);
-	
-header("Location: ../controller/editarviaje.php?idviaje=".$id);
+header("Location: ../controller/misviajes.php?idautoincremental=".$iduser);
 
 
 } else {

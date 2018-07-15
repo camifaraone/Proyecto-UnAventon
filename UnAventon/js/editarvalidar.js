@@ -23,6 +23,10 @@
 		if (form.fechanacimiento.value == ""){
 			alert("Ingresar fecha nacimiento")
 			return false
+		}	
+		if (form.foto.value == "") {
+			alert("Ingresar foto");
+			return false;
 		}
-		return true;	
+		return true;
 	}			

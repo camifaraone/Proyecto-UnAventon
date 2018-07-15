@@ -1,0 +1,74 @@
+<html>
+
+<head>
+
+<title>UnAventon | Cambio de Contraseña</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="../js/ingresarvalidar.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="../js/materialize.min.js"></script>
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="../js/materialize.js"></script>
+      <script src="../js/init.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+</head>
+
+
+<nav class="white" role="navigation"  >
+<div class="nav-wrapper #ff9800 orange" >
+ <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+ <ul id="nav-mobile" class="right hide-on-med-and-down">
+ 
+ </ul>
+ </div>
+</nav>
+
+<body style="background-color: #FEF9E7;">
+<div class="container">
+  <div class="jumbotron">
+    <h1>Restaurar la Contraseña</h1>      
+</div>
+<div> 
+    <h4>Por favor, ingrese su Email</h4>
+</div>
+</div>
+
+<div class="container">
+  
+  <form name="loginform" id="loginform" action="" method="POST">
+    	<div class="form-group">
+      <label for="name">Email: 
+      <input type="email" name="email" id="email" class="form-control"  placeholder="Escribir email del usuario " required /></label>
+	  </div>
+    
+	
+
+                <button class="submit" type="submit" name="restaurar" onClick="runSubmit(this.form)">INGRESAR</button>
+
+              </li>   
+</article>
+  <h5 class="center  -align"> <p class="regtext">¿No estás registrado? <a href="../controller/register.php" >Registrate aqu&iacute;</a></p> </h5>
+  <h5 class="center  -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
+  </form>
+</div>
+
+
+ <?php
+  include "../controller/footer.php";
+?>
+
+
+
+
+
+
+
+
+ 	</body>
+	
+	</html>
