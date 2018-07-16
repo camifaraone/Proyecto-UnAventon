@@ -12,7 +12,7 @@ $iduser = get_id($id);
 
 // ALERTA QUE DIGA QUE SE ACEPTO LA POSTULACION CORRECTAMENTE 
 
-//header("Location: ../controller/verpostulantes.php?idviaje=".$idviaje."&idautoincremental=".$iduser);
+header("Location: ../controller/verpostulantes.php?idviaje=".$idviaje."&idautoincremental=".$id);
 
 
 

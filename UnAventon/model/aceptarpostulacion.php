@@ -28,11 +28,11 @@ function incrementarpostulacion($idviaje){
 
 try{
 
-	$sql = $conn->prepare("UPDATE viaje SET postulados=postulados + 1 WHERE idviaje=idviaje");
+	$sql = $conn->prepare("UPDATE viaje SET postulados=postulados + 1 WHERE idviaje=?");
 	
 	
 
-	$sql->execute();
+	$sql->execute(array($idviaje));
 	
 
 } catch(PDOException $e){
@@ -71,7 +71,7 @@ function get_id($id) {
  function get_id2($id) {
 	 require "../model/db.php";//te crea una conexion
 	try{
-		$sql = $conn->prepare("select idviaje from estadopostulacion where idautoincremental=:id");
+		$sql = $conn->prepare("select idviaje from viaje where idautoincremental=:id");
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 		$sql ->execute();
 	
