@@ -12,7 +12,7 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 
 		$sql ->execute(array("$nombreusuario", "$email", "$nombre", "$apellido", "$telefono","$fechanacimiento","$contrasenia","$confirmarcontrasenia","$foto"));
 				
-		$sql ->execute();
+		//$sql ->execute();
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
