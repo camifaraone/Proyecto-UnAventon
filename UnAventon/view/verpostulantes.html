@@ -64,7 +64,8 @@
               <th>Apellido</th>
               <th>Email</th>
 			  <th>Telefono</th>
-			  <th>Calificacion de acompañante</th>
+			  <th>Calificacion/Acompañante</th>
+			  <th>Calificacion/Piloto</th>
           </tr>
         </thead>
 
@@ -80,21 +81,22 @@
 	 echo "<td>".$users[$i]["email"].""."</td>";
 	 echo "<td>".$users[$i]["telefono"].""."</td>";
 	 echo "<td>".$users[$i]["calificacion"].""."</td>";
-	 
-	if ($users[$i]["postulados"] != $asientos) { 
+	  echo "<td>".$users[$i]["calificacionpiloto"].""."</td>";
+
+	if ($postulados != $asientos) { 
 	if ( $users[$i]["aceptado"] == 1 ) {
 	echo"<td>este usuario se encuentra aceptado!</td>";
-	echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"].">Rechazar </a></td>";
+	echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
 	}
 	if ( $users[$i]["rechazado"] == 1) {
 	echo "<td>este usuario se encuentra rechazado!</td>";
-	echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"].">Aceptar </a></td>";
+	echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Aceptar </a></td>";
 	}	
 	// FALTA EL CARTEL DE ACEPTAR O RECHAZAR AL OPRIMIR RECHAZAR Y AL OPRIMIR ACEPTAR .
 	
 	if (( $users[$i]["aceptado"] == 0) and ( $users[$i]["rechazado"] == 0)) {
-		echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"].">Rechazar </a></td>";
-		echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"].">Aceptar </a></td>";
+		echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
+		echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Aceptar </a></td>";
 		}
 	} else
 	{

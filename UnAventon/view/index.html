@@ -75,7 +75,7 @@
     <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>    <h5 class="center-align"> 
     <?php 
     
-		if (in_array(0, $pago)){
+		if ($pago == 0){
          echo "<a href=../controller/newtrip.php?idautoincremental=".$id.">Crear viaje  </a>"; 
        }
        else {
@@ -138,7 +138,7 @@
 	 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
     
 	if( !empty($_SESSION['session_username'])) {
-	echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver detalle </a></td>";
+	echo"<td><a href=../controller/verviaje.php?idviaje=".$viaje[$i]["idviaje"]."&&idautoincremental=".$id.">Ver detalle </a></td>";
 	 }
 	 else
 	 {

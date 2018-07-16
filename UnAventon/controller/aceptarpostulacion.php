@@ -3,10 +3,10 @@
 require_once "../model/aceptarpostulacion.php";
 
 $id = ($_GET['idautoincremental']);
-$idviaje = get_id2($id);
-$a = aceptar($id);
+$idviaje = ($_GET['idviaje']);
+$a = aceptar($id,$idviaje);
 $increment = incrementarpostulacion($idviaje);
-$iduser = get_id($id);
+
 
 
 

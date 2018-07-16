@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2018 a las 04:57:25
+-- Tiempo de generación: 16-07-2018 a las 22:48:26
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -81,7 +81,6 @@ CREATE TABLE `estadopostulacion` (
   `idpost` int(100) NOT NULL,
   `idautoincremental` int(100) NOT NULL,
   `idviaje` int(200) NOT NULL,
-  `estadopost` int(1) NOT NULL,
   `aceptado` int(1) NOT NULL,
   `rechazado` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -90,9 +89,10 @@ CREATE TABLE `estadopostulacion` (
 -- Volcado de datos para la tabla `estadopostulacion`
 --
 
-INSERT INTO `estadopostulacion` (`idpost`, `idautoincremental`, `idviaje`, `estadopost`, `aceptado`, `rechazado`) VALUES
-(3, 2, 2, 1, 0, 0),
-(4, 1, 1, 1, 0, 0);
+INSERT INTO `estadopostulacion` (`idpost`, `idautoincremental`, `idviaje`, `aceptado`, `rechazado`) VALUES
+(10, 2, 2, 1, 0),
+(12, 3, 1, 0, 0),
+(16, 1, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -194,7 +194,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `estadologico`, `puedepublicar`, `estadopostulacion`, `calificacion`, `calificacionpiloto`) VALUES
 (1, ' Camila', ' Faraone', 'camilafaraone@gmail.com', ' camifaraone', '2345421506', '12345678', '1995-04-17', 'avatar.jpg', '12345678', 0, 0, 0, 8, 0),
-(2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 0, 0, 0, 8, 0);
+(2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 0, 0, 0, 8, 0),
+(3, 'agustin', 'nuÃ±ez', 'agustin@hotmail.com', 'agustin', '1234', 'admin123', '2000-06-24', 'mati.png', 'admin123', 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -250,8 +251,8 @@ CREATE TABLE `viaje` (
 --
 
 INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`, `postulados`) VALUES
-(2, 1, '2018-07-09', 1000, '01:00', '12:00', 1, 2, 3, 'ninguna', 2, 0, 0),
-(1, 2, '2018-07-18', 2000, '05:00', '12:00', 3, 1, 4, 'ninguna', 3, 0, 0);
+(2, 1, '2018-07-09', 1000, '01:00', '12:00', 1, 2, 3, 'ninguna', 10, 0, 0),
+(1, 2, '2018-07-18', 2000, '05:00', '12:00', 3, 1, 4, 'ninguna', 10, 0, 1);
 
 --
 -- Índices para tablas volcadas
@@ -281,9 +282,7 @@ ALTER TABLE `destino`
 -- Indices de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
-  ADD PRIMARY KEY (`idpost`),
-  ADD UNIQUE KEY `idautoincremental` (`idautoincremental`),
-  ADD UNIQUE KEY `idviaje` (`idviaje`);
+  ADD PRIMARY KEY (`idpost`);
 
 --
 -- Indices de la tabla `origen`
@@ -361,7 +360,7 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
-  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `origen`
@@ -385,7 +384,7 @@ ALTER TABLE `respuesta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`

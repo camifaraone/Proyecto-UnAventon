@@ -3,19 +3,19 @@
 	
   
  
-  function nuevo_postulado($id,$idviaje,$estado){
+  function nuevo_postulado($id,$idviaje){
 		
 	require("db.php");
 	try{
 		$sql= $conn->prepare("INSERT INTO estadopostulacion
-				(idautoincremental, idviaje, estadopost, aceptado, rechazado) 
-				VALUES(?, ?, ?, ?, ?)" );
+				(idautoincremental, idviaje, aceptado, rechazado) 
+				VALUES(?, ?, ?, ?)" );
 		
 		
 		
 
 				
-		$sql ->execute(array("$id", "$idviaje", "$estado", 0, 0));
+		$sql ->execute(array("$id", "$idviaje", 0, 0));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
