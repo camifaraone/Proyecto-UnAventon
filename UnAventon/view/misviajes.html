@@ -47,9 +47,8 @@
 <body style="background-color: #FEF9E7;">
 	<div class="container">
 	<div class="jumbotron">
-	<article>
-		<section>
-			<div> 
+	<br><br>
+		 
 				<ul>
 					<li> 
 						<h4>MIS VIAJES</h4>
@@ -112,6 +111,51 @@ function pregunta(){
   </table>
   <hr width="100%"> </hr>
  </div>
+ 
+<br> 
+ <ul>
+		<li> 
+		<h4>MIS POSTULACIONES</h4>
+		<p> Información de viajes postulados</p>
+		</li>
+</ul>
+ 
+ <table  class="table table-bordered" id="table">
+<thead>
+   <tr>
+    <th>Fecha</th>
+    <th>Precio por asiento</th>
+    <th>Duración</th>
+	<th>Hr.salida</th>
+	<th>Ciudad/Origen</th>
+	<th>Ciudad/Destino</th>
+	<th>Observaciones</th>
+  </tr>
+</thead>
+  <tbody>
+ <?php
+      
+$date = "2018-06-29";
+  
+  //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
+ for($i=0; $i<count($viajespost);$i++) {
+    		$precio = ($viajespost[$i]["monto"]) / $viajespost[$i]["cantasientos"];
+	 echo "<td>".$viajespost[$i]["fecha"].""."</td>";
+	 echo "<td> $".$precio.""."</td>";
+	 echo "<td>".$viajespost[$i]["duracion"].""."Hs</td>";
+	 echo "<td>".$viajespost[$i]["hssalida"].""."Hs</td>";
+	 echo "<td>".$viajespost[$i]["ciudadOrigen"].""."</td>";
+	 echo "<td>".$viajespost[$i]["ciudadDestino"].""."</td>";
+	 echo "<td>".$viajespost[$i]["observaciones"].""."</td>";
+	echo"<td><a href=../controller/verinfopiloto.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Ver Información del Piloto </a></td>";
+	
+	}
+?>
+ 
+  </tbody>
+  </table>
+ 
+ 
 
 </section>
 	</article>
