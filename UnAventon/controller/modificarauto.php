@@ -25,12 +25,15 @@ if(!empty($_POST['marca']) && !empty($_POST['modelo']) && !empty($_POST['color']
 	
 	
 	$modi = modificar_vehiculo($marca,$modelo,$color,$detalles,$cantasientosdisp,$patente,$id);
+	echo "<html><script> confirm('Se han realizado modificaciones');</script></html>"; 
+echo "<html><script> document.location.href='../controller/perfil.php?idautoincremental=".$id."';</script></html>";  
 	
-	header("Location: ../controller/modificarauto.php?idvehiculo=".$id);
+	
 
 
 } else {
-	 $message = "Todos los campos deben estar completos";
+	echo "<html><script> confirm('Completar todos los campos!');</script></html>"; 
+echo "<html><script> document.location.href='../controller/modificarauto.php?idvehiculo=".$id."';</script></html>"; 
 }
 }
 
@@ -38,6 +41,6 @@ if(!empty($_POST['marca']) && !empty($_POST['modelo']) && !empty($_POST['color']
 
 
 include "../view/modificarauto.html";
-if (!empty($message)) {echo "<p class=\"error\">" . "Mensaje: ". $message . "</p>";} 
+
 
 ?>	

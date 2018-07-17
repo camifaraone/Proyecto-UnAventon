@@ -1,5 +1,4 @@
 function runSubmit (form)  {
-		function runSubmit (form)  {
 		if (form.marca.value == ""){
 			alert("Ingresar marca del auto");
 			return false;
@@ -16,7 +15,6 @@ function runSubmit (form)  {
 			alert("Ingresar modelo del auto");
 			return false;
 		}
-		
 		if (form.patente.value == ""){
 			alert("Ingresar patente del auto");
 			return false;
