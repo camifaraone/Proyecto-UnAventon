@@ -147,6 +147,21 @@ $date = "2018-06-29";
 	 echo "<td>".$viajespost[$i]["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viajespost[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$viajespost[$i]["observaciones"].""."</td>";
+	
+	if ( $viajespost[$i]["aceptado"] == 1 )
+	{
+	echo "<td> su peticion <br> ah sido aceptada </td>"; 
+	}
+	if ( $viajespost[$i]["rechazado"] == 1 )
+	{
+	echo "<td> su peticion <br> ah sido rechazada! </td>";
+	}
+	if (( $viajespost[$i]["aceptado"] == 0) and ( $viajespost[$i]["rechazado"] == 0))
+	{
+	echo "<td> su peticion <br> se encuentra pendiente! </td>";
+	}
+	
+	
 	echo"<td><a href=../controller/verinfopiloto.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Ver información del piloto </a></td>";
 	echo "</tr>";
 	}
