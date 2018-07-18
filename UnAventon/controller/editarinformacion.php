@@ -25,7 +25,7 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nomb
 	$fechanacimiento=$_POST['fechanacimiento'];
 	$foto=$_POST['foto'];
 	
-	if (comprobar($email)!= '') {
+	if ((comprobar($email)!='')&&($email!=$usuario['email'])) {
 		echo "<script type=\"text/javascript\">alert(\"El mail utilizado ya está registrado\");</script>";				
     }else{
 		$editar = editar_usuario($nombre,$apellido,$nombreusuario,$email,$telefono,$fechanacimiento,$foto, $id);
