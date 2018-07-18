@@ -25,14 +25,14 @@ if(!empty($_POST['marca']) && !empty($_POST['modelo']) && !empty($_POST['color']
 	
 	
 	$modi = modificar_vehiculo($marca,$modelo,$color,$detalles,$cantasientosdisp,$patente,$id);
-	echo "<html><script> confirm('Se han realizado modificaciones');</script></html>"; 
-echo "<html><script> document.location.href='../controller/perfil.php?idautoincremental=".$id."';</script></html>";  
+	echo "<html><script> alert('Se han realizado modificaciones');</script></html>"; 
+echo "<html><script> document.location.href='../controller/perfil.php?idautoincremental=".$iduser."';</script></html>";  
 	
 	
 
 
 } else {
-	echo "<html><script> confirm('Completar todos los campos!');</script></html>"; 
+	echo "<html><script> alert('Completar todos los campos!');</script></html>"; 
 echo "<html><script> document.location.href='../controller/modificarauto.php?idvehiculo=".$id."';</script></html>"; 
 }
 }
