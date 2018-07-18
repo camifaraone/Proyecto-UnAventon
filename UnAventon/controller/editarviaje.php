@@ -27,20 +27,21 @@ if(!empty($_POST['fecha']) && !empty($_POST['monto']) && !empty($_POST['duracion
 	$destino = $_POST['destino'];
 	$vehiculo = $_POST['vehiculo'];
 	
-$modi = editarviaje($fecha, $monto, $duracion, $hssalida, $observaciones, $origen, $destino, $vehiculo, $id);
-	
-header("Location: ../controller/misviajes.php?idautoincremental=".$iduser);
 
-
-} else {
-	 $message = "Todos los campos deben estar completos";
+	$modi = editarviaje($fecha, $monto, $duracion, $hssalida, $observaciones, $origen, $destino, $vehiculo, $id);
+	if ($modi != ''){
+	echo "<html><script> alert('Datos cambiados!');</script></html>"; 
+echo "<html><script> document.location.href='../controller/misviajes.php?idautoincremental=".$iduser."';</script></html>"; 
+} 
+else {
+	echo "<html><script> alert('Completar datos');</script></html>"; 
 }
 }
-
+}
 
 
 
 include "../view/editarviaje.html";
-if (!empty($message)) {echo "<p class=\"error\">" . "Mensaje: ". $message . "</p>";} 
+
 
 ?>	

@@ -66,6 +66,10 @@
 								<input name="hssalida" id="horasalida" value= " <?php echo $datosviaje['hssalida']; ?>"/>
 							</li>
 							<li>
+								<label for="observaciones"><em>*</em>Observaciones:</label>
+								<input type="text" name="observaciones" id="observaciones" value= " <?php echo $datosviaje['observaciones']; ?>"/>
+							</li>
+							<li>
 							<div class="form-group"> 
 					<label for="origen">Ciudad/Origen:
 					<select name="origen">
@@ -107,10 +111,7 @@
 				</div>
 				</li>
 				<br><br><br>
-							<li>
-								<label for="observaciones"><em>*</em>Observaciones:</label>
-								<input type="text" name="observaciones" id="observaciones" value= " <?php echo $datosviaje['observaciones']; ?>"/>
-							</li>
+							
 							
 								<button class="submit" name="modif" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
 							 							

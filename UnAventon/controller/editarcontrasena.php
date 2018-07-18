@@ -23,14 +23,14 @@ if(!empty($_POST['contrasenia']) && !empty($_POST['confirmarcontrasenia'])){
     
     $editarcontrasenia = editar_contrasenia($contrasenia,$confirmarcontrasenia,$id);
     var_dump($editarcontrasenia);
-    echo "<html><script> confirm('Contraseña cambiada!');</script></html>"; 
+    echo "<html><script> alert('Contraseña cambiada!');</script></html>"; 
 echo "<html><script> document.location.href='../controller/perfil.php?idautoincremental=".$id."';</script></html>";  
  
     //header("Location: ../controller/perfil.php?idautoincremental=".$id);
 
 
 }} else {
-     echo "<html><script> confirm('Las contraseñas no coinciden!');</script></html>"; 
+     echo "<html><script> alert('Las contraseñas no coinciden!');</script></html>"; 
 echo "<html><script> document.location.href='../controller/editarcontrasena.php?idautoincremental=".$id."';</script></html>";  
 }
 }
