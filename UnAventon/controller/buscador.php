@@ -8,11 +8,13 @@ $id= ($_GET["idautoincremental"]);
 
 
 $busqueda = trim($_POST['buscador']);
-var_dump($busqueda);
-var_dump($_POST);
+//var_dump($busqueda);
+//var_dump($_POST);
 
 
 
+ 
+// Resultado, número de registros y contenido.
 
 
 
