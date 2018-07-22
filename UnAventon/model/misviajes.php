@@ -105,4 +105,51 @@
 	 
  }
 
+
+function pregresp($id) {
+	 require "../model/db.php";//te crea una conexion
+	try{
+
+		$sql = $conn->prepare("select * from pregunta left join respuesta on pregunta.idpregunta=respuesta.idpregunta where pregunta.idviaje=id");
+		$sql->bindParam(":id",$id,PDO::PARAM_INT);
+		$sql ->execute();
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll();
+
+
+$comentario =  mysqli_query($result) or die(mysqli_error());
+	while($rowComen = mysqli_fetch_array($result))
+{
+?>          <p class="box" type="box">
+			<li>hola</li>
+			<span class="Estilo24">
+			<? echo $rowComen["idautoincremental"]. "Preguntó:";?>
+			</span>
+            <span class="Estilo3">
+            <? echo $rowComen["pregunta"];?>
+            </span></p>
+            <p class="cuadro7">
+            <span class="Estilo24">
+            <? echo " Respondió: ";?>
+            </span>
+            <?php echo $rowComen["respuesta"];?>
+            <span class="Estilo3">
+            </span></p>
+            
+              <?php
+} 
+
+
+
+   }
+   catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+	 
+ }
+
 ?>

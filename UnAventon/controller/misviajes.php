@@ -19,7 +19,7 @@ $eliminar= geteliminar($id);
 $viajespost = get_viajespost($id);
 
 
-include "../view/misviajes.html";
+$pre=pregresp($id);
 	
-
+include "../view/misviajes.html";
 ?>
