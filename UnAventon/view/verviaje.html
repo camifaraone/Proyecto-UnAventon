@@ -99,6 +99,7 @@ echo"<td><a href=../controller/postularse.php?idviaje=".$viaje["idviaje"]."&idau
 <?php
 if( !empty($_SESSION['session_username'])) { ?>
  <h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+ <h5 class="center  -align"> <p class="regtext">¿Desea realizar una pregunta? <?php echo"<a href=../controller/pregunta.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 <?php } 
 if ( empty($_SESSION['session_username'])) { ?>
 	<h5 class="center	-align"> <p class="regtext"> <a href="../controller/index.php">¿Desea volver a la página principal? </a> </p> </h5>
