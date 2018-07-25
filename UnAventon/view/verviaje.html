@@ -78,15 +78,22 @@
 	 echo "<td>".$viaje["ciudadDestino"].""."</td>";
 	 echo"<td>".$viaje["observaciones"].""."</td>";
 	if( !empty($_SESSION['session_username'])) {
+  
 	if ( $viaje["idautoincremental"] == $id ){
 	echo "<td>este es mi viaje!</td>";
+  echo"<td><a href=../controller/vercomentarios.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
 	}
 	
-	
+	if((!empty($_SESSION['session_username'])) and($viaje["idautoincremental"]<>$id)){
+    echo"<td><a href=../controller/realizarpregunta.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Realizar pregunta </a></td>";
+    echo"<td><a href=../controller/vercomentarios.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
+  }
 	if((!empty($_SESSION['session_username'])) and($viaje["idautoincremental"]<>$id) and ($postulacion != $id)) {
       
 echo"<td><a href=../controller/postularse.php?idviaje=".$viaje["idviaje"]."&idautoincremental=".$id.">Postularse </a></td>";
-}}
+
+}
+}
 	
 	
   ?>
@@ -96,10 +103,13 @@ echo"<td><a href=../controller/postularse.php?idviaje=".$viaje["idviaje"]."&idau
  </div>
 
 <div class="container">
+
+
+
 <?php
 if( !empty($_SESSION['session_username'])) { ?>
  <h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
- <h5 class="center  -align"> <p class="regtext">¿Desea realizar una pregunta? <?php echo"<a href=../controller/pregunta.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+ 
 <?php } 
 if ( empty($_SESSION['session_username'])) { ?>
 	<h5 class="center	-align"> <p class="regtext"> <a href="../controller/index.php">¿Desea volver a la página principal? </a> </p> </h5>

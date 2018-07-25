@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2018 a las 10:13:50
+-- Tiempo de generación: 25-07-2018 a las 02:45:12
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -49,34 +49,26 @@ CREATE TABLE `calificacionpiloto` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comentarios`
+-- Estructura de tabla para la tabla `comentario`
 --
 
-CREATE TABLE `comentarios` (
-  `post_id` int(5) NOT NULL,
-  `publicado` varchar(10) COLLATE utf8_spanish2_ci NOT NULL,
-  `fecha` date NOT NULL,
+CREATE TABLE `comentario` (
   `idautoincremental` int(11) NOT NULL,
-  `email` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `comentarios` text COLLATE utf8_spanish2_ci NOT NULL,
-  `estado` varchar(4) COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'OK',
-  `dia` int(2) NOT NULL,
-  `mes` int(2) NOT NULL,
-  `anio` int(4) NOT NULL,
-  `ip_post` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
-  `parent` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  `idviaje` int(11) NOT NULL,
+  `idcomentario` int(11) NOT NULL,
+  `comentario` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `comentarios`
+-- Volcado de datos para la tabla `comentario`
 --
 
-INSERT INTO `comentarios` (`post_id`, `publicado`, `fecha`, `idautoincremental`, `email`, `comentarios`, `estado`, `dia`, `mes`, `anio`, `ip_post`, `parent`) VALUES
-(1, 'Publicado', '2015-05-01', 1, '', 'Hola como est&aacute;n veo que descargastes el sistema de comentarios <strong>php , mysql ,jquery y javascript</strong> espero les guste si desean saber su funcionamiento, solo dejen sus comentarios en <a target="_blank" href="http://www.bloguero-ec.com/publicacion/sistema-de-comentario-con-respuesta-panel-de-administracion">sistema de comentarios jquery</a> <br/>\r\nsu función es muy dinámica y sencilla... ', 'OK', 1, 5, 2015, '', 0),
-(2, 'Publicado', '2015-05-02', 2, '', 'Gracias por este sistema es de mucha ayuda le voy a dar like a tu página en facebook y te ganastes un tweet..<br/>\r\nSaludos .....', 'OK', 2, 5, 2015, '', 1),
-(3, 'Publicado', '2015-05-03', 1, '', 'Voy a dar mi próximo concierto en Ecuador saludos a todos mis seguidores esperenmen que va a estar <strong>Genial</strong><br/>\r\nAtte: <strong>Rockero</strong>\r\n ', 'OK', 3, 5, 2015, '', 0),
-(4, 'Publicado', '2015-05-04', 1, '', 'Genial Rockero estaré en primera fila ..<br/>\r\npara ese conciertaso....\r\nUn saludo desde <strong>Ecuador</strong>', 'OK', 4, 5, 2015, '', 3),
-(5, 'Publicado', '2015-05-06', 0, '', 'Hola Rockero de seguro te va a ir bi&eacute;n en Ecuador..<br />\r\nEspero vengas pronto a Brasil y nos sorprendas con tus m&uacute;sicas..<br />\r\nesta es mi blog <a href="http://www.bloguero-ec.com">Bloguero-Ec</a> ..<br />\r\nSaludos a todos...', 'OK', 6, 5, 2015, '', 3);
+INSERT INTO `comentario` (`idautoincremental`, `idviaje`, `idcomentario`, `comentario`) VALUES
+(1, 0, 0, 'vekrvwkevmrjwkiojvm'),
+(1, 0, 0, 'vekrvwkevmrjwkiojvm'),
+(1, 0, 0, 'cwlavkeropvl'),
+(1, 0, 0, 'xlsaxmas'),
+(1, 0, 0, 'wefkjqogfeÂ´q');
 
 -- --------------------------------------------------------
 
@@ -126,6 +118,13 @@ CREATE TABLE `estadopostulacion` (
   `rechazado` int(1) NOT NULL,
   `idvehiculo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `estadopostulacion`
+--
+
+INSERT INTO `estadopostulacion` (`idpost`, `idautoincremental`, `idviaje`, `aceptado`, `rechazado`, `idvehiculo`) VALUES
+(1, 1, 5, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -228,7 +227,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `estadologico`, `puedepublicar`, `estadopostulacion`, `calificacion`, `calificacionpiloto`) VALUES
-(1, '                  CamilalklÃ±k', '                  Faraone', 'camilafaraone@gmail.com', ' camifaraone', '2345421506', '12345678910', '1995-04-18', 'avatar.jpg', '12345678910', 0, 0, 0, 6, 0),
+(1, '                   Camila', '                   Faraone', 'camilafaraone@gmail.com', '  camifaraone', '2345421506', '12345678910', '1995-04-18', 'avatar.jpg', '12345678910', 0, 0, 0, 6, 0),
 (2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 1, 1, 0, 8, 0),
 (3, 'agustin', 'nuÃ±ez', 'agustin@hotmail.com', 'agustin', '1234', '123456789', '2000-06-24', 'mati.png', '123456789', 0, 0, 0, 0, 0),
 (4, 'jkwrfbj', 'vwknvrh', 'holachau@gmail.com', 'vjwikv', '6654', '12345678', '1995-04-17', 'descarga.jpg', '12345678', 0, 0, 0, 10, 0);
@@ -279,21 +278,22 @@ CREATE TABLE `viaje` (
   `observaciones` varchar(200) NOT NULL,
   `cantasientos` int(10) NOT NULL,
   `estadopago` int(1) NOT NULL,
-  `postulados` int(8) NOT NULL
+  `postulados` int(8) NOT NULL,
+  `coments` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`, `postulados`) VALUES
-(1, 4, '2018-07-19', 100, ' 1', ' 1', 9, 1, 5, ' nn', 2, 0, 6),
-(2, 5, '2018-07-25', 100, '1', '1', 2, 3, 3, 'nvkrwlik', 2, 1, 0),
-(2, 6, '2018-07-21', 100, '1', '1', 26, 5, 3, 'njbkj', 2, 1, 0),
-(2, 7, '2018-10-20', 100, '10:00', '10:01', 1, 1, 1, 'nk,', 2, 0, 0),
-(2, 8, '2018-10-20', 100, '10:00', '10:01', 1, 1, 1, 'nk,', 2, 0, 0),
-(2, 9, '2018-10-28', 52622, '10:00', '10:00', 1, 1, 1, '26526', 2, 0, 0),
-(2, 10, '2018-10-29', 52622, '10:00', '10:00', 1, 1, 1, '26526', 2, 0, 0);
+INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`, `postulados`, `coments`) VALUES
+(1, 4, '2018-07-19', 100, ' 1', ' 1', 9, 1, 5, ' nn', 2, 0, 6, 1),
+(2, 5, '2018-07-25', 100, '1', '1', 2, 3, 3, 'nvkrwlik', 2, 1, 0, 0),
+(2, 6, '2018-07-21', 100, '1', '1', 26, 5, 3, 'njbkj', 2, 1, 0, 0),
+(2, 7, '2018-10-20', 100, '10:00', '10:01', 1, 1, 1, 'nk,', 2, 0, 0, 0),
+(2, 8, '2018-10-20', 100, '10:00', '10:01', 1, 1, 1, 'nk,', 2, 0, 0, 0),
+(2, 9, '2018-10-28', 52622, '10:00', '10:00', 1, 1, 1, '26526', 2, 0, 0, 0),
+(2, 10, '2018-10-29', 52622, '10:00', '10:00', 1, 1, 1, '26526', 2, 0, 0, 0);
 
 --
 -- Índices para tablas volcadas
@@ -312,12 +312,6 @@ ALTER TABLE `calificacionacompaniante`
 ALTER TABLE `calificacionpiloto`
   ADD PRIMARY KEY (`Idcalificp`),
   ADD UNIQUE KEY `idautoincremental` (`idautoincremental`);
-
---
--- Indices de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  ADD UNIQUE KEY `post_id` (`post_id`,`publicado`);
 
 --
 -- Indices de la tabla `destino`
@@ -396,11 +390,6 @@ ALTER TABLE `calificacionacompaniante`
 ALTER TABLE `calificacionpiloto`
   MODIFY `Idcalificp` int(100) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `comentarios`
---
-ALTER TABLE `comentarios`
-  MODIFY `post_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
---
 -- AUTO_INCREMENT de la tabla `destino`
 --
 ALTER TABLE `destino`
@@ -409,7 +398,7 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
-  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `origen`
 --
