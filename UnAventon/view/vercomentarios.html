@@ -1,0 +1,111 @@
+<html>
+
+
+
+<title>UnAventon | Ver comentarios </title>
+       <?php
+  include "../controller/head.php";
+?>
+
+
+
+
+
+<?php session_start();
+ 
+      if(empty($_SESSION['session_username'])) {
+          
+	?>  
+		  <nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../controller/login.php">Iniciar sesión</a></li>
+        <li><a href="../controller/register.php">Registrarse</a></li>
+      </ul>
+    </div>
+  </nav> <?php } ?>
+	<?php
+			
+		if(!empty($_SESSION['session_username'])) {
+			$email = $_SESSION['session_username'];
+	?>	  
+		<nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+	
+	<?php } ?> 
+
+<body style= "background-color:#FEF9E7;">
+
+
+
+<div class="container">
+<div class="jumbotron">
+
+
+
+
+<h1>Comentarios del viaje</h1>
+
+</div>
+<table class="centered">
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+        <th>Comentario</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+<?php
+      
+
+  
+ 
+ for($i=0; $i<count($comentario);$i++) {
+    
+   echo "<td>".$comentario[$i]["nombre"].""."</td>";
+   echo "<td>".$comentario[$i]["apellido"].""."</td>";
+   echo "<td>".$comentario[$i]["comentario"].""."</td>";
+   
+  
+ echo"<td><a href=../controller/respuesta.php?idviaje=".$comentario[$i]["idviaje"]."&idautoincremental=".$id.">Responder </a></td>";
+echo "</tr>";
+ }
+
+
+?>
+
+     
+      
+        </tbody>
+      </table>
+  <hr width="100%">
+ </div>
+
+<div class="container">
+ <h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	</div>
+
+<br></br>
+<br></br>
+
+ <?php
+  include "../controller/footer.php";
+?>
+ 
+</body>
+
+
+
+</html>
