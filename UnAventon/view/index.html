@@ -75,7 +75,7 @@
     <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>    <h5 class="center-align"> 
     <?php 
     
-		if ($pago == 0){
+		if ($pago== 0){
          echo "<a href=../controller/newtrip.php?idautoincremental=".$id.">Crear viaje  </a>"; 
        }
        else {
@@ -204,7 +204,6 @@ echo "</tr>";
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <a class="waves-effect #ff9800 orange btn" href="<?php echo '../controller/infodelsitio.php?idautoincremental=".$id."' ; ?> "> INFORMACIÓN DEL SITIO </a>
 
-          <p class="light ">Conozca todos los detalles de la aplicación</p>
         </div>
       </div>
 
