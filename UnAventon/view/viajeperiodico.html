@@ -50,7 +50,7 @@
 				
 			<div id="register">
   
-			<form name="registerform" id="registerform" action="../controller/viajeperiodico.php?idautoincremental=<?php echo $id ?>" method="POST">
+			<form name="registerform" id="registerform" action="../controller/crearviajeperiodico.php?idautoincremental=<?php echo $id ?>" method="POST">
 				<div class="form-group">
 					<label for="fechaviaje">Fecha inicio:
 						<input type="date" name="fechainicio" id="fechainicio" class="form-control"  placeholder="Fecha de inicio de viajes " required />
@@ -64,31 +64,31 @@
 				<div class="form-group">  
 					<label for="dias[]">Días:
 						<div>
-    						<input type="checkbox" id="1" value="1">
+    						<input name='mon' type="checkbox" id="1" value="1">
     						<label for="1">Lunes</label>
   						</div>
   						<div>
-  						  <input type="checkbox" id="2">
+  						  <input name='tue' type="checkbox" id="2">
    						  <label for="2">Martes</label>
  					    </div>
                         <div>
-    						<input type="checkbox" id="3">
+    						<input name='wed' type="checkbox" id="3">
     						<label for="3">Miércoles</label>
   						</div>
   						<div>
-    						<input type="checkbox" id="4">
+    						<input name='thu' type="checkbox" id="4">
     						<label for="4">Jueves</label>
   						</div>
   						<div>
-  						  <input type="checkbox" id="5">
+  						  <input name='fri' type="checkbox" id="5">
    						  <label for="5">Viernes</label>
  					    </div>
                         <div>
-    						<input type="checkbox" id="6">
+    						<input name='sat' type="checkbox" id="6">
     						<label for="6">Sábado</label>
   						</div>
   						<div>
-    						<input type="checkbox" id="7">
+    						<input name='sun' type="checkbox" id="7">
     						<label for="7">Domingo</label>
   						</div>
 					</label>
@@ -174,4 +174,14 @@
       </div>
     </div>
   </footer>
-</body></html>
+</body>
+<?php
+	if(isset($_GET['date_error'])){
+		echo "<script type='text/javascript'> alert('Las fechas se superponen con un viaje existente.') </script>";
+	} else {
+		if(isset($_GET['sucess'])){
+			echo "<script type='text/javascript'> alert('Viajes creados satisfactoriamente.') </script>";
+		}	
+	}
+?>
+</html>

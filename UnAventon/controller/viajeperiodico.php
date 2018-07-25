@@ -9,6 +9,7 @@ $id= ($_GET["idautoincremental"]);
 $origen = get_origen();
 $destino = get_destino();
 $vehiculo = get_vehiculo($id);
+/*
 $inicio = ($_POST['fechainicio']);
 $fin = ($_POST['fechafin']);
 
@@ -49,7 +50,7 @@ for($i=0; $i<count($c);$i++) {
 } else {
 	 $message = "Todos los campos no deben de estar vacios!";
 }
-}
+}*/
 
 
 
