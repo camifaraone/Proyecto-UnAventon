@@ -1,19 +1,19 @@
 <?php
 
 
-function realizarcomentario($id, $idviaje, $comentario){
+function realizarrespuesta($id, $idcomentario, $respuesta){
 		
 	require("db.php");
 	try{
-		$sql= $conn->prepare("INSERT INTO comentario
-				(idautoincremental, idviaje, comentario) 
+		$sql= $conn->prepare("INSERT INTO respuesta
+				(idautoincremental, idcomentario, respuesta) 
 				VALUES(?, ?, ?)" );
 		
 		
 		
 
 				
-		$sql ->execute(array("$id", "$idviaje", "$comentario"));
+		$sql ->execute(array("$id", "$idcomentario", "$respuesta"));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
@@ -25,10 +25,10 @@ function realizarcomentario($id, $idviaje, $comentario){
  
  
  
- function get_viaje($id){
+ function get_pregunta($id){
 	require ("db.php");
 	try{
-		$sql = $conn->prepare("select * from viaje where idautoincremental=:id");
+		$sql = $conn->prepare("select * from comentario where idautoincremental=:id");
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 		$sql ->execute();
 	

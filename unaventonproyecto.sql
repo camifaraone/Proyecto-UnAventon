@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-07-2018 a las 02:45:12
+-- Tiempo de generación: 25-07-2018 a las 05:14:16
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -68,7 +68,8 @@ INSERT INTO `comentario` (`idautoincremental`, `idviaje`, `idcomentario`, `comen
 (1, 0, 0, 'vekrvwkevmrjwkiojvm'),
 (1, 0, 0, 'cwlavkeropvl'),
 (1, 0, 0, 'xlsaxmas'),
-(1, 0, 0, 'wefkjqogfeÂ´q');
+(1, 0, 0, 'wefkjqogfeÂ´q'),
+(2, 0, 0, 'kelvwmrlwemvblñ\r\n');
 
 -- --------------------------------------------------------
 
@@ -170,12 +171,19 @@ CREATE TABLE `pregunta` (
 --
 
 CREATE TABLE `respuesta` (
-  `fechar` date NOT NULL,
-  `idrespuesta` int(100) NOT NULL,
-  `descripcionr` varchar(255) NOT NULL,
-  `idpregunta` int(100) NOT NULL,
-  `idautoincremental` int(11) NOT NULL
+  `idautoincremental` int(11) NOT NULL,
+  `idcomentario` int(11) NOT NULL,
+  `idrespuesta` int(11) NOT NULL,
+  `respuesta` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `respuesta`
+--
+
+INSERT INTO `respuesta` (`idautoincremental`, `idcomentario`, `idrespuesta`, `respuesta`) VALUES
+(1, 0, 0, 'respuesta'),
+(1, 0, 0, 'respuesta');
 
 -- --------------------------------------------------------
 
@@ -342,15 +350,6 @@ ALTER TABLE `pregunta`
   ADD KEY `idviaje` (`idviaje`);
 
 --
--- Indices de la tabla `respuesta`
---
-ALTER TABLE `respuesta`
-  ADD PRIMARY KEY (`idrespuesta`),
-  ADD UNIQUE KEY `descripcionr` (`descripcionr`),
-  ADD UNIQUE KEY `idpregunta_2` (`idpregunta`),
-  ADD KEY `idpregunta` (`idpregunta`);
-
---
 -- Indices de la tabla `tipove`
 --
 ALTER TABLE `tipove`
@@ -409,11 +408,6 @@ ALTER TABLE `origen`
 --
 ALTER TABLE `pregunta`
   MODIFY `idpregunta` int(100) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT de la tabla `respuesta`
---
-ALTER TABLE `respuesta`
-  MODIFY `idrespuesta` int(100) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

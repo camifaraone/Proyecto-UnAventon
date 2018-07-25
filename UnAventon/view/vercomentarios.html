@@ -61,6 +61,7 @@
               <th>Nombre</th>
               <th>Apellido</th>
         <th>Comentario</th>
+
           </tr>
         </thead>
 
@@ -76,9 +77,9 @@
    echo "<td>".$comentario[$i]["nombre"].""."</td>";
    echo "<td>".$comentario[$i]["apellido"].""."</td>";
    echo "<td>".$comentario[$i]["comentario"].""."</td>";
+   
   
-
-
+ echo"<td><a href=../controller/respuesta.php?idviaje=".$comentario[$i]["idviaje"]."&idautoincremental=".$id.">Responder </a></td>";
 echo "</tr>";
  }
 
