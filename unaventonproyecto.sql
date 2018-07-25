@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-07-2018 a las 05:14:16
+-- Tiempo de generación: 25-07-2018 a las 09:03:17
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -125,7 +125,7 @@ CREATE TABLE `estadopostulacion` (
 --
 
 INSERT INTO `estadopostulacion` (`idpost`, `idautoincremental`, `idviaje`, `aceptado`, `rechazado`, `idvehiculo`) VALUES
-(1, 1, 5, 0, 0, 0);
+(1, 1, 4, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -303,6 +303,17 @@ INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion
 (2, 9, '2018-10-28', 52622, '10:00', '10:00', 1, 1, 1, '26526', 2, 0, 0, 0),
 (2, 10, '2018-10-29', 52622, '10:00', '10:00', 1, 1, 1, '26526', 2, 0, 0, 0);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `votaciones`
+--
+
+CREATE TABLE `votaciones` (
+  `id` int(11) NOT NULL,
+  `clicks` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
 --
 -- Índices para tablas volcadas
 --
@@ -375,6 +386,12 @@ ALTER TABLE `viaje`
   ADD PRIMARY KEY (`idviaje`);
 
 --
+-- Indices de la tabla `votaciones`
+--
+ALTER TABLE `votaciones`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -423,6 +440,11 @@ ALTER TABLE `vehiculo`
 --
 ALTER TABLE `viaje`
   MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT de la tabla `votaciones`
+--
+ALTER TABLE `votaciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

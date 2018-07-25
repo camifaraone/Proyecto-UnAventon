@@ -33,37 +33,23 @@
 			</div>
 		</div>
 
-		<div class="container">
-			<div id="calification">
-				
-				<form name="calificationform" id="calificationrform" action="../controller/register.php" method="POST">
-					<?php 
-					for($i=0; $i<count /*VARIABLE CON LA CANTIDAD DE ASIENTOS OCUPADOS EN EL VIAJE*/ ;$i++){
-					echo '<div class="form-group">'
-						echo "<p>Nombre de usuario: $/*viaje.usuario!=logueado*/</p>"
-						echo "<p>Calificación: </p>"
-						echo '<label for="calification">'1
-							echo '<input type="input" name="calificacion" id="calificacion1" class="form-control" required />'
-						echo '</label>'
-						echo '<label for="calification">'2
-							echo '<input type="input" name="calificacion" id="calificacion2" class="form-control" required />'
-						echo '</label>'
-						echo '<label for="calification">'3
-							echo '<input type="input" name="calificacion" id="calificacion3" class="form-control" required />'
-						echo '</label>'
-						echo '<label for="calification">'4
-							echo '<input type="input" name="calificacion" id="calificacion4" class="form-control" required />'
-						echo '</label>'
-						echo '<label for="calification">'5
-							echo '<input type="input" name="calificacion" id="calificacion5" class="form-control" required />'
-						echo '</label>'
-					</div>
-				}	
-				?>
-				<p class="submit">
-					<input type="submit" name="calificar" id="calificationBtn" class="btn btn-default" value="CALIFICAR" />
-				</p>
+		
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    
+<body>
 
+ <center>
+   <div id="ok" style="display: none;"><img src="http://michaelasher.com/ok.png" width="250" height="200" /></div>
+   <div id="image1" class="contadorClicks"><img src="../img/positiv.jpg" width="75" height="75" />
+   </div>
+   <div id="image2" class="contadorClicks"><img src="../img/negativ.jpg" width="75" height="75" />
+   </div>
+ <center>
+</body>
+<script src="../js/script.js" type="text/javascript"></script>
+</html>
+
+			
 				<h5 class="center  -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
 			</form>
 		</div>
