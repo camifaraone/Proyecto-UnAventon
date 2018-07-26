@@ -54,21 +54,75 @@
 	<div class="container">
 		<div class="jumbotron">
 			
-			
-			
-			
+<br><br>			
+<blockquote>
+     <h4>Busquedad encontradas </h4>
+    </blockquote>
+	<br>
+<?php
+if ( empty($buscador)) {
+	echo "<h5> no se encontraron resultados de la busqueda </h5>";
+}
+else {
+
+?>
+
+
+<table  class="table table-bordered" id="table">
+<thead>
+   <tr>
+    <th>Fecha</th>
+    <th>Precio total</th>
+    <th>Duración</th>
+	<th>Hr.salida</th>
+	<th>Ciudad/Origen</th>
+	<th>Ciudad/Destino</th>
+	<th>Observaciones</th>
+  </tr>
+</thead>
+  <tbody>
+ <?php
+
+ for($i=0; $i<count($buscador);$i++) {
+    $precio = ($buscador[$i]["monto"]) / $buscador[$i]["cantasientos"];
+	 echo "<td>".$buscador[$i]["fecha"].""."</td>";
+	 echo "<td> $".$precio.""."</td>";
+	 echo "<td>".$buscador[$i]["duracion"].""."Hs</td>";
+	 echo "<td>".$buscador[$i]["hssalida"].""."Hs</td>";
+	 echo "<td>".$buscador[$i]["ciudadOrigen"].""."</td>";
+	 echo "<td>".$buscador[$i]["ciudadDestino"].""."</td>";
+	 echo "<td>".$buscador[$i]["observaciones"].""."</td>";
+	
+	
+	 echo "</tr>";
+
+}
+?>
+
+ 
+  </tbody>
+  </table>			
+
+
+<?php
+}
+?>
+
+
+	
 		<hr width="100%">
 		</div>
 
 
+<br>
 
-
-<h5 class="center -align"> <p class="regtext">¿Desea volver a la página principal? <a href="../controller/index.php" >Clic aqu&iacute;</a></p> </h5>
-</div>
+<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	</div>
 <?php
 include "../controller/footer.php";
 ?>
 
 </body>
 </html>
+
 
