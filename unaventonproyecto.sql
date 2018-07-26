@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-07-2018 a las 09:03:17
+-- Tiempo de generación: 26-07-2018 a las 09:45:27
 -- Versión del servidor: 10.1.19-MariaDB
 -- Versión de PHP: 5.6.28
 
@@ -188,6 +188,23 @@ INSERT INTO `respuesta` (`idautoincremental`, `idcomentario`, `idrespuesta`, `re
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tarjeta`
+--
+
+CREATE TABLE `tarjeta` (
+  `tipo` int(11) NOT NULL,
+  `numtarjeta` int(16) NOT NULL,
+  `mes` int(2) NOT NULL,
+  `anio` int(2) NOT NULL,
+  `nomape` text NOT NULL,
+  `codseguridad` int(3) NOT NULL,
+  `documento` int(8) NOT NULL,
+  `idautoincremental` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tipove`
 --
 
@@ -295,13 +312,12 @@ CREATE TABLE `viaje` (
 --
 
 INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`, `postulados`, `coments`) VALUES
-(1, 4, '2018-07-19', 100, ' 1', ' 1', 9, 1, 5, ' nn', 2, 0, 6, 1),
-(2, 5, '2018-07-25', 100, '1', '1', 2, 3, 3, 'nvkrwlik', 2, 1, 0, 0),
-(2, 6, '2018-07-21', 100, '1', '1', 26, 5, 3, 'njbkj', 2, 1, 0, 0),
-(2, 7, '2018-10-20', 100, '10:00', '10:01', 1, 1, 1, 'nk,', 2, 0, 0, 0),
-(2, 8, '2018-10-20', 100, '10:00', '10:01', 1, 1, 1, 'nk,', 2, 0, 0, 0),
-(2, 9, '2018-10-28', 52622, '10:00', '10:00', 1, 1, 1, '26526', 2, 0, 0, 0),
-(2, 10, '2018-10-29', 52622, '10:00', '10:00', 1, 1, 1, '26526', 2, 0, 0, 0);
+(1, 128, '2019-02-22', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 0, 0, 0),
+(1, 129, '2019-03-01', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 0, 0, 0),
+(1, 130, '2019-03-08', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 0, 0, 0),
+(1, 131, '2019-03-15', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 0, 0, 0),
+(1, 132, '2019-03-22', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 0, 0, 0),
+(1, 133, '2019-03-29', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -439,7 +455,7 @@ ALTER TABLE `vehiculo`
 -- AUTO_INCREMENT de la tabla `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idviaje` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 --
 -- AUTO_INCREMENT de la tabla `votaciones`
 --
