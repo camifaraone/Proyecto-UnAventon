@@ -2,22 +2,17 @@
 function get_idviaje($id) {
 	 require "../model/db.php";//te crea una conexion
 	try{
-		
-		$sql = $conn->prepare("select idviaje from viaje INNER JOIN usuario ON viaje.idautoincremental = usuario.idautoincremental where usuario.idautoincremental=:id");
+		$sql = $conn->prepare("SELECT idviaje FROM viaje INNER JOIN usuario ON viaje.idautoincremental = usuario.idautoincremental WHERE usuario.idautoincremental=:id");
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 		$sql ->execute();
-	
 	/*while( $datos = $sql->fetch() )
     echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
-
-	$result= $sql->fetchAll()[0][0];
-	
+	$result= $sql->fetchAll()[0][0];	
    }
    catch(PDOException $e) {
   $result= 'Error: ' . $e->getMessage();
   }
-	return $result;
-	 
+	return $result; 
  }
  
  
@@ -38,32 +33,20 @@ function get_idviaje($id) {
    catch(PDOException $e) {
   $result= 'Error: ' . $e->getMessage();
   }
-	return $result;
-	 
+	return $result;	 
  }
 
 
 function pago($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id){
-		
 	require("db.php");
-	
 	try{
 		$sql= $conn->prepare("INSERT INTO tarjeta
-				(tipo, numtarjeta, mes, anio, nomape, codseguridad, documento, idviaje, idautoincremental) 
-				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)" );
-		
-		
-		
-
-				
+		(tipo, numtarjeta, mes, anio, nomape, codseguridad, documento, idviaje, idautoincremental) 
+		VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)" );			
 		$sql ->execute(array($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id));
-	
     }catch(PDOException $e) {
-			return 'Error: ' . $e->getMessage();
+		return 'Error: ' . $e->getMessage();			
     }
 	return true;
-	
  }
-
-
  ?>

@@ -1,4 +1,4 @@
-function runSubmit (form)  {
+ function runSubmit (form)  {
 
 		if (form.tipo.value == ""){
 			alert("Ingresar tipo de tarjeta");

@@ -13,6 +13,9 @@ $id= ($_GET["idautoincremental"]);
 $viaje = get_viaje($id);
 $viajeid = get_idviaje($id);
 
+var_dump($viaje);
+//var_dump($viajeid);
+
 
 
 if(isset($_POST["pago"])){
