@@ -94,13 +94,22 @@
 								?>
 							</li>
 							<li>
-							<label for="cali">Calificación:</label> 
+							<label for="cali">Calificación piloto:</label> 
 								<?php
 									echo $user["calificacion"];
 								?>
 							</li>
+							<li>
+							<label for="cali">Calificación acompañante:</label> 
+								<?php
+									echo $user["calificacionacompaniante"];
+								?>
 							</li>
-                    		
+							</li>
+
+	<h4 class="center	-align"> <p class="regtext"><?php echo"<a href=../controller/calificacionpiloto.php?idautoincremental=".$id."> Calificar como piloto </a>"; ?></p> </h4>
+
+    </br></br></br>                		
 	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	</div>
 	 <?php

@@ -64,8 +64,9 @@
               <th>Apellido</th>
               <th>Email</th>
 			  <th>Telefono</th>
-			  <th>Calificacion/Acompañante</th>
 			  <th>Calificacion/Piloto</th>
+			  <th>Calificacion/Acompañante</th>
+
           </tr>
         </thead>
 
@@ -81,8 +82,8 @@
 	 echo "<td>".$users[$i]["email"].""."</td>";
 	 echo "<td>".$users[$i]["telefono"].""."</td>";
 	 echo "<td>".$users[$i]["calificacion"].""."</td>";
-	  echo "<td>".$users[$i]["calificacionpiloto"].""."</td>";
-
+	  echo "<td>".$users[$i]["calificacionacompaniante"].""."</td>";
+echo"<td><a href=../controller/calificacionacompaniante.php?idautoincremental=".$id."> Calificar como acompañante </a></td>";
 	if ($postulados != $asientos) { 
 	if ( $users[$i]["aceptado"] == 1 ) {
 	echo"<td>este usuario se encuentra aceptado!</td>";
