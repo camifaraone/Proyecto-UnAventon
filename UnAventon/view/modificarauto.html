@@ -51,27 +51,27 @@
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Marca:</label>
-								<input type="text" name="marca" id="marca" value= " <?php echo $datosauto['marca']; ?>" />
+								<input type="text" name="marca" id="marca" value= " <?php echo $datosauto['marca']; ?>" required/>
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Modelo:</label>
-								<input type="text" name="modelo" id="modelo" value= " <?php echo $datosauto['modelo']; ?>"/>
+								<input type="text" name="modelo" id="modelo" value= " <?php echo $datosauto['modelo']; ?>" required/>
 							</li> 
 							<li> 
 								<label for="name"><em>*</em>Color:</label>
-								<input type="text" name="color" id="color" value= " <?php echo $datosauto['color']; ?>"/>
+								<input type="text" name="color" id="color" value= " <?php echo $datosauto['color']; ?>" required/>
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Detalles:</label>
-								<input type="text" name="detalles" id="detalles" value= " <?php echo $datosauto['detalles']; ?>"/>
+								<input minlength="2" type="text" name="detalles" id="detalles" value= " <?php echo $datosauto['detalles']; ?>" required/>
 							</li>
 							<li> 
 								<label for="name"><em>*</em>Cantidad de asientos disponibles:</label>
-								<input type="text" name="cantasientosdisp" id="cantasientosdisp" value= " <?php echo $datosauto['cantasientosdisp']; ?>"/>
+								<input minlength="1" type="text" name="cantasientosdisp" id="cantasientosdisp" value= " <?php echo $datosauto['cantasientosdisp']; ?>" required/>
 							</li>
 							<li>
 								<label for="name"><em>*</em>Patente:</label>
-								<input type="text" name="patente" id="patente" value= " <?php echo $datosauto['patente']; ?>"/>
+								<input type="text" name="patente" id="patente" value= " <?php echo $datosauto['patente']; ?>" required/>
 								<button class="submit" name="modif" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
 							</li> 							
 						</ul> 

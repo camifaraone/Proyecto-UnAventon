@@ -158,9 +158,9 @@ function pregunta(){
               <th>Marca</th>
               <th>Modelo</th>
               <th>Color</th>
-			  <th>Patente</th>
 			  <th>Detalles</th>
 			  <th>Asientos disponibles</th>
+			  <th>Patente</th>
           </tr>
         </thead>
 
@@ -174,9 +174,9 @@ function pregunta(){
 	 echo "<td>".$vehiculo[$i]["marca"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["modelo"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["color"].""."</td>";
-	 echo "<td>".$vehiculo[$i]["patente"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["cantasientosdisp"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["patente"].""."</td>";
 	 echo"<td><a href=../controller/modificarauto.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Editar </a></td>";
 	 echo"<td><a href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
 	//echo "<td><button onclick=confirm('hola')>Aca</button></td>";

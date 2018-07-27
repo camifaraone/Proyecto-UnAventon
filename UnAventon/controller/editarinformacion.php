@@ -15,11 +15,11 @@ $id= ($_GET["idautoincremental"]);
 if(isset($_POST["editar"])){
 
 
-if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nombreusuario']) && !empty($_POST['telefono']) && !empty($_POST['fechanacimiento']) && !empty($_POST['foto']) ) {
+if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['telefono']) && !empty($_POST['fechanacimiento']) && !empty($_POST['foto']) ) {
 
 	$nombre=$_POST['nombre'];
 	$apellido=$_POST['apellido'];
-	$nombreusuario=$_POST['nombreusuario'];
+	
 	
 	$telefono=$_POST['telefono'];
 	$fechanacimiento=$_POST['fechanacimiento'];
@@ -29,7 +29,7 @@ if(!empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['nomb
 	
 	
 	
-	$editar = editar_usuario($nombre,$apellido,$nombreusuario, $telefono,$fechanacimiento,$foto, $id);
+	$editar = editar_usuario($nombre,$apellido, $telefono,$fechanacimiento,$foto, $id);
 	var_dump($editar);
 	header("Location: ../controller/perfil.php?idautoincremental=".$id);
 

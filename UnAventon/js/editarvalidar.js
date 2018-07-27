@@ -8,10 +8,6 @@
 			alert("Ingresar apellido");
 			return false;
 		}
-		if (form.nombreusuario.value == ""){
-			alert("Ingresar nombre usuario");
-			return false;
-		}
 		if (form.telefono.value == ""){
 			alert("Ingresar número de teléfono")
 			return false

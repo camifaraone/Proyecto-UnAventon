@@ -1,7 +1,7 @@
 	function runSubmit (form)  {
 		
 		if (form.contrasenia.value.length < 8) {
-			alert("Ingresar clave");
+			alert("Ingresar clave con ocho o más caracteres");
 			return false;
 		}
 		if (form.confirmarcontrasenia.value.length < 8) {
@@ -13,4 +13,5 @@
 			return false;
 		}
 		return true;	
+		
 	}			

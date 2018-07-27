@@ -1,6 +1,11 @@
 function runSubmit (form)  {
+	
 		if (form.marca.value == ""){
 			alert("Ingresar marca del auto");
+			return false;
+		}
+		if (form.modelo.value == ""){
+			alert("Ingresar modelo del auto");
 			return false;
 		}
 		if (form.color.value == ""){
@@ -13,10 +18,6 @@ function runSubmit (form)  {
 		}
 		if (form.cantasientosdisp.value == ""){
 			alert("Ingresar cantidad de asientos disponibles");
-			return false;
-		}
-		if (form.modelo.value == ""){
-			alert("Ingresar modelo del auto");
 			return false;
 		}
 		

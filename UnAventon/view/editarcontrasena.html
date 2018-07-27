@@ -61,13 +61,15 @@
 								<h4>EDITAR CONTRASEÑA DE LA CUENTA</h4>
 								<p>Información de la cuenta</p>
 								<span class="required_notification">* Datos requeridos</span> 
+              
+              <h5>¡Ingresar contraseña con 8 o más caracteres!</h5>
 							</li>
                     		<li>
 								<div class="field">
                         			<label for="password" class="required"><em>*</em>Nueva clave:</label>
                         			
                         			<div class="input-box">
-                            			<input type="password" name="contrasenia" id="contrasenia" title="Contraseña" class="input-text required-entry validate-password" required/>
+                            			<input minlength="8" type="password" name="contrasenia" id="contrasenia" title="Contraseña" class="input-text required-entry validate-password" required/>
                         			</div> 
                     			</div>
                     		</li>
@@ -76,7 +78,7 @@
                         			<label for="confirmation" ><em>*</em>Confirmar clave:</label>
                         			
                         			<div class="input-box">
-                            			<input type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" title="Confirmar la contraseña" id="confirmation" class="input-text required-entry validate-cpassword" required/>
+                            			<input minlength="8" type="password" name="confirmarcontrasenia" id="confirmarcontrasenia" title="Confirmar la contraseña" id="confirmation" class="input-text required-entry validate-cpassword" required/>
                         			</div>
                     			</div>
                     		</li>
