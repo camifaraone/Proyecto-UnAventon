@@ -56,22 +56,31 @@
    <td>
    <div id="image1"><img src="../img/img1.jpg" width="75" height="75">
    </div>
-   <form name='tuformulario' action='../controller/calificacionpositivapiloto.php?idviaje=".$viaje[$i]["idviaje"]."'> <input  type='button' onclick='pregunta()' value='Positivo'>
    </td>
    <td>
-   <div id="image2" class="contadorClicks"><img src="../img/img2.jpg" width="75" height="75" />
+   <div id="image2"><img src="../img/img2.jpg" width="75" height="75" />
    </div>
-   <form name='tuformulario' action='../controller/calificacionpositivapiloto.php?idviaje=".$viaje[$i]["idviaje"]."'> <input  type='button' onclick='pregunta()' value='Neutral'>
    </td>
    <td>
-   <div id="image3" class="contadorClicks"><img src="../img/img3.jpg" width="75" height="75" />
+   <div id="image3"><img src="../img/img3.jpg" width="75" height="75" />
    </div>
-   <form name='tuformulario' action='../controller/calificacionpositivapiloto.php?idviaje=".$viaje[$i]["idviaje"]."'> <input  type='button' onclick='pregunta()' value='Negativo'>
    </td>
    </tbody>
-  </table>
- <center>
+ 
+
+<?php 
+ echo"<td><form  action='../controller/califacomppositiv.php?idautoincremental=".$id."'> <input  type='button' value='Positivo'></form></td>";
+ 
+ echo"<td><form  action='../controller/califacompneutral.php?idautoincremental=".$id."'> <input  type='button' value='Neutral'></form></td>";
+
+ echo"<td><form  action='../controller/califacompnegativ.php?idautoincremental=".$id."'> <input  type='button' value='Negativo'></form></td>";
+
+
+?>
+ </table>
+
  </br></br>
+  <center>
 <div> <img src="../img/img4.jpg" width="200" height="100" /> </div>
 <h5>Positivo: Incrementa en 1 la calificación hacia el usuario.</h5>
 <h5>Neutral: No incrementa, ni decrementa la calificación.</h5>
