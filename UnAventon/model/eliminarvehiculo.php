@@ -8,11 +8,10 @@ function delVehiculo($idvehiculo){
 
 		try{
 
-		$gsent = $conn->prepare('DELETE FROM vehiculo WHERE idvehiculo = :idvehiculo');
+		$gsent = $conn->prepare("UPDATE vehiculo SET bajalogica=? WHERE idvehiculo=?");
 
-		$gsent->bindParam(':idvehiculo', $idvehiculo, PDO::PARAM_INT);
 				
-		$gsent->execute();
+		$gsent->execute(array(1, $idvehiculo));
 
 
 

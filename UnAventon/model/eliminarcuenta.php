@@ -8,11 +8,10 @@ function eliminar_cuenta($id){
 
 		try{
 
-		$gsent = $conn->prepare('DELETE FROM usuario WHERE idautoincremental = :id');
+		$gsent = $conn->prepare('UPDATE usuario SET bajalogica=? WHERE idautoincremental =?');
 
-		$gsent->bindParam(':id', $id, PDO::PARAM_INT);
-				
-		$gsent->execute();
+		
+		$gsent->execute(array(1, $id));
 
 
 

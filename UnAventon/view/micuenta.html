@@ -145,10 +145,10 @@ function pregunta(){
 </form> 
 </body> 
 </html>
-							</li> 				
-							<blockquote>
-     <h3>MIS AUTOS </h3>
-    </blockquote>
+</li> 				
+<blockquote>
+	<h3>MIS AUTOS </h3>
+</blockquote>
     <p>Datos del auto</p>
 
 
@@ -170,7 +170,7 @@ function pregunta(){
  
   //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
  for($i=0; $i<count($vehiculo);$i++) {
-     
+     if($vehiculo[$i]["bajalogica"] == 0) {
 	 echo "<td>".$vehiculo[$i]["marca"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["modelo"].""."</td>";
 	 echo "<td>".$vehiculo[$i]["color"].""."</td>";
@@ -183,7 +183,7 @@ function pregunta(){
 	echo "";  
  	echo "</tr>";
 	
-	 }
+	} }
 
 ?>
 		  
