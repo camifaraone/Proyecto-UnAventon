@@ -75,7 +75,7 @@ $date = "2018-06-29";
   
   //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
  for($i=0; $i<count($viaje);$i++) {
-    
+	if ($viaje[$i]["bajalogica"] == 0) {		
 	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
 	 echo "<td>$".$viaje[$i]["monto"].""."</td>";
 	 echo "<td>".$viaje[$i]["duracion"].""."Hs</td>";
@@ -93,13 +93,13 @@ $date = "2018-06-29";
 	echo "</form><td>";
 	 echo "</tr>";
 
-}
+}}
 ?>
 <html> 
 <head> 
 <script language="JavaScript"> 
 function pregunta(){ 
-    if (confirm('¿Estás seguro de eliminar la cuenta?')){ 
+    if (confirm('¿Estás seguro de eliminar el viaje?')){ 
        document.tuformulario.submit() 
     } 
 } 

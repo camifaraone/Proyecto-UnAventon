@@ -45,7 +45,26 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
  }		 
 	
  
+ function get_baja($email)
+ {
+	  require ("db.php");
+	try{
+		
+		$sql = $conn->prepare("select * from usuario where email=:email");
+		$sql->bindParam(":email",$email,PDO::PARAM_STR);
+		
+		$sql ->execute();
+		$result=$sql->fetchAll();
  
+	}
+    catch(PDOException $e) {
+			return 'Error: ' . $e->getMessage();
+    }
+	return $result;	 
+	 
+ 
+ 
+ }	
  
  
  
@@ -72,34 +91,55 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 					$contrasenia=$_POST['contrasenia'];
 					$confirmarcontrasenia=$_POST['confirmarcontrasenia'];
 					$foto=$_POST['foto'];
-					
-					$a = comprobar($email);
-				
-					if( $a != '') {
+
 						
+					$baja = get_baja($email);
+					
+					if($baja != '') {
+					for($i=0; $i<count($baja);$i++) {
+						if($baja[$i]['bajalogica'] == 1){
+							$x = 1;
+						}
+						else {
+							$z = 0;
+						}
+					
+					}
+					
+					
+					if ($z == NULL){
 						echo "<script type=\"text/javascript\">alert(\"El mail utilizado ya está registrado\");</script>";
+						
+					}
+					else { 
+						$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto);
+								header("Location: ../controller/login.php");
+					}
 
 					
-						 
-	                }
-					else
-				    {
+					}
+					
+					
+					else {
 						$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto);
 						header("Location: ../controller/login.php");
+					}
+					
 				
-				    }
-					
-					
+				}
+				
 					
 
-				}
+				
 				else {
 						$message = "Todos los campos deben estar completos";
 					}
 			}
+ }
 		
 		
-	}
+		
+	
  
  	
 

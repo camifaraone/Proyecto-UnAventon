@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-07-2018 a las 04:34:53
+-- Tiempo de generación: 28-07-2018 a las 07:15:53
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -258,7 +258,9 @@ INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nomb
 (1, '                   Camila', '                   Faraone', 'camilafaraone@gmail.com', '  camifaraone', '2345421506', '12345678910', '1995-04-18', 'avatar.jpg', '12345678910', 0, 0, 0, 6, 0, 0),
 (2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 1, 1, 0, 8, 0, 0),
 (3, 'agustin', 'nuÃ±ez', 'agustin@hotmail.com', 'agustin', '1234', '123456789', '2000-06-24', 'mati.png', '123456789', 0, 0, 0, 0, 0, 0),
-(4, 'jkwrfbj', 'vwknvrh', 'holachau@gmail.com', 'vjwikv', '6654', '12345678', '1995-04-17', 'descarga.jpg', '12345678', 0, 0, 0, 10, 0, 0);
+(4, 'jkwrfbj', 'vwknvrh', 'holachau@gmail.com', 'vjwikv', '6654', '12345678', '1995-04-17', 'descarga.jpg', '12345678', 0, 0, 0, 10, 0, 1),
+(5, 'dadad', 'adadadw', 'holachau@gmail.com', 'dadad', '313123', '12345678', '2000-06-25', 'avatar.jpg', '12345678', 0, 0, 0, 0, 0, 1),
+(6, 'dadad', 'adadadw', 'holachau@gmail.com', 'dadad', '313123', '12345678', '2000-06-25', 'avatar.jpg', '12345678', 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -309,22 +311,23 @@ CREATE TABLE `viaje` (
   `cantasientos` int(10) NOT NULL,
   `estadopago` int(1) NOT NULL,
   `postulados` int(8) NOT NULL,
-  `coments` int(100) NOT NULL
+  `coments` int(100) NOT NULL,
+  `bajalogica` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `viaje`
 --
 
-INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`, `postulados`, `coments`) VALUES
-(1, 4, '2018-08-26', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0),
-(2, 129, '2019-03-01', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0),
-(1, 130, '2019-03-08', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0),
-(1, 131, '2019-03-15', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0),
-(1, 132, '2019-03-22', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0),
-(1, 133, '2019-03-29', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 0, 0, 0),
-(2, 134, '2018-08-19', 300, '10', '10', 5, 2, 3, 'Ninguna', 3, 0, 0, 0),
-(2, 135, '2018-07-19', 300, '10', '10', 5, 2, 3, 'Ninguna', 3, 0, 0, 0);
+INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`, `postulados`, `coments`, `bajalogica`) VALUES
+(1, 4, '2018-08-26', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0, 0),
+(2, 129, '2019-03-01', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0, 0),
+(1, 130, '2019-03-08', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0, 0),
+(1, 131, '2019-03-15', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0, 0),
+(1, 132, '2019-03-22', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0, 0),
+(1, 133, '2019-03-29', 9000, '10:00', '10:00', 9, 1, 3, 'AAAA', 2, 0, 0, 0, 0),
+(2, 134, '2018-08-19', 300, '10', '10', 5, 2, 3, 'Ninguna', 3, 0, 0, 0, 0),
+(2, 135, '2018-07-19', 300, '10', '10', 5, 2, 3, 'Ninguna', 3, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -458,7 +461,7 @@ ALTER TABLE `pregunta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idautoincremental` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`

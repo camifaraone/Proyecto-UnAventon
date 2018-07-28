@@ -27,18 +27,14 @@ function del_viaje($idviaje, $id){
 
 		try{
 
-		$gsent = $conn->prepare('DELETE FROM viaje WHERE idviaje= :idviaje');
+		$gsent = $conn->prepare('UPDATE viaje SET bajalogica=? WHERE idviaje=?');
 
-		$gsent->bindParam(':idviaje', $idviaje, PDO::PARAM_INT);
+		
 				
-		$gsent->execute();
-		if($result = ''){
-			
-			echo 'El viaje tiene gente postulada.';
-			header("Location: ../controller/perfil.php?idautoincremental=".$id."Error=GentePostulada");
-}
-
-		header("Location: ../controller/misviajes.php?idautoincremental=".$id);
+		$gsent->execute(array(1, $idviaje));
+		
+		
+		
 
 
 		//$result=$gsent->fetch();
@@ -56,6 +52,26 @@ return false; //die();
 return true;
 
 }
+
+function get_postulados($idviaje){
+	 require "../model/db.php";
+	try{
+		$sql = $conn->prepare("select postulados from viaje where idviaje=:idviaje"); 
+		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);   
+		$sql ->execute();
+	
+	
+
+	$result= $sql->fetch()[0][0];
+	
+
+   }
+   catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+	 
+ }
 
 
 function get_id($idviaje){

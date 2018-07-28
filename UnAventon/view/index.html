@@ -163,7 +163,7 @@ else { ?>
   
   //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
  for($i=0; $i<count($viaje);$i++) {
-	
+	if ($viaje[$i]["bajalogica"] == 0) {
       if (($viaje[$i]["fecha"] > $date) and ($viaje[$i]["fecha"] < $date2)) {
 		$precio = ($viaje[$i]["monto"]) / $viaje[$i]["cantasientos"]; // acomodar con cantidd de asientos ($viaje[$i]["cantasientosdisp"]).	  
 	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
@@ -183,7 +183,7 @@ else { ?>
 	}
 	 
 echo "</tr>";
- }
+ }}
 
 }
 ?>
