@@ -1,6 +1,6 @@
 <?php
 
-
+error_reporting(E_ALL ^ E_NOTICE); //no muestra el error
 require_once ("../model/buscador.php");
 
 
