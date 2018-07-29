@@ -56,8 +56,10 @@
 
 
 
-
-<table class="centered">
+ <?php
+ $postcount=count($users);
+if($postcount>0){
+echo"<table class='centered'>
         <thead>
           <tr>
               <th>Nombre</th>
@@ -70,10 +72,8 @@
           </tr>
         </thead>
 
-        <tbody>
+        <tbody>";
           
- <?php
-      
  for($i=0; $i<count($users);$i++) {
 	
      
@@ -107,13 +107,17 @@ echo "</tr>";
  }
 
 
-?>
 
      
       
-        </tbody>
+ echo"</tbody>
       </table>
-  <hr width="100%">
+  <hr width='100%'>";
+
+}else{
+	echo "<strong><p>No hay postulados para el viaje.</p></strong>";
+}
+?>
  </div>
 
 <div class="container">
