@@ -53,18 +53,18 @@
 			<form name="registerform" id="registerform" action="../controller/crearviajeperiodico.php?idautoincremental=<?php echo $id ?>" method="POST">
 				<div class="form-group">
 					<label for="fechaviaje">Fecha inicio:
-						<input type="date" name="fechainicio" id="fechainicio" class="form-control"  placeholder="Fecha de inicio de viajes " required />
+						<input min="2018-07-30" type="date" name="fechainicio" id="fechainicio" class="form-control"  placeholder="Fecha de inicio de viajes " required />
 					</label>
 				</div>
 				<div class="form-group">
 					<label for="fechaviaje">Fecha fin:
-						<input type="date" name="fechafin" id="fechafin" class="form-control"  placeholder="Fecha de fin de viajes " required />
+						<input min="2018-07-30" type="date" name="fechafin" id="fechafin" class="form-control"  placeholder="Fecha de fin de viajes " required />
 					</label>
 				</div>
 				<div class="form-group">  
 					<label for="dias[]">Días:
 						<div>
-    						<input name='mon' type="checkbox" id="1" value="1">
+    						<input name='mon' type="checkbox" id="1" value="1" checked>
     						<label for="1">Lunes</label>
   						</div>
   						<div>
@@ -110,7 +110,7 @@
 				</div>
 				<div class="form-group">  
 					<label for="cantidadasientos">Cantidad asientos:
-						<input type="text" name="cantidadasientos" id="cantidadasientos" class="form-control"  placeholder="Escribir la cantidad de asientos" required />
+						<input maxlength= "1" type="text" name="cantidadasientos" id="cantidadasientos" class="form-control"  placeholder="Escribir la cantidad de asientos" required />
 					</label>
 				</div>
 				<div class="form-group"> 
