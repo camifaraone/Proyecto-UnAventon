@@ -47,8 +47,11 @@
 </div>
 </div>
 	<div class="container">
-			<h3>Viaje a pagar</h3>  
-			<table  class="table table-bordered" id="table">
+			<br>
+
+     <h3>Viaje a pagar </h3>
+   
+			<table  class="centered" id="table">
 <thead>
    <tr>
     <th>Fecha</th>
@@ -69,7 +72,7 @@
 	}
 ?>
 </tbody>
-
+</table>
 			<h3>Método de pago</h3>  
 			<div id="register">
   
@@ -135,20 +138,21 @@
 				</div>
 				<div class="form-group"> 
 					<label for="documento">Número de documento del títular (Ingresar los números sin - . , /):
-						<input type="text" name="documento" id="documento" class="form-control" required />
+						<input maxlength="8" type="text" name="documento" id="documento" class="form-control" required />
 					</label>
 				</div>
 				<div class="form-group">  
 					<label for="codseguridad">Código de seguridad (3 dígitos):
-						<input maxlength="3" type="text" name="codseguridad" id="codseguridad" class="form-control" required />
+						<input maxlength="3" type="password" name="codseguridad" id="codseguridad" class="form-control" required />
 					</label>
 				</div>
 
 					
 				<div>
-					<button class="submit" name="pago" type="submit" value="pago" onClick="runSubmit(this.form)">Pagar</button>
+					
+					<button class="submit" name="pago" type="submit" value="pago" href="../controller/realizarpago.php?idautoincremental=".$id."" onClick="runSubmit(this.form)">Pagar</button>
 				</div>
-				<h5 class="center	-align"> <p class="regtext">¿Desea agregar otro viaje? <?php echo"<a href=../controller/newtrip.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+				
 	
 				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	

@@ -20,7 +20,7 @@ function get_idviaje($id) {
 	 require "../model/db.php";//te crea una conexion
 	try{
 		
-		$sql = $conn->prepare("select * from viaje INNER JOIN origen ON  viaje.idOrigen = origen.idOrigen INNER JOIN destino ON viaje.idDestino = destino.idDestino where idautoincremental=:id");
+		$sql = $conn->prepare("select * from viaje INNER JOIN origen ON  viaje.idOrigen = origen.idOrigen INNER JOIN destino ON viaje.idDestino = destino.idDestino where idautoincremental=:id && estadopago=0");
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 		$sql ->execute();
 	
@@ -49,4 +49,43 @@ function pago($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,
     }
 	return true;
  }
+
+
+
+function estadopago($id){
+
+		require ("db.php");
+
+
+
+		try{
+
+		$gsent = $conn->prepare("UPDATE viaje SET estadopago=? WHERE idviaje=? ");
+
+				
+		$gsent->execute(array(1, $id));
+
+
+
+
+		//$result=$gsent->fetch();
+
+		}
+
+catch(PDOException $e){
+
+echo "ERROR: " . $e->getMessage();
+return false; //die();
+
+}
+
+
+return true;
+
+}
+
+
+
+
+
  ?>

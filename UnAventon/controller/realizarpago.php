@@ -12,9 +12,9 @@ $id= ($_GET["idautoincremental"]);
 
 $viaje = get_viaje($id);
 $viajeid = get_idviaje($id);
-
-var_dump($viaje);
+$a = estadopago($id);
 //var_dump($viajeid);
+
 
 
 
@@ -33,14 +33,16 @@ if(isset($_POST["pago"])){
 
 	$viaje = pago($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id);
 	echo "<html><script> alert('Pago realizado con éxito!');</script></html>"; 
-echo "<html><script> document.location.href='../controller/index.php?idautoincremental=".$id."';</script></html>";  
+echo "<html><script> document.location.href='../controller/newtrip.php?idautoincremental=".$id."';</script></html>";  
  
     //header("Location: ../controller/perfil.php?idautoincremental=".$id);
 
 
 } else {
+	if ($mes < 9 && $anio < 18){
      echo "<html><script> alert('Pago denegado!');</script></html>"; 
 echo "<html><script> document.location.href='../controller/realizarpago.php?idautoincremental=".$id."';</script></html>";  
+}
 }
 }
 
