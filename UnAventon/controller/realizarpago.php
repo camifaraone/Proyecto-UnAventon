@@ -12,7 +12,7 @@ $id= ($_GET["idautoincremental"]);
 
 $viaje = get_viaje($id);
 $viajeid = get_idviaje($id);
-$a = estadopago($id);
+
 //var_dump($viajeid);
 
 
@@ -29,9 +29,9 @@ if(isset($_POST["pago"])){
 	$codseguridad=$_POST['codseguridad'];
 	$documento = $_POST['documento'];
 	$idviaje = $_POST['viaje'];
-	
 
-	$viaje = pago($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id);
+	$a = estadopago($id);
+	//$viaje = pago($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id);
 	echo "<html><script> alert('Pago realizado con éxito!');</script></html>"; 
 echo "<html><script> document.location.href='../controller/newtrip.php?idautoincremental=".$id."';</script></html>";  
  
