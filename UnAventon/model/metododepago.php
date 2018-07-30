@@ -57,6 +57,52 @@ function get_idviaje($id) {
  }
 
 
+function pago($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id){
+	require("db.php");
+	try{
+		$sql= $conn->prepare("INSERT INTO tarjeta
+		(tipo, numtarjeta, mes, anio, nomape, codseguridad, documento, idviaje, idautoincremental) 
+		VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)" );			
+		$sql ->execute(array($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id));
+    }catch(PDOException $e) {
+		return 'Error: ' . $e->getMessage();			
+    }
+	return true;
+ }
+
+
+
+function estadopago($idviaje){
+
+		require ("db.php");
+
+
+
+		try{
+
+		$gsent = $conn->prepare("UPDATE viaje SET estadopago=? WHERE idviaje=? ");
+
+				
+		$gsent->execute(array(1, $idviaje));
+
+
+
+
+		//$result=$gsent->fetch();
+
+		}
+
+catch(PDOException $e){
+
+echo "ERROR: " . $e->getMessage();
+return false; //die();
+
+}
+
+
+return true;
+
+}
 
 
 

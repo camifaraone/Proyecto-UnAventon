@@ -73,13 +73,21 @@
   
 	
     <div id="test1" class="col s12"> <h5 class="center  -align">Aquí puede crear la publicación de su viaje!</h5>    <h5 class="center-align"> 
-    <?php 
-    
-		if ($pago== 0){
-         echo "<a href=../controller/newtrip.php?idautoincremental=".$id.">Crear viaje  </a>"; 
+    <?php
+		$num = 5;
+		for($i=0; $i<count($pago);$i++) {
+			if( $pago[$i]['estadopago'] == 0 ) {
+				$num = 0;
+				}
+				else {
+				$otronum = 1;
+				}}
+		 if( $num == 0){
+          echo"<a href=../controller/oopscrearviaje.php?idautoincremental=".$id.">Crear viaje </a>";
+		  
        }
        else {
-        echo"<a href=../controller/oopscrearviaje.php?idautoincremental=".$id.">Crear viaje </a>";
+       echo "<a href=../controller/newtrip.php?idautoincremental=".$id.">Crear viaje  </a>";
       }
          
     ?>  </h5> </div>
