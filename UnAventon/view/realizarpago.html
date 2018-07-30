@@ -62,10 +62,13 @@
 </thead>
 <tbody>
  <?php
+
+
+
     for($i=0; $i<count($viaje);$i++){
 
 	 echo "<td>".$viaje[$i]["fecha"].""."</td>";
-	 echo "<td>$".$viaje[$i]["monto"].""."</td>";
+	 echo "<td>$".(($viaje[$i]["monto"]) % 95).""."</td>";
 	 echo "<td>".$viaje[$i]["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viaje[$i]["ciudadDestino"].""."</td>";
 	 echo "</tr>";
