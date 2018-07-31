@@ -107,8 +107,13 @@
 							</li>
 							</li>
 
+							<?php
+							if(!empty($calif)) {
+							echo " Usted ya ha calificado a este piloto!";
+							}
+							else { ?>
 	<h4 class="center	-align"> <p class="regtext"><?php echo"<a href=../controller/calificacionpiloto.php?idautoincremental=".$id."&&idviaje=".$idviaje."> Calificar como piloto </a>"; ?></p> </h4>
-
+<?php } ?>
     </br></br></br>                		
 	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	</div>

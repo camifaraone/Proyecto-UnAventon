@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(E_ALL ^ E_NOTICE); //no muestra el error
 require_once "../model/calificacionpiloto.php";
 
 
@@ -16,6 +17,7 @@ $comentario= $_POST['comentario'];
 $piloto = get_id_piloto($idviaje);
 $comen = comentario_calificacion ($id, $idviaje, $comentario);
 $idcomentario = get_id_comentario($id,$idviaje);
+
 
 
 if ( $calificacion == 1) {
@@ -35,9 +37,13 @@ if( $calificacion == 3){
 	$negativa = negativa_calificacion($b,$piloto);
 }
 
+if ( $calif == true) {
+	
+	
+	echo "<html><script> alert('Calificación realizada con éxito');</script></html>"; 
+		echo "<html><script> document.location.href='../controller/misviajes.php?idautoincremental=".$id."';</script></html>";
 
-//header("Location: ../controller/misviajes.php?idautoincremental=".$id);
-
+}
 
 
 include "../view/calificacionpiloto.html";

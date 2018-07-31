@@ -140,7 +140,7 @@ try{
 	
 	
 
-	$sql->execute(array("b","$piloto"));
+	$sql->execute(array("$b","$piloto"));
 	
 
 } catch(PDOException $e){
