@@ -86,14 +86,17 @@
 						</select>
 					</label>
 				</div>
+				<input type="hidden" id="idviaje" name="idviaje" value="<?php echo $idviaje; ?>">
 				</br>
 				<div class="form-group">  
-					<label for="comentrio">Comentario:
+					<label for="comentario">Comentario:
 						<input type="text" name="comentario" id="comentario" class="form-control" required />
 					</label>
 				</div>
-
-</form>
+	<p class="submit">
+		<input type="submit" name="register" id="registerBtn" class="btn btn-default" onClick="runSubmit(this.form)" value="REGISTRARSE" />
+	</p>
+	</form>
 		
 		</div>
 		</div>
