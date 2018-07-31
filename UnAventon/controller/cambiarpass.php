@@ -7,10 +7,12 @@ include "../model/cambiarpass.php";
 if(isset($_POST["restaurar"])){
 if(!empty($_POST['email'])) {
 	$email = ($_POST['email']);
-	$pass = "admin123";
+	$pass = "56781234";
 	$a = restaurar_pass ($pass,$email);
 
-	header("Location: ../controller/login.php");
+echo "<html><script> alert('Se ha enviado un correo electrónico con su nueva contraseña. Contraseña: $pass');</script></html>"; 
+echo "<html><script> document.location.href='../controller/login.php';</script></html>";
+	
 
 	// AQUI DEBE IR UN ALERT DICIENDO "SE HA ENVIADO LA NUEVA CONTRASEÑA : $PASS A SU MAIL. VERIFIQUE SU BANDEJA DE ENTRADA! "
 	
