@@ -14,18 +14,17 @@ $idviaje = ($_GET["idviaje"]);
 
 
 //if(isset($_POST["pago"])){
-	if(!empty($_POST['tipo']) && !empty($_POST['numtarjeta']) && !empty($_POST['mes']) && !empty($_POST['anio']) && !empty($_POST['nomape']) && !empty($_POST['codseguridad']) && !empty($_POST['documento'])) {
+	if(!empty($_POST['tipo']) && !empty($_POST['numtarjeta']) && !empty($_POST['mes'])  && !empty($_POST['nomape']) && !empty($_POST['codseguridad']) && !empty($_POST['documento'])) {
 	
 	$tipo=$_POST['tipo'];
 	$numtarjeta=$_POST['numtarjeta'];
 	$mes=$_POST['mes'];
-	$anio=$_POST['anio'];
 	$nomape=$_POST['nomape'];
 	$codseguridad=$_POST['codseguridad'];
 	$documento = $_POST['documento'];
 	
 	
-	if ($mes < 9 && $anio < 18){
+	if ($mes < 9 ){
 		
 		echo "<html><script> alert('Pago denegado!');</script></html>"; 
 		echo "<html><script> document.location.href='../controller/metododepago.php?idautoincremental=".$id."&&idviaje=".$idviaje."';</script></html>";

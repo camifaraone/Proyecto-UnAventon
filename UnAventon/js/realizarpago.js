@@ -9,11 +9,7 @@
 			return false;
 		}
 		if (form.mes.value == ""){
-			alert("Ingresar mes de expiración");
-			return false;
-		}
-		if (form.anio.value== ""){
-			alert("Ingresar año de expiración");
+			alert("Ingresar fecha");
 			return false;
 		}
 		if (form.nomape.value == ""){

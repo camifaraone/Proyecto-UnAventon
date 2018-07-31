@@ -57,13 +57,13 @@ function get_idviaje($id) {
  }
 
 
-function pago($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id){
+function pago($tipo, $numtarjeta, $mes,  $nomape,$codseguridad,$documento,$idviaje,$id){
 	require("db.php");
 	try{
 		$sql= $conn->prepare("INSERT INTO tarjeta
-		(tipo, numtarjeta, mes, anio, nomape, codseguridad, documento, idviaje, idautoincremental) 
-		VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)" );			
-		$sql ->execute(array($tipo, $numtarjeta, $mes, $anio, $nomape,$codseguridad,$documento,$idviaje,$id));
+		(tipo, numtarjeta, mes,  nomape, codseguridad, documento, idviaje, idautoincremental) 
+		VALUES(?, ?, ?, ?, ?, ?, ?,?)" );			
+		$sql ->execute(array($tipo, $numtarjeta, $mes, $nomape,$codseguridad,$documento,$idviaje,$id));
     }catch(PDOException $e) {
 		return 'Error: ' . $e->getMessage();			
     }
