@@ -77,10 +77,10 @@
  </br></br>
  <div class="container">
  <div id="register">
-<form name="form-control" id="registerform" action="../controller/calificacionacompaniante.php?idautoincremental=<?php echo $id ?>" method="POST">
+<form name="form-control" id="registerform" action="../controller/calificacionacompaniante.php?idautoincremental=<?php echo $id ?>&&idviaje=<?php echo $idviaje ?>&&idacompaniante=<?php echo $idacompaniante ?>" method="POST">
 				<div class="form-group">
 					<label for="calificacion">Calificación:
-						<select name="calificacion[]" id="calificacion" class="form-control" required />
+						<select name="calificacion" id="calificacion" class="form-control" required />
 						<option value disabled class selected> Tipo </option>
 						<option value="1" label"1">Bien</option>
 						<option value="2" label"2">Neutral</option>
@@ -94,6 +94,9 @@
 						<input type="text" name="comentario" id="comentario" class="form-control" required />
 					</label>
 				</div>
+				<p class="submit">
+		<input type="submit" name="register" id="registerBtn" class="btn btn-default" onClick="runSubmit(this.form)" value="ENVIAR" />
+	</p>
 
 </form>
 		

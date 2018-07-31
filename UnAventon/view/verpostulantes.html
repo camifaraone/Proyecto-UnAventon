@@ -83,7 +83,7 @@ echo"<table class='centered'>
 	 echo "<td>".$users[$i]["telefono"].""."</td>";
 	 echo "<td>".$users[$i]["calificacion"].""."</td>";
 	  echo "<td>".$users[$i]["calificacionacompaniante"].""."</td>";
-echo"<td><a href=../controller/calificacionacompaniante.php?idautoincremental=".$id."> Calificar como acompañante </a></td>";
+echo"<td><a href=../controller/calificacionacompaniante.php?idautoincremental=".$id."&&idviaje=".$idviaje."&&idacompaniante=".$users[$i]["idautoincremental"]."> Calificar como acompañante </a></td>";
 	if ($postulados != $asientos) { 
 	if ( $users[$i]["aceptado"] == 1 ) {
 	echo"<td>este usuario se encuentra aceptado!</td>";

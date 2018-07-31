@@ -15,22 +15,27 @@ $comentario= $_POST['comentario'];
 
 
 $piloto = get_id_piloto($idviaje);
-$comen = comentario_calificacion ($id, $idviaje, $comentario);
-$idcomentario = get_id_comentario($id,$idviaje);
+
 
 
 
 if ( $calificacion == 1) {
+	$comen = comentario_calificacion ($id, $idviaje, $comentario);
+	$idcomentario = get_id_comentario($id,$idviaje);
 	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
 	$a = get_calificacion($piloto);
 	$b = ($a + 1);
 	$positiva = positiva_calificacion($b,$piloto);
 }
 if( $calificacion == 2) { 
+	$comen = comentario_calificacion ($id, $idviaje, $comentario);
+	$idcomentario = get_id_comentario($id,$idviaje);
 	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
 	
 }
 if( $calificacion == 3){
+	$comen = comentario_calificacion ($id, $idviaje, $comentario);
+	$idcomentario = get_id_comentario($id,$idviaje);
 	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
 	$a = get_calificacion($piloto);
 	$b = ($a - 1);
@@ -41,7 +46,7 @@ if ( $calif == true) {
 	
 	
 	echo "<html><script> alert('Calificación realizada con éxito');</script></html>"; 
-		echo "<html><script> document.location.href='../controller/misviajes.php?idautoincremental=".$id."';</script></html>";
+	echo "<html><script> document.location.href='../controller/misviajes.php?idautoincremental=".$id."';</script></html>";
 
 }
 

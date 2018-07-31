@@ -1,22 +1,48 @@
 <?php
-
+error_reporting(E_ALL ^ E_NOTICE); //no muestra el error
 require_once "../model/calificacionacompaniante.php";
 
 
-if(isset($_GET["idautoincremental"]) ){  //si el Email esta seteado por GET (en el buscador) , entonces llama a una funcion ubicada en "../model/perfil.php" y guarda el resultado en la variable $usuario
+$id= ($_GET["idautoincremental"]);
+$idviaje = ($_GET["idviaje"]);
+$idacompaniante = ($_GET["idacompaniante"]);
 
-$usuario= get_perfil($_GET["idautoincremental"]);
 
+$calificacion = $_POST['calificacion'];
+$comentario= $_POST['comentario'];
+
+
+if ( $calificacion == 1) {
+	
+	$comen = comentario_calificacion ($id, $idviaje, $comentario);
+	$idcomentario = get_id_comentario($id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$idcomentario,$idacompaniante,$idviaje);
+	$a = get_calificacion($idacompaniante);
+	$b = ($a + 1);
+	$positiva = positiva_calificacion($b,$idacompaniante);
+}
+if( $calificacion == 2) {
+	$comen = comentario_calificacion ($id, $idviaje, $comentario);
+	$idcomentario = get_id_comentario($id,$idviaje);	
+	$calif = calificacion_positiva($calificacion,$idcomentario,$idacompaniante,$idviaje);
+	
+}
+if( $calificacion == 3){
+	$comen = comentario_calificacion ($id, $idviaje, $comentario);
+	$idcomentario = get_id_comentario($id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$idcomentario,$idacompaniante,$idviaje);
+	$a = get_calificacion($idacompaniante);
+	$b = ($a - 1);
+	$negativa = negativa_calificacion($b,$idacompaniante);
 }
 
-$id= ($_GET["idautoincremental"]);
+if ( $calif == true) {
+	
+	
+	echo "<html><script> alert('Calificación realizada con éxito');</script></html>"; 
+	echo "<html><script> document.location.href='../controller/verpostulantes.php?idautoincremental=".$id."&&idviaje=".$idviaje."';</script></html>";
 
-
-
-
-
-
-
+}
 
 
 include "../view/calificacionacompaniante.html";
