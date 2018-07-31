@@ -3,6 +3,7 @@
 	<title>UnAventon | Calificar acompañante</title>
 
 	<meta charset="utf-8">
+	<script type="text/javascript" src="../js/calificacionacompaniante.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -79,7 +80,7 @@
 <form name="form-control" id="registerform" action="../controller/calificacionacompaniante.php?idautoincremental=<?php echo $id ?>" method="POST">
 				<div class="form-group">
 					<label for="calificacion">Calificación:
-						<select name="calificacion" id="calificacion" class="form-control" required />
+						<select name="calificacion[]" id="calificacion" class="form-control" required />
 						<option value disabled class selected> Tipo </option>
 						<option value="1" label"1">Bien</option>
 						<option value="2" label"2">Neutral</option>

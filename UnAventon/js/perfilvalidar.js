@@ -38,9 +38,5 @@
 			alert("Ingresar fecha de nacimiento");
 			return false;
 		}
-		if (form.foto.value == "") {
-			alert("Ingresar foto");
-			return false;
-		}
 		return true;	
 	}

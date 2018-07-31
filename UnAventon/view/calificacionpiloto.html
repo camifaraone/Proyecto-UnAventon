@@ -3,6 +3,7 @@
 	<title>UnAventon | Calificar piloto</title>
 
 	<meta charset="utf-8">
+	<script type="text/javascript" src="../js/calificacionpiloto.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -78,7 +79,7 @@
 <form name="form-control" id="registerform" action="../controller/calificacionpiloto.php?idautoincremental=<?php echo $id ?>" method="POST">
 				<div class="form-group">
 					<label for="calificacion">Calificación:
-						<select name="calificacion" id="calificacion" class="form-control" required />
+						<select name="calificacion[]" id="calificacion" class="form-control" required />
 						<option value disabled class selected> Tipo </option>
 						<option value="1" label"1">Bien</option>
 						<option value="2" label"2">Neutral</option>
@@ -94,7 +95,7 @@
 					</label>
 				</div>
 	<p class="submit">
-		<input type="submit" name="register" id="registerBtn" class="btn btn-default" onClick="runSubmit(this.form)" value="REGISTRARSE" />
+		<input type="submit" name="register" id="registerBtn" class="btn btn-default" onClick="runSubmit(this.form)" value="Enviar" />
 	</p>
 	</form>
 		
