@@ -140,8 +140,8 @@ function pregunta(){
 </script> 
 </head> 
 <body> 
-<form name=tuformulario action=>
-<?php echo "<input type=button onclick='pregunta()' formaction='../controller/eliminarcuenta.php?idautoincremental=".$id."' value='Eliminar cuenta'>"; ?>
+<form name=tuformulario action='../controller/eliminarcuenta.php?idautoincremental=".$id."'> 
+<input type=button onclick="pregunta()" value="Eliminar cuenta"> 
 </form> 
 </body> 
 </html>
@@ -149,24 +149,10 @@ function pregunta(){
 <blockquote>
 	<h3>MIS AUTOS </h3>
 </blockquote>
+    <p>Datos del auto</p>
 
 
-<?php
-function contar($vehiculo){
-	$cuenta=0;
-	for($i=0; $i<count($vehiculo);$i++) {
-		if($vehiculo[$i]["bajalogica"] == 0){
-			$cuenta++;
-		}
-	}
-	return $cuenta;
-}
-  $vehicount=contar($vehiculo);
- if($vehicount>0){
- 
-echo'
-	<p>Datos del auto</p>	
-	<table class="centered">
+<table class="centered">
         <thead>
           <tr>
               <th>Marca</th>
@@ -178,31 +164,31 @@ echo'
           </tr>
         </thead>
 
-        <tbody>';
+        <tbody>
           
+<?php
+ 
+  //var_dump($viaje); se utiliza para mostrar la info que hay en la variable $viaje 
  for($i=0; $i<count($vehiculo);$i++) {
      if($vehiculo[$i]["bajalogica"] == 0) {
-		 echo "<td>".$vehiculo[$i]["marca"].""."</td>";
-		 echo "<td>".$vehiculo[$i]["modelo"].""."</td>";
-		 echo "<td>".$vehiculo[$i]["color"].""."</td>";
-		 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
-		 echo "<td>".$vehiculo[$i]["cantasientosdisp"].""."</td>";
-		 echo "<td>".$vehiculo[$i]["patente"].""."</td>";
-		 echo"<td><a href=../controller/modificarauto.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Editar </a></td>";
-		 echo'<td><a onclick="confirm_delete('.$vehiculo[$i]["idvehiculo"].')">Eliminar </a></td>';
-		//echo "<td><button onclick=confirm('hola')>Aca</button></td>";
-		echo "";  
-	 	echo "</tr>";
-	}
- }
-}else{
-	echo '<h4><strong>No tiene vehiculos asociados a su cuenta.</strong></h4>';
-}
+	 echo "<td>".$vehiculo[$i]["marca"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["modelo"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["color"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["detalles"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["cantasientosdisp"].""."</td>";
+	 echo "<td>".$vehiculo[$i]["patente"].""."</td>";
+	 echo"<td><a href=../controller/modificarauto.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Editar </a></td>";
+	 echo"<td><a href=../controller/eliminarvehiculo.php?idvehiculo=".$vehiculo[$i]["idvehiculo"].">Eliminar </a></td>";
+	//echo "<td><button onclick=confirm('hola')>Aca</button></td>";
+	echo "";  
+ 	echo "</tr>";
+	
+	} }
 
-		  
-echo'</tbody>
-      </table>';
 ?>
+		  
+        </tbody>
+      </table>	
 						</ul> 
 					</div>
 						
@@ -217,13 +203,4 @@ echo'</tbody>
 	?>
 	
 </body>
-<script type="text/javascript">
-	function confirm_delete(id) {
-		if(confirm("¿Seguro de querer elminar el vehiculo?")){
-			window.location.href='../controller/eliminarvehiculo.php?idvehiculo='+id;
-		}else{
-			return;
-		}
-	}
-</script>
 </html>
