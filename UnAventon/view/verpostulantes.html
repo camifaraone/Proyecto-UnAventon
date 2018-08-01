@@ -42,15 +42,6 @@
 	
 	<?php } ?> 
 
-<script type="text/javascript">
-function confirm_unaccept(id,idviaje) {
-    if(confirm('¿Estás seguro de rechazar este acompañante? Afectará tu reputación de forma negativa.')){
-        window.location.href='../controller/eliminarpostulacion.php?idautoincremental='+id+'&idviaje='+idviaje
-    }else{ 
-        return;
-    }
-}
-</script>
 <body style= "background-color:#FEF9E7;">
 
 
@@ -97,35 +88,36 @@ echo"<table class='centered'>
 	*/
 	
 	if ($postulados != $asientos) { 
-		if ( $users[$i]["aceptado"] == 1 ) {
-			echo"<td>Usuario aceptado.</td>";
-			// ACA VA UN CONFIRM!!
-			//echo "<html><script> alert('Se bajará en 1 la calificación del piloto');</script></html>";
-			echo"<td><a onclick='confirm_unaccept(".$users[$i]['idautoincremental'].",".$idviaje.")'>Desaceptar </a></td>";
-			echo"<td><a href=../controller/verinfoacompaniante.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Ver informacion de acompañante </a></td>";
-			
-	
-		}
-		if ( $users[$i]["rechazado"] == 1) {
-			echo "<td>Usuario rechazado.</td>";
-		}	
+	if ( $users[$i]["aceptado"] == 1 ) {
+	echo"<td>este usuario se encuentra aceptado!</td>";
+	// ACA VA UN CONFIRM!!
+	//echo "<html><script> alert('Se bajará en 1 la calificación del piloto');</script></html>";
+	echo"<td><a onclick='confirm_delete(".$users[$i]["idautoincremental"].")'>Desaceptar</a>";
+	echo"<td><a href=../controller/verinfoacompaniante.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Ver informacion de acompañante </a></td>";
 		
 	
-		if (( $users[$i]["aceptado"] == 0) and ( $users[$i]["rechazado"] == 0)) {
-			echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
-			echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Aceptar </a></td>";
+	}
+	if ( $users[$i]["rechazado"] == 1) {
+	echo "<td>este usuario se encuentra rechazado!</td>";
+	}	
+	
+	
+	if (( $users[$i]["aceptado"] == 0) and ( $users[$i]["rechazado"] == 0)) {
+		echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
+		echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Aceptar </a></td>";
 		}
-	}else{
+	} 
+	else{
 		if (( $postulados == $asientos) and ($users[$i]["aceptado"] == 0) and ($users[$i]["rechazado"] == 0)) {
-			echo "<td>Número máximo de asientos ocupados.</td>";
+			echo "<td>numero de asientos maximos ocupados!</td>";
 			echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
 		}
 		else {
 			if ( $users[$i]["aceptado"] == 1 ) {
-				echo"<td>Usuario aceptado.</td>";
+				echo"<td>este usuario se encuentra aceptado!</td>";
 				// ACA VA UN CONFIRM!!
 				//echo "<html><script> alert('Se bajará en 1 la calificación del piloto');</script></html>";
-				echo"<td><a onclick='confirm_unaccept(".$users[$i]['idautoincremental'].",".$idviaje.")'>Desaceptar </a></td>";
+				echo"<td><a href=../controller/eliminarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Desaceptar </a></td>";
 				echo"<td><a href=../controller/verinfoacompaniante.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Ver informacion de acompañante </a></td>";
 	
 				}
@@ -160,5 +152,14 @@ echo "</tr>";
  
 </body>
 
+<script type="text/javascript">
+function confirm_delete(id) {
+    if(confirm('¿Estás seguro de rechazar este acompañante?, afectará tu reputación.')){
+        window.location.href='../controller/eliminarpostulacion.php?idviaje='+id;
+    }else{ 
+        return;
+    }
+}
+</script>
 
 </html>

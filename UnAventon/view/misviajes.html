@@ -160,25 +160,25 @@ echo'<table  class="table table-bordered" id="table">
 	 echo "<td>".$viajespost[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$viajespost[$i]["observaciones"].""."</td>";
 	 if ($viajespost[$i]["aceptado"] == 1) {
-		echo "<td>¡Tu postulacion fue aceptada!</td>";
+		echo "<td>tu estado de postulacion fue aceptada, Enhorabuena!</td>";
 	 }
 	 if ($viajespost[$i]["rechazado"] == 1) {
-		echo "<td>Tu postulacion fue rechazada, suerte la próxima.</td>";
+		echo "<td>tu estado de postulacion fue cancelada!, lo sentimos</td>";
 	 }
 	 if (($viajespost[$i]["rechazado"] == 0) and ($viajespost[$i]["aceptado"] == 0)) {
-		echo "<td>Tu postulación a este viaje todavía no fue aceptada ni rechazada.</td>";
+		echo "<td>Aun no has sido aceptado ni rechazado de tu postulacion a este viaje!</td>";
 		// ACA VA A UN CONFIRMAR/RECHAZAR!!! en este caso no baja la calificacion
-		echo"<td><a onclick='confirm_cancelar(".$viajespost[$i]['idviaje'].",".$id.")'>Cancelar postulacion </a></td>";
+		echo"<td><a href=../controller/darmebaja.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Cancelar postulacion </a></td>";
 
 	 }
 	 if ($viajespost[$i]["aceptado"] == 1) {
 	 // ACA VA A UN CONFIRMAR/RECHAZAR!!! en este casi, baja la calificacion cuando oprime que si.
-		echo"<td><a onclick='confirm_cancelar_aceptado(".$viajespost[$i]['idviaje'].",".$id.")'>Cancelar postulacion </a></td>";
+		echo"<td><a href=../controller/darmebajaacompaniante.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Cancelar postulacion </a></td>";
 
 	 }
 	 
 	if ($viajespost[$i]["aceptado"] == 1) { 
-	echo"<td><a onclick=../controller/verinfopiloto.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Ver información del piloto </a></td>";
+	echo"<td><a href=../controller/verinfopiloto.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Ver información del piloto </a></td>";
 	}
 	echo "</tr>";
 	}
@@ -186,7 +186,7 @@ echo'<table  class="table table-bordered" id="table">
   echo "</tbody>
   		</table>";
  }else{
- echo "<h4><strong>No tiene postulaciones a viajes activas actualmente.</strong></h4>";
+ echo "<h4><strong>No tiene postulaciones a viajes.</strong></h4>";
 }
 ?>
  
@@ -209,22 +209,6 @@ echo'<table  class="table table-bordered" id="table">
 function confirm_delete(id) {
     if(confirm('¿Estás seguro de eliminar el viaje? Si tiene postulantes aceptados, afectará tu reputación.')){
         window.location.href='../controller/eliminarviaje.php?idviaje='+id;
-    }else{ 
-        return;
-    }
-}
-
-function confirm_cancelar_aceptado(id,idviaje) {
-    if(confirm('¿Estás seguro de dar de baja tu postulación al viaje? Como ya fuiste aceptado, afectará tu reputación de forma negativa.')){
-        window.location.href='../controller/darmebajaacompaniante.php?idviaje='+idviaje+'&idautoincremental='+id;""
-    }else{ 
-        return;
-    }
-}
-
-function confirm_cancelar(id,idviaje) {
-    if(confirm('¿Estás seguro de dar de baja tu postulación al viaje? Si te arrepientes, deberás volver a postularte en la página del viaje.')){
-        window.location.href='../controller/darmebaja.php?idviaje='+idviaje+'&idautoincremental='+id
     }else{ 
         return;
     }

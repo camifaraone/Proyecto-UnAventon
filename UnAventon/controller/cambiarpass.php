@@ -6,8 +6,10 @@ include "../model/cambiarpass.php";
 
 if(isset($_POST["restaurar"])){
 if(!empty($_POST['email'])) {
+	$logitud = 8;
+$pass = substr( md5(microtime()), 1, $logitud);
 	$email = ($_POST['email']);
-	$pass = "56781234";
+	
 	$a = restaurar_pass ($pass,$email);
 
 echo "<html><script> alert('Se ha enviado un correo electrónico con su nueva contraseña. Contraseña: $pass');</script></html>"; 
