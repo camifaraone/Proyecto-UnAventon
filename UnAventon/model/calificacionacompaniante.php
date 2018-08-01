@@ -1,18 +1,18 @@
 <?php
  
- function comentario_calificacion($id, $idviaje, $comentario){
+ function comentario_calificacion($idpiloto,$id , $idviaje, $comentario){
 		
 	require("db.php");
 	try{
 		$sql= $conn->prepare("INSERT INTO comentario
-				(idautoincremental, idviaje, comentario ) 
-				VALUES(?, ?, ?)" );
+				(idautoincremental,idacompaniante, idviaje, comentario ) 
+				VALUES(?, ?, ?, ?)" );
 		
 		
 		
 
 				
-		$sql ->execute(array("$id","$idviaje","$comentario"));
+		$sql ->execute(array("$idpiloto","$id","$idviaje","$comentario"));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
@@ -21,13 +21,36 @@
 	
  }
  
-  function get_id_comentario($id, $idviaje){
+ function get_id_piloto($idviaje){
 		
 	require("db.php");
 	try{
-		$sql= $conn->prepare("select idcomentario from comentario where idautoincremental=? and idviaje=?" );
+		$sql= $conn->prepare("select idautoincremental from viaje where idviaje=?" );
 		
-		$sql ->execute(array("$id", "$idviaje"));
+		$sql ->execute(array("$idviaje"));
+	
+	/*while( $datos = $sql->fetch() )
+    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
+
+	$result= $sql->fetchAll()[0][0];
+	
+   }
+   catch(PDOException $e) {
+  $result= 'Error: ' . $e->getMessage();
+  }
+	return $result;
+		
+ }
+ 
+ 
+ 
+  function get_id_comentario($idpiloto,$id, $idviaje){
+		
+	require("db.php");
+	try{
+		$sql= $conn->prepare("select idcomentario from comentario where idautoincremental=? and idacompaniante=? and idviaje=?" );
+		
+		$sql ->execute(array("$idpiloto","$id", "$idviaje"));
 	
 	/*while( $datos = $sql->fetch() )
     echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
@@ -42,11 +65,11 @@
 	 
  }
  
- function get_calificacion($idacompaniante) {
+ function get_calificacion($id) {
 	 require "../model/db.php";//te crea una conexion
 	try{
-		$sql = $conn->prepare("select calificacionacompaniante from usuario where idautoincremental=:idacompaniante");
-		$sql->bindParam(":idacompaniante",$idacompaniante,PDO::PARAM_INT);
+		$sql = $conn->prepare("select calificacionacompaniante from usuario where idautoincremental=:id");
+		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )
@@ -65,7 +88,7 @@
  
  
  
-function calificacion_positiva($calificacion, $idcomentario, $idacompaniante, $idviaje){
+function calificacion_positiva($calificacion, $idcomentario, $id, $idviaje){
 		
 	require("db.php");
 	try{
@@ -77,7 +100,7 @@ function calificacion_positiva($calificacion, $idcomentario, $idacompaniante, $i
 		
 
 				
-		$sql ->execute(array("$calificacion","$idcomentario","$idacompaniante","$idviaje"));
+		$sql ->execute(array("$calificacion","$idcomentario","$id","$idviaje"));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
@@ -87,7 +110,7 @@ function calificacion_positiva($calificacion, $idcomentario, $idacompaniante, $i
  }
  
  
-function positiva_calificacion($b,$idacompaniante){
+function positiva_calificacion($b,$id){
  require "db.php";
 
 try{
@@ -96,7 +119,7 @@ try{
 	
 	
 
-	$sql->execute(array("$b","$idacompaniante"));
+	$sql->execute(array("$b","$id"));
 	
 
 } catch(PDOException $e){
@@ -111,7 +134,7 @@ return true;
 
 }
 
-function negativa_calificacion($b,$idacompaniante){
+function negativa_calificacion($b,$id){
  require "db.php";
 
 try{
@@ -120,7 +143,7 @@ try{
 	
 	
 
-	$sql->execute(array("$b","$idacompaniante"));
+	$sql->execute(array("$b","$id"));
 	
 
 } catch(PDOException $e){

@@ -92,7 +92,23 @@ else {
 	 echo "<td>".$buscador[$i]["ciudadOrigen"].""."</td>";
 	 echo "<td>".$buscador[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$buscador[$i]["observaciones"].""."</td>";
+	if( !empty($_SESSION['session_username'])) {
+  
+	if ( $buscador["idautoincremental"] == $id ){
+	echo "<td>este es mi viaje!</td>";
+  echo"<td><a href=../controller/vercomentarios.php?idviaje=".$buscador[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
+	}
 	
+	if((!empty($_SESSION['session_username'])) and($buscador["idautoincremental"]<>$id)){
+    echo"<td><a href=../controller/realizarpregunta.php?idviaje=".$buscador[$i]["idviaje"]."&idautoincremental=".$id.">Realizar pregunta </a></td>";
+    echo"<td><a href=../controller/vercomentarios.php?idviaje=".$buscador[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
+  }
+	if((!empty($_SESSION['session_username'])) and($buscador["idautoincremental"]<>$id) and ($postulacion != $id)) {
+      
+echo"<td><a href=../controller/postularse.php?idviaje=".$buscador["idviaje"]."&idautoincremental=".$id.">Postularse </a></td>";
+
+}
+}
 	
 	 echo "</tr>";
 

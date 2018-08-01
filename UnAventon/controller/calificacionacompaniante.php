@@ -4,8 +4,10 @@ require_once "../model/calificacionacompaniante.php";
 
 
 $id= ($_GET["idautoincremental"]);
+
 $idviaje = ($_GET["idviaje"]);
-$idacompaniante = ($_GET["idacompaniante"]);
+
+$idpiloto = get_id_piloto ($idviaje);
 
 
 $calificacion = $_POST['calificacion'];
@@ -14,12 +16,12 @@ $comentario= $_POST['comentario'];
 
 if ( $calificacion == 1) {
 	
-	$comen = comentario_calificacion ($id, $idviaje, $comentario);
-	$idcomentario = get_id_comentario($id,$idviaje);
-	$calif = calificacion_positiva($calificacion,$idcomentario,$idacompaniante,$idviaje);
-	$a = get_calificacion($idacompaniante);
+	$comen = comentario_calificacion ($idpiloto, $id, $idviaje, $comentario);
+	$idcomentario = get_id_comentario($idpiloto,$id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
+	$a = get_calificacion($id);
 	$b = ($a + 1);
-	$positiva = positiva_calificacion($b,$idacompaniante);
+	$positiva = positiva_calificacion($b,$id);
 }
 if( $calificacion == 2) {
 	$comen = comentario_calificacion ($id, $idviaje, $comentario);
@@ -28,12 +30,12 @@ if( $calificacion == 2) {
 	
 }
 if( $calificacion == 3){
-	$comen = comentario_calificacion ($id, $idviaje, $comentario);
-	$idcomentario = get_id_comentario($id,$idviaje);
-	$calif = calificacion_positiva($calificacion,$idcomentario,$idacompaniante,$idviaje);
-	$a = get_calificacion($idacompaniante);
+	$comen = comentario_calificacion ($idpiloto, $id, $idviaje, $comentario);
+	$idcomentario = get_id_comentario($idpiloto,$id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
+	$a = get_calificacion($id);
 	$b = ($a - 1);
-	$negativa = negativa_calificacion($b,$idacompaniante);
+	$negativa = negativa_calificacion($b,$id);
 }
 
 if ( $calif == true) {
