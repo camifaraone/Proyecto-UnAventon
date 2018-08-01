@@ -14,21 +14,8 @@
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 			 <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+			 
 
-			 
-	<script>
-		function miFuncion(){
-
-		if(confirm('Deseas continuar?')){ 
-			document.location='otra.php';} 
-		else{ alert('Operacion Cancelada'); 
-}</script>		 
-			 
-			 
-			 
-			 
-			 
-			 
 </head>
   
   <?php
@@ -178,8 +165,7 @@ if($vehicount>0){
         </thead>
 
         <tbody>';
-          
- 
+
  for($i=0; $i<count($vehiculo);$i++) {
      if($vehiculo[$i]["bajalogica"] == 0) {
 	  echo "<td>".$vehiculo[$i]["marca"].""."</td>";
@@ -219,13 +205,13 @@ echo  '</tbody>
 	
 </body>
 <script type="text/javascript">
-    function confirm_delete(id) {
-        if(confirm("¿Seguro de querer elminar el vehiculo?")){
-            window.location.href='../controller/eliminarvehiculo.php?idvehiculo='+id;
-        }else{ 
-            return;
-        }
+function confirm_delete(id) {
+    if(confirm('¿Está seguro de querer eliminar el vehiculo?')){
+        window.location.href='../controller/eliminarvehiculo.php?idvehiculo='+id;
+    }else{ 
+        return;
     }
+}
 </script>
  
 </html>
