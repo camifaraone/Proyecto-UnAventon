@@ -167,10 +167,12 @@ echo'<table  class="table table-bordered" id="table">
 	 }
 	 if (($viajespost[$i]["rechazado"] == 0) and ($viajespost[$i]["aceptado"] == 0)) {
 		echo "<td>Aun no has sido aceptado ni rechazado de tu postulacion a este viaje!</td>";
+		// ACA VA A UN CONFIRMAR/RECHAZAR!!! en este caso no baja la calificacion
 		echo"<td><a href=../controller/darmebaja.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Cancelar postulacion </a></td>";
 
 	 }
 	 if ($viajespost[$i]["aceptado"] == 1) {
+	 // ACA VA A UN CONFIRMAR/RECHAZAR!!! en este casi, baja la calificacion cuando oprime que si.
 		echo"<td><a href=../controller/darmebajaacompaniante.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Cancelar postulacion </a></td>";
 
 	 }

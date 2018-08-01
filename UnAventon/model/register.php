@@ -94,41 +94,32 @@ function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fe
 
 						
 					$baja = get_baja($email);
-					
+					$cant = count($baja);
 					if($baja != '') {
+						$x = 0;
 					for($i=0; $i<count($baja);$i++) {
 						if($baja[$i]['bajalogica'] == 1){
-							$x = 1;
-						}
-						else {
-							$z = 0;
+							$x = $x +1;
 						}
 					
 					}
-					
-					
-					if ($z == NULL){
-						echo "<script type=\"text/javascript\">alert(\"El mail utilizado ya está registrado\");</script>";
-						
-					}
-					else { 
+					if ( $cant == $x) {
 						$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto);
-								header("Location: ../controller/login.php");
+						header("Location: ../controller/login.php");
 					}
-
-					
+					else {
+						echo "<script type=\"text/javascript\">alert(\"El mail utilizado ya está registrado\");</script>";
 					}
 					
-					
+					}
 					else {
 						$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto);
 						header("Location: ../controller/login.php");
 					}
-					
+				
+				
 				
 				}
-				
-					
 
 				
 				else {
