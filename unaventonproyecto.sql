@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-08-2018 a las 00:16:25
+-- Tiempo de generación: 01-08-2018 a las 07:45:25
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -35,6 +35,13 @@ CREATE TABLE `calificacionacompaniante` (
   `idviaje` int(255) NOT NULL,
   `idcomentario` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `calificacionacompaniante`
+--
+
+INSERT INTO `calificacionacompaniante` (`idcalifica`, `puntaje`, `idautoincremental`, `idviaje`, `idcomentario`) VALUES
+(4, 1, 2, 4, 38);
 
 -- --------------------------------------------------------
 
@@ -75,8 +82,8 @@ CREATE TABLE `comentario` (
 --
 
 INSERT INTO `comentario` (`idcomentario`, `idautoincremental`, `idviaje`, `comentario`) VALUES
-(32, 2, 4, ''),
-(33, 2, 4, 'maneja mal');
+(32, 2, 4, 'maneja muy rapido'),
+(38, 1, 4, 'ceba bien los matiensos');
 
 -- --------------------------------------------------------
 
@@ -132,7 +139,10 @@ CREATE TABLE `estadopostulacion` (
 --
 
 INSERT INTO `estadopostulacion` (`idpost`, `idautoincremental`, `idviaje`, `aceptado`, `rechazado`, `idvehiculo`) VALUES
-(2, 2, 4, 1, 0, 0);
+(2, 2, 4, 1, 0, 0),
+(8, 3, 4, 0, 0, 0),
+(9, 4, 4, 0, 0, 0),
+(10, 2, 131, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -260,12 +270,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `estadologico`, `puedepublicar`, `estadopostulacion`, `calificacion`, `calificacionacompaniante`, `bajalogica`) VALUES
-(1, '                   Camila', '                   Faraone', 'camilafaraone@gmail.com', '  camifaraone', '2345421506', '12345678910', '1995-04-18', 'avatar.jpg', '12345678910', 0, 0, 0, 4, 0, 0),
-(2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 1, 1, 0, 8, 0, 0),
+(1, '                   Camila', '                   Faraone', 'camilafaraone@gmail.com', '  camifaraone', '2345421506', '12345678910', '1995-04-18', 'avatar.jpg', '12345678910', 0, 0, 0, 2, 0, 0),
+(2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 1, 1, 0, 8, 6, 0),
 (3, 'agustin', 'nuÃ±ez', 'agustin@hotmail.com', 'agustin', '1234', '123456789', '2000-06-24', 'mati.png', '123456789', 0, 0, 0, 0, 0, 0),
-(4, 'jkwrfbj', 'vwknvrh', 'holachau@gmail.com', 'vjwikv', '6654', '12345678', '1995-04-17', 'descarga.jpg', '12345678', 0, 0, 0, 10, 0, 1),
-(5, 'dadad', 'adadadw', 'holachau@gmail.com', 'dadad', '313123', '12345678', '2000-06-25', 'avatar.jpg', '12345678', 0, 0, 0, 0, 0, 1),
-(6, 'dadad', 'adadadw', 'holachau@gmail.com', 'dadad', '313123', '12345678', '2000-06-25', 'avatar.jpg', '12345678', 0, 0, 0, 0, 0, 0);
+(4, 'jkwrfbj', 'vwknvrh', 'holachau@gmail.com', 'vjwikv', '6654', '12345678', '1995-04-17', 'descarga.jpg', '12345678', 0, 0, 0, 10, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -326,9 +334,9 @@ CREATE TABLE `viaje` (
 
 INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion`, `hssalida`, `idvehiculo`, `idOrigen`, `idDestino`, `observaciones`, `cantasientos`, `estadopago`, `postulados`, `coments`, `bajalogica`) VALUES
 (1, 4, '2018-08-26', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 1, 0, 0),
-(1, 130, '2019-03-08', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0, 0),
-(1, 131, '2019-03-15', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0, 0),
-(1, 132, '2019-03-22', 9000, '10:00', '10:00', 9, 1, 3, '635', 2, 1, 0, 0, 0),
+(1, 130, '2018-08-01', 9000, '10:00', '10:00', 9, 1, 3, '1', 2, 1, 0, 0, 1),
+(1, 131, '2018-08-15', 9000, '10:00', '10:00', 9, 1, 3, '2', 2, 1, 1, 0, 1),
+(1, 132, '2019-03-22', 9000, '10:00', '10:00', 9, 1, 3, '3', 2, 1, 0, 0, 0),
 (1, 133, '2019-03-29', 9000, '10:00', '10:00', 9, 1, 3, 'AAAA', 2, 1, 0, 0, 0),
 (2, 134, '2018-08-19', 300, '10', '10', 5, 2, 3, 'Ninguna', 3, 1, 0, 0, 0),
 (2, 136, '2018-10-03', 1000, '11:11', '11:11', 10, 1, 2, 'a', 2, 1, 0, 0, 0);
@@ -435,7 +443,7 @@ ALTER TABLE `votaciones`
 -- AUTO_INCREMENT de la tabla `calificacionacompaniante`
 --
 ALTER TABLE `calificacionacompaniante`
-  MODIFY `idcalifica` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcalifica` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `calificacionpiloto`
@@ -447,7 +455,7 @@ ALTER TABLE `calificacionpiloto`
 -- AUTO_INCREMENT de la tabla `comentario`
 --
 ALTER TABLE `comentario`
-  MODIFY `idcomentario` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `idcomentario` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `destino`
@@ -459,7 +467,7 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
-  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `origen`
