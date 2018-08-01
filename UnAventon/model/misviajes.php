@@ -28,7 +28,7 @@
 	/*while( $datos = $sql->fetch() )
     echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
 
-	$result= $sql->fetch();
+	$result= $sql->fetchAll();
 	
 
    }catch(PDOException $e) {
