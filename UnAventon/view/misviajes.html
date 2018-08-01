@@ -98,6 +98,9 @@ if($cantviajes>0){
 			
 			echo"<td><a href=../controller/verpostulantes.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver postulantes </a></td>";
 			
+			echo"<td><a href=../controller/vercomentarios.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
+			
+			
 			if ($viaje[$i]['postulados'] == 0) {	
 				 echo"<td><a href=../controller/editarviaje.php?idviaje=".$viaje[$i]["idviaje"].">Editar </a></td>";
 			}

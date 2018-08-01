@@ -20,23 +20,17 @@ $piloto = get_id_piloto($idviaje);
 
 
 if ( $calificacion == 1) {
-	$comen = comentario_calificacion ($id, $idviaje, $comentario);
-	$idcomentario = get_id_comentario($id,$idviaje);
-	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$piloto,$id,$idviaje,$comentario);
 	$a = get_calificacion($piloto);
 	$b = ($a + 1);
 	$positiva = positiva_calificacion($b,$piloto);
 }
 if( $calificacion == 2) { 
-	$comen = comentario_calificacion ($id, $idviaje, $comentario);
-	$idcomentario = get_id_comentario($id,$idviaje);
-	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$piloto,$id,$idviaje,$comentario);
 	
 }
 if( $calificacion == 3){
-	$comen = comentario_calificacion ($id, $idviaje, $comentario);
-	$idcomentario = get_id_comentario($id,$idviaje);
-	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$piloto,$id,$idviaje,$comentario);
 	$a = get_calificacion($piloto);
 	$b = ($a - 1);
 	$negativa = negativa_calificacion($b,$piloto);

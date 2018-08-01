@@ -9,7 +9,8 @@ $id= ($_GET["idautoincremental"]);
 
 $idviaje= ($_GET["idviaje"]);
 
-$calif = get_calificacion($id,$idviaje);
+$idpiloto = get_idpiloto ($idviaje);
+$calif = get_calificacion($id,$idpiloto,$idviaje);
 $user = get_datos($idviaje);
 
 

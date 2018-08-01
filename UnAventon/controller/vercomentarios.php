@@ -6,7 +6,7 @@ $idviaje = ($_GET["idviaje"]);
 $id = ($_GET["idautoincremental"]);
 
 $comentario = get_comentarios($idviaje);
-$coments = get_coments($idviaje);
+var_dump($comentario);
 
 
 include ("../view/vercomentarios.html");

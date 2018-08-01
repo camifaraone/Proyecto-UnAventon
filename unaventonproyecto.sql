@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-08-2018 a las 00:13:39
+-- Tiempo de generación: 02-08-2018 a las 01:08:02
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -32,17 +32,17 @@ CREATE TABLE `calificacionacompaniante` (
   `idcalifica` int(100) NOT NULL,
   `puntaje` int(100) NOT NULL,
   `idautoincremental` int(100) NOT NULL,
+  `idpiloto` int(255) NOT NULL,
   `idviaje` int(255) NOT NULL,
-  `idcomentario` int(255) NOT NULL
+  `comentario` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `calificacionacompaniante`
 --
 
-INSERT INTO `calificacionacompaniante` (`idcalifica`, `puntaje`, `idautoincremental`, `idviaje`, `idcomentario`) VALUES
-(4, 1, 2, 4, 38),
-(27, 1, 3, 4, 0);
+INSERT INTO `calificacionacompaniante` (`idcalifica`, `puntaje`, `idautoincremental`, `idpiloto`, `idviaje`, `comentario`) VALUES
+(29, 1, 2, 1, 4, 'HOLIS');
 
 -- --------------------------------------------------------
 
@@ -54,38 +54,17 @@ CREATE TABLE `calificacionpiloto` (
   `Idcalificp` int(100) NOT NULL,
   `puntaje` int(100) NOT NULL,
   `idautoincremental` int(100) NOT NULL,
+  `idacompaniante` int(255) NOT NULL,
   `idviaje` int(255) NOT NULL,
-  `idcomentario` int(255) NOT NULL
+  `comentario` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `calificacionpiloto`
 --
 
-INSERT INTO `calificacionpiloto` (`Idcalificp`, `puntaje`, `idautoincremental`, `idviaje`, `idcomentario`) VALUES
-(9, 3, 2, 4, 32);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `comentario`
---
-
-CREATE TABLE `comentario` (
-  `idcomentario` int(255) NOT NULL,
-  `idautoincremental` int(255) NOT NULL,
-  `idacompaniante` int(255) NOT NULL,
-  `idviaje` int(255) NOT NULL,
-  `comentario` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `comentario`
---
-
-INSERT INTO `comentario` (`idcomentario`, `idautoincremental`, `idacompaniante`, `idviaje`, `comentario`) VALUES
-(62, 1, 3, 4, 'AAAAAAAAAAAAAAAAAAAA'),
-(63, 1, 3, 4, 'AAAAAAAAAAAAAAAAAAAA');
+INSERT INTO `calificacionpiloto` (`Idcalificp`, `puntaje`, `idautoincremental`, `idacompaniante`, `idviaje`, `comentario`) VALUES
+(10, 1, 1, 2, 4, 'AAAAAAAAAAAAAAAAAAAA');
 
 -- --------------------------------------------------------
 
@@ -140,9 +119,10 @@ CREATE TABLE `estadopostulacion` (
 --
 
 INSERT INTO `estadopostulacion` (`idpost`, `idautoincremental`, `idviaje`, `aceptado`, `rechazado`) VALUES
-(8, 3, 4, 1, 0),
-(11, 2, 132, 0, 1),
-(19, 2, 4, 1, 0);
+(8, 3, 4, 0, 0),
+(11, 2, 132, 0, 0),
+(19, 2, 4, 1, 0),
+(20, 2, 137, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -270,8 +250,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `estadologico`, `puedepublicar`, `estadopostulacion`, `calificacion`, `calificacionacompaniante`, `bajalogica`) VALUES
-(1, '                   Camila', '                   Faraone', 'camilafaraone@gmail.com', '  camifaraone', '2345421506', '12345678910', '1995-04-18', 'avatar.jpg', '12345678910', 0, 0, 0, 2, 0, 0),
-(2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 1, 1, 0, 8, 3, 0),
+(1, '                   Camila', '                   Faraone', 'camilafaraone@gmail.com', '  camifaraone', '2345421506', '12345678910', '1995-04-18', 'avatar.jpg', '12345678910', 0, 0, 0, 4, 0, 0),
+(2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 1, 1, 0, 8, 5, 0),
 (3, 'agustin', 'nuÃ±ez', 'agustin@hotmail.com', 'agustin', '1234', '123456789', '2000-06-24', 'mati.png', '123456789', 0, 0, 0, 0, 5, 0),
 (4, 'jkwrfbj', 'vwknvrh', 'holachau@gmail.com', 'vjwikv', '6654', '12345678', '1995-04-17', 'descarga.jpg', '12345678', 0, 0, 0, 10, 0, 1),
 (7, 'adad', 'awwdad', 'holachau@gmail.com', 'cacca', '1231', 'admin123', '2000-08-02', 'avatar.jpg', 'admin123', 0, 0, 0, 0, 0, 0);
@@ -341,7 +321,7 @@ INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion
 (1, 133, '2018-08-21', 9000, '10:00', '10:00', 9, 1, 3, 'AAAA', 2, 1, 0, 0, 1),
 (2, 134, '2018-08-19', 300, '10', '10', 5, 2, 3, 'Ninguna', 3, 1, 0, 0, 1),
 (2, 136, '2018-10-03', 1000, '11:11', '11:11', 10, 1, 2, 'a', 2, 1, 0, 0, 0),
-(1, 137, '2018-08-09', 100, '01:00', '12:00', 9, 1, 5, 'dfsef', 5, 0, 0, 0, 0);
+(1, 137, '2018-08-09', 100, '01:00', '12:00', 9, 1, 5, 'dfsef', 5, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -371,12 +351,6 @@ ALTER TABLE `calificacionacompaniante`
 ALTER TABLE `calificacionpiloto`
   ADD PRIMARY KEY (`Idcalificp`),
   ADD UNIQUE KEY `idautoincremental` (`idautoincremental`);
-
---
--- Indices de la tabla `comentario`
---
-ALTER TABLE `comentario`
-  ADD PRIMARY KEY (`idcomentario`);
 
 --
 -- Indices de la tabla `destino`
@@ -445,19 +419,13 @@ ALTER TABLE `votaciones`
 -- AUTO_INCREMENT de la tabla `calificacionacompaniante`
 --
 ALTER TABLE `calificacionacompaniante`
-  MODIFY `idcalifica` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idcalifica` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `calificacionpiloto`
 --
 ALTER TABLE `calificacionpiloto`
-  MODIFY `Idcalificp` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `comentario`
---
-ALTER TABLE `comentario`
-  MODIFY `idcomentario` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `Idcalificp` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `destino`
@@ -469,7 +437,7 @@ ALTER TABLE `destino`
 -- AUTO_INCREMENT de la tabla `estadopostulacion`
 --
 ALTER TABLE `estadopostulacion`
-  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idpost` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `origen`

@@ -4,7 +4,7 @@ function get_comentarios($idviaje) {
 	 require "../model/db.php";//te crea una conexion
 	try{
 		
-		$sql = $conn->prepare("select * from usuario INNER JOIN comentario ON  comentario.idautoincremental = usuario.idautoincremental where comentario.idviaje=:idviaje");
+		$sql = $conn->prepare("select * from calificacionpiloto INNER JOIN comentario ON  comentario.idviaje = calificacionpiloto.idviaje where comentario.idviaje=:idviaje");
 		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);
 		$sql ->execute();
 	

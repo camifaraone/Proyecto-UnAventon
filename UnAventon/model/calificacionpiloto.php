@@ -1,46 +1,6 @@
 <?php
  
- function comentario_calificacion($id, $idviaje, $comentario){
-		
-	require("db.php");
-	try{
-		$sql= $conn->prepare("INSERT INTO comentario
-				(idautoincremental, idviaje, comentario ) 
-				VALUES(?, ?, ?)" );
-		
-		
-		
-
-				
-		$sql ->execute(array("$id","$idviaje","$comentario"));
-	
-    }catch(PDOException $e) {
-			return 'Error: ' . $e->getMessage();
-    }
-	return true;
-	
- }
  
- function get_id_comentario($id, $idviaje){
-		
-	require("db.php");
-	try{
-		$sql= $conn->prepare("select idcomentario from comentario where idautoincremental=? and idviaje=?" );
-		
-		$sql ->execute(array("$id", "$idviaje"));
-	
-	/*while( $datos = $sql->fetch() )
-    echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
-
-	$result= $sql->fetchAll()[0][0];
-	
-   }
-   catch(PDOException $e) {
-  $result= 'Error: ' . $e->getMessage();
-  }
-	return $result;
-	 
- }
  
   function get_id_piloto($idviaje) {
 	 require "../model/db.php";//te crea una conexion
@@ -85,19 +45,19 @@
  
  
  
-function calificacion_positiva($calificacion, $idcomentario, $id, $idviaje){
+function calificacion_positiva($calificacion,$piloto,$id, $idviaje,$comentario){
 		
 	require("db.php");
 	try{
 		$sql= $conn->prepare("INSERT INTO calificacionpiloto
-				(puntaje, idcomentario, idautoincremental, idviaje) 
-				VALUES(?, ?, ?, ?)" );
+				(puntaje, idautoincremental, idacompaniante, idviaje, comentario) 
+				VALUES(?, ?, ?, ?, ?)" );
 		
 		
 		
 
 				
-		$sql ->execute(array("$calificacion","$idcomentario","$id","$idviaje"));
+		$sql ->execute(array("$calificacion","$piloto","$id","$idviaje","$comentario"));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();

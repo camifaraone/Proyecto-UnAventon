@@ -16,23 +16,17 @@ $comentario= $_POST['comentario'];
 
 if ( $calificacion == 1) {
 	
-	$comen = comentario_calificacion ($idpiloto, $id, $idviaje, $comentario);
-	$idcomentario = get_id_comentario($idpiloto,$id,$idviaje);
-	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$id,$idpiloto,$idviaje,$comentario);
 	$a = get_calificacion($id);
 	$b = ($a + 1);
 	$positiva = positiva_calificacion($b,$id);
 }
 if( $calificacion == 2) {
-	$comen = comentario_calificacion ($id, $idviaje, $comentario);
-	$idcomentario = get_id_comentario($id,$idviaje);	
-	$calif = calificacion_positiva($calificacion,$idcomentario,$idacompaniante,$idviaje);
+	$calif = calificacion_positiva($calificacion,$id,$idpiloto,$idviaje,$comentario);
 	
 }
 if( $calificacion == 3){
-	$comen = comentario_calificacion ($idpiloto, $id, $idviaje, $comentario);
-	$idcomentario = get_id_comentario($idpiloto,$id,$idviaje);
-	$calif = calificacion_positiva($calificacion,$idcomentario,$id,$idviaje);
+	$calif = calificacion_positiva($calificacion,$id,$idpiloto,$idviaje,$comentario);
 	$a = get_calificacion($id);
 	$b = ($a - 1);
 	$negativa = negativa_calificacion($b,$id);

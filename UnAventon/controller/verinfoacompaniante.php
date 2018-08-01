@@ -10,7 +10,7 @@ $idviaje= ($_GET["idviaje"]);
 $id_piloto = get_id_piloto($idviaje);
 
 $user = get_datos($id);
-$calif = get_calificacion($id,$idviaje);
+$calif = get_calificacion($id,$id_piloto,$idviaje);
 
 
 include "../view/verinfoacompaniante.html";
