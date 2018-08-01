@@ -63,12 +63,12 @@
 				</div>
 				<div class="form-group">  
 					<label for="duracion">Duracion:
-						<input type="time" name="duracion" id="duracion" class="form-control"  placeholder="Escribir la duracion promedio" required />
+						<input type="time" name="duracion" id="duracion" class="form-control"   placeholder="Escribir la duracion promedio" required />
 					</label>
 				</div>
 				<div class="form-group">  
 					<label for="horasalida">Hora salida:
-						<input type="time" name="horasalida" id="horasalida" class="form-control"  placeholder="Escribir hora de salida" required />
+						<input type="time" name="horasalida" id="horasalida" class="form-control" placeholder="Escribir hora de salida" required />
 					</label>
 				</div>
 				
@@ -109,11 +109,16 @@
 				</div>
 				<div class="form-group"> 
 				<label for="vehiculo">Elija su vehículo:
-					<select name="vehiculo">
-						<?php for($i=0; $i<count($vehiculo);$i++)  {
-							
-							echo '<option value='.$vehiculo[$i]['idvehiculo'].' > '.$vehiculo[$i]['modelo'].' Patente : '.$vehiculo[$i]['patente'].' </option>';
-						}?>
+					<select name="vehiculo" required>
+
+						<?php
+							echo '<option value=""></option>';
+							for($i=0; $i<count($vehiculo);$i++)  {
+								if ($vehiculo[$i]['bajalogica']==0) {
+									echo '<option value='.$vehiculo[$i]["idvehiculo"].' > '.$vehiculo[$i]["modelo"].' Patente : '.$vehiculo[$i]["patente"].' </option>';
+								}
+							}
+						?>
 					</select>
 				</label>
 				</div>
