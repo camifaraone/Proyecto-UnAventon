@@ -15,7 +15,8 @@ $id = ($_GET["idautoincremental"]);
 if ( $viaje["idautoincremental"]<>$id ) { 
 $postulacion= get_estadopostulacion($idviaje);
 }
-}
 
+$postulado = get_estado ($id,$idviaje);
+}
 include ("../view/verviaje.html");
 ?>

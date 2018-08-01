@@ -2,8 +2,11 @@
 
 require_once "../model/darmebajaacompaniante.php";
 
-$id = ($_GET['idautoincremental']);
-$idviaje = ($_GET['idviaje']);
+$id = ($_GET['idviaje']);
+$idviaje = ($_GET['idautoincremental']);
+
+var_dump($id);
+
 
 $a = cancelar($id,$idviaje);
 $b = get_calificacion ($id);

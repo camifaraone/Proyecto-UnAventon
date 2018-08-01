@@ -88,7 +88,7 @@
     echo"<td><a href=../controller/realizarpregunta.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Realizar pregunta </a></td>";
     echo"<td><a href=../controller/vercomentarios.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
   }
-	if((!empty($_SESSION['session_username'])) and($viaje["idautoincremental"]<>$id) and ($postulacion != $id)) {
+	if((!empty($_SESSION['session_username'])) and ($viaje["idautoincremental"]<>$id) and ($postulacion != $id) and (empty($postulado))){
       
 echo"<td><a href=../controller/postularse.php?idviaje=".$viaje["idviaje"]."&idautoincremental=".$id.">Postularse </a></td>";
 

@@ -2,8 +2,9 @@
 
 require_once "../model/darmebaja.php";
 
-$id = ($_GET['idautoincremental']);
-$idviaje = ($_GET['idviaje']);
+$id = ($_GET['idviaje']);
+$idviaje = ($_GET['idautoincremental']);
+
 
 $a = cancelar($id,$idviaje);
 
