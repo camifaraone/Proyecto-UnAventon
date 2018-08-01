@@ -88,7 +88,7 @@
 	 require "../model/db.php";//te crea una conexion
 	try{
 		
-		$sql = $conn->prepare("select * from estadopostulacion INNER JOIN viaje ON estadopostulacion.idviaje = viaje.idviaje INNER JOIN origen ON viaje.idOrigen = origen.idOrigen INNER JOIN destino ON viaje.idDestino = destino.idDestino  where estadopostulacion.idautoincremental=:id");
+		$sql = $conn->prepare("select * from estadopostulacion INNER JOIN viaje ON estadopostulacion.idviaje = viaje.idviaje INNER JOIN origen ON viaje.idOrigen = origen.idOrigen INNER JOIN destino ON viaje.idDestino = destino.idDestino where estadopostulacion.idautoincremental=:id");
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);
 		$sql ->execute();
 	

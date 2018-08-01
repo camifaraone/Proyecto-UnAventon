@@ -19,11 +19,12 @@
  }
  
  
- function get_calificacion($id) {
+ function get_calificacion($id,$idviaje) {
 	 require "../model/db.php";//te crea una conexion
 	try{
-		$sql = $conn->prepare("select * from calificacionpiloto where idautoincremental=:id");
+		$sql = $conn->prepare("select * from calificacionpiloto where idautoincremental=:id and idviaje=:idviaje");
 		$sql->bindParam(":id",$id,PDO::PARAM_INT);
+		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )

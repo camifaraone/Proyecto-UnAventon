@@ -159,7 +159,25 @@ echo'<table  class="table table-bordered" id="table">
 	 echo "<td>".$viajespost[$i]["ciudadOrigen"].""."</td>";
 	 echo "<td>".$viajespost[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$viajespost[$i]["observaciones"].""."</td>";
+	 if ($viajespost[$i]["aceptado"] == 1) {
+		echo "<td>tu estado de postulacion fue aceptada, Enhorabuena!</td>";
+	 }
+	 if ($viajespost[$i]["rechazado"] == 1) {
+		echo "<td>tu estado de postulacion fue cancelada!, lo sentimos</td>";
+	 }
+	 if (($viajespost[$i]["rechazado"] == 0) and ($viajespost[$i]["aceptado"] == 0)) {
+		echo "<td>Aun no has sido aceptado ni rechazado de tu postulacion a este viaje!</td>";
+		echo"<td><a href=../controller/darmebaja.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Cancelar postulacion </a></td>";
+
+	 }
+	 if ($viajespost[$i]["aceptado"] == 1) {
+		echo"<td><a href=../controller/darmebajaacompaniante.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Cancelar postulacion </a></td>";
+
+	 }
+	 
+	if ($viajespost[$i]["aceptado"] == 1) { 
 	echo"<td><a href=../controller/verinfopiloto.php?idviaje=".$viajespost[$i]["idviaje"]."&&idautoincremental=".$id.">Ver información del piloto </a></td>";
+	}
 	echo "</tr>";
 	}
  

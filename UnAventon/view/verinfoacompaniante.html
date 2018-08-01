@@ -56,7 +56,7 @@
 					<ul>
 							<li> 
 								<blockquote>
-     <h3>DATOS DEL PILOTO</h3>
+     <h3>DATOS DEL ACOMPAÑANTE</h3>
     </blockquote>
 								
 							</li>
@@ -81,12 +81,7 @@
 	
 								?>
 							</li>
-							<li> 
-								<label for="phone">Teléfono:</label>
-								<?php
-									echo $user["telefono"];
-								?>
-							</li>
+							
 							<li> 
 								<label for="date">Fecha de nacimiento:</label> 
 								<?php
@@ -109,13 +104,13 @@
 <br>
 							<?php
 							if(!empty($calif)) {
-							echo "<h5> Usted ya ha calificado a este piloto!</h5>";
+							echo " <h5>Usted ya ha calificado a este acompañante!</h5>";
 							}
 							else { ?>
-	<h4 class="center	-align"> <p class="regtext"><?php echo"<a href=../controller/calificacionpiloto.php?idautoincremental=".$id."&&idviaje=".$idviaje."> Calificar piloto en este viaje</a>"; ?></p> </h4>
+	<h4 class="center	-align"> <p class="regtext"><?php echo"<a href=../controller/calificacionacompaniante.php?idautoincremental=".$id."&&idviaje=".$idviaje."> Calificar Acompañante en este viaje </a>"; ?></p> </h4>
 <?php } ?>
     </br></br></br>                		
-	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id_piloto.">   Clic aquí  </a>"; ?></p> </h5>
 	</div>
 	 <?php
   		include "../controller/footer.php";
