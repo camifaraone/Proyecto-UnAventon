@@ -14,7 +14,7 @@ $viaje = get_viajes();
 
 $id= ($_GET["idautoincremental"]);
 $pago = get_pago($id);
-
+$baja_logica = get_baja_logica ($id);
 
 
 
