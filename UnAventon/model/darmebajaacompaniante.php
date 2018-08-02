@@ -2,18 +2,17 @@
 
 function cancelar($id,$idviaje){
 
-		require_once ("db.php");
+		require ("db.php");
 
 //$conn = conectar(); //funcion que conecta con bd
 
 		try{
 
-		$gsent = $conn->prepare('DELETE FROM estadopostulacion WHERE idautoincremental=:id and idviaje=:idviaje');
+		$gsent = $conn->prepare('DELETE FROM estadopostulacion WHERE idautoincremental=? and idviaje=?');
 
-		$gsent->bindParam(':id', $id, PDO::PARAM_INT);
-		$gsent->bindParam(':idviaje', $idviaje, PDO::PARAM_INT);
+		
 				
-		$gsent->execute();
+		$gsent->execute(array("$id","$idviaje"));
 
 
 
@@ -84,5 +83,25 @@ return true;
 }
  
  
+ function calificacion_negativa($calificacion, $id, $idpilotosistem, $idviaje, $motivo){
+		
+	require("db.php");
+	try{
+		$sql= $conn->prepare("INSERT INTO calificacionacompaniante
+				(puntaje, idautoincremental, idpiloto, idviaje, motivo) 
+				VALUES(?, ?, ?, ?, ?)" );
+		
+		
+		
+
+				
+		$sql ->execute(array("$calificacion","$id","$idpilotosistem","$idviaje","$motivo"));
+	
+    }catch(PDOException $e) {
+			return 'Error: ' . $e->getMessage();
+    }
+	return true;
+	
+ }
 		
 ?>

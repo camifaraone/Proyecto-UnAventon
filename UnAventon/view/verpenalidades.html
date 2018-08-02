@@ -45,21 +45,85 @@
 <body style= "background-color:#FEF9E7;">
 
 
+<br><br><br>
 
-<div class="container">
+<div class="container">	
 <div class="jumbotron">
 
+<h4>Penalidades del sistema como piloto</h4>
+
+
+</div>
+
+<?php
+      
+if (empty($comentariopiloto)){
+		echo "<h5> No hay penalidades como piloto </h5";
+  
+ }
+ else {
+ ?>
 
 
 
-<h1>Comentarios del viaje</h1>
+<table class="centered">
+        <thead>
+          <tr>
+              <th>Nombre</th>
+			<th>Comentario</th>
+			<th>calificacion</th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+<?php 
+ 
+ for($i=0; $i<count($comentariopiloto);$i++) {
+    
+   
+   
+	echo "<td> Sistema </td>";
+   echo "<td>".$comentariopiloto[$i]["motivo"].""."</td>";
+   echo "<td> Negativa </td>";
+  
+  
+
+echo "</tr>";
+ }}
+
+
+?>
+
+     
+      
+        </tbody>
+      </table>
+  <hr width="100%">
+ </div>
+ 
+ 
+<br><br>
+<div class="container">
+<div class="jumbotron">
+ 
+ <h4>Penalidades del sistema como Acompañante</h4>
+
+ <?php
+      
+if (empty($comentarioacompaniante)){
+		echo "<h5> No hay penalidades como Acompañante </h5";
+  
+ }
+ else {
+ ?>
 
 </div>
 <table class="centered">
         <thead>
           <tr>
               <th>Nombre</th>
-              <th>Apellido</th>
 			<th>Comentario</th>
 			<th>calificacion</th>
 
@@ -73,23 +137,16 @@
 
   
  
- for($i=0; $i<count($comentario);$i++) {
+ for($i=0; $i<count($comentarioacompaniante);$i++) {
     
-   echo "<td>".$comentario[$i]["nombre"].""."</td>";
-   echo "<td>".$comentario[$i]["apellido"].""."</td>";
-   echo "<td>".$comentario[$i]["comentario"].""."</td>";
-   if( $comentario[$i]["puntaje"] == 1) {
-		echo "<td> Buena </td>";
-	}
-	if( $comentario[$i]["puntaje"] == 2) {
-		echo "<td> Neutral </td>";
-	}
-	if( $comentario[$i]["puntaje"] == 3) {
-		echo "<td> Mala </td>";
-	}
+   echo "<td> Sistema </td>";
+   echo "<td>".$comentarioacompaniante[$i]["motivo"].""."</td>";
+   echo "<td> Negativa </td>";
+  
+  
 
 echo "</tr>";
- }
+ }}
 
 
 ?>

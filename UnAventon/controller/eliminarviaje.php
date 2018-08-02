@@ -8,7 +8,13 @@ $id = get_id($idviaje);
 
 $d = get_postulados($idviaje);
 
+
 if($d != 0){
+		$calificacion = 3;
+		$motivo = "se elimino un viaje con usuarios postulados al mismo.";
+		$idpilotosistem = -1;
+		$calif = calificacion_negativa($calificacion,$id,$idpilotosistem,$idviaje,$motivo);
+	
 			$a = del_viaje($idviaje,$id);
 			$calificacion = geteliminar($id);
 			$c = ($calificacion - 1);

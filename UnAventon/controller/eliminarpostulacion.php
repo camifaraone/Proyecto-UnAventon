@@ -4,6 +4,13 @@ require_once "../model/eliminarpostulacion.php";
 
 $id = ($_GET['idautoincremental']);
 $idviaje = ($_GET['idviaje']);
+
+$calificacion = 3;
+$motivo = "se rechazo a un postulante luego de haberlo aceptado.";
+$idpilotosistem = -1;
+$calif = calificacion_negativa($calificacion,$id,$idsistem,$idviaje,$motivo)
+
+
 $a = cancelar($id,$idviaje);
 $b = get_postulados ($idviaje);
 $d = ($b - 1);

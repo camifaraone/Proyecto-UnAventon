@@ -1,5 +1,25 @@
 <?php
+function calificacion_negativa($calificacion, $id, $idpilotosistem, $idviaje, $motivo){
+		
+	require("db.php");
+	try{
+		$sql= $conn->prepare("INSERT INTO calificacionpiloto
+				(puntaje, idautoincremental, idacompaniante, idviaje, motivo) 
+				VALUES(?, ?, ?, ?, ?)" );
+		
+		
+		
 
+				
+		$sql ->execute(array("$calificacion","$id","$idpilotosistem","$idviaje","$motivo"));
+	
+    }catch(PDOException $e) {
+			return 'Error: ' . $e->getMessage();
+    }
+	return true;
+	
+ }
+ 
 function cancelar($id,$idviaje){
  require "db.php";
 

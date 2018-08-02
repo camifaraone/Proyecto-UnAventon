@@ -5,8 +5,11 @@ require_once "../model/darmebajaacompaniante.php";
 $id = ($_GET['idviaje']);
 $idviaje = ($_GET['idautoincremental']);
 
-var_dump($id);
+$calificacion = 3;
+$motivo = "se dio de baja la postulacion al viaje luego de haberse aceptado.";
 
+$idpilotosistem = -1;
+$calif = calificacion_negativa($calificacion,$id,$idpilotosistem,$idviaje,$motivo);
 
 $a = cancelar($id,$idviaje);
 $b = get_calificacion ($id);

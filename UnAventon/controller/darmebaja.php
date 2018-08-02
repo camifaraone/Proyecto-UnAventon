@@ -6,9 +6,6 @@ $id = ($_GET['idviaje']);
 $idviaje = ($_GET['idautoincremental']);
 
 
-$a = cancelar($id,$idviaje);
-
-
 
 
 
