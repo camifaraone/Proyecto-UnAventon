@@ -56,9 +56,6 @@
 					</li>
 				</ul>	
  <?php
-function isPendingTrip($date, $time){
-  	return (time() > strtotime($date.' '.$time.':00'));
-}
 
 function contarviajes($viaje){
     $cuenta=0;
@@ -99,13 +96,7 @@ if($cantviajes>0){
 			 echo "<td>".$viaje[$i]["ciudadDestino"].""."</td>";
 			 echo "<td>".$viaje[$i]["observaciones"].""."</td>";
 			
-	 	$hora= date("h.i",$viaje[$i]["hssalida"]) + date("h.i",$viaje[$i]["duracion"]);
-	 	if(!isPendingTrip($viaje[$i]["fecha"],$hora)){
-			echo"<td><a href=../controller/verpostulantes.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id."&finishedtrip>Ver postulantes </a></td>";
-	 	}else{
-	 		echo"<td><a href=../controller/verpostulantes.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver postulantes </a></td>";
-	 	}
-	
+			echo"<td><a href=../controller/verpostulantes.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver postulantes </a></td>";
 			
 			echo"<td><a href=../controller/vercomentarios.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
 			
@@ -116,8 +107,8 @@ if($cantviajes>0){
 			echo"<td><a onclick='confirm_delete(".$viaje[$i]['idviaje'].")'>Eliminar</a>";
 			echo "</form><td>";
 			echo "</tr>";
-		}}
-	
+		}
+	}
 echo'</tbody>
   </table>';
 }else{
@@ -136,7 +127,6 @@ echo'</tbody>
 </ul>
  
  <?php
-
 function contarpostulaciones($viaje){
     $cuenta=0;
     for($i=0; $i<count($viaje);$i++) {
@@ -173,12 +163,7 @@ echo'<table  class="table table-bordered" id="table">
 	 echo "<td>".$viajespost[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$viajespost[$i]["observaciones"].""."</td>";
 	 if ($viajespost[$i]["aceptado"] == 1) {
-	 	$hora= date("h.i",$viajespost[$i]["hssalida"]) + date("h.i",$viajespost[$i]["duracion"]);
-	 	if(!isPendingTrip($viajespost[$i]["fecha"],$hora)){
-	 		echo "<td>¡Tu postulacion fue aceptada!</td>";
-	 	}else{
-	 		echo "<td>Calificar piloto</td>";
-	 	}
+		echo "<td>¡Tu postulacion fue aceptada!</td>";
 	 }
 	 if ($viajespost[$i]["rechazado"] == 1) {
 		echo "<td>Tu postulacion fue rechazada, suerte la próxima.</td>";

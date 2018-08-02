@@ -50,7 +50,13 @@
 			<br>
 
      <h3>Viaje a pagar </h3>
-   
+     
+<?php
+
+
+   if (empty($viaje)) {
+  echo "<h5> No hay viajes a pagar por el momento! </h5";
+} else { ?>
 			<table  class="centered" id="table">
 <thead>
    <tr>
@@ -64,6 +70,7 @@
  <?php
 
 
+   
 
     for($i=0; $i<count($viaje);$i++){
 
@@ -73,7 +80,7 @@
 	 echo "<td>".$viaje[$i]["ciudadDestino"].""."</td>";
 	 echo"<td><a href=../controller/metododepago.php?idautoincremental=".$id."&&idviaje=".$viaje[$i]["idviaje"]."> Pagar </a><td>";
 	 echo "</tr>";
-	}
+	}}
 ?>
 </tbody>
 </table>

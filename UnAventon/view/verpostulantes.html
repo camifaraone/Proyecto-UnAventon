@@ -3,8 +3,8 @@
 
 
 <title>UnAventon | Ver Postulantes </title>
-<?php
-include "../controller/head.php";
+       <?php
+  include "../controller/head.php";
 ?>
 
 
@@ -12,155 +12,153 @@ include "../controller/head.php";
 
 
 <?php session_start();
-
-if(empty($_SESSION['session_username'])) {
-
+ 
+      if(empty($_SESSION['session_username'])) {
+          
 	?>  
-	<nav class="white" role="navigation"  >
-		<div class="nav-wrapper #ff9800 orange" >
-			<img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="../controller/login.php">Iniciar sesión</a></li>
-				<li><a href="../controller/register.php">Registrarse</a></li>
-			</ul>
-		</div>
-		</nav> <?php } ?>
-		<?php
-
+		  <nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../controller/login.php">Iniciar sesión</a></li>
+        <li><a href="../controller/register.php">Registrarse</a></li>
+      </ul>
+    </div>
+  </nav> <?php } ?>
+	<?php
+			
 		if(!empty($_SESSION['session_username'])) {
 			$email = $_SESSION['session_username'];
-			?>	  
-			<nav class="white" role="navigation"  >
-				<div class="nav-wrapper #ff9800 orange" >
-					<img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
-					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
-						<li ><a href="../controller/logout.php">Cerrar sesión</a></li>
-					</ul>
-				</div>
-			</nav>
+	?>	  
+		<nav class="white" role="navigation"  >
+    <div class="nav-wrapper #ff9800 orange" >
+      <img id="logo-container" src="../img/logo.jpg" width="6%" height="100%" class="brand-logo"></img>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li > Bienvenido!</li> <li> &nbsp; <?php echo $email ?>  </li>
+        <li ><a href="../controller/logout.php">Cerrar sesión</a></li>
+      </ul>
+    </div>
+  </nav>
+	
+	<?php } ?> 
 
-		<?php } ?> 
-
-		<script type="text/javascript">
-			function confirm_unaccept(id,idviaje) {
-				if(confirm('¿Estás seguro de rechazar este acompañante? Afectará tu reputación de forma negativa.')){
-					window.location.href='../controller/eliminarpostulacion.php?idautoincremental='+id+'&idviaje='+idviaje;
-				}else{ 
-					return;
-				}
-			}
-		</script>
-		<body style= "background-color:#FEF9E7;">
-
-
-
-			<div class="container">
-				<div class="jumbotron">
-					<h1>Postulantes del viaje</h1>
-
-				</div>
-				<h3> Información de los postulados</h3>
+<script type="text/javascript">
+function confirm_unaccept(id,idviaje) {
+    if(confirm('¿Estás seguro de rechazar este acompañante? Afectará tu reputación de forma negativa.')){
+        window.location.href='../controller/eliminarpostulacion.php?idautoincremental='+id+'&idviaje='+idviaje
+    }else{ 
+        return;
+    }
+}
+</script>
+<body style= "background-color:#FEF9E7;">
 
 
 
+<div class="container">
+<div class="jumbotron">
+<h1>Postulantes del viaje</h1>
 
-				<?php
-
-				$postcount=count($users);
-				if($postcount>0){
-					echo"<table class='centered'>
-					<thead>
-					<tr>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Email</th>
-					<th>Calificacion/Piloto</th>
-					<th>Calificacion/Acompañante</th>
-
-					</tr>
-					</thead>
-
-					<tbody>";
-
-					for($i=0; $i<count($users);$i++) {
+</div>
+<h3> Información de los postulados</h3>
 
 
-						echo "<td>".$users[$i]["nombre"].""."</td>";
-						echo "<td>".$users[$i]["apellido"].""."</td>";
-						echo "<td>".$users[$i]["email"].""."</td>";
-						echo "<td>".$users[$i]["calificacion"].""."</td>";
-						echo "<td>".$users[$i]["calificacionacompaniante"].""."</td>";
-
-						if( ($users[$i]["aceptado"] == 1) && (isset($_GET["finishedtrip"]))) { 
-							echo"<td><a href=../controller/calificacionacompaniante.php?idautoincremental=".$id."&&idviaje=".$idviaje."&&idacompaniante=".$users[$i]["idautoincremental"]."> Calificar como acompañante </a></td>";
-						}
 
 
-						if ($postulados != $asientos) { 
-							if ( $users[$i]["aceptado"] == 1 ) {
-								echo"<td>Usuario aceptado.</td>";
+ <?php
+ $postcount=count($users);
+if($postcount>0){
+echo"<table class='centered'>
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Email</th>
+			  <th>Calificacion/Piloto</th>
+			  <th>Calificacion/Acompañante</th>
+
+          </tr>
+        </thead>
+
+        <tbody>";
+          
+ for($i=0; $i<count($users);$i++) {
+	
+     
+	 echo "<td>".$users[$i]["nombre"].""."</td>";
+	 echo "<td>".$users[$i]["apellido"].""."</td>";
+	 echo "<td>".$users[$i]["email"].""."</td>";
+	 echo "<td>".$users[$i]["calificacion"].""."</td>";
+	  echo "<td>".$users[$i]["calificacionacompaniante"].""."</td>";
+	/*  
+	if( $users[$i]["aceptado"] == 1) { 
+	echo"<td><a href=../controller/calificacionacompaniante.php?idautoincremental=".$id."&&idviaje=".$idviaje."&&idacompaniante=".$users[$i]["idautoincremental"]."> Calificar como acompañante </a></td>";
+	}
+	*/
+	
+	if ($postulados != $asientos) { 
+		if ( $users[$i]["aceptado"] == 1 ) {
+			echo"<td>Usuario aceptado.</td>";
 			// ACA VA UN CONFIRM!!
 			//echo "<html><script> alert('Se bajará en 1 la calificación del piloto');</script></html>";
-								echo"<td><a onclick='confirm_unaccept(".$users[$i]['idautoincremental'].",".$idviaje.")'>Desaceptar </a></td>";
-								echo"<td><a href=../controller/verinfoacompaniante.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Ver informacion de acompañante </a></td>";
-
-
-							}
-							if ( $users[$i]["rechazado"] == 1) {
-								echo "<td>Usuario rechazado.</td>";
-							}	
-
-
-							if (( $users[$i]["aceptado"] == 0) and ( $users[$i]["rechazado"] == 0)) {
-								echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
-								echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Aceptar </a></td>";
-							}
-						}else{
-							if (( $postulados == $asientos) and ($users[$i]["aceptado"] == 0) and ($users[$i]["rechazado"] == 0)) {
-								echo "<td>Número máximo de asientos ocupados.</td>";
-								echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
-							}
-							else {
-								if ( $users[$i]["aceptado"] == 1 ) {
-									echo"<td>Usuario aceptado.</td>";
-// ACA VA UN CONFIRM!!
-//echo "<html><script> alert('Se bajará en 1 la calificación del piloto');</script></html>";
-									echo"<td><a onclick='confirm_unaccept(".$users[$i]['idautoincremental'].",".$idviaje.")'>Desaceptar </a></td>";
-									echo"<td><a href=../controller/verinfoacompaniante.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Ver informacion de acompañante </a></td>";
-
-								}
-							}
-						}
-							echo "</tr>";
-						}
-
-
+			echo"<td><a onclick='confirm_unaccept(".$users[$i]['idautoincremental'].",".$idviaje.")'>Desaceptar </a></td>";
+			echo"<td><a href=../controller/verinfoacompaniante.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Ver informacion de acompañante </a></td>";
+			
+	
+		}
+		if ( $users[$i]["rechazado"] == 1) {
+			echo "<td>Usuario rechazado.</td>";
+		}	
+		
+	
+		if (( $users[$i]["aceptado"] == 0) and ( $users[$i]["rechazado"] == 0)) {
+			echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
+			echo"<td><a href=../controller/aceptarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Aceptar </a></td>";
+		}
+	}else{
+		if (( $postulados == $asientos) and ($users[$i]["aceptado"] == 0) and ($users[$i]["rechazado"] == 0)) {
+			echo "<td>Número máximo de asientos ocupados.</td>";
+			echo"<td><a href=../controller/cancelarpostulacion.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Rechazar </a></td>";
+		}
+		else {
+			if ( $users[$i]["aceptado"] == 1 ) {
+				echo"<td>Usuario aceptado.</td>";
+				// ACA VA UN CONFIRM!!
+				//echo "<html><script> alert('Se bajará en 1 la calificación del piloto');</script></html>";
+				echo"<td><a onclick='confirm_unaccept(".$users[$i]['idautoincremental'].",".$idviaje.")'>Desaceptar </a></td>";
+				echo"<td><a href=../controller/verinfoacompaniante.php?idautoincremental=".$users[$i]["idautoincremental"]."&&idviaje=".$idviaje.">Ver informacion de acompañante </a></td>";
+	
+				}
+		}}
+echo "</tr>";
+ }
 
 
 
-						echo"</tbody>
-						</table>
-						<hr width='100%'>";
+     
+      
+ echo"</tbody>
+      </table>
+  <hr width='100%'>";
 
-					}else{
-						echo "<strong><p>No hay postulados para el viaje.</p></strong>";
-					}
-					?>
-				</div>
+}else{
+	echo "<strong><p>No hay postulados para el viaje.</p></strong>";
+}
+?>
+ </div>
 
-				<div class="container">
-					<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
-				</div>
+<div class="container">
+ <h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	</div>
 
-				<br></br>
-				<br></br>
+<br></br>
+<br></br>
 
-				<?php
-				include "../controller/footer.php";
-				?>
+ <?php
+  include "../controller/footer.php";
+?>
+ 
+</body>
 
-			</body>
 
-
-			</html>
+</html>
