@@ -55,6 +55,14 @@
 <h1>Comentarios del viaje</h1>
 
 </div>
+
+<?php
+if (empty($comenmntario)) {
+	echo "<h5> No hay comentarios respecto del viaje! </h5";
+}
+else {
+
+?>
 <table class="centered">
         <thead>
           <tr>
@@ -89,7 +97,7 @@
 	}
 
 echo "</tr>";
- }
+ }}
 
 
 ?>
