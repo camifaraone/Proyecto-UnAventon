@@ -8,7 +8,7 @@ $idviaje = ($_GET['idviaje']);
 $calificacion = 3;
 $motivo = "se rechazo a un postulante luego de haberlo aceptado.";
 $idpilotosistem = -1;
-$calif = calificacion_negativa($calificacion,$id,$idsistem,$idviaje,$motivo)
+$calif = calificacion_negativa($calificacion,$id,$idpilotosistem,$idviaje,$motivo);
 
 
 $a = cancelar($id,$idviaje);
