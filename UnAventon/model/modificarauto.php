@@ -47,33 +47,34 @@
  ini_set ('log_errors', 'on');
  ini_set ('display_startup_errors', 'on');
  ini_set ('error_reporting', E_ALL);
+ 
+ 
+ 
+ function modificar_vehiculo($marca,$modelo,$color,$detalles,$cantasientosdisp,$patente,$id){
+ require ("db.php");
 
-function chequear_patente($patente){
-	require ('db.php');
-	$sql = $conn -> prepare("SELECT patente FROM vehiculo WHERE patente=:patente");
-	$sql -> bindParam(":patente",$patente,PDO::PARAM_STR);
-	$sql -> execute();
-	$result=$sql->fetchColumn();
-	echo "".$result;
-	return($result=='');
-} 
+try{
+
+	$sql = $conn->prepare("UPDATE vehiculo SET marca=?, modelo=?, color=?, detalles=?, cantasientosdisp=?, patente=? WHERE idvehiculo=?");
+	
+	
+
+	$sql->execute(array($marca, $modelo, $color, $detalles, $cantasientosdisp, $patente, $id));
+	
+
+} catch(PDOException $e){
+
+	return "ERROR: " . $e->getMessage();
+
+}
+
+
+
+return true;
+
+}
  
  
-function modificar_vehiculo($marca,$modelo,$color,$detalles,$cantasientosdisp,$patente,$id){
-require ("db.php");
-if (chequear_patente($patente)){
-	try{
-		$sql = $conn->prepare("UPDATE vehiculo SET marca=?, modelo=?, color=?, detalles=?, cantasientosdisp=?, patente=? WHERE idvehiculo=?");		
-		$sql->execute(array($marca, $modelo, $color, $detalles, $cantasientosdisp, $patente, $id));	
-	} catch(PDOException $e){
-		return "ERROR: " . $e->getMessage();
-	}
-	return true;
-	}
- else{
- 	return false;
- }
- }
  
  
  

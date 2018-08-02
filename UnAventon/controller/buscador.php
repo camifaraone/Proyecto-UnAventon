@@ -5,7 +5,7 @@ require_once ("../model/buscador.php");
 
 
 $id= ($_GET["idautoincremental"]);
-
+$idviaje = ($_GET["idviaje"]);
 
 $busqueda = ($_POST['T1']);
 

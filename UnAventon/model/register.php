@@ -1,43 +1,31 @@
 <?php
 
-function chequear_usuario($usuario){
-	require ('db.php');
-	$sql= $conn->prepare("SELECT COUNT(*) FROM usuario WHERE nombreusuario=:usuario");
-	$sql->bindParam(':usuario',$usuario,PDO::PARAM_STR);
-	$sql->execute();
-	$result=$sql->fetchColumn();
-	echo "".$result;
-	return($result=='');
-}
 
 function registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto){
-
+		
 	require ("db.php");
-	if (chequear_usuario($nombreusuario)) {
-		try{
-			$sql= $conn->prepare("INSERT INTO usuario
+	
+	try{
+		$sql= $conn->prepare("INSERT INTO usuario
 				(nombreusuario, email, nombre,apellido,telefono,fechanacimiento,contrasenia,confirmarcontrasenia, foto) 
 				VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)" );
 
-			$sql ->execute(array("$nombreusuario", "$email", "$nombre", "$apellido", "$telefono","$fechanacimiento","$contrasenia","$confirmarcontrasenia","$foto"));
-
-			//$sql ->execute();
-
-		}catch(PDOException $e) {
-			return 'Error: ' . $e->getMessage();
-		}
-		return true;
-	}else{
-		return false;
-	}
+		$sql ->execute(array("$nombreusuario", "$email", "$nombre", "$apellido", "$telefono","$fechanacimiento","$contrasenia","$confirmarcontrasenia","$foto"));
+				
+		//$sql ->execute();
 	
-}
-
-
-
-function comprobar($email)
-{
-	require ("db.php");
+    }catch(PDOException $e) {
+			return 'Error: ' . $e->getMessage();
+    }
+	return true;
+	
+ }
+ 
+ 
+ 
+ function comprobar($email)
+ {
+	  require ("db.php");
 	try{
 		
 		$sql = $conn->prepare("select * from usuario where email=:email");
@@ -45,21 +33,21 @@ function comprobar($email)
 		
 		$sql ->execute();
 		$result=$sql->fetch();
-
+ 
 	}
-	catch(PDOException $e) {
-		return 'Error: ' . $e->getMessage();
-	}
+    catch(PDOException $e) {
+			return 'Error: ' . $e->getMessage();
+    }
 	return $result;	 
-
-
-
-}		 
-
-
-function get_baja($email)
-{
-	require ("db.php");
+	 
+ 
+ 
+ }		 
+	
+ 
+ function get_baja($email)
+ {
+	  require ("db.php");
 	try{
 		
 		$sql = $conn->prepare("select * from usuario where email=:email");
@@ -67,22 +55,30 @@ function get_baja($email)
 		
 		$sql ->execute();
 		$result=$sql->fetchAll();
-
+ 
 	}
-	catch(PDOException $e) {
-		return 'Error: ' . $e->getMessage();
-	}
+    catch(PDOException $e) {
+			return 'Error: ' . $e->getMessage();
+    }
 	return $result;	 
+	 
+ 
+ 
+ }	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
-
-
-}	
-
-
-function comprobar_usuario()
-{
+ function comprobar_usuario()
+ {
 	
-	if(isset($_POST["register"])){
+			if(isset($_POST["register"])){
 
 
 				if(!empty($_POST['nombreusuario']) && !empty($_POST['contrasenia']) && !empty($_POST['confirmarcontrasenia']) && !empty($_POST['nombre']) && !empty($_POST['apellido']) && !empty($_POST['email']) && !empty($_POST['telefono']) && !empty($_POST['fechanacimiento']) && (!empty($_POST['foto']) || empty($_POST['foto']))) {
@@ -109,15 +105,12 @@ function comprobar_usuario()
 						}
 					
 					}
-
-				}
-				if ( $cant == $x) {
-					$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto);
-					if ($valor==true) {
-						echo "<script>alert('Usuario registrado con éxito.');</script>";
+					if ( $cant == $x) {
+						$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto);
 						header("Location: ../controller/login.php");
-					}else{
-						echo "<script>alert('El nombre de usuario ya está utilizado.');</script>";
+					}
+					else {
+						echo "<script type=\"text/javascript\">alert(\"El mail utilizado ya está registrado\");</script>";
 					}
 					
 					}
@@ -135,34 +128,19 @@ echo "<html><script> alert('Usuario registrado');</script></html>";
 				
 				}
 
+				
+				else {
+						$message = "Todos los campos deben estar completos";
+					}
 			}
-			else {
-				$valor = registrar_usuario($nombreusuario,$email,$nombre,$apellido,$telefono,$fechanacimiento,$contrasenia,$confirmarcontrasenia, $foto);
-				if ($valor==true) {
-					echo "<script>alert('Usuario registrado con éxito.');</script>";
-					//header("Location: ../controller/login.php");
-				}else{
-					echo "<script>alert('El nombre de usuario ya está utilizado.');</script>";
-				}
-			}
+ }
+		
+		
+		
+	
+ 
+ 	
 
-
-
-		}
-
-
-		else {
-			$message = "Todos los campos deben estar completos";
-		}
-	}
-}
-
-
-
-
-
-
-
-
+	
 
 ?>
