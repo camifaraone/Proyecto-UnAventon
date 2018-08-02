@@ -64,7 +64,7 @@ if ( empty($buscador)) {
 	echo "<h5> No se encontraron resultados de la busqueda </h5>";
 }
 else {
-
+	
 ?>
 
 
@@ -72,7 +72,7 @@ else {
 <thead>
    <tr>
     <th>Fecha</th>
-    <th>Precio total</th>
+    <th>Precio por asiento</th>
     <th>Duración</th>
 	<th>Hr.salida</th>
 	<th>Ciudad/Origen</th>
@@ -84,6 +84,7 @@ else {
  <?php
  
  for($i=0; $i<count($buscador);$i++) {
+	if ($buscador[$i]["bajalogica"] != 1) {
     $precio = ($buscador[$i]["monto"]) / $buscador[$i]["cantasientos"];
 	 echo "<td>".$buscador[$i]["fecha"].""."</td>";
 	 echo "<td> $".$precio.""."</td>";
@@ -93,26 +94,20 @@ else {
 	 echo "<td>".$buscador[$i]["ciudadDestino"].""."</td>";
 	 echo "<td>".$buscador[$i]["observaciones"].""."</td>";
 	if( !empty($_SESSION['session_username'])) {
-  
-	if ( $buscador["idautoincremental"] == $id ){
-	echo "<td>este es mi viaje!</td>";
-  echo"<td><a href=../controller/vercomentarios.php?idviaje=".$buscador[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
+	echo"<td><a href=../controller/verviaje.php?idviaje=".$buscador[$i]["idviaje"]."&&idautoincremental=".$id.">Ver detalle </a></td>";
+	 }
+	 else
+	 {
+		echo"<td><a href=../controller/verviaje.php?idviaje=".$buscador[$i]["idviaje"].">Ver detalle </a></td>";
 	}
-	
-	if((!empty($_SESSION['session_username'])) and($buscador["idautoincremental"]<>$id)){
-    echo"<td><a href=../controller/realizarpregunta.php?idviaje=".$buscador[$i]["idviaje"]."&idautoincremental=".$id.">Realizar pregunta </a></td>";
-    echo"<td><a href=../controller/vercomentarios.php?idviaje=".$buscador[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
-  }
-	if((!empty($_SESSION['session_username'])) and($buscador["idautoincremental"]<>$id) and ($postulacion != $id)) {
-      
-echo"<td><a href=../controller/postularse.php?idviaje=".$buscador["idviaje"]."&idautoincremental=".$id.">Postularse </a></td>";
-
-}
-}
 	
 	 echo "</tr>";
 
 }
+
+}
+
+	
 ?>
 
  
