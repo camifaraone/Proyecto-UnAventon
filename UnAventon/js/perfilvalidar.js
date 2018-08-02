@@ -1,4 +1,3 @@
-
 	function runSubmit (form)  {
 		if (form.nombreusuario.value == ""){
 			alert("Ingresar nombre usuario");

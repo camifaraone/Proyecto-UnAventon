@@ -3,7 +3,7 @@
 <head>
 		<title>UnAventon | Información de la cuenta</title>
 	<meta charset="utf-8">
-	<script type="text/javascript" src="../js/editarvalidar.js"></script>
+	<script type="text/javascript" src="../js/editarinformacion.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 	<link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 			<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -77,11 +77,12 @@
 						
 							<li> 
 								<label for="foto"><em>*</em>Foto:</label>
-								<input type="img" name="foto" id="foto" required/ value= "<?php
+								<input type="img" name="foto" id="foto" value= "<?php
 									echo $usuario['foto'];
 								?>">
 							</li>
 							<li>
+							
 							
 								<button class="submit" name="editar" type="submit" onClick="runSubmit(this.form)">GUARDAR</button>
 							</li> 							

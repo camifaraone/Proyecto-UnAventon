@@ -4,7 +4,6 @@
 
 $e = comprobar_usuario();	
 	
-
 	
 	
 /*
