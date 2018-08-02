@@ -1,19 +1,19 @@
 <?php
 
 
-function realizarcomentario($id, $idviaje, $comentario){
+function realizarcomentario($comentario, $id, $iddueño, $idviaje){
 		
 	require("db.php");
 	try{
-		$sql= $conn->prepare("INSERT INTO comentario
-				(idautoincremental, idviaje, comentario) 
-				VALUES(?, ?, ?)" );
+		$sql= $conn->prepare("INSERT INTO pregunta
+				(descripcionp, idautoincremental, idduenio idviaje) 
+				VALUES(?, ?, ?, ?)" );
 		
 		
 		
 
 				
-		$sql ->execute(array("$id", "$idviaje", "$comentario"));
+		$sql ->execute(array("$comentario", "$id", "$iddueño", "$idviaje"));
 	
     }catch(PDOException $e) {
 			return 'Error: ' . $e->getMessage();
@@ -23,28 +23,26 @@ function realizarcomentario($id, $idviaje, $comentario){
  }
  
  
- 
- 
- function get_viaje($id){
-	require ("db.php");
+  function get_id($idviaje) {
+	 require "../model/db.php";//te crea una conexion
 	try{
-		$sql = $conn->prepare("select * from viaje where idautoincremental=:id");
-		$sql->bindParam(":id",$id,PDO::PARAM_INT);
+		$sql = $conn->prepare("select idautoincremental from viaje where idviaje=:idviaje");
+		$sql->bindParam(":idviaje",$idviaje,PDO::PARAM_INT);
 		$sql ->execute();
 	
 	/*while( $datos = $sql->fetch() )
     echo $datos[0]"ID".$datos[1].$datos[2].$datos[3] . '<br />';}*/
 
-	$result= $sql->fetchAll();
+	$result= $sql->fetchAll()[0][0];
 	
-
-   }catch(PDOException $e) {
+   }
+   catch(PDOException $e) {
   $result= 'Error: ' . $e->getMessage();
   }
 	return $result;
+	 
  }
- 
- 
+
  
  
  

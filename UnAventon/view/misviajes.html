@@ -105,7 +105,7 @@ if($cantviajes>0){
 	 	}else{
 	 		echo"<td><a href=../controller/verpostulantes.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver postulantes </a></td>";
 	 	}
-	}
+	
 			
 			echo"<td><a href=../controller/vercomentarios.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id.">Ver comentarios </a></td>";
 			
@@ -116,8 +116,8 @@ if($cantviajes>0){
 			echo"<td><a onclick='confirm_delete(".$viaje[$i]['idviaje'].")'>Eliminar</a>";
 			echo "</form><td>";
 			echo "</tr>";
-		}
-	}
+		}}
+	
 echo'</tbody>
   </table>';
 }else{

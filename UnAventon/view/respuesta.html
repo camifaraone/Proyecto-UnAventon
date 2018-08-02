@@ -3,7 +3,7 @@
 
 <title>UnAventon | Responder comentario</title>
 	<meta charset="utf-8">
-  <script type="text/javascript" src="../js/respuesta.js"></script>
+ 
   <link rel="stylesheet" type="text/css" href="../css/estilo.css">
   <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -43,31 +43,32 @@
 <div class="container">
   <div class="jumbotron">
  <article>
-    <h1>Responder comentario</h1>      
+    <h1>Responder pregunta</h1>      
 </div>
 </div>
 	<div class="container">
 			
 			<div id="comentario">
   
-			<form name="comentario" id="comentario" action="../controller/respuesta.php?idautoincremental=<?php echo $id ?>" method="POST">
+			<form name="comentario" id="comentario" action="../controller/respuesta.php?idautoincremental=<?php echo $id ?>&idviaje=<?php echo $idviaje ?>&idpregun=<?php echo $idpregun ?>" method="POST">
 			
 				<div class="form-group">  
-					<label for="respuesta">Respuesta al comentario:
-						<input type="text" name="respuesta" id="respuesta" class="form-control"  placeholder="Escribir respuesta" required />
+					<label for="comentario">Responder a la Pregunta:
+						<input type="text" name="comentario" id="comentario" class="form-control"  placeholder="Escribir la respuesta" required />
 					</label>
 				</div>
 				
 							
-					<button class="submit" name="respuesta" type="submit" value="respuesta" onClick="runSubmit(this.form)">Enviar</button>
+					<button class="submit" name="realizarcomentario" type="submit" value="realizarcomentario" onClick="runSubmit(this.form)">Enviar</button>
 				</li>
-	
-				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
 	
 
 			</form>
 		</div>
 	</div>
+	
+				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	
 </body>
 <footer class="page-footer teal solid #ee6e73">
    

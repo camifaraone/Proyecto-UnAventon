@@ -92,7 +92,7 @@ if(empty($_SESSION['session_username'])) {
 						echo "<td>".$users[$i]["calificacion"].""."</td>";
 						echo "<td>".$users[$i]["calificacionacompaniante"].""."</td>";
 
-						if( ($users[$i]["aceptado"] == 1) && (isset(_GET["finishedtrip"]))) { 
+						if( ($users[$i]["aceptado"] == 1) && (isset($_GET["finishedtrip"]))) { 
 							echo"<td><a href=../controller/calificacionacompaniante.php?idautoincremental=".$id."&&idviaje=".$idviaje."&&idacompaniante=".$users[$i]["idautoincremental"]."> Calificar como acompañante </a></td>";
 						}
 

@@ -1,26 +1,29 @@
 <?php
-
+error_reporting(E_ALL ^ E_NOTICE);
 
 require_once "../model/respuesta.php";
 
 $id= ($_GET["idautoincremental"]);
+$idviaje= ($_GET["idviaje"]);
+$idpregun= ($_GET["idpregun"]);
+
+$preg = get_pregunta($idviaje,$idpregun);
 
 
 
-$preg = get_pregunta($id);
 
-
-
-if(!empty($_POST['respuesta'])) {
+if(!empty($_POST['comentario'])) {
 	
 	
-	$idcomentario = $_POST['comentario'];
-	$respuesta=$_POST['respuesta'];
+	
+	$respuesta=$_POST['comentario'];
 	
 
-	$respuesta = realizarrespuesta($id,$idcomentario,$respuesta);
+	$realizar_respuesta = realizarrespuesta($preg,$respuesta,$id,$idviaje);
+	$idrespuesta = get_idrespuesta ($preg);
+	$respuesta = respuesta_realizada ($idrespuesta,$preg);
 
-	header("Location: ../controller/vercomentarios.php?idviaje=".$viaje[$i]["idviaje"]."&idautoincremental=".$id."");
+	header("Location: ../controller/verpreguntas.php?idviaje=".$idviaje."&idautoincremental=".$id."");
 	
 	
 

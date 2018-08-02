@@ -43,18 +43,18 @@
 <div class="container">
   <div class="jumbotron">
  <article>
-    <h1>Realizar comentario</h1>      
+    <h1>Realizar pregunta</h1>      
 </div>
 </div>
 	<div class="container">
 			
 			<div id="comentario">
   
-			<form name="comentario" id="comentario" action="../controller/realizarpregunta.php?idautoincremental=<?php echo $id ?>" method="POST">
+			<form name="comentario" id="comentario" action="../controller/realizarpregunta.php?idautoincremental=<?php echo $id ?>&idviaje=<?php echo $idviaje ?>" method="POST">
 			
 				<div class="form-group">  
 					<label for="comentario">Comentario:
-						<input type="text" name="comentario" id="comentario" class="form-control"  placeholder="Escribir el comentario" required />
+						<input type="text" name="comentario" id="comentario" class="form-control"  placeholder="Escribir el pregunta" required />
 					</label>
 				</div>
 				
@@ -62,12 +62,13 @@
 					<button class="submit" name="realizarcomentario" type="submit" value="realizarcomentario" onClick="runSubmit(this.form)">Enviar</button>
 				</li>
 	
-				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
-	
 
 			</form>
 		</div>
 	</div>
+	
+				<h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>
+	
 </body>
 <footer class="page-footer teal solid #ee6e73">
    

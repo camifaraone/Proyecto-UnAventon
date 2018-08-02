@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-08-2018 a las 02:47:50
+-- Tiempo de generación: 02-08-2018 a las 07:40:19
 -- Versión del servidor: 10.1.31-MariaDB
 -- Versión de PHP: 7.2.4
 
@@ -159,11 +159,18 @@ INSERT INTO `origen` (`idOrigen`, `ciudadOrigen`) VALUES
 CREATE TABLE `pregunta` (
   `idpregunta` int(100) NOT NULL,
   `descripcionp` varchar(255) NOT NULL,
-  `fechaP` date NOT NULL,
   `idautoincremental` int(100) NOT NULL,
+  `idduenio` int(255) NOT NULL,
   `idviaje` int(100) NOT NULL,
   `idrespuesta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `pregunta`
+--
+
+INSERT INTO `pregunta` (`idpregunta`, `descripcionp`, `idautoincremental`, `idduenio`, `idviaje`, `idrespuesta`) VALUES
+(1, 'todo bien?', 1, 2, 136, 0);
 
 -- --------------------------------------------------------
 
@@ -172,19 +179,12 @@ CREATE TABLE `pregunta` (
 --
 
 CREATE TABLE `respuesta` (
-  `idautoincremental` int(11) NOT NULL,
-  `idcomentario` int(11) NOT NULL,
-  `idrespuesta` int(11) NOT NULL,
-  `respuesta` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `respuesta`
---
-
-INSERT INTO `respuesta` (`idautoincremental`, `idcomentario`, `idrespuesta`, `respuesta`) VALUES
-(1, 0, 0, 'respuesta'),
-(1, 0, 0, 'respuesta');
+  `idrespuesta` int(255) NOT NULL,
+  `idpregunta` int(255) NOT NULL,
+  `descripcionr` text NOT NULL,
+  `idautoincremental` int(255) NOT NULL,
+  `idviaje` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -255,7 +255,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idautoincremental`, `nombre`, `apellido`, `email`, `nombreusuario`, `telefono`, `contrasenia`, `fechanacimiento`, `foto`, `confirmarcontrasenia`, `estadologico`, `puedepublicar`, `estadopostulacion`, `calificacion`, `calificacionacompaniante`, `bajalogica`) VALUES
 (1, '                   Camila', '                   Faraone', 'camilafaraone@gmail.com', '  camifaraone', '2345421506', '12345678910', '1995-04-18', 'avatar.jpg', '12345678910', 0, 0, 0, 0, 0, 0),
-(2, 'Matias', '    nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', 'mati.png', 'admin123', 1, 1, 0, 8, 4, 0),
+(2, ' Matias', '     nuÃ±ez', 'matute94_23@hotmail.com', '   felipe', '12345', 'admin123', '2000-06-21', '../img/img6.png', 'admin123', 1, 1, 0, 8, 4, 0),
 (3, 'agustin', 'nuÃ±ez', 'agustin@hotmail.com', 'agustin', '1234', '123456789', '2000-06-24', 'mati.png', '123456789', 0, 0, 0, 0, 5, 0),
 (4, 'jkwrfbj', 'vwknvrh', 'holachau@gmail.com', 'vjwikv', '6654', '12345678', '1995-04-17', 'descarga.jpg', '12345678', 0, 0, 0, 10, 0, 1),
 (7, 'adad', 'awwdad', 'holachau@gmail.com', 'cacca', '1231', 'admin123', '2000-08-02', 'avatar.jpg', 'admin123', 0, 0, 0, 0, 0, 0);
@@ -324,7 +324,7 @@ INSERT INTO `viaje` (`idautoincremental`, `idviaje`, `fecha`, `monto`, `duracion
 (1, 132, '2018-08-22', 9000, '10:00', '10:00', 9, 1, 3, '3', 2, 1, 1, 0, 0),
 (1, 133, '2018-08-21', 9000, '10:00', '10:00', 9, 1, 3, 'AAAA', 2, 1, 0, 0, 1),
 (2, 134, '2018-08-19', 300, '10', '10', 5, 2, 3, 'Ninguna', 3, 1, 0, 0, 1),
-(2, 136, '2018-10-03', 1000, '11:11', '11:11', 10, 1, 2, 'a', 2, 1, 0, 0, 0),
+(2, 136, '2018-08-26', 1000, '11:11', '11:11', 10, 1, 2, 'NINGUNO', 2, 1, 0, 0, 0),
 (1, 137, '2018-08-09', 100, '01:00', '12:00', 9, 1, 5, 'dfsef', 5, 0, 1, 0, 1),
 (1, 138, '2018-08-10', 100, '11:11', '11:11', 9, 1, 2, 'aaaaa', 3, 0, 1, 0, 1);
 
@@ -377,11 +377,13 @@ ALTER TABLE `origen`
 -- Indices de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  ADD PRIMARY KEY (`idpregunta`),
-  ADD UNIQUE KEY `idautoincremental_2` (`idautoincremental`),
-  ADD UNIQUE KEY `idviaje_2` (`idviaje`),
-  ADD KEY `idautoincremental` (`idautoincremental`),
-  ADD KEY `idviaje` (`idviaje`);
+  ADD PRIMARY KEY (`idpregunta`);
+
+--
+-- Indices de la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  ADD PRIMARY KEY (`idrespuesta`);
 
 --
 -- Indices de la tabla `tipove`
@@ -452,7 +454,13 @@ ALTER TABLE `origen`
 -- AUTO_INCREMENT de la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
-  MODIFY `idpregunta` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `idpregunta` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `respuesta`
+--
+ALTER TABLE `respuesta`
+  MODIFY `idrespuesta` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
