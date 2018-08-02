@@ -46,11 +46,12 @@
 							<li> 
 								<h4>EDITAR VIAJE</h4>
 								<p>Información del viaje</p>
+								<p>Podrá realizar cambios de la fecha del viaje siempre y cuando éste se realice al otro día de la fecha actual o días posteriores.</p>
 								<span class="required_notification">* Datos requeridos</span> 
 							</li>
 							<li> 
 								<label for="date" class="date"><em>*</em>Fecha del viaje:</label>
-								<input type="date" name="fecha" id="fecha" required/ value= "<?php
+								<input  min="2018-08-03" type="date" name="fecha" id="fecha" required/ value= "<?php
 									echo $datosviaje['fecha'];
 								?>">	</li>
 							<li> 
