@@ -6,8 +6,8 @@ $idviaje = ($_GET["idviaje"]);
 $id = ($_GET["idautoincremental"]);
 
 $mid = get_mi_idviaje ($id);
-
 $preguntas = get_preguntas($idviaje);
+
 
 
 include ("../view/verpreguntas.html");

@@ -57,54 +57,22 @@
 </div>
 
 <?php
-if (empty($preguntas)) {
-	echo "<h5> No hay preguntas respecto del viaje! </h5";
+if (empty($mirespuesta)) {
+	echo "<h5> No hay respuestas sobre la pregunta </h5";
 }
 else {
 
 ?>
-<table class="centered">
-        <thead>
-          <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-			<th>Pregunta</th>
-		
-
-          </tr>
-        </thead>
-
-        <tbody>
-
-<?php
-      
-
-  
- 
- for($i=0; $i<count($preguntas);$i++) {
-    
-   echo "<td>".$preguntas[$i]["nombre"].""."</td>";
-   echo "<td>".$preguntas[$i]["apellido"].""."</td>";
-   echo "<td>".$preguntas[$i]["descripcionp"].""."</td>";
-   echo"<td><a href=../controller/verrespuestas.php?idviaje=".$preguntas[$i]["idviaje"]."&idautoincremental=".$id."&idpregunta=".$preguntas[$i]["idpregunta"].">Ver Respuesta </a></td>";
-
-  
-   if ($preguntas[$i]["idviaje"] == $mid ) {
-  echo"<td><a href=../controller/respuesta.php?idviaje=".$preguntas[$i]["idviaje"]."&idautoincremental=".$id."&idpregun=".$preguntas[$i]["idautoincremental"].">Responder </a></td>";
-}
-
-echo "</tr>";
- }}
-
-
-?>
-
+<h5>El piloto <?php for($i=0; $i<count($perfil);$i++) {  echo "<td>".$perfil[$i]["nombre"].""."</td>";
+   echo "<td>".$perfil[$i]["apellido"].""."</td>"; } ?> te ha respondido lo siguiente :</h5>
+   <br>
+	<?php 
+	for($i=0; $i<count($mirespuesta);$i++) {
+		echo "<h4 class=center	-align>".$mirespuesta[$i]["descripcionr"].""."</h4>";
+ }} ?>
 			
-      
-        </tbody>
-      </table>
-  <hr width="100%">
- </div>
+ <br><br><br> 
+        
 
 <div class="container">
  <h5 class="center	-align"> <p class="regtext">¿Desea volver a la página principal? <?php echo"<a href=../controller/index.php?idautoincremental=".$id.">   Clic aquí  </a>"; ?></p> </h5>

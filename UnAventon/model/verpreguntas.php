@@ -2,7 +2,7 @@
   function get_preguntas($idviaje){
 	require ("db.php");
 	try{
-		$sql = $conn->prepare("select * from pregunta INNER JOIN usuario ON pregunta.idautoincremental = usuario.idautoincremental INNER JOIN respuesta ON pregunta.idrespuesta = respuesta.idrespuesta where  pregunta.idviaje=?");
+		$sql = $conn->prepare("select * from pregunta INNER JOIN usuario ON pregunta.idautoincremental = usuario.idautoincremental where  pregunta.idviaje=?");
 	
 		$sql ->execute(array("$idviaje"));
 	
@@ -17,6 +17,7 @@
   }
 	return $result;
  }
+ 
  
  
  function get_mi_idviaje($id) {
